@@ -8,7 +8,7 @@
     order_history: url/user/uid/orderhistory
     checkout: url/restaurant=rid/user=uid/checkout
     order_success: url/user/uid/orderId
- Restaurant:
+ Restaurant:url/restaurant/rid
  
     profile: url/restaurant/rid/profile
     menu: url/restaurant/rid/menu
