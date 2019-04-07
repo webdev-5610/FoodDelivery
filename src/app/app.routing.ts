@@ -15,7 +15,7 @@ import {StatisticsComponent} from "./components/restaurant/statistics/statistics
 import {RegisterComponent} from "./components/website/register/register.component";
 // Import all other components here
 const APP_ROUTES: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'searchbyaddress', component: SearchbyaddressComponent},
