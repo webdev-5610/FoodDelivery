@@ -41,12 +41,12 @@ export class UserService {
 
     findUserByUserName(userName): Observable<User> {
         console.log('front service findUserByUserName() called');
-        return this.http.get<User>(this.baseUrl + this.userApiUrl + '?username=' + userName);
+        return this.http.get<User>(this.baseUrl + this.userApiUrl + '?name=' + userName);
     }
     //
     // findUserByCredentials(userName, password): Observable<User> {
     //     console.log('front service findUserByCredentials() called');
-    //     return this.http.get<User>(this.baseUrl + this.userApiUrl + '?username=' + userName + '&password=' + password);
+    //     return this.http.get<User>(this.baseUrl + this.userApiUrl + '?name=' + userName + '&password=' + password);
     // }
     register(username: String, password: String) {
         this.options.withCredentials = true;
