@@ -32,6 +32,13 @@
     
  Backend data design:
   
-    user:  name, password, email, addrress, phone, credit card info, billing info, past orders
+    user:  name, password, email, address, phone, credit_card_info, billing_info, order_history
+    restaurant: name, password, email , address, phone, type , orders, menu(dish name, price,discription)
+    order:  user, restaurant, time, status，details(dish, quantity, total) 
+    
+ Backend api design:
+  
+    user:  name, password, email, address, phone, credit_card_info, billing_info, order_history
+             constructor(username: String, password: String, email: String, address: String, phone: String,               credit_card_info: String,billing_info: String)
     restaurant: name, password, email , address, phone, type , orders, menu(dish name, price,discription)
     order:  user, restaurant, time, status，details(dish, quantity, total) 
