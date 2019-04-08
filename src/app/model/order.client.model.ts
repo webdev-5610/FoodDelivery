@@ -1,4 +1,4 @@
-export class OrderClientModel {
+export class Order {
   _id: String;
   name: String;
   developerId: String;

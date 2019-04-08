@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/model/page/page.model.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/model/page/page.schema.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/model/user/user.model.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/model/user/user.schema.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/model/website/website.model.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/model/website/website.schema.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/model/widget/widget.model.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/model/widget/widget.schema.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/services/page.service.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/services/user.service.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/services/website.service.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/services/widget.service.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/order.client.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/restaurant.client.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/user.client.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/services/auth-guard.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/services/flickr.service.client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/services/page.service.client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/services/shared.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/services/user.service.client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/services/website.service.client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/services/widget.service.client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -66,8 +41,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="180">
-                <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <first_editor>
+                <caret column="14" selection-start-column="14" selection-end-column="14" />
               </first_editor>
               <second_editor />
             </state>
@@ -154,8 +129,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="328" />
-    <option name="y" value="93" />
+    <option name="x" value="572" />
+    <option name="y" value="113" />
     <option name="width" value="1392" />
     <option name="height" value="877" />
   </component>
@@ -264,12 +239,12 @@
       <option name="presentableId" value="Default" />
       <updated>1554357761364</updated>
       <workItem from="1554357762616" duration="7441000" />
-      <workItem from="1554703439443" duration="521000" />
+      <workItem from="1554703439443" duration="808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7962000" />
+    <option name="totallyTimeSpent" value="8249000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="328" y="93" width="1392" height="877" extended-state="0" />
@@ -346,8 +321,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="180">
-            <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <first_editor>
+            <caret column="14" selection-start-column="14" selection-end-column="14" />
           </first_editor>
           <second_editor />
         </state>

@@ -1,4 +1,4 @@
-import {UserClientModel} from '../model/user.client.model';
+import {User} from '../model/user.client.model';
 import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
 import {SharedService} from './shared.service';
@@ -29,24 +29,24 @@ export class UserService {
     baseUrl = environment.baseUrl;
     userApiUrl = '/api/user';
 
-    createUser(user): Observable<UserClientModel> {
+    createUser(user): Observable<User> {
         console.log('front service createUser() called');
-        return this.http.post<UserClientModel>(this.baseUrl + this.userApiUrl, user);
+        return this.http.post<User>(this.baseUrl + this.userApiUrl, user);
     }
 
-    findUserById(userId): Observable<UserClientModel> {
+    findUserById(userId): Observable<User> {
         console.log('front service findUserById() called');
-        return this.http.get<UserClientModel>(this.baseUrl + this.userApiUrl + '/' + userId);
+        return this.http.get<User>(this.baseUrl + this.userApiUrl + '/' + userId);
     }
 
-    findUserByUserName(userName): Observable<UserClientModel> {
+    findUserByUserName(userName): Observable<User> {
         console.log('front service findUserByUserName() called');
-        return this.http.get<UserClientModel>(this.baseUrl + this.userApiUrl + '?username=' + userName);
+        return this.http.get<User>(this.baseUrl + this.userApiUrl + '?username=' + userName);
     }
     //
-    // findUserByCredentials(userName, password): Observable<UserClientModel> {
+    // findUserByCredentials(userName, password): Observable<User> {
     //     console.log('front service findUserByCredentials() called');
-    //     return this.http.get<UserClientModel>(this.baseUrl + this.userApiUrl + '?username=' + userName + '&password=' + password);
+    //     return this.http.get<User>(this.baseUrl + this.userApiUrl + '?username=' + userName + '&password=' + password);
     // }
     register(username: String, password: String) {
         this.options.withCredentials = true;
@@ -101,14 +101,14 @@ export class UserService {
             });
     }
 
-    updateUser(userId, user): Observable<UserClientModel> {
+    updateUser(userId, user): Observable<User> {
         console.log('front service updateUser() called');
-        return this.http.put<UserClientModel>(this.baseUrl + this.userApiUrl + '/' + userId, user);
+        return this.http.put<User>(this.baseUrl + this.userApiUrl + '/' + userId, user);
     }
 
     deleteUser(userId) {
         console.log('front service deleteUser() called');
-        return this.http.delete<UserClientModel>(this.baseUrl + this.userApiUrl + '/' + userId);
+        return this.http.delete<User>(this.baseUrl + this.userApiUrl + '/' + userId);
     }
 
 
