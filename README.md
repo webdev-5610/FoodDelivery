@@ -2,13 +2,18 @@
 
 
 
+
+
  Customer: url/user/uid
  
     profile: url/user/uid/profile
     order_history: url/user/uid/orderhistory
-    order_edit: url/restaurant=rid/user=uid/order
     checkout: url/restaurant=rid/user=uid/checkout
-    order_success: url/user/uid/orderId
+    
+ Order: url/user/uid/orderId
+   
+    order_edit: url/restaurant=rid/user=uid/order
+ 
  Restaurant:url/restaurant/rid
  
     profile: url/restaurant/rid/profile
@@ -94,9 +99,9 @@
       user: String;
       restaurant: String;
       time: Date;
-      status: String;
+      status: Boolean;
       details: Details;
-      constructor(user: String, restaurant: String, time: Date, status: String,details: Details) {
+      constructor(user: String, restaurant: String, time: Date, status: Boolean,details: Details) {
         this.user = user;
         this.restaurant = restaurant;
         this.time = time;
@@ -104,3 +109,34 @@
         this.details = details;
       }
     }
+
+
+API
+    
+    user:
+    userModel.createUser = createUser;
+    userModel.findUserById = findUserById;
+    //userModel.findUserByFacebookId = findUserByFacebookId;
+    userModel.findUserByUsername = findUserByUsername;
+    userModel.findUserByCredentials = findUserByCredentials;
+    userModel.updateUser = updateUser;
+    userModel.deleteUser = deleteUser;
+    userModel.findAllOrders = findAllOrders;
+    
+    order:
+    orderModel.findAllOrdersByUser = findAllOrdersByUser;
+    orderModel.findOrderById = findOrderById;
+    orderModel.updateOrder = updateOrder;// also check status if finished or not.
+    orderModel.deleteOrder = deleteOrder;
+    orderMedel.createOrder = createorder;
+    orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;    
+    
+    restaurant:
+    restaurantModel.findAllOrders = findAllOrders;
+    restaurantModel.createRestaurant = createRestaurant;
+    restaurantModel.findRestaurantByName = findRestaurantByName;
+    restaurantModel.findRestaurantByCredentials = findRestaurantByCredentials;
+    restaurantModel.findRestaurantByType = findRestaurantByType;
+    restaurantModel.updateRestaurant = updateRestaurant;
+    restaurantModel.deleteRestaurant = deleteRestaurant;
+    
