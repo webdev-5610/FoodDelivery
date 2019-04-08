@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {WidgetClientModel} from 'src/app/model/widget.client.model';
 import {environment} from 'src/environments/environment';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {Restaurant} from "../model/restaurant.client.model";
 
 @Injectable({
     providedIn: 'root'

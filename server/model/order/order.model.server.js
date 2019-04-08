@@ -1,14 +1,15 @@
 var mongoose = require('mongoose');
-var restaurantModel = require("../restaurant/restaurant.model.server");
+var userModel = require("../restaurant/restaurant.model.server");
 var orderSchema = require('./order.schema.server');
 var orderModel = mongoose.model("order",orderSchema);
 
 
-orderModel.createOrder = createOrder;
-orderModel.findAllPagesForWebsite = findAllPagesForWebsite;
-orderModel.findPageById = findPageById;
-orderModel.updatePage = updatePage;
-orderModel.deletePage = deletePage;
+orderModel.findAllOrdersByUser = findAllOrdersByUser;
+orderModel.findOrderById = findOrderById;
+orderModel.updateOrder = updateOrder;// also check status if finished or not.
+orderModel.deleteOrder = deleteOrder;
+orderMedel.createOrder = createorder;
+orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;
 
 module.exports = orderModel;
 

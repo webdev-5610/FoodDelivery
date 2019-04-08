@@ -1,18 +1,16 @@
 var mongoose = require('mongoose');
 
-var restaurantSchema = require('./restaurant.schema.server');
-var restaurantModel = mongoose.model("Restaurant",restaurantSchema);
+var websiteSchema = require('./website.schema.server');
+var websiteModel = mongoose.model("Website",websiteSchema);
 
 var userModel = require('../user/user.model.server');
 
 // websiteService at server side will call this function
-restaurantModel.findAllOrders = findAllOrders;
-restaurantModel.createRestaurant = createRestaurant;
-restaurantModel.findRestaurantByName = findRestaurantByName;
-restaurantModel.findRestaurantByCredentials = findRestaurantByCredentials;
-restaurantModel.findRestaurantByType = findRestaurantByType;
-restaurantModel.updateRestaurant = updateRestaurant;
-restaurantModel.deleteRestaurant = deleteRestaurant;
+websiteModel.createWebsiteForUser = createWebsiteForUser;
+websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
+websiteModel.findWebsiteById = findWebsiteById;
+websiteModel.updateWebsite = updateWebsite;
+websiteModel.deleteWebsite = deleteWebsite;
 
 module.exports = websiteModel;
 
@@ -50,10 +48,10 @@ function updateWebsite(websiteId, website) {
 
 function deleteWebsite(userId, websiteId) {
     console.log('Mongoose: deleteWebsite() called');
-    // first, find the original restaurant
+    // first, find the original website
     websiteModel.findOne({_id: websiteId})
         .then(function (responseWebsite) {
-            // next, for the current user, delete this restaurant from user's restaurant list.
+            // next, for the current user, delete this website from user's website list.
             userModel.findUserById(userId)
                 .then(function (user) {
                     user.websites.pull({ _id: responseWebsite._id });
@@ -61,7 +59,7 @@ function deleteWebsite(userId, websiteId) {
                 });
             return responseWebsite;
         });
-    // then, delete this restaurant
+    // then, delete this website
     return websiteModel.deleteOne({_id: websiteId});
 
 

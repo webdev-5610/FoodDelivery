@@ -14,10 +14,10 @@ export class Order {
   user: String;
   restaurant: String;
   time: Date;
-  status: String;
+  status: Boolean;
   details: Details;
 
-  constructor(user: String, restaurant: String, time: Date, status: String,details: Details) {
+  constructor(user: String, restaurant: String, time: Date, status: Boolean,details: Details) {
     this.user = user;
     this.restaurant = restaurant;
     this.time = time;
