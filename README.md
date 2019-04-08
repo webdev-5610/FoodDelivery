@@ -32,13 +32,49 @@
     
  Backend data design:
   
-    user:  name, password, email, address, phone, credit_card_info, billing_info, order_history
+    user:  _id, name, password, email, address, phone, credit_card_info, billing_info, order_history
     restaurant: name, password, email , address, phone, type , orders, menu(dish name, price,discription)
     order:  user, restaurant, time, status，details(dish, quantity, total) 
     
- Backend api design:
+ Backend model design:
   
-    user:  name, password, email, address, phone, credit_card_info, billing_info, order_history
-             constructor(username: String, password: String, email: String, address: String, phone: String,               credit_card_info: String,billing_info: String)
-    restaurant: name, password, email , address, phone, type , orders, menu(dish name, price,discription)
+    user:  _id, name, password, email, address, phone, credit_card_info, billing_info, order_history, all string type
+             constructor(username: String, password: String, email: String, address: String, phone: String,              credit_card_info: String,billing_info: String)
+             
+             
+    restaurant: _id, name, password, email , address, phone, type , orders, menus(_id, dish_name, price,discription)
+      class Menu {
+      _id: String;
+      dish_name: String;
+      price: Number;
+      description: String;
+
+      constructor(name: String, price: Number, description: String) {
+          this.description = description;
+          this.dish_name = name;
+          this.price = price;
+      }
+      }
+      export class Restaurant {
+      _id: String;
+      name: String;
+      password: String;
+      email: String;
+      address: String;
+      phone: String;
+      type: String;
+      oders: Order[];
+      menus: Menu[];
+    constructor(name: String, password: String, email: String, address: String, phone: String, type: String, orders: Order[], menus: Menu[]) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        this.type = type;
+        this.oders = orders;
+        this.menus = menus;
+    }
+}
+
     order:  user, restaurant, time, status，details(dish, quantity, total) 
