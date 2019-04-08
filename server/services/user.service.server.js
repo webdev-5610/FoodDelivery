@@ -93,15 +93,15 @@ module.exports = function (app) {
     }
 
     // api list
-    app.post('/api/login', passport.authenticate('local'), login);
-    app.post('/api/logout', logout);
-    app.post('/api/register', register);
+    //app.post('/api/login', passport.authenticate('local'), login);
+    //app.post('/api/logout', logout);
+    //app.post('/api/register', register);
     app.get('/api/loggedIn', loggedin);
     app.post('/api/user', createUser);
     app.get('/api/user/', findUserByUsernameOrCred);
-    app.get('/api/user/:userid', findUserById);
-    app.put('/api/user/:userid', updateUser);
-    app.delete('/api/user/:userid', deleteUser);
+    app.get('/api/user/:uid', findUserById);
+    app.put('/api/user/:uid', updateUser);
+    app.delete('/api/user/:uid', deleteUser);
     // facebook strategy
     app.get('/facebook/login', passport.authenticate('facebook', {scope: 'email'}));
     // facebook strategy call back
@@ -174,7 +174,7 @@ module.exports = function (app) {
 
     function findUserById(req, res) {
         // params must be the thing in the url placeholder
-        let userId = req.params["userid"];
+        let userId = req.params["uid"];
         userModel.findUserById(userId).exec(
             function (err, user) {
                 if (err) {
@@ -186,7 +186,7 @@ module.exports = function (app) {
     }
 
     function updateUser(req, res) {
-        let userId = req.params["userid"];
+        let userId = req.params["uid"];
         let user = req.body;
         userModel.updateUser(userId, user).exec(
             function (err, user) {
@@ -199,7 +199,7 @@ module.exports = function (app) {
     }
 
     function deleteUser(req, res) {
-        let userId = req.params["userid"];
+        let userId = req.params["uid"];
         userModel.deleteUser(userId).exec(
             function (err, user) {
                 if (err) {

@@ -1,18 +1,18 @@
 var mongoose = require('mongoose');
-var websiteModel = require("../restaurant/restaurant.model.server");
-var pageSchema = require('./order.schema.server');
-var pageModel = mongoose.model("Page",pageSchema);
+var restaurantModel = require("../restaurant/restaurant.model.server");
+var orderSchema = require('./order.schema.server');
+var orderModel = mongoose.model("order",orderSchema);
 
 
-pageModel.createPage = createPage;
-pageModel.findAllPagesForWebsite = findAllPagesForWebsite;
-pageModel.findPageById = findPageById;
-pageModel.updatePage = updatePage;
-pageModel.deletePage = deletePage;
+orderModel.createOrder = createOrder;
+orderModel.findAllPagesForWebsite = findAllPagesForWebsite;
+orderModel.findPageById = findPageById;
+orderModel.updatePage = updatePage;
+orderModel.deletePage = deletePage;
 
-module.exports = pageModel;
+module.exports = orderModel;
 
-function createPage(websiteId,page) {
+function createOrder(websiteId,page) {
     console.log('Mongoose: createPage() called');
     // first, create the order with the name, description, date, etc.
     return pageModel.create(page)

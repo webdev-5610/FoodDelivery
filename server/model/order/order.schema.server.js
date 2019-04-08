@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var widgetSchema = require('../widget/widget.schema.server');
-var pageSchema = new mongoose.Schema({
-    _website: {
+
+var orderSchema = new mongoose.Schema({
+    _details: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Website'
     },
@@ -12,4 +12,4 @@ var pageSchema = new mongoose.Schema({
     dateCreated: {type: Date, default: Date.now()}
 }, {collection: 'order'});
 
-module.exports = pageSchema;
+module.exports = orderSchema;

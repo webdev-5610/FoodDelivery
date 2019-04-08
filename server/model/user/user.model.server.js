@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const userSchema = require('./user.schema.server');
-var bcrypt = require("bcrypt-nodejs");
+//var bcrypt = require("bcrypt-nodejs");
 const userModel = mongoose.model('User', userSchema);
 
 // userService at server side will call this function
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
-userModel.findUserByFacebookId = findUserByFacebookId;
+//userModel.findUserByFacebookId = findUserByFacebookId;
 userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.updateUser = updateUser;
@@ -23,10 +23,10 @@ function findUserById(userId) {
     console.log('Mongoose: findUserById() called: ');
   return userModel.findById(userId);
 }
-function findUserByFacebookId(facebookId) {
+/*function findUserByFacebookId(facebookId) {
     console.log('Mongoose: findUserByFBId() called: ' + facebookId);
     return userModel.findOne({'facebook.id': facebookId});
-}
+}*/
 function findUserByUsername(username) {
   return userModel.findOne({username: username});
 }

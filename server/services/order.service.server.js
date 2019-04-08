@@ -7,7 +7,7 @@ module.exports = function(app) {
   //
   // ];
   // db
-  const pageModel = require('../model/order/order.model.server');
+  const orderModel = require('../model/order/order.model.server');
   // api list
 
     app.post('/api/restaurant/:websiteId/order', createPage);

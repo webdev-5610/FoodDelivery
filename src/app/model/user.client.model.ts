@@ -1,3 +1,5 @@
+import {Order} from "./order.client.model";
+
 export class User {
     _id: String;
     name: String;
@@ -7,7 +9,7 @@ export class User {
     phone: String;
     credit_card_info: String;
     billing_info: String;
-    order_history: String;
+    order_history: Order[];
 
 
     constructor(username: String, password: String, email: String, address: String, phone: String, credit_card_info: String,

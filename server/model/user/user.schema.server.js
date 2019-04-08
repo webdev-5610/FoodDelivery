@@ -1,20 +1,19 @@
 const mongoose = require('mongoose');
-var websiteSchema = require('../restaurant/restaurant.schema.server');
+var orderSchema = require('../server/model/order/order.schema.server');
 const userSchema = new mongoose.Schema({
-
-  username: String,
+  _id:String,
+  name: String,
   password: String,
-  firstName: String,
-  lastName: String,
   email: String,
+  address: String,
   phone: String,
-
-  websites: [websiteSchema],
-  dateCreated: {type: Date, default: Date.now()},
+  credit_card_info: String,
+  billing_info:String,
+  order_history:[orderSchema]
   // facebook identity of the user
-  facebook: {
+  /*facebook: {
     id: String,
     token: String
-  }
+  }*/
 }, {collection: 'user'});
 module.exports = userSchema;
