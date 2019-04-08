@@ -1,12 +1,27 @@
+class Details {
+  dish: String[];
+  quantity: Number[];
+  total: Number;
+  constructor(dish:String[],quantity:Number[],total:Number){
+    this.dish = dish;
+    this.quantity = quantity;
+    this.total = total;
+  }
+}
+
 export class Order {
   _id: String;
-  name: String;
-  developerId: String;
-  description: String;
+  user: String;
+  restaurant: String;
+  time: Date;
+  status: String;
+  details: Details;
 
-  constructor(name: String, developerId: String, description: String) {
-    this.name = name;
-    this.developerId = developerId;
-    this.description = description;
+  constructor(user: String, restaurant: String, time: Date, status: String,details: Details) {
+    this.user = user;
+    this.restaurant = restaurant;
+    this.time = time;
+    this.status = status;
+    this.details = details;
   }
 }
