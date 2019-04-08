@@ -1,10 +1,10 @@
 module.exports = function (app) {
     // fake data
     // var users= [
-    //   {_id: "123", name: "alice", password: "alice", firstName: "Alice", lastName: "Wonder" },
-    //   {_id: "234", name: "bob", password: "bob", firstName: "Bob", lastName: "Marley" },
-    //   {_id: "345", name: "charly", password: "charly", firstName: "Charly", lastName: "Garcia" },
-    //   {_id: "456", name: "jan", password: "jan", firstName: "Jose", lastName: "Annunzi" }
+    //   {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder" },
+    //   {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley" },
+    //   {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia" },
+    //   {_id: "456", username: "jan", password: "jan", firstName: "Jose", lastName: "Annunzi" }
     //   ];
 
     // db
@@ -125,8 +125,8 @@ module.exports = function (app) {
                 return user;
             },
             function (error) {
-                comsole.log("This name is already exist.");
-                res.status(404).send("This name is already exist.");
+                comsole.log("This username is already exist.");
+                res.status(404).send("This username is already exist.");
                 return error;
             }
         )
@@ -147,7 +147,7 @@ module.exports = function (app) {
     }
     function findUserByUsernameOrCred(req, res) {
         console.log('backend service called');
-        const username = req.query.name;
+        const username = req.query.username;
         const password = req.query.password;
         if (username && password) {
             findUserByCred(res,username,password);
