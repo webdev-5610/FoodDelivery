@@ -10,13 +10,13 @@ module.exports = function(app) {
   //   { "_id": "789", "name": "Chess", "developerId": "234", "description": "Lorem" }
   //
   // ];
-  const websiteModel = require('../model/website/website.model.server');
+  const websiteModel = require('../model/restaurant/restaurant.model.server');
   // api list
-    app.post('/api/user/:userId/website', createWebsite);
-    app.get('/api/user/:userId/website', findWebsitesByUser);
-    app.get('/api/user/:userId/website/:websiteId', findWebsiteById);
-    app.put('/api/user/:userId/website/:websiteId', updateWebsite);
-    app.delete('/api/user/:userId/website/:websiteId', deleteWebsite);
+    app.post('/api/user/:userId/restaurant', createWebsite);
+    app.get('/api/user/:userId/restaurant', findWebsitesByUser);
+    app.get('/api/user/:userId/restaurant/:websiteId', findWebsiteById);
+    app.put('/api/user/:userId/restaurant/:websiteId', updateWebsite);
+    app.delete('/api/user/:userId/restaurant/:websiteId', deleteWebsite);
 
   // functions
   function createWebsite(req, res) {
@@ -30,7 +30,7 @@ module.exports = function(app) {
               return website;  // must return user here, in order to prevent further asynchronous calls.
             },
             function (err) {
-              console.log('create website error! ' + err);
+              console.log('create restaurant error! ' + err);
               res.sendStatus(400);
               return err;
 

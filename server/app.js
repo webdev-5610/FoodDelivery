@@ -14,8 +14,7 @@ module.exports = function (app){
 // separate the test restful call into another file and pass 'app' to that file.
 // Just include the 'test' file by 'require' word
   require('./services/user.service.server')(app);
-  require("./services/website.service.server")(app);
-  require("./services/page.service.server")(app);
-  require("./services/widget.service.server")(app);
+  require("./services/restaurant.service.server")(app);
+  require("./services/order.service.server")(app);
 
 };

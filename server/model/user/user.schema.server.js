@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var websiteSchema = require('../website/website.schema.server');
+var websiteSchema = require('../restaurant/restaurant.schema.server');
 const userSchema = new mongoose.Schema({
 
   username: String,

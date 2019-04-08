@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var pageSchema = require('../page/page.schema.server');
+var pageSchema = require('../order/order.schema.server');
 
 var websiteSchema = mongoose.Schema(
   {
@@ -10,7 +10,7 @@ var websiteSchema = mongoose.Schema(
     pages: [pageSchema],
     dateCreate: {type: Date, default: Date.now()}
 
-  },{collection: "website"}
+  },{collection: "restaurant"}
 );
 
 module.exports = websiteSchema;

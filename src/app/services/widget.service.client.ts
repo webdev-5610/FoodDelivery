@@ -11,7 +11,7 @@ export class WidgetService {
 
     baseUrl = environment.baseUrl;
     widgetApiUrl = '/api/widget/';
-    pageApiUrl = '/api/page/';
+    pageApiUrl = '/api/order/';
 
     constructor(private http: HttpClient) { }
     constructFindUpdateDeleteUrl(pageId, widgetId) {

@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/order.client.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/order.client.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/page/page.model.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/order/order.model.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/page/page.schema.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/order/order.schema.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/user/user.schema.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/user/user.schema.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/website/website.model.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/restaurant/restaurant.model.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/website/website.schema.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/restaurant/restaurant.schema.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/widget/widget.model.server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/widget/widget.schema.server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/services/page.service.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/services/order.service.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/services/user.service.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/services/user.service.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/services/website.service.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/services/restaurant.service.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/services/widget.service.server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/page.service.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/page.service.client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/website.service.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/website.service.client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/widget.service.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/widget.service.client.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,42 +33,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+            <state relative-caret-position="392">
+              <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="269">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/sortable.directive.ts">
+        <entry file="file://$PROJECT_DIR$/server/services/user.service.server.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/services/restaurant.service.server.js">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/user/user-profile/user-profile.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/model/page/page.model.server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/server/services/order.service.server.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -80,18 +98,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/model/order.client.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state>
+              <caret selection-end-line="26" selection-end-column="1" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/shared.service.ts">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -110,6 +123,8 @@
         <option value="$PROJECT_DIR$/src/app/model/user.client.model.ts" />
         <option value="$PROJECT_DIR$/src/app/model/restaurant.client.model.ts" />
         <option value="$PROJECT_DIR$/src/app/model/order.client.model.ts" />
+        <option value="$PROJECT_DIR$/server/model/order/order.model.server.js" />
+        <option value="$PROJECT_DIR$/server/app.js" />
       </list>
     </option>
   </component>
@@ -120,8 +135,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="106" />
-    <option name="y" value="280" />
+    <option name="x" value="491" />
+    <option name="y" value="23" />
     <option name="width" value="1392" />
     <option name="height" value="877" />
   </component>
@@ -143,62 +158,40 @@
             <path>
               <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
               <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
               <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="statistics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="order" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -265,16 +258,15 @@
       <option name="presentableId" value="Default" />
       <updated>1554357761364</updated>
       <workItem from="1554357762616" duration="7441000" />
-      <workItem from="1554703439443" duration="3608000" />
+      <workItem from="1554703439443" duration="5177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11049000" />
+    <option name="totallyTimeSpent" value="12618000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="187" y="449" width="1392" height="877" extended-state="0" />
-    <editor active="true" />
+    <frame x="491" y="23" width="1392" height="877" extended-state="0" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945295" />
@@ -361,22 +353,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/model/page/page.model.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/shared.service.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/restaurant/menu/menu.component.ts">
       <provider selected="true" editor-type-id="text-editor" />
@@ -397,8 +375,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/model/order.client.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state>
+          <caret selection-end-line="26" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/services/restaurant.service.server.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/services/order.service.server.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/services/user.service.server.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
         </state>
       </provider>
     </entry>

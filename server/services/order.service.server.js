@@ -7,14 +7,14 @@ module.exports = function(app) {
   //
   // ];
   // db
-  const pageModel = require('../model/page/page.model.server');
+  const pageModel = require('../model/order/order.model.server');
   // api list
 
-    app.post('/api/website/:websiteId/page', createPage);
-    app.get('/api/website/:websiteId/page', findPagesByWebsite);
-    app.get('/api/website/:websiteId/page/:pageId', findPageById);
-    app.put('/api/website/:websiteId/page/:pageId', updatePage);
-    app.delete('/api/website/:websiteId/page/:pageId', deletePage);
+    app.post('/api/restaurant/:websiteId/order', createPage);
+    app.get('/api/restaurant/:websiteId/order', findPagesByWebsite);
+    app.get('/api/restaurant/:websiteId/order/:pageId', findPageById);
+    app.put('/api/restaurant/:websiteId/order/:pageId', updatePage);
+    app.delete('/api/restaurant/:websiteId/order/:pageId', deletePage);
 
   // function list
   function createPage(req, res) {
@@ -25,10 +25,10 @@ module.exports = function(app) {
     pageModel.createPage(websiteId, page)
         .then(function (page) {
               res.status(200).send(page);
-              return page;  // must return page here, in order to prevent further asynchronous calls.
+              return page;  // must return order here, in order to prevent further asynchronous calls.
             },
             function (err) {
-              console.log('create page error! ' + err);
+              console.log('create order error! ' + err);
               res.sendStatus(400);
               return err;
 

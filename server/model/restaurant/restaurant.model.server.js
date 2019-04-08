@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var websiteSchema = require('./website.schema.server');
+var websiteSchema = require('./restaurant.schema.server');
 var websiteModel = mongoose.model("Website",websiteSchema);
 
 var userModel = require('../user/user.model.server');
@@ -48,10 +48,10 @@ function updateWebsite(websiteId, website) {
 
 function deleteWebsite(userId, websiteId) {
     console.log('Mongoose: deleteWebsite() called');
-    // first, find the original website
+    // first, find the original restaurant
     websiteModel.findOne({_id: websiteId})
         .then(function (responseWebsite) {
-            // next, for the current user, delete this website from user's website list.
+            // next, for the current user, delete this restaurant from user's restaurant list.
             userModel.findUserById(userId)
                 .then(function (user) {
                     user.websites.pull({ _id: responseWebsite._id });
@@ -59,7 +59,7 @@ function deleteWebsite(userId, websiteId) {
                 });
             return responseWebsite;
         });
-    // then, delete this website
+    // then, delete this restaurant
     return websiteModel.deleteOne({_id: websiteId});
 
 

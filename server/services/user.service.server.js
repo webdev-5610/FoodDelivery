@@ -109,7 +109,7 @@ module.exports = function (app) {
         passport.authenticate('facebook',
             {failureRedirect: '/login'}),
         function(req, res) {
-            // Successful authentication, redirect to profile page with user id.
+            // Successful authentication, redirect to profile order with user id.
             // console.log(req.user._id);
             const id = req.user._id;
             const url = '/user/' + id;
