@@ -36,11 +36,13 @@
     restaurant: name, password, email , address, phone, type , orders, menu(dish name, price,discription)
     order:  user, restaurant, time, status，details(dish, quantity, total) 
     
- Backend model design:
+ Backend model design:给menu增加了id，因为按照原本的结构一个menu只有一个dish，所以把restaurant的menu改成了menu[]，details因为是一对一的，没有做改动。
   
     user:  _id, name, password, email, address, phone, credit_card_info, billing_info, order_history, all string type
              constructor(username: String, password: String, email: String, address: String, phone: String,              credit_card_info: String,billing_info: String)
              
+
+
              
     restaurant: _id, name, password, email , address, phone, type , orders, menus(_id, dish_name, price,discription)
       class Menu {
@@ -74,7 +76,31 @@
         this.type = type;
         this.oders = orders;
         this.menus = menus;
-    }
-}
+    }}
 
     order:  user, restaurant, time, status，details(dish, quantity, total) 
+    class Details {
+    dish: String[];
+    quantity: Number[];
+    total: Number;
+    constructor(dish:String[],quantity:Number[],total:Number){
+      this.dish = dish;
+      this.quantity = quantity;
+      this.total = total;
+    }
+    }
+    export class Order {
+      _id: String;
+      user: String;
+      restaurant: String;
+      time: Date;
+      status: String;
+      details: Details;
+      constructor(user: String, restaurant: String, time: Date, status: String,details: Details) {
+        this.user = user;
+        this.restaurant = restaurant;
+        this.time = time;
+        this.status = status;
+        this.details = details;
+      }
+    }
