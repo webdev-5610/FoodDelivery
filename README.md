@@ -129,7 +129,8 @@ API
     orderModel.updateOrder = updateOrder;// also check status if finished or not.
     orderModel.deleteOrder = deleteOrder;
     orderMedel.createOrder = createorder;
-    orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;    
+    orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;   
+    orderModel.finishOrder = finishOrder;
     
     restaurant:
     restaurantModel.findAllOrders = findAllOrders;
