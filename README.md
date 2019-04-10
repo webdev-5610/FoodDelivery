@@ -38,8 +38,8 @@
  Backend data design:
   
     user:  _id, name, password, email, address, phone, credit_card_info, billing_info, order_history
-    restaurant: name, password, email , address, phone, type , orders, menu(dish name, price,discription)
-    order:  user, restaurant, time, status，details(dish, quantity, total) 
+    restaurant: _id,name, password, email , address, phone, type , orders, menu(dish name, price,discription)
+    order: _id, user, restaurant, time, status，details(dish, quantity, total) 
     
  Backend model design:给menu增加了id，因为按照原本的结构一个menu只有一个dish，所以把restaurant的menu改成了menu[]，details因为是一对一的，没有做改动。
   
