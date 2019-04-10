@@ -1,37 +1,53 @@
 var mongoose = require('mongoose');
-var userModel = require("../restaurant/restaurant.model.server");
+var userModel = require('server/model/user/user.model.server');
 var orderSchema = require('./order.schema.server');
 var orderModel = mongoose.model("order",orderSchema);
+var restaurantModel = require("../restaurant/restaurant.model.server");
 
 
 orderModel.findAllOrdersByUser = findAllOrdersByUser;
 orderModel.findOrderById = findOrderById;
 orderModel.updateOrder = updateOrder;// also check status if finished or not.
 orderModel.deleteOrder = deleteOrder;
-orderMedel.createOrder = createorder;
+orderMedel.createOrder = createOrder;
 orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;
 
 module.exports = orderModel;
 
-function createOrder(websiteId,page) {
-    console.log('Mongoose: createPage() called');
+function createOrder(orderId,order) {
+    console.log('Mongoose: createOrder() called');
     // first, create the order with the name, description, date, etc.
-    return pageModel.create(page)
-        .then(function (responsePage) {
-            // next, for the current restaurant, push this order into restaurant's order list.
-            websiteModel.findWebsiteById(websiteId)
-                .then(function (website) {
-                    website.pages.push(responsePage);
-                    return website.save();
+    return orderModel.create(order)
+        .then(function (responseOrder) {
+            // next, for the current restaurant/user, push this order into restaurant's order list.
+            userModel.findUserById(userId)
+                .then(function (user) {
+                    user.order_history.push(responseOrder);
+                    return user.save();
                 });
-            return responsePage;
+            return responseOrder;
+        }).then(function (responseOrder) {
+            // next, for the current restaurant/user, push this order into restaurant's order list.
+            restaurantModel.findRestaurantById(restaurantId)
+                .then(function (restaurant) {
+                    restaurant.oders.push(responseOrder);
+                    return user.save();
+                });
+            return responseOrder;
         });
 }
 
-function findAllPagesForWebsite(websiteId) {
-    console.log('Mongoose: findAllPagesForWebsite() called');
-    return pageModel.find({_website: websiteId})
-        .populate('_website', '_id');      // Do not append all the restaurant info here. Just populate restaurant with its id.
+function findAllOrdersByUser(userId) {
+    console.log('Mongoose: findAllOrdersByUser called');
+    return orderModel.find({_user: userId})
+        .populate('_user', '_id');      // Do not append all the user info here. Just populate user with its id.
+
+}
+
+function findAllOrdersByRestaurant(restaurantId) {
+    console.log('Mongoose: findAllOrdersByrestaurant called');
+    return orderModel.find({_user: userId})
+        .populate('_restaurant', '_id');      // Do not append all the user info here. Just populate user with its id.
 
 }
 
