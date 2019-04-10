@@ -11,6 +11,7 @@ orderModel.updateOrder = updateOrder;// also check status if finished or not.
 orderModel.deleteOrder = deleteOrder;
 orderMedel.createOrder = createOrder;
 orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;
+orderModel.finishOrder = finishOrder;
 
 module.exports = orderModel;
 
@@ -26,14 +27,6 @@ function createOrder(orderId,order) {
                     return user.save();
                 });
             return responseOrder;
-        }).then(function (responseOrder) {
-            // next, for the current restaurant/user, push this order into restaurant's order list.
-            restaurantModel.findRestaurantById(restaurantId)
-                .then(function (restaurant) {
-                    restaurant.oders.push(responseOrder);
-                    return user.save();
-                });
-            return responseOrder;
         });
 }
 
@@ -46,36 +39,47 @@ function findAllOrdersByUser(userId) {
 
 function findAllOrdersByRestaurant(restaurantId) {
     console.log('Mongoose: findAllOrdersByrestaurant called');
-    return orderModel.find({_user: userId})
+    return orderModel.find({_restaurant: restaurantId})
         .populate('_restaurant', '_id');      // Do not append all the user info here. Just populate user with its id.
 
 }
 
-function findPageById(pageId) {
-    console.log('Mongoose: findPageById() called: ' + pageId);
-    return pageModel.findOne({_id: pageId});
+function findOrderById(orderId) {
+    console.log('Mongoose: findOrderById() called: ' + orderId);
+    return orderModel.findOne({_id: orderId});
 }
 
-function updatePage(pageId, page) {
-    console.log('Mongoose: updatePage() called');
-    return pageModel.updateOne({_id: pageId}, page);
+function updateOrder(orderId, order) {
+    console.log('Mongoose: updateOrder() called');
+    return orderModel.updateOne({_id: orderId}, order);
 }
-
-function deletePage(websiteId, pageId) {
-    console.log('Mongoose: deletePage() called');
+function finishOrder(restaurantId,orderId) {
+    console.log('Mongoose: finishOrder() called');
+    // first, create the order with the name, description, date, etc.
+    return orderModel.findOne({_id: orderId})
+        .then(function (responseOrder) {
+        // next, for the current restaurant/user, push this order into restaurant's order list.
+        restaurantModel.findRestaurantById(restaurantId)
+            .then(function (restaurant) {
+                restaurant.oders.push(responseOrder);
+                return restaurant.save();
+            });
+        return responseOrder;
+    });
+}
+function deleteOrder(userId, orderId) {
+    console.log('Mongoose: deleteOrder() called');
     // first, find the original order
-    pageModel.findOne({_id: pageId})
-        .then(function (responsePage) {
+    orderModel.findOne({_id: orderId})
+        .then(function (responseOrder) {
             // next, for the current restaurant, delete this order from restaurant's order list.
-            websiteModel.findWebsiteById(websiteId)
-                .then(function (website) {
-                    website.pages.pull({ _id: responsePage._id });
-                    return website.save();
+            userModel.findUserById(userId)
+                .then(function (user) {
+                    user.order_history.pull({ _id: responseOrder._id });
+                    return user.save();
                 });
-            return responsePage;
+            return responseOrder;
         });
     // then, delete this order
-    return pageModel.deleteOne({_id: pageId});
-
-
+    return orderModel.deleteOne({_id: orderId});
 }
