@@ -1,9 +1,6 @@
 # FoodDelivery
 
 
-
-
-
  Customer: url/user/uid
  
     profile: url/user/uid/profile
@@ -141,3 +138,5 @@ API
     restaurantModel.updateRestaurant = updateRestaurant;
     restaurantModel.deleteRestaurant = deleteRestaurant;
     
+
+google map api key: AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM
