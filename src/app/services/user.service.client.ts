@@ -6,6 +6,7 @@ import {environment} from 'src/environments/environment';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {map} from 'rxjs/operators';
 
 
 @Injectable({
@@ -85,7 +86,7 @@ export class UserService {
 
     loggedIn() {
         return this.http.get(this.baseUrl + '/api/loggedIn', this.options)
-        // return this.http.post(this.baseUrl + '/api/loggedIn', '', this.options)
+            .pipe(
             .map((res: Response) => {
                 const user = JSON.stringify(res);
                 console.log('Inside loggedIn(), the user is ' + user);

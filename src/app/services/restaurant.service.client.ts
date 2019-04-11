@@ -2,55 +2,110 @@ import {Injectable} from '@angular/core';
 import {environment} from 'src/environments/environment';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Restaurant} from "../model/restaurant.client.model";
+import {Menu, Restaurant} from "../model/restaurant.client.model";
+import {Router} from "@angular/router";
+import {SharedService} from "./shared.service";
+import {map} from 'rxjs/operators';
 
-@Injectable({
-    providedIn: 'root'
-})
-export class WidgetService {
+@Injectable()
+export class RestaurantService {
 
+
+    constructor(private _http: HttpClient, private sharedService: SharedService, private router: Router){}
     baseUrl = environment.baseUrl;
-    widgetApiUrl = '/api/widget/';
-    pageApiUrl = '/api/order/';
-
-    constructor(private http: HttpClient) { }
-    constructFindUpdateDeleteUrl(pageId, widgetId) {
-        return this.baseUrl + this.pageApiUrl + pageId + '/widget/' + widgetId;
+    options = {withCredentials: false};
+    
+    createRestaurant(restaurant: Restaurant) {
+        return this._http.post(this.baseUrl + '/api/restaurant', restaurant);
     }
 
-    createWidget(widget, pageId) {
-        console.log('front widget service createWidget() called');
-        return this.http.post<WidgetClientModel>(
-            this.baseUrl + this.pageApiUrl + pageId + '/widget',
-            widget);
+    findRestaurantById(restaurantId: String) {
+        return this._http.get(this.baseUrl + '/api/restaurant/' + restaurantId);
     }
 
-    findWidgetsByPage(pageId): Observable<WidgetClientModel[]> {
-        console.log('front widget service findWidgetByPage() called');
-        return this.http.get<WidgetClientModel[]>(this.baseUrl + this.pageApiUrl + pageId + '/widget');
-
-    }
-    findWidgetById(pageId, widgetId) {
-        console.log('front widget service findwidgetById() called');
-        // Only need to call server's url to get the data.
-        return this.http.get<WidgetClientModel>(this.constructFindUpdateDeleteUrl(pageId, widgetId));
-
-    }
-    updateWidget(pageId, widgetId, widget) {
-        console.log('front widget service updateWidget() called');
-        return this.http.put<WidgetClientModel>(this.constructFindUpdateDeleteUrl(pageId, widgetId), widget);
+    findRestaurantByUsername(username: String) {
+        return this._http.get(this.baseUrl + '/api/restaurant?username=' + username);
     }
 
-    deleteWidget(pageId, widgetId) {
-        console.log('front widget service deleteWidget() called');
-        return this.http.delete<WidgetClientModel>(this.constructFindUpdateDeleteUrl(pageId, widgetId));
+    findRestaurantByCredentials(username: String, password: String) {
+        return this._http.get<Restaurant>(this.baseUrl + '/api/restaurant?username=' + username + '&password=' + password);
     }
 
-    reorderWidgets(startIndex: Number, endIndex: Number, pageId, widgets): Observable<WidgetClientModel[]> {
-        console.log('front widget service reorder Widget() called');
-        return this.http.put<WidgetClientModel[]>(this.baseUrl + this.pageApiUrl + pageId +
-            '/widget?initial=' + startIndex +
-            '&final=' + endIndex, widgets);
+    updateRestaurant(restaurantId: String, restaurant: Restaurant) {
+        return this._http.put(this.baseUrl + '/api/restaurant/' + restaurantId, restaurant);
+    }
 
+    deleteRestaurant(restaurantId: String) {
+        return this._http.delete(this.baseUrl + '/api/restaurant/' + restaurantId);
+    }
+
+    login(username: String, password: String) {
+        this.options.withCredentials = true; // jga
+
+        const body = {
+            username: username,
+            password: password
+        };
+
+        return this._http.post(this.baseUrl + '/api/login', body, this.options);
+    }
+
+    logout() {
+        this.options.withCredentials = true;
+        return this._http
+            .post(this.baseUrl + '/api/logout', '', this.options);
+    }
+
+    register(username: String, password: String) {
+        this.options.withCredentials = true;
+        const restaurant = {username: username, password: password};
+        return this._http
+            .post(this.baseUrl + '/api/register', restaurant, this.options);
+    }
+
+    loggedIn() {
+        return this._http
+            .post(this.baseUrl + '/api/loggedin', '', this.options)
+            .pipe(
+                map((restaurant) => {
+                        if (restaurant !== 0) {
+                            this.sharedService.user = restaurant;
+                            return true;
+                        } else {
+                            this.router.navigate(['/login']);
+                            return false;
+                        }
+                    }
+                ));
+    }
+
+    createDish(restaurantId, dish) {
+        return this._http.post(this.baseUrl + '/api/restaurant/' + restaurantId + '/menu', dish);
+    }
+
+    findAllDishesForRestaurant(restaurantId) {
+        return this._http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/menu');
+    }
+
+    findDishById(dishId) {
+        return this._http.get(this.baseUrl + '/api/menu/' + dishId);
+    }
+
+    updateDish(dishId, dish: any) {
+        return this._http.put(this.baseUrl + '/api/menu/' + dishId, dish);
+    }
+
+    deleteDish(dishId) {
+        return this._http.delete(this.baseUrl + '/api/menu/' + dishId);
+    }
+
+    reorderDishes(dishId: String, startIndex: Number, endIndex: Number, dishes: Menu[]) {
+        return this._http.put(this.baseUrl + '/api/menu/' + dishId
+            + '/widget?initial=' + startIndex + '&final=' + endIndex, dishes);
+    }
+
+    findImage(imageName: String) {
+        const url = this.baseUrl + '/api/image/' + imageName;
+        return this._http.get(url);
     }
 }

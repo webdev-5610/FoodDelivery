@@ -11,7 +11,6 @@ import {CheckoutComponent} from "./components/user/checkout/checkout.component";
 import {OrderComponent} from "./components/user/order/order.component";
 import {RestaurantProfileComponent} from "./components/restaurant/restaurant-profile/restaurant-profile.component";
 import {MenuComponent} from "./components/restaurant/menu/menu.component";
-import {StatisticsComponent} from "./components/restaurant/statistics/statistics.component";
 import {RegisterComponent} from "./components/website/register/register.component";
 // Import all other components here
 const APP_ROUTES: Routes = [
@@ -27,7 +26,7 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid/order/:oid', component: OrderComponent},
   {path: 'restaurant/:rid/profile', component: RestaurantProfileComponent},
   {path: 'restaurant/:rid/menu', component: MenuComponent},
-  {path: 'restaurant/:rid/statistics', component: StatisticsComponent},
+  // {path: 'restaurant/:rid/statistics', component: StatisticsComponent},
 
   // so on
 ];

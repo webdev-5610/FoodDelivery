@@ -19,6 +19,10 @@ import { RestaurantComponent } from './components/website/restaurant/restaurant.
 import {LoginComponent} from "./components/website/login/login.component";
 import {RegisterComponent} from "./components/website/register/register.component";
 import {HttpClientModule} from "@angular/common/http";
+import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
+import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
+import { OrderHistoryComponent } from './components/restaurant/order-history/order-history.component';
+import { OrderCurrentComponent } from './components/restaurant/order-current/order-current.component';
 
 
 
@@ -38,7 +42,11 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     SearchbyaddressComponent,
     SearchbytypeComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    RestaurantHomeComponent,
+    MenuEditComponent,
+    OrderHistoryComponent,
+    OrderCurrentComponent
   ],
   imports: [
     BrowserModule,
