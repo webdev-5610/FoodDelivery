@@ -10,22 +10,22 @@ module.exports = function(app) {
   const orderModel = require('../model/order/order.model.server');
   // api list
 
-    app.post('/api/restaurant/:websiteId/order', createPage);
-    app.get('/api/restaurant/:websiteId/order', findPagesByWebsite);
-    app.get('/api/restaurant/:websiteId/order/:pageId', findPageById);
-    app.put('/api/restaurant/:websiteId/order/:pageId', updatePage);
-    app.delete('/api/restaurant/:websiteId/order/:pageId', deletePage);
+    app.post('/api/restaurant/:websiteId/order', createOrder);
+    app.get('/api/restaurant/:websiteId/order', findOrdersByWebsite);
+    app.get('/api/restaurant/:websiteId/order/:pageId', findOrderById);
+    app.put('/api/restaurant/:websiteId/order/:pageId', updateOrder);
+    app.delete('/api/restaurant/:websiteId/order/:pageId', deleteOrder);
 
   // function list
-  function createPage(req, res) {
+  function createOrder(req, res) {
     var page = req.body;
     var websiteId = req.params['websiteId'];
     page._website = websiteId;
     delete page._id;
-    pageModel.createPage(websiteId, page)
-        .then(function (page) {
-              res.status(200).send(page);
-              return page;  // must return order here, in order to prevent further asynchronous calls.
+    orderModel.createOrder(websiteId, order)
+        .then(function (order) {
+              res.status(200).send(order);
+              return order;  // must return order here, in order to prevent further asynchronous calls.
             },
             function (err) {
               console.log('create order error! ' + err);
@@ -35,52 +35,52 @@ module.exports = function(app) {
             });
   }
 
-  function findPagesByWebsite(req, res) {
+  function findOrdersByWebsite(req, res) {
     var websiteId = req.params['websiteId'];
-    pageModel.findAllPagesForWebsite(websiteId)
-        .then(function (pages) {
-          return res.status(200).json(pages);
+    orderModel.findAllOrdersForWebsite(websiteId)
+        .then(function (orders) {
+          return res.status(200).json(orders);
         })
 
   }
-  function findPageById(req, res){
-    var pageId = req.params['pageId'];
-    pageModel.findPageById(pageId).exec(
-        function (err, page) {
+  function findOrderById(req, res){
+    var orderId = req.params['orderId'];
+    orderModel.findOrderById(orderId).exec(
+        function (err, order) {
           if (err) {
             return res.status(400).send(err);
           }
-          if (page == null) {
+          if (order == null) {
             return res.sendStatus(404);
           }
-          return res.status(200).send(page);
+          return res.status(200).send(order);
       }
     );
     }
 
-  function updatePage(req, res) {
-    var pageId = req.params["pageId"];
-    var page = req.body;
-    pageModel.updatePage(pageId, page).exec(
-        function (err, page) {
+  function updateOrder(req, res) {
+    var orderId = req.params["orderId"];
+    var order = req.body;
+    orderModel.updateOrder(orderId, order).exec(
+        function (err, order) {
           if (err) {
             return res.status(400).send(err);
           }
-          return res.status(200).send(page);
+          return res.status(200).send(order);
       }
     )
 
   }
 
-  function deletePage(req, res) {
-    var pageId = req.params['pageId'];
+  function deleteOrder(req, res) {
+    var orderId = req.params['orderId'];
     var websiteId = req.params['websiteId'];
-    pageModel.deletePage(websiteId, pageId).exec(
-        function (err, page) {
+    orderModel.deleteOrder(websiteId, orderId).exec(
+        function (err, order) {
           if (err) {
             return res.status(400).send(err);
           } else {
-            return res.status(200).send(page);
+            return res.status(200).send(order);
           }
       }
     )

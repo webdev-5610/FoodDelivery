@@ -7,7 +7,7 @@ import {Restaurant} from 'src/app/model/restaurant.client.model';
 @Injectable({
     providedIn: 'root'
 })
-export class PageService {
+export class OrderService {
     baseUrl = environment.baseUrl;
     orderApiUrl = '/api/order/';
     websiteApiUrl = '/api/restaurant/';
