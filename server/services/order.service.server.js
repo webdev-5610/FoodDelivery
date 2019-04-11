@@ -15,16 +15,16 @@ module.exports = function(app) {
     app.get('/api/:userId/order/:orderId', findOrderById);
     app.put('/api/:userId/order/:orderId', updateOrder);// also check status if finished or not.
     app.delete('/api/:userId/order/:orderId', deleteOrder);
-    app.put('/api/:restaurantId/order',finishOrder);
+    app.post('/api/:restaurantId/order',finishOrder);
     app.get('/api/:restaurantId/order',findAllOrdersByRestaurant);
 
   // function list
   function createOrder(req, res) {
     var order = req.body;
-    var websiteId = req.params['websiteId'];
-    order._website = websiteId;
+    var userId = req.params['userId'];
+    order._user = userId;
     delete order._id;
-    orderModel.createOrder(websiteId, order)
+    orderModel.createOrder(userId, order)
         .then(function (order) {
               res.status(200).send(order);
               return order;  // must return order here, in order to prevent further asynchronous calls.
@@ -38,8 +38,8 @@ module.exports = function(app) {
   }
 
   function findOrdersByUser(req, res) {
-    var websiteId = req.params['websiteId'];
-    orderModel.findAllOrdersForWebsite(websiteId)
+    var userId = req.params['userId'];
+    orderModel.findAllOrdersByUser(userId)
         .then(function (orders) {
           return res.status(200).json(orders);
         })
@@ -76,8 +76,8 @@ module.exports = function(app) {
 
   function deleteOrder(req, res) {
     var orderId = req.params['orderId'];
-    var websiteId = req.params['websiteId'];
-    orderModel.deleteOrder(websiteId, orderId).exec(
+    var userId = req.params['userId'];
+    orderModel.deleteOrder(userId, orderId).exec(
         function (err, order) {
           if (err) {
             return res.status(400).send(err);
@@ -87,4 +87,30 @@ module.exports = function(app) {
       }
     )
 }
-}
+  function finishOrder(req, res) {
+      var order = req.body;
+      var restaurantId = req.params['restaurantId'];
+      order.restaurant = restaurantId;
+      orderModel.finishOrder(restaurantId, order)
+          .then(function (order) {
+                  res.status(200).send(order);
+                  return order;  // must return order here, in order to prevent further asynchronous calls.
+              },
+              function (err) {
+                  console.log('finish order error! ' + err);
+                  res.sendStatus(400);
+                  return err;
+
+              });
+
+  }
+
+  function findAllOrdersByRestaurant(req, res) {
+      var restaurantId = req.params['restaurantId'];
+      orderModel.findAllOrdersByRestaurant(restaurantId)
+          .then(function (orders) {
+              return res.status(200).json(orders);
+          })
+
+  }
+};
