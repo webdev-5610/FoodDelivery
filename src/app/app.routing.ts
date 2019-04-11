@@ -12,6 +12,10 @@ import {OrderComponent} from "./components/user/order/order.component";
 import {RestaurantProfileComponent} from "./components/restaurant/restaurant-profile/restaurant-profile.component";
 import {MenuComponent} from "./components/restaurant/menu/menu.component";
 import {RegisterComponent} from "./components/website/register/register.component";
+import {RestaurantHomeComponent} from "./components/restaurant/restaurant-home/restaurant-home.component";
+import {RestaurantOrderHistoryComponent} from "./components/restaurant/order-history/order-history.component";
+import {RestaurantOrderCurrentComponent} from "./components/restaurant/order-current/order-current.component";
+import {MenuEditComponent} from "./components/restaurant/menu-edit/menu-edit.component";
 // Import all other components here
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -19,14 +23,18 @@ const APP_ROUTES: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'searchbyaddress', component: SearchbyaddressComponent},
   {path: 'searchbyaddress/type', component: SearchbytypeComponent},
-  {path: 'restaurant/:rid', component: RestaurantProfileComponent},
+    //restaurant
+  {path: 'restaurant/:rid/home', component: RestaurantHomeComponent},
+  {path: 'restaurant/:rid/profile', component: RestaurantProfileComponent},
+  {path: 'restaurant/:rid/orderhistory', component: RestaurantOrderHistoryComponent},
+  {path: 'restaurant/:rid/currentorder', component: RestaurantOrderCurrentComponent},
+  {path: 'restaurant/:rid/menu', component: MenuComponent},
+  {path: 'restaurant/:rid/menu/:dishid', component: MenuEditComponent},
+    //user
   {path: 'user/:uid/profile', component: UserProfileComponent},
   {path: 'user/:uid/orderhistory', component: OrderhistoryComponent},
   {path: 'user/:uid/restaurant/:rid/checkout', component: CheckoutComponent},
   {path: 'user/:uid/order/:oid', component: OrderComponent},
-  {path: 'restaurant/:rid/profile', component: RestaurantProfileComponent},
-  {path: 'restaurant/:rid/menu', component: MenuComponent},
-  // {path: 'restaurant/:rid/statistics', component: StatisticsComponent},
 
   // so on
 ];
