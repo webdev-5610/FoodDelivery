@@ -44,12 +44,12 @@ function findAllOrdersByRestaurant(restaurantId) {
 
 }
 
-function findOrderById(orderId) {
+function findOrderById(userId, orderId) {
     console.log('Mongoose: findOrderById() called: ' + orderId);
     return orderModel.findOne({_id: orderId});
 }
 
-function updateOrder(orderId, order) {
+function updateOrder(userId, orderId, order) {
     console.log('Mongoose: updateOrder() called');
     orderModel.findOne({_id: orderId})
         .then(function (responseOrder) {

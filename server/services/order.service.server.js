@@ -46,8 +46,9 @@ module.exports = function(app) {
 
   }
   function findOrderById(req, res){
+      var userId = req.params['userId'];
     var orderId = req.params['orderId'];
-    orderModel.findOrderById(orderId).exec(
+    orderModel.findOrderById(userId,orderId).exec(
         function (err, order) {
           if (err) {
             return res.status(400).send(err);
@@ -61,9 +62,10 @@ module.exports = function(app) {
     }
 
   function updateOrder(req, res) {
+      var userId = req.params['userId'];
     var orderId = req.params["orderId"];
     var order = req.body;
-    orderModel.updateOrder(orderId, order).exec(
+    orderModel.updateOrder(userId,orderId, order).exec(
         function (err, order) {
           if (err) {
             return res.status(400).send(err);
@@ -88,10 +90,10 @@ module.exports = function(app) {
     )
 }
   function finishOrder(req, res) {
-      var order = req.body;
+      var order = req.params['orderId'];
       var restaurantId = req.params['restaurantId'];
       order.restaurant = restaurantId;
-      orderModel.finishOrder(restaurantId, order)
+      orderModel.finishOrder(restaurantId, orderId)
           .then(function (order) {
                   res.status(200).send(order);
                   return order;  // must return order here, in order to prevent further asynchronous calls.
