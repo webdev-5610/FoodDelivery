@@ -19,6 +19,7 @@ import { RestaurantComponent } from './components/website/restaurant/restaurant.
 import {LoginComponent} from "./components/website/login/login.component";
 import {RegisterComponent} from "./components/website/register/register.component";
 import {HttpClientModule} from "@angular/common/http";
+import { AdminComponent } from './components/admin/admin.component';
 
 
 
@@ -38,7 +39,8 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     SearchbyaddressComponent,
     SearchbytypeComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
