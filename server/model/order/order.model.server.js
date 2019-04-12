@@ -53,7 +53,7 @@ function updateOrder(userId, orderId, order) {
     console.log('Mongoose: updateOrder() called');
     orderModel.findOne({_id: orderId})
         .then(function (responseOrder) {
-            if(responseOrder.status){
+            if(responseOrder.status==0){
                 return orderModel.updateOne({_id: orderId}, order);
             }
         });
@@ -64,7 +64,7 @@ function finishOrder(restaurantId,orderId) {
     // first, create the order with the name, description, date, etc.
     return orderModel.findOne({_id: orderId})
         .then(function (responseOrder) {
-            responseOrder.status = false;
+            responseOrder.status = 1;
             orderModel.updateOrder(orderId,responseOrder);
         // next, for the current restaurant/user, push this order into restaurant's order list.
         restaurantModel.findRestaurantById(restaurantId)

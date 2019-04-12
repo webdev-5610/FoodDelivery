@@ -7,7 +7,7 @@ var orderSchema = new mongoose.Schema({
     },
     user: String,
     restaurant: String,
-    status: Boolean,
+    status: Number,
     time: {type: Date, default: Date.now()}
 }, {collection: 'order'});
 
