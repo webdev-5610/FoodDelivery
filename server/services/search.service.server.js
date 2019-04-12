@@ -18,7 +18,7 @@ module.exports = function (app) {
                 else{
                     let result = [];
                     for(let i = 0; i<restaurants.length; i++){
-                        if(restaurants[i].name.indexOf(name) !== -1 && restaurants[i].address.indexOf(city) !== -1){
+                        if(( restaurants[i].name.indexOf(name) !== -1 || !name ) && ( restaurants[i].address.indexOf(city) !== -1 || !city )){
                             result.push(restaurants[i]);
                         }
                     }
