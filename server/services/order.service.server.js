@@ -15,8 +15,8 @@ module.exports = function(app) {
     app.get('/api/:userId/order/:orderId', findOrderById);
     app.put('/api/:userId/order/:orderId', updateOrder);// also check status if finished or not.
     app.delete('/api/:userId/order/:orderId', deleteOrder);
-    app.post('/api/:restaurantId/order',finishOrder);
-    app.get('/api/:restaurantId/order',findAllOrdersByRestaurant);
+    app.post('/api/restaurant/order',finishOrder);
+    app.get('/api/restaurant/order',findAllOrdersByRestaurant);
 
   // function list
   function createOrder(req, res) {
