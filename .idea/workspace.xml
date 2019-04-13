@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/server/services/order.service.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/services/order.service.server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/order.service.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/order.service.client.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/services/order.service.server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="194" column="25" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
+            <state relative-caret-position="229">
+              <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -34,10 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1110">
+            <state relative-caret-position="1095">
               <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
             </state>
           </provider>
@@ -155,8 +154,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="80" />
-    <option name="y" value="23" />
+    <option name="x" value="135" />
+    <option name="y" value="175" />
     <option name="width" value="1392" />
     <option name="height" value="877" />
   </component>
@@ -320,15 +319,15 @@
       <option name="presentableId" value="Default" />
       <updated>1554357761364</updated>
       <workItem from="1554357762616" duration="7441000" />
-      <workItem from="1554703439443" duration="41541000" />
+      <workItem from="1554703439443" duration="41783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48982000" />
+    <option name="totallyTimeSpent" value="49224000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="80" y="23" width="1392" height="877" extended-state="0" />
+    <frame x="135" y="175" width="1392" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
@@ -577,13 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/services/order.service.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="194" column="25" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/model/order/order.schema.server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -593,8 +585,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1110">
+        <state relative-caret-position="1095">
           <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/services/order.service.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
         </state>
       </provider>
     </entry>

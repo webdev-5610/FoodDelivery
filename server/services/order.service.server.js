@@ -19,7 +19,7 @@ module.exports = function(app) {
     app.put('/api/user/:userId/order/:orderId', updateOrder);// also check status if finished or not.
     app.delete('/api/user/:userId/order/:orderId', deleteOrder);
     app.get('/api/user/:userId/order/:orderId/:status',findOrdersByStatus);
-    api.put('/api/user/:userId/order/:orderId/:status', updateOrderStatus);
+    app.put('/api/user/:userId/order/:orderId/:status', updateOrderStatus);
     app.get('/api/deliver/:deliverid/order', findOrdersByDeliver);
 
 
