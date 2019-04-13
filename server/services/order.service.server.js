@@ -13,7 +13,7 @@ module.exports = function(app) {
   // api list
 
     app.post('/api/user/:userId/order', createOrder);
-    app.post('/api/deliver/:deliverId/order', acceptOrder);
+    app.post('/api/deliver/:deliverId/order', orderAccept);
     app.get('/api/user/:userId/order', findOrdersByUser);
     app.get('/api/user/:userId/order/:orderId', findOrderById);
     app.put('/api/user/:userId/order/:orderId', updateOrder);// also check status if finished or not.
@@ -123,54 +123,93 @@ module.exports = function(app) {
         );
     }
 
+    function orderAccept(req,res) {
+      var order = req.body;
+      var deliverId = req.params['deliverId'];
+      order.deliver = deliverId;
+      orderModel.orderAccept(deliverId, order)
+            .then(function (order) {
+                    res.status(200).send(order);
+                    return order;  // must return order here, in order to prevent further asynchronous calls.
+                },
+                function (err) {
+                    console.log('create order error! ' + err);
+                    res.sendStatus(400);
+                    return err;
+                });
+    }
     function updateOrderStatus(req,res) {
       const orderStatus = req.params.status;
-      if (orderStatus==1){
-          finishOrder(res)
+      const userId = req.params['userId'];
+      const orderId = req.params["orderId"];
+      const order = oderModel.findOrderById(userId,orderId);
+        if (orderStatus===1){
+          finishOrder(res,userId,orderId,order);
       }
-        if (orderStatus==2){
-            postOrder(res)
+        if (orderStatus===2){
+            postOrder(res,userId,orderId,order);
         }
-        if (orderStatus==1){
-            completeOrder(res)
+        if (orderStatus===3){
+            acceptOrder(res,userId,orderId,order);
         }
-        if (orderStatus==1){
-            finishOrder(res)
+        if (orderStatus===4){
+            completeOrder(res,userId,orderId,order);
         }
-        if (orderStatus==1){
-            finishOrder(res)
+        if (orderStatus===5){
+            cancelOrder(res,userId,orderId,order);
         }
 
     }
-  function finishOrder(res,order) {
-      var order = req.params['orderId'];
-      var restaurantId = req.params['restaurantId'];
-      order.restaurant = restaurantId;
-      orderModel.finishOrder(restaurantId, orderId)
-          .then(function (order) {
-                  res.status(200).send(order);
-                  return order;  // must return order here, in order to prevent further asynchronous calls.
-              },
-              function (err) {
-                  console.log('finish order error! ' + err);
-                  res.sendStatus(400);
-                  return err;
-
-              });
-
+  function postOrder(res,userId,orderId,order) {
+      orderModel.postOrder(userId,orderId, order).exec(
+          function (err, order) {
+              if (err) {
+                  return res.status(400).send(err);
+              }
+              return res.status(200).send(order);
+          }
+      )
   }
 
-    acceptOrder(deliverId, orderId, orderStatus=3){
-        console.log('front end service findOrderByStatus called');
-        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+    function acceptOrder(res,userId,orderId,order) {
+        orderModel.acceptOrder(userId,orderId, order).exec(
+            function (err, order) {
+                if (err) {
+                    return res.status(400).send(err);
+                }
+                return res.status(200).send(order);
+            }
+        )
     }
-    completeOrder(deliverId, orderId, orderStatus=4){
-        console.log('front end service findOrderByStatus called');
-        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+    function completeOrder(res,userId,orderId,order) {
+        orderModel.completeOrder(userId,orderId, order).exec(
+            function (err, order) {
+                if (err) {
+                    return res.status(400).send(err);
+                }
+                return res.status(200).send(order);
+            }
+        )
     }
-    cancelOrder(deliverId, orderId, orderStatus=5){
-        console.log('front end service findOrderByStatus called');
-        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+    function cancelOrder(res,userId,orderId,order) {
+        orderModel.cancelOrder(userId,orderId, order).exec(
+            function (err, order) {
+                if (err) {
+                    return res.status(400).send(err);
+                }
+                return res.status(200).send(order);
+            }
+        )
+    }
+    function finishOrder(res,userId,orderId,order) {
+        orderModel.finishOrder(userId,orderId, order).exec(
+            function (err, order) {
+                if (err) {
+                    return res.status(400).send(err);
+                }
+                return res.status(200).send(order);
+            }
+        )
     }
 
 
