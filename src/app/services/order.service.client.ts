@@ -29,20 +29,22 @@ export class OrderService {
     }
 
     findAllOrdersByDeliver(deliverId): Observable<Order[]> {
-        console.log('front order service findOrderByRestaurant() called');
+        console.log('front order service findOrderByRDeliver() called');
         return this.http.get<Order[]>(this.baseUrl + deliverId + '/order');
     }
-    finishOrder(deliverId, orderId) {
-        console.log('front order service finishOrder() called');
-        return this.http.post<Order>(this.baseUrl+deliverId+'/order',this.findOrderById(orderId));
-    }
 
 
-    findOrderById(orderId) {
+    findOrderById(userId, orderId) {
         console.log('front order service findorderById() called');
         // Only need to call server's url to get the data.
-        return this.http.get<Order>(this.baseUrl+'/order/'+orderId);
+        return this.http.get<Order>(this.baseUrl+ userId + '/order/'+orderId);
     }
+
+    // findOrderById(userId, orderId) {
+    //     console.log('front order service findorderById() called');
+    //     // Only need to call server's url to get the data.
+    //     return this.http.get<Order>(this.baseUrl+ userId + '/order/'+orderId);
+    // }
 
     updateOrder(userId, orderId, order) {
         console.log('front order service updateOrder() called');
@@ -54,22 +56,29 @@ export class OrderService {
         return this.http.delete<Order>(this.baseUrl+ userId+'/order/'+orderId);
     }
 
-    findOrderByStatus(status){
+    findOrderByStatus(deliverId, status){
         console.log('front end service findOrderByStatus called');
-        return this.http.get<Order[]>(this.baseUrl+'order/status/'+status);
+        return this.http.get<Order[]>(this.baseUrl+deliverId+'/order/'+status);
     }
-
-    acceptOrder(deliverId, orderId, orderStatus=3){
-        console.log('front end service findOrderByStatus called');
-        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+    finishOrder(userId,deliverId, orderId, orderStatus=1) {
+        console.log('front order service finishOrder() called');
+        return this.http.put<Order>(this.baseUrl+userId+ '/order/'+orderId+orderStatus,this.findOrderById(userId,orderId));
     }
-    completeOrder(deliverId, orderId, orderStatus=4){
+    postOrder(userId,deliverId, orderId, orderStatus=2){
         console.log('front end service findOrderByStatus called');
-        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+        return this.http.put<Order>(this.baseUrl+userId+ '/order/'+orderId+orderStatus, this.findOrderById(userId,orderId));
     }
-    cancelOrder(deliverId, orderId, orderStatus=5){
+    acceptOrder(userId,deliverId, orderId, orderStatus=3){
         console.log('front end service findOrderByStatus called');
-        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+        return this.http.put<Order>(this.baseUrl+userId+ '/order/'+orderId+orderStatus, this.findOrderById(userId,orderId));
+    }
+    completeOrder(userId,deliverId, orderId, orderStatus=4){
+        console.log('front end service findOrderByStatus called');
+        return this.http.put<Order>(this.baseUrl+userId+ '/order/'+orderId+orderStatus, this.findOrderById(userId,orderId));
+    }
+    cancelOrder(userId,deliverId, orderId, orderStatus=5){
+        console.log('front end service findOrderByStatus called');
+        return this.http.put<Order>(this.baseUrl+userId+ '/order/'+orderId+orderStatus, this.findOrderById(userId,orderId));
     }
 
 

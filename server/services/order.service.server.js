@@ -12,19 +12,23 @@ module.exports = function(app) {
   const orderModel = require('../model/order/order.model.server');
   // api list
 
-    app.post('/api/order', createOrder);
-    app.get('/api/order', findOrdersByUser);
-    app.get('/api/order/:orderId', findOrderById);
-    app.put('/api/order/:orderId', updateOrder);// also check status if finished or not.
-    app.delete('/api/order/:orderId', deleteOrder);
-    app.post('/api/order',finishOrder);
-    app.get('/api/restaurant/order',findAllOrdersByRestaurant);
+    app.post('/api/user/:userId/order', createOrder);
+    app.post('/api/deliver/:deliverId/order', acceptOrder);
+    app.get('/api/user/:userId/order', findOrdersByUser);
+    app.get('/api/user/:userId/order/:orderId', findOrderById);
+    app.put('/api/user/:userId/order/:orderId', updateOrder);// also check status if finished or not.
+    app.delete('/api/user/:userId/order/:orderId', deleteOrder);
+    app.get('/api/user/:userId/order/:orderId/:status',findOrdersByStatus);
+    api.put('/api/user/:userId/order/:orderId/:status', updateOrderStatus);
+    app.get('/api/deliver/:deliverid/order', findOrdersByDeliver);
 
-  // function list
+
+
+    // function list
   function createOrder(req, res) {
     var order = req.body;
     var userId = req.params['userId'];
-    order._user = userId;
+    order.user = userId;
     delete order._id;
     orderModel.createOrder(userId, order)
         .then(function (order) {
@@ -39,14 +43,25 @@ module.exports = function(app) {
             });
   }
 
+
+
   function findOrdersByUser(req, res) {
-    var userId = req.params['userId'];
+      const userId = req.params['userId'];
     orderModel.findAllOrdersByUser(userId)
         .then(function (orders) {
           return res.status(200).json(orders);
         })
 
   }
+
+    function findOrdersByDeliver(req,res) {
+        const deliverId = req.params['deliverId'];
+        orderModel.findAllOrdersByDeliver(deliverId)
+            .then(function (orders) {
+                return res.status(200).json(orders);
+            })
+
+    }
   function findOrderById(req, res){
       var userId = req.params['userId'];
     var orderId = req.params['orderId'];
@@ -91,7 +106,43 @@ module.exports = function(app) {
       }
     )
 }
-  function finishOrder(req, res) {
+
+    function findOrdersByStatus(req, res){
+        var deliverId = req.params['deliverId'];
+        var status = req.params.status;
+        orderModel.findOrdersByStatus(deliverId,status).exec(
+            function (err, [order]) {
+                if (err) {
+                    return res.status(400).send(err);
+                }
+                if (order == null) {
+                    return res.sendStatus(404);
+                }
+                return res.status(200).send([order]);
+            }
+        );
+    }
+
+    function updateOrderStatus(req,res) {
+      const orderStatus = req.params.status;
+      if (orderStatus==1){
+          finishOrder(res)
+      }
+        if (orderStatus==2){
+            postOrder(res)
+        }
+        if (orderStatus==1){
+            completeOrder(res)
+        }
+        if (orderStatus==1){
+            finishOrder(res)
+        }
+        if (orderStatus==1){
+            finishOrder(res)
+        }
+
+    }
+  function finishOrder(res,order) {
       var order = req.params['orderId'];
       var restaurantId = req.params['restaurantId'];
       order.restaurant = restaurantId;
@@ -122,14 +173,6 @@ module.exports = function(app) {
         return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
     }
 
-  function findAllOrdersByDeliver(req, res) {
-      var deliverId = req.params['deliverId'];
-      orderModel.findAllOrdersByDeliver(deliverId)
-          .then(function (orders) {
-              return res.status(200).json(orders);
-          })
-
-  }
 
 
 };
