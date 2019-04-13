@@ -21,20 +21,28 @@ const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'searchbyaddress', component: SearchbyaddressComponent},
-  {path: 'searchbyaddress/type', component: SearchbytypeComponent},
     //restaurant
-  {path: 'restaurant/:rid/home', component: RestaurantHomeComponent},
-  {path: 'restaurant/:rid/profile', component: RestaurantProfileComponent},
-  {path: 'restaurant/:rid/orderhistory', component: RestaurantOrderHistoryComponent},
-  {path: 'restaurant/:rid/currentorder', component: RestaurantOrderCurrentComponent},
-  {path: 'restaurant/:rid/menu', component: MenuComponent},
-  {path: 'restaurant/:rid/menu/:dishid', component: MenuEditComponent},
+  {path: 'restaurant/home', component: RestaurantHomeComponent},
+  {path: 'restaurant/profile', component: RestaurantProfileComponent},
+  {path: 'restaurant/orderhistory', component: RestaurantOrderHistoryComponent},
+  {path: 'restaurant/currentorder', component: RestaurantOrderCurrentComponent},
+  {path: 'restaurant/menu', component: MenuComponent},
+  {path: 'restaurant/menu/:dishid', component: MenuEditComponent},
     //user
+  {path: 'user/:uid/home', component: UserProfileComponent},
   {path: 'user/:uid/profile', component: UserProfileComponent},
+  {path: 'user/:uid/checkout', component: CheckoutComponent},
   {path: 'user/:uid/orderhistory', component: OrderhistoryComponent},
-  {path: 'user/:uid/restaurant/:rid/checkout', component: CheckoutComponent},
   {path: 'user/:uid/order/:oid', component: OrderComponent},
+  //delivery
+  {path: 'delivery/:did/home', component: UserProfileComponent},
+  {path: 'delivery/:did/profile', component: UserProfileComponent},
+  {path: 'delivery/:did/pendingorder', component: OrderhistoryComponent},
+  {path: 'delivery/:did/ondelivery', component: OrderComponent},
+    //order-history
+
+    //admin
+
 
   // so on
 ];
