@@ -1,3 +1,5 @@
+import {Order} from "../../src/app/model/order.client.model";
+
 module.exports = function(app) {
   // fake data
   // var orders=[
@@ -10,12 +12,12 @@ module.exports = function(app) {
   const orderModel = require('../model/order/order.model.server');
   // api list
 
-    app.post('/api/:userId/order', createOrder);
-    app.get('/api/:userId/order', findOrdersByUser);
-    app.get('/api/:userId/order/:orderId', findOrderById);
-    app.put('/api/:userId/order/:orderId', updateOrder);// also check status if finished or not.
-    app.delete('/api/:userId/order/:orderId', deleteOrder);
-    app.post('/api/restaurant/order',finishOrder);
+    app.post('/api/order', createOrder);
+    app.get('/api/order', findOrdersByUser);
+    app.get('/api/order/:orderId', findOrderById);
+    app.put('/api/order/:orderId', updateOrder);// also check status if finished or not.
+    app.delete('/api/order/:orderId', deleteOrder);
+    app.post('/api/order',finishOrder);
     app.get('/api/restaurant/order',findAllOrdersByRestaurant);
 
   // function list
@@ -107,12 +109,27 @@ module.exports = function(app) {
 
   }
 
-  function findAllOrdersByRestaurant(req, res) {
-      var restaurantId = req.params['restaurantId'];
-      orderModel.findAllOrdersByRestaurant(restaurantId)
+    acceptOrder(deliverId, orderId, orderStatus=3){
+        console.log('front end service findOrderByStatus called');
+        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+    }
+    completeOrder(deliverId, orderId, orderStatus=4){
+        console.log('front end service findOrderByStatus called');
+        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+    }
+    cancelOrder(deliverId, orderId, orderStatus=5){
+        console.log('front end service findOrderByStatus called');
+        return this.http.put<Order>(this.baseUrl+deliverId+'order', order);
+    }
+
+  function findAllOrdersByDeliver(req, res) {
+      var deliverId = req.params['deliverId'];
+      orderModel.findAllOrdersByDeliver(deliverId)
           .then(function (orders) {
               return res.status(200).json(orders);
           })
 
   }
+
+
 };

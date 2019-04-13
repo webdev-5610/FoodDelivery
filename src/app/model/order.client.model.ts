@@ -22,5 +22,6 @@ export class Order {
     this.time = time;
     this.status = status;
     this.details = details;
+    this.deliver = null;
   }
 }
