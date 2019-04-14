@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+=======
     <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="" />
+>>>>>>> master
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -43,14 +50,26 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
+<<<<<<< HEAD
+              <first_editor relative-caret-position="120">
+                <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+=======
               <first_editor relative-caret-position="210">
                 <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+>>>>>>> master
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,6 +89,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="11" column="7" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="11" selection-end-column="7" />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -81,6 +101,8 @@
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
+=======
   <component name="FindInProjectRecents">
     <findStrings>
       <find>userid</find>
@@ -91,6 +113,7 @@
       <replace>Order</replace>
     </replaceStrings>
   </component>
+>>>>>>> master
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -98,6 +121,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/index.html" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+=======
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
@@ -117,6 +146,7 @@
         <option value="$PROJECT_DIR$/server/model/order/order.model.server.js" />
         <option value="$PROJECT_DIR$/server/model/order/order.schema.server.js" />
         <option value="$PROJECT_DIR$/server/services/restaurant.service.server.js" />
+>>>>>>> master
       </list>
     </option>
   </component>
@@ -127,10 +157,16 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
+    <option name="y" value="23" />
+    <option name="width" value="1629" />
+    <option name="height" value="1027" />
+=======
     <option name="x" value="440" />
     <option name="y" value="293" />
     <option name="width" value="1392" />
     <option name="height" value="877" />
+>>>>>>> master
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -150,6 +186,9 @@
             <path>
               <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
               <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+=======
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -192,6 +231,7 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="checkout" type="462c0819:PsiDirectoryNode" />
+>>>>>>> master
             </path>
           </expand>
           <select />
@@ -203,7 +243,10 @@
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
+=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> master
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -211,6 +254,8 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+<<<<<<< HEAD
+=======
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/services" />
       <recent name="$PROJECT_DIR$/server/model" />
@@ -218,6 +263,7 @@
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$" />
     </key>
+>>>>>>> master
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/components/customer" />
     </key>
@@ -260,13 +306,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554357761364</updated>
+<<<<<<< HEAD
+      <workItem from="1554357762616" duration="7885000" />
+      <workItem from="1554646284061" duration="578000" />
+      <workItem from="1554870702028" duration="8000" />
+=======
       <workItem from="1554357762616" duration="7441000" />
       <workItem from="1554703439443" duration="15162000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="8471000" />
+=======
     <option name="totallyTimeSpent" value="22781000" />
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1629" height="1027" extended-state="0" />
@@ -275,9 +331,14 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24952741" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
+=======
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32866243" />
+>>>>>>> master
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -286,7 +347,11 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32941177" />
+=======
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32866243" />
+>>>>>>> master
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -297,6 +362,8 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
+=======
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -308,6 +375,7 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+>>>>>>> master
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/browserslist">
       <provider selected="true" editor-type-id="text-editor" />
@@ -325,6 +393,21 @@
     <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/app/sortable.directive.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="57" lean-forward="true" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -378,6 +461,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -395,6 +479,25 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/app/sortable.directive.spec.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+=======
     <entry file="file://$PROJECT_DIR$/src/app/model/user.client.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -526,6 +629,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="7" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="11" selection-end-column="7" />
+>>>>>>> master
         </state>
       </provider>
     </entry>

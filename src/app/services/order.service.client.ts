@@ -3,49 +3,63 @@ import {environment} from 'src/environments/environment';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Restaurant} from 'src/app/model/restaurant.client.model';
+import {Order} from "../model/order.client.model";
 
 @Injectable({
     providedIn: 'root'
 })
-export class PageService {
+export class OrderService {
     baseUrl = environment.baseUrl;
-    pageApiUrl = '/api/order/';
-    websiteApiUrl = '/api/restaurant/';
+    //orderApiUrl = '/api/order/';
+    //userApiUrl = '/api/user/';
 
     constructor(private http: HttpClient) { }
-    constructFindUpdateDeleteUrl(websiteId, pageId) {
-        return this.baseUrl + this.websiteApiUrl + websiteId + '/order/' + pageId;
+
+
+    createOrder(userId, order) {
+        console.log('front order service createOrder() called');
+        return this.http.post<Order>(
+            this.baseUrl + userId + '/order',
+            order);
     }
 
-    createPage(page, websiteId) {
-        console.log('front order service createPage() called');
-        return this.http.post<Restaurant>(
-            this.baseUrl + this.websiteApiUrl + websiteId + '/order',
-            page);
+    findOrdersByUser(userId): Observable<Order[]> {
+        console.log('front order service findOrderByUser() called');
+        return this.http.get<Order[]>(this.baseUrl + userId + '/order');
     }
 
-    findPageByWebsiteId(websiteId): Observable<Restaurant[]> {
-        console.log('front order service findPageByWebsite() called');
-        return this.http.get<Restaurant[]>(this.baseUrl + this.websiteApiUrl + websiteId + '/order');
-
+    findAllOrdersByRestaurant(restaurantId): Observable<Order[]> {
+        console.log('front order service findOrderByRestaurant() called');
+        return this.http.get<Order[]>(this.baseUrl + restaurantId + '/order');
+    }
+    finishOrder(restaurantId, orderId) {
+        console.log('front order service finishOrder() called');
+        return this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
     }
 
 
-
-    findPageById(websiteId, pageId) {
-        console.log('front order service findpageById() called');
+    findOrderById(userId,orderId) {
+        console.log('front order service findorderById() called');
         // Only need to call server's url to get the data.
-        // '/api/restaurant/:websiteId/order/:pageId'
-        return this.http.get<Restaurant>(this.constructFindUpdateDeleteUrl(websiteId, pageId));
+        // '/api/restaurant/:websiteId/order/:orderId'
+        return this.http.get<Order>(this.baseUrl+ userId+'/order/'+orderId);
     }
 
-    updatePage(websiteId, pageId, page) {
-        console.log('front order service updatePage() called');
-        return this.http.put<Restaurant>(this.constructFindUpdateDeleteUrl(websiteId, pageId), page);
+    updateOrder(userId, orderId, order) {
+        console.log('front order service updateOrder() called');
+        return this.http.put<Order>(this.baseUrl+userId+ '/order/'+orderId, order);
     }
 
-    deletePage(websiteId, pageId) {
-        console.log('front order service deletePage() called');
-        return this.http.delete<Restaurant>(this.constructFindUpdateDeleteUrl(websiteId, pageId));
+    deleteOrder(userId, orderId) {
+        console.log('front order service deleteOrder() called');
+        return this.http.delete<Order>(this.baseUrl+ userId+'/order/'+orderId);
+    }
+
+    findOrdersbyStatus(status) {
+        return this.http.get(this.baseUrl + '/order/status/' + status);
+    }
+
+    updateOrderStatus(orderId, status, order){
+        return this.http.put(this.baseUrl + '/order/' + orderId, order);
     }
 }

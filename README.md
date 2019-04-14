@@ -8,15 +8,17 @@
     checkout: url/restaurant=rid/user=uid/checkout
     
  Order: url/user/uid/orderId
-   
+ 
     order_edit: url/restaurant=rid/user=uid/order
  
+
  Restaurant:url/restaurant/rid
  
     profile: url/restaurant/rid/profile
     menu: url/restaurant/rid/menu
     menu_edit : url/restaurant/rid/menu-edit
     statistics: url/restaurant/rid/statistics
+    
  Admin: url/admin
  
     admin-list
@@ -138,5 +140,4 @@ API
     restaurantModel.updateRestaurant = updateRestaurant;
     restaurantModel.deleteRestaurant = deleteRestaurant;
     
-
 google map api key: AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM

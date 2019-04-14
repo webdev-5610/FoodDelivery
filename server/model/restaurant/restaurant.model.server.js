@@ -6,15 +6,15 @@ var restaurantModel = mongoose.model("Restaurant",restaurantSchema);
 var userModel = require('../user/user.model.server');
 
 // websiteService at server side will call this function
-restaurantModel.findAllOrders = findAllOrders;
-restaurantModel.createRestaurant = createRestaurant;
-restaurantModel.findRestaurantByName = findRestaurantByName;
-restaurantModel.findRestaurantByCredentials = findRestaurantByCredentials;
-restaurantModel.findRestaurantByType = findRestaurantByType;
-restaurantModel.updateRestaurant = updateRestaurant;
-restaurantModel.deleteRestaurant = deleteRestaurant;
+//restaurantModel.findAllOrders = findAllOrders;
+//restaurantModel.createRestaurant = createRestaurant;
+//restaurantModel.findRestaurantByName = findRestaurantByName;
+//restaurantModel.findRestaurantByCredentials = findRestaurantByCredentials;
+//restaurantModel.findRestaurantByType = findRestaurantByType;
+//restaurantModel.updateRestaurant = updateRestaurant;
+//restaurantModel.deleteRestaurant = deleteRestaurant;
 
-module.exports = websiteModel;
+module.exports = restaurantModel;
 
 // functions go here
 function createWebsiteForUser(userId, website) {

@@ -1,3 +1,74 @@
-<p>
-  restaurant-profile works!
-</p>
+<div *ngIf="errorFlag"
+class="alert alert-danger text-center">
+{{errorMsg}}
+</div>
+
+<body>
+<nav class="navbar fixed-top cl-blue-navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h1 class="cl-text-white navbar-brand cl-text-bold">
+        Restaurant Profile
+      </h1>
+    </div>
+
+    <div class="navibar-header">
+      <a (click)="updateRestaurant(restaurant)" style="cursor:pointer" class="navbar-brand ml-auto">
+        <i class="fas fa-check cl-text-white"></i>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container">
+  <p> Account info</p>
+  <div class="form-group cl-text-bold">
+    <label>Username</label>
+    <input [(ngModel)]="restaurant.username" name="username" type="text" class="form-control" placeholder="alice">
+  </div>
+  <div class="form-group cl-text-bold">
+    <label>Email address</label>
+    <input [(ngModel)]="restaurant.email" name="email" type = "email" class="form-control" placeholder="abc@gmail.com">
+  </div>
+  <div class="form-group cl-text-bold">
+    <label>Phone</label>
+    <input [(ngModel)]="restaurant.phone" name="phone" type="text" class="form-control" placeholder="Alice">
+  </div>
+
+  <p>Restaurant Information</p>
+  <div class="form-group cl-text-bold">
+    <label>Name</label>
+    <input [(ngModel)]="restaurant.name" name="name" type="text" class="form-control" placeholder="Wander">
+  </div>
+
+  <div class="form-group cl-text-bold">
+    <label>Address</label>
+    <input [(ngModel)]="restaurant.address" name="address" type="text" class="form-control" placeholder="Wander">
+  </div>
+  <div class="form-group cl-text-bold">
+    <label>Type</label>
+    <input [(ngModel)]="restaurant.type" name="type" type="text" class="form-control" placeholder="Wander">
+  </div>
+  <button class="btn btn-primary btn-block"
+          routerLink="../restaurant/{{restaurant._id}}/website">Menu
+  </button>
+  <button class="btn btn-danger  btn-block"
+          (click)="logout()" routerLinkActive="active">Logout
+  </button>
+  <!--<button class="btn btn-danger  btn-block"-->
+          <!--(click)="deleteUser()" routerLinkActive="active">Delete-->
+  <!--</button>-->
+
+</div>
+
+
+<nav class="navbar fixed-bottom cl-blue-navbar">
+  <div class="container-fluid justify-content-end">
+    <a href="#" routerLink="/profile" class="navbar-brand cl-text-white cl-icon-padding">
+      <span class="fas fa-user"></span>
+    </a>
+  </div>
+</nav>
+
+</body>
