@@ -37,7 +37,7 @@ const server = http.createServer(app);
 
 
 
-require("./assignment/app")(app);
+require("./server/app")(app);
 
 // Point static path to dist -- For building -- REMOVE
 app.use(express.static(path.join(__dirname, 'dist/web5610')));

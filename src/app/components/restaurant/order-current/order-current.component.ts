@@ -12,7 +12,7 @@ import {SharedService} from "../../../services/shared.service";
 export class RestaurantOrderCurrentComponent implements OnInit {
   employeeId: String;
   orders: Order[];
-  buttoncolor = ""
+  //buttoncolor = ""
 
   constructor(private restaurantService: RestaurantService,
               private orderService,
@@ -22,16 +22,16 @@ export class RestaurantOrderCurrentComponent implements OnInit {
 
   ngOnInit() {
     this.employeeId = this.sharedService.user._id;
-    this.orderService.findOrdersbyStatus(1).suscribe(
-        (orders: any) => {
-          this.orders = orders;
-          console.log(this.orders);
-        }
-    )
+    // this.orderService.findOrdersbyStatus(1).suscribe(
+    //     (orders: any) => {
+    //       this.orders = orders;
+    //       console.log(this.orders);
+    //     }
+    // )
   }
 
   sendtoAlldelivery(order: Order){
-    this.orderService.updateOrderStatus(order._id, 2, order);
+    //this.orderService.updateOrderStatus(order._id, 2, order);
     // this.buttoncolor = '#808389';
   }
 

@@ -1,235 +1,202 @@
+var _ = require('lodash');
+
 module.exports = function (app) {
-    // fake data
-    // var users= [
-    //   {_id: "123", name: "alice", password: "alice", firstName: "Alice", lastName: "Wonder" },
-    //   {_id: "234", name: "bob", password: "bob", firstName: "Bob", lastName: "Marley" },
-    //   {_id: "345", name: "charly", password: "charly", firstName: "Charly", lastName: "Garcia" },
-    //   {_id: "456", name: "jan", password: "jan", firstName: "Jose", lastName: "Annunzi" }
-    //   ];
-
-    // db
-    const userModel = require("../model/user/user.model.server");
-
-    var bcrypt = require("bcrypt-nodejs");
-    // passport JS
+    //var randomstring = require("randomstring");
     var passport = require('passport');
-    var LocalStrategy = require('passport-local').Strategy;
-    var FacebookStrategy = require('passport-facebook').Strategy;
-    var facebookConfig = {
-        // client id: the appId in facebook developer app.
-        clientID: process.env.FACEBOOK_CLIENT_ID || '568059187040078',
+    const LocalStrategy = require('passport-local').Strategy;
 
-        // client secret: the secret in settings -> basic -> App Secret.
-        clientSecret: process.env.FACEBOOK_CLIENT_SECRET || 'd38f3e16bf93fcc01fcb89802d69844f',
+    var userModel = require("../model/user/user.model.server");
+    const bcrypt = require('bcrypt-nodejs');
 
-        // callbackURL: products Facebook Login settings -> Client OAuth Settings -> valid OAuth redirect URLs
-        // the callback URL is customized by self. template: http://localhost:3000/auth/facebook/callback.
-        callbackURL: process.env.FACEBOOK_CALLBACK_URL || app.settings.baseUrl + '/auth/facebook/callback/'
-    };
-    // Store an encrypted representation of the user in a cookie.
-    // This will allow Passport to maintain session information for the currently logged in user.
-    passport.serializeUser(serializeUser);
+    app.post("/api/user", createUser);
+    app.get("/api/user", findUser);
+    app.get("/api/user/:userId", findUserById);
+    app.put("/api/user/:userId", updateUser);
+    app.delete("/api/user/:userId", deleteUser);
+    app.post("/api/login", passport.authenticate('local'), login);
+    app.post("/api/logout", logout);
+    app.post("/api/register", register);
+    app.post("/api/loggedin", loggedin);
+
 
     function serializeUser(user, done) {
-        return done(null, user);
+        done(null, user._id);
     }
 
-    passport.deserializeUser(function (user, done) {
-        return userModel.findUserById(user._id)
-            .then(function (user) {
+    function deserializeUser(uid, done) {
+        userModel.findUserById(uid).then(
+            function (user) {
                 done(null, user);
-            }, function (err) {
+            },
+            function (err) {
                 done(err, null);
             });
-    });
-
-    // implement facebook login strategy
-    passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
-
-    function facebookStrategy(token, refreshToken, profile, done) {
-        console.log('Backend: facebook strategy called');
-        userModel.findUserByFacebookId(profile.id)
-            .then(function (user) {
-                if (user) {
-                    return done(null, user);
-                } else {
-                    var names = profile.displayName.split(" ");
-                    var newFacebookUser = {
-                        lastName: names[1],
-                        firstName: names[0],
-                        email: profile.emails ? profile.emails[0].value : "",
-                        facebook: {
-                            id: profile.id,
-                            token: token
-                        }
-                    };
-                    return userModel.createUser(newFacebookUser);
-
-                }
-            }, function (err) {
-                if (err) {
-                    return done(err);
-                }
-            });
     }
 
-    // api list
-    // local strategy
+    passport.serializeUser(serializeUser);
+    passport.deserializeUser(deserializeUser);
+
     passport.use(new LocalStrategy(localStrategy));
 
+    // Authentication
+
     function localStrategy(username, password, done) {
-        userModel.findUserByUsername(username).then(
-            function (user) {
-                if (user && bcrypt.compareSync(password, user.password)) {
-                    console.log('password valid!');
-                    return done(null, user);
-                } else {
-                    return done(null, false);
-                }
-            }, function (err){
-                console.log('err is ' + err);
-                return done(err);
-            });
-    }
-
-    // api list
-    //app.post('/api/login', passport.authenticate('local'), login);
-    //app.post('/api/logout', logout);
-    //app.post('/api/register', register);
-    app.get('/api/loggedIn', loggedin);
-    app.post('/api/user', createUser);
-    app.get('/api/user/', findUserByUsernameOrCred);
-    app.get('/api/user/:uid', findUserById);
-    app.put('/api/user/:uid', updateUser);
-    app.delete('/api/user/:uid', deleteUser);
-    // facebook strategy
-    app.get('/facebook/login', passport.authenticate('facebook', {scope: 'email'}));
-    // facebook strategy call back
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook',
-            {failureRedirect: '/login'}),
-        function(req, res) {
-            // Successful authentication, redirect to profile order with user id.
-            // console.log(req.user._id);
-            const id = req.user._id;
-            const url = '/user/' + id;
-            return res.redirect(url);
-        });
-
-    // functions
-    function createUser(req, res) {
-        let user = req.body;
         userModel
-            .createUser(user).then(function (user) {
-                res.status(200).send(user);
-                return user;
-            },
-            function (error) {
-                comsole.log("This name is already exist.");
-                res.status(404).send("This name is already exist.");
-                return error;
-            }
-        )
+            .findUserByUsername(username)
+            .then(
+                function (user) {
+                    if (user &&
+                        user.username === username &&
+                        bcrypt.compareSync(password, user.password)) {
+                        return done(null, user);
+                    } else {
+                        return done(null, false);
+                    }
+                },
+                function (err) {
+                    if (err) {
+                        return done(err);
+                    }
+                }
+            );
     }
+
     function login(req, res) {
-        console.log('Backend: login() called');
-        var user = req.user;
+        const user = req.user;
         res.json(user);
     }
 
     function logout(req, res) {
-        console.log('Backend: logout() called');
         req.logOut();
-        res.status(200).send({});
-        // if only send status(200), then the return result is a string "OK".
-        // which means the front end cannot parse the "OK" string.
-        // must return something in json format. So here we just return {}.
-    }
-    function findUserByUsernameOrCred(req, res) {
-        console.log('backend service called');
-        const username = req.query.name;
-        const password = req.query.password;
-        if (username && password) {
-            findUserByCred(res,username,password);
-        } else {
-            findUserByUsername( res,username);
-        }
+        // res.send(200);
+        res.send({});
     }
 
-    function findUserByUsername( res,username) {
-        userModel.findUserByUsername(username).exec(
-            function (err, user) {
-                if (err) {
-                    console.log(err);
-                    return res.sendStatus(400).send(err);
-                }
-                if (user == null) {
-                    return res.sendStatus(404);
-                }
-                return res.json(user);
-            }
-        );
-    }
-
-
-    function findUserById(req, res) {
-        // params must be the thing in the url placeholder
-        let userId = req.params["uid"];
-        userModel.findUserById(userId).exec(
-            function (err, user) {
-                if (err) {
-                    return res.sendStatus(400).send(err);
-                }
-                return res.json(user);
-            }
-        )
-    }
-
-    function updateUser(req, res) {
-        let userId = req.params["uid"];
-        let user = req.body;
-        userModel.updateUser(userId, user).exec(
-            function (err, user) {
-                if (err) {
-                    return res.sendStatus(400).send(err);
-                }
-                return res.status(200).send(user);
-            }
-        );
-    }
-
-    function deleteUser(req, res) {
-        let userId = req.params["uid"];
-        userModel.deleteUser(userId).exec(
-            function (err, user) {
-                if (err) {
-                    return res.sendStatus(400).send(err);
-                }
-                return res.status(200).send(user);
-            }
-        );
-    }
-    function register(req, res) {
-        var user = req.body;
-        user.password = bcrypt.hashSync(user.password);
-        return userModel.createUser(user).then(
-            function (user) {
-                if (user) {
-                    req.login(user, function (err) {
-                        if (err) {
-                            res.status(400).send(err);
-                        } else {
-                            res.json(user);
-                        }
-                    });
-                }
-            });
-    }
-
-    // check if passport has already authenticated the user in the session.
     function loggedin(req, res) {
-        console.log('Backend: loggedin() called.');
         res.send(req.isAuthenticated() ? req.user : '0');
     }
 
-};
+    function register(req, res) {
+        const user = req.body;
+        console.log(req.body);
+        user.password = bcrypt.hashSync(user.password);
+        userModel
+            .createUser(user)
+            .then(
+                function (newUser) {
+                    if (newUser) {
+                        req.login(newUser, function (error) {
+                            if (error) {
+                                res.status(400).send(error);
+                            } else {
+                                res.json(user);
+                            }
+                        });
+                    }
+                }
+            );
+    }
+
+    function createUser(req, res) {
+        var user = _.pick(req.body, ['username', 'password', 'firstName', 'lastName', 'email', 'phone']);
+        userModel.createUser(user).then(
+            function (user) {
+                if (user) {
+                    res.json(user);
+                } else {
+                    res.status(400).send("Something went wrong");
+                }
+            },
+            function (err) {
+                res.status(400).send(err);
+            }
+        );
+    };
+
+    function findUser(req, res) {
+        if (req.query["password"]) {
+            findUserByCredentials(req, res);
+        } else {
+            findUserByUsername(req, res);
+        }
+    }
+
+    function findUserByUsername(req, res) {
+        var username = req.query["username"];
+        userModel.findUserByUsername(username).then(
+            function (user) {
+                if (user) {
+                    res.status(200).json(user);
+                } else {
+                    res.status(200).send({});
+                }
+            },
+            function (err) {
+                res.status(400).send(err);
+            }
+        );
+    };
+
+    function findUserByCredentials(req, res) {
+        var username = req.query["username"];
+        var password = req.query["password"];
+        userModel.findUserByCredentials(username, password).then(
+            function (user) {
+                if (user) {
+                    res.json(user);
+                } else {
+                    res.status(400).send("Cannot find user with the username and password");
+                }
+            },
+            function (err) {
+                res.status(400).send(err);
+            }
+        );
+    }
+
+    function findUserById(req, res) {
+        var userId = req.params["userId"];
+        userModel.findUserById(userId).then(
+            function (user) {
+                if (user) {
+                    res.json(user);
+                } else {
+                    res.status(400).send("Cannot find user with the userID");
+                }
+            },
+            function (err) {
+                res.status(400).send(err);
+            }
+        );
+    };
+
+    function updateUser(req, res) {
+        var userId = req.params["userId"];
+        var updatedUser = req.body;
+        userModel.updateUser(userId, updatedUser).then(
+            function (user) {
+                if (user) {
+                    res.json(user);
+                } else {
+                    res.status(400).send("Cannot find user")
+                }
+            },
+            function (err) {
+                res.status(400).send(err);
+            }
+        );
+    };
+
+    function deleteUser(req, res) {
+        var userId = req.params["userId"];
+        userModel.deleteUser(userId).then(
+            function (stats) {
+                res.json(stats);
+            },
+            function (err) {
+                res.status(400).send(err);
+            }
+        );
+    };
+
+}

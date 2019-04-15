@@ -1,3 +1,50 @@
-<p>
-  order-history works!
-</p>
+<nav class="navbar fixed-top cl-grey-navbar">
+    <div class="container-fluid">
+        <div>
+            <a routerLink="../"
+               class="navbar-brand cl-text-black cl-icon-padding">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
+                Order History
+            </h1>
+        </div>
+        <a routerLink="./new"
+           class="navbar-brand cl-text-black float-right cl-icon-padding">
+            <i class="fas fa-plus"></i>
+        </a>
+    </div>
+</nav>
+
+<div class="container cl-container-padding-more">
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total</th>
+            <th scope="col">Details</th>
+        </tr>
+        </thead>
+
+        <tbody *ngFor="let order of orders; index as i">
+        <tr>
+            <th scope="row">{{i + 1}}</th>
+            <td>{{order.time}}</td>
+            <td>{{order.user}}</td>
+            <td>{{order.details.total}}</td>
+            <td><a routerLink="/restaurant/order/{{order._id}}" class="badge badge-info">click to view</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<nav class="navbar fixed-bottom cl-grey-navbar">
+    <div class="container-fluid">
+        <a routerLink="restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue float-right">
+            <i class="fas fa-user cl-text-blue"></i>
+        </a>
+    </div>
+</nav>
