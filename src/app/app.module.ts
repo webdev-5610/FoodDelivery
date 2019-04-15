@@ -11,16 +11,15 @@ import { CheckoutComponent } from './components/user/checkout/checkout.component
 import { OrderComponent } from './components/user/order/order.component';
 import { RestaurantProfileComponent } from './components/restaurant/restaurant-profile/restaurant-profile.component';
 import { MenuComponent } from './components/restaurant/menu/menu.component';
-import { StatisticsComponent } from './components/restaurant/statistics/statistics.component';
 import { HomeComponent } from './components/website/home/home.component';
-import { SearchbyaddressComponent } from './components/website/searchbyaddress/searchbyaddress.component';
-import { SearchbytypeComponent } from './components/website/searchbytype/searchbytype.component';
 import { RestaurantComponent } from './components/website/restaurant/restaurant.component';
 import {LoginComponent} from "./components/website/login/login.component";
 import {RegisterComponent} from "./components/website/register/register.component";
 import {HttpClientModule} from "@angular/common/http";
-
-
+import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
+import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
+import { RestaurantOrderHistoryComponent } from './components/restaurant/order-history/order-history.component';
+import { RestaurantOrderCurrentComponent } from './components/restaurant/order-current/order-current.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +33,12 @@ import {HttpClientModule} from "@angular/common/http";
     OrderComponent,
     RestaurantProfileComponent,
     MenuComponent,
-    StatisticsComponent,
     HomeComponent,
-    SearchbyaddressComponent,
-    SearchbytypeComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    RestaurantHomeComponent,
+    MenuEditComponent,
+    RestaurantOrderHistoryComponent,
+    RestaurantOrderCurrentComponent
   ],
   imports: [
     BrowserModule,

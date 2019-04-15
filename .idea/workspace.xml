@@ -2,9 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/services/search.service.server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/menu-edit/menu-edit.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/menu-edit/menu-edit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/order-current/order-current.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/order-current/order-current.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/order-history/order-history.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/order-history/order-history.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/restaurant-home/restaurant-home.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/restaurant-home/restaurant-home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/restaurant-home/restaurant-home.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/restaurant/restaurant-home/restaurant-home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/services/order.service.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/services/order.service.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/order/order.model.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/order/order.model.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/restaurant/restaurant.model.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/restaurant/restaurant.model.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/user/user.model.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/user/user.model.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/user/user.schema.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/user/user.schema.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/services/restaurant.service.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/services/restaurant.service.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/restaurant/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/restaurant/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/menu/menu.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/restaurant/restaurant-profile/restaurant-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/restaurant-profile/restaurant-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/restaurant/restaurant-profile/restaurant-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/restaurant-profile/restaurant-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/restaurant/statistics/statistics.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/menu-edit/menu-edit.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/restaurant/statistics/statistics.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/restaurant/statistics/statistics.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/menu-edit/menu-edit.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/restaurant/statistics/statistics.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/website/searchbyaddress/searchbyaddress.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/order-current/order-current.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/website/searchbyaddress/searchbyaddress.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/website/searchbyaddress/searchbyaddress.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/order-current/order-current.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/website/searchbyaddress/searchbyaddress.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/website/searchbytype/searchbytype.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/order-history/order-history.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/website/searchbytype/searchbytype.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/website/searchbytype/searchbytype.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/restaurant/order-history/order-history.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/website/searchbytype/searchbytype.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/restaurant.client.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/restaurant.client.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/order.service.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/order.service.client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/restaurant.service.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/restaurant.service.client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/shared.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/shared.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/user.service.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/user.service.client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1095">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
+              <caret line="78" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
         </entry>
@@ -56,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/services/order.service.client.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+            <state relative-caret-position="499">
+              <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -73,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/services/user.service.client.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="29" />
+            <state relative-caret-position="450">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -154,7 +197,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="-9" />
+    <option name="y" value="169" />
     <option name="width" value="1392" />
     <option name="height" value="877" />
   </component>
@@ -331,12 +375,12 @@
       <updated>1554357761364</updated>
       <workItem from="1554357762616" duration="7441000" />
       <workItem from="1554703439443" duration="42771000" />
-      <workItem from="1555297960330" duration="249000" />
+      <workItem from="1555297960330" duration="647000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50461000" />
+    <option name="totallyTimeSpent" value="50859000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -348,7 +392,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="23" width="1392" height="877" extended-state="6" />
+    <frame x="162" y="396" width="1392" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -356,7 +401,7 @@
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32866243" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3299363" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3299363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -364,7 +409,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3299363" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.3299363" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32866243" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32866243" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -568,7 +613,7 @@
     <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1095">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
         </state>
       </provider>
     </entry>
@@ -584,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/user.service.client.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="29" />
+        <state relative-caret-position="450">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
@@ -607,8 +652,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/order.service.client.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+        <state relative-caret-position="499">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

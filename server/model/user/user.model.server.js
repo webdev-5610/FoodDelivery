@@ -11,7 +11,7 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
-userModel.findAllOrders = findAllOrders;
+//userModel.findAllOrders = findAllOrders;
 
 module.exports = userModel;
 
