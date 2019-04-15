@@ -20,7 +20,7 @@ module.exports = function(app) {
     app.delete('/api/user/:userId/order/:orderId', deleteOrder);
     app.get('/api/user/:userId/order/:orderId/:status',findOrdersByStatus);
     app.put('/api/user/:userId/order/:orderId/:status', updateOrderStatus);
-    app.get('/api/deliver/:deliverid/order', findOrdersByDeliver);
+    app.get('/api/deliver/:deliverId/order', findOrdersByDeliver);
 
 
 
