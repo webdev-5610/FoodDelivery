@@ -1,5 +1,47 @@
 # FoodDelivery
 
+4.13:update order api
+
+    app.post('/api/user/:userId/order', createOrder);
+    app.post('/api/deliver/:deliverId/order', orderAccept);
+    app.get('/api/user/:userId/order', findOrdersByUser);
+    app.get('/api/user/:userId/order/:orderId', findOrderById);
+    app.put('/api/user/:userId/order/:orderId', updateOrder);// also check status if finished or not.
+    app.delete('/api/user/:userId/order/:orderId', deleteOrder);
+    app.get('/api/user/:userId/order/:orderId/:status',findOrdersByStatus);
+    app.put('/api/user/:userId/order/:orderId/:status', updateOrderStatus);
+    app.get('/api/deliver/:deliverId/order', findOrdersByDeliver);
+    
+  order signature
+  
+    createOrder(userId, order) {
+    }
+    findOrdersByUser(userId): Observable<Order[]> {
+    }
+    findAllOrdersByDeliver(deliverId): Observable<Order[]> {
+    }
+    findOrderById(userId, orderId) {
+    }
+    updateOrder(userId, orderId, order) {
+    }
+    deleteOrder(userId, orderId) {
+    }
+    findOrderByStatus(deliverId, status){
+    }
+    finishOrder(userId, orderId, orderStatus=1) {
+    }
+    postOrder(userId, orderId, orderStatus=2){
+    }
+    acceptOrder(userId, orderId, orderStatus=3){
+    }
+    completeOrder(userId, orderId, orderStatus=4){
+    }
+    cancelOrder(userId,orderId, orderStatus=5){
+    }
+    orderAccept(deliverId, userId, orderId){
+    }
+    
+
 
 
 
