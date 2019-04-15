@@ -12,6 +12,9 @@
     app.put('/api/user/:userId/order/:orderId/:status', updateOrderStatus);
     app.get('/api/deliver/:deliverId/order', findOrdersByDeliver);
     
+    app.get('/api/deliver/pending', findAllPendingOrders);
+    app.get('/api/deliver/:deliverId/currentOrder', findCurrentOrderByDeliver);
+    
   order signature
   
     createOrder(userId, order) {
@@ -41,7 +44,10 @@
     orderAccept(deliverId, userId, orderId){
     }
     
-
+ Delivery: 
+   home: url/deliver/uid/home
+   detail: url/deliver/uid/detail
+   profile: url/user/uid/profile
 
  Customer: url/user/uid
  
@@ -172,6 +178,10 @@ API
     orderMedel.createOrder = createorder;
     orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;   
     orderModel.finishOrder = finishOrder;
+
+    deliver:
+    deliverModel.findAllPendingOrder = findAllPendingOrder;
+    deliverModel.findInTransitOrder = findInTransitOrder;
     
     restaurant:
     restaurantModel.findAllOrders = findAllOrders;
@@ -182,4 +192,4 @@ API
     restaurantModel.updateRestaurant = updateRestaurant;
     restaurantModel.deleteRestaurant = deleteRestaurant;
     
-google map api key: AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM
+ google map api key: AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM
