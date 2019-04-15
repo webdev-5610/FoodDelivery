@@ -86,7 +86,7 @@ export class UserService {
 
     loggedIn() {
         return this.http.get(this.baseUrl + '/api/loggedIn', this.options)
-            .pipe(
+            .pipe()
             .map((res: Response) => {
                 const user = JSON.stringify(res);
                 console.log('Inside loggedIn(), the user is ' + user);

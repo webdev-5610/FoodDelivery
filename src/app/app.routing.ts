@@ -2,8 +2,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {HomeComponent} from "./components/website/home/home.component";
 import {LoginComponent} from "./components/website/login/login.component";
-import {SearchbyaddressComponent} from "./components/website/searchbyaddress/searchbyaddress.component";
-import {SearchbytypeComponent} from "./components/website/searchbytype/searchbytype.component";
 import {RestaurantComponent} from "./components/website/restaurant/restaurant.component";
 import {UserProfileComponent} from "./components/user/user-profile/user-profile.component";
 import {OrderhistoryComponent} from "./components/user/orderhistory/orderhistory.component";
