@@ -34,7 +34,7 @@ export class OrderService {
     }
     finishOrder(restaurantId, orderId) {
         console.log('front order service finishOrder() called');
-        return this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
+        return null; // this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
     }
 
 
@@ -53,5 +53,13 @@ export class OrderService {
     deleteOrder(userId, orderId) {
         console.log('front order service deleteOrder() called');
         return this.http.delete<Order>(this.baseUrl+ userId+'/order/'+orderId);
+    }
+
+    findOrdersbyStatus(status) {
+        return this.http.get(this.baseUrl + '/order/status/' + status);
+    }
+
+    updateOrderStatus(orderId, status, order){
+        return this.http.put(this.baseUrl + '/order/' + orderId, order);
     }
 }

@@ -131,3 +131,10 @@ a:hover {
   width: 100%;
   height: 100%;
 }
+
+.btn-customer:active {
+  box-shadow: none;
+  color: #ffffff;
+  background-color: #808389;
+  border-color: #494F57;
+}

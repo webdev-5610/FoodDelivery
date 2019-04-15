@@ -1,15 +1,17 @@
 import {Order} from "./order.client.model";
 
-class Menu {
+export class Menu {
     _id: String;
     dish_name: String;
     price: Number;
     description: String;
+    url: String;
 
-    constructor(name: String, price: Number, description: String) {
+    constructor(name: String, price: Number, description: String, url: String) {
         this.description = description;
         this.dish_name = name;
         this.price = price;
+        this.url = url;
     }
 
 }
@@ -17,24 +19,26 @@ class Menu {
 
 export class Restaurant {
     _id: String;
-    name: String;
+    username: String;
     password: String;
+    name: String;
     email: String;
     address: String;
     phone: String;
     type: String;
-    oders: Order[];
+    orders: Order[];
     menus: Menu[];
 
 
-    constructor(name: String, password: String, email: String, address: String, phone: String, type: String, orders: Order[], menus: Menu[]) {
-        this.name = name;
+    constructor(username: String, password: String,name: String, email: String, address: String, phone: String, type: String, orders: Order[], menus: Menu[]) {
+        this.username = username;
         this.password = password;
+        this.name = name;
         this.email = email;
         this.address = address;
         this.phone = phone;
         this.type = type;
-        this.oders = orders;
+        this.orders = orders;
         this.menus = menus;
     }
 }

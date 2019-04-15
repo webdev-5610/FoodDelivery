@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var orderSchema = require('../server/model/order/order.schema.server');
+var orderSchema = require('../order/order.schema.server');
 const userSchema = new mongoose.Schema({
   _id:String,
   name: String,

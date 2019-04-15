@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchbytypeComponent } from './searchbytype.component';
+import { OrderCurrentComponent } from './order-current.component';
 
-describe('SearchbytypeComponent', () => {
-  let component: SearchbytypeComponent;
-  let fixture: ComponentFixture<SearchbytypeComponent>;
+describe('OrderCurrentComponent', () => {
+  let component: OrderCurrentComponent;
+  let fixture: ComponentFixture<OrderCurrentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchbytypeComponent ]
+      declarations: [ OrderCurrentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchbytypeComponent);
+    fixture = TestBed.createComponent(OrderCurrentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
