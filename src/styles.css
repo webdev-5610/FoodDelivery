@@ -138,3 +138,7 @@ a:hover {
   background-color: #808389;
   border-color: #494F57;
 }
+
+.pull-right {
+  float: right;
+}

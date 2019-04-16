@@ -13,13 +13,16 @@ import { RestaurantProfileComponent } from './components/restaurant/restaurant-p
 import { MenuComponent } from './components/restaurant/menu/menu.component';
 import { HomeComponent } from './components/website/home/home.component';
 import { RestaurantComponent } from './components/website/restaurant/restaurant.component';
-import {LoginComponent} from "./components/website/login/login.component";
-import {RegisterComponent} from "./components/website/register/register.component";
-import {HttpClientModule} from "@angular/common/http";
+import { LoginComponent } from './components/website/login/login.component';
+import { RegisterComponent } from './components/website/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
 import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
 import { RestaurantOrderHistoryComponent } from './components/restaurant/order-history/order-history.component';
 import { RestaurantOrderCurrentComponent } from './components/restaurant/order-current/order-current.component';
+import { DetailComponent } from './components/deliver/detail/detail.component';
+import { DeliverHomeComponent } from './components/deliver/home/home.component';
+import { DeliverService } from './services/deliver.service.client';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { RestaurantOrderCurrentComponent } from './components/restaurant/order-c
     RestaurantHomeComponent,
     MenuEditComponent,
     RestaurantOrderHistoryComponent,
-    RestaurantOrderCurrentComponent
+    RestaurantOrderCurrentComponent,
+    DetailComponent,
+    DeliverHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +52,7 @@ import { RestaurantOrderCurrentComponent } from './components/restaurant/order-c
     FormsModule,
     // QuillEditorModule
   ],
-  // providers: [UserService,],
+  providers: [DeliverService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

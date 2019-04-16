@@ -1,0 +1,31 @@
+<div>
+  <nav class="navbar fixed-top cl-blue-navbar">
+    <div class="container">
+      <div class="cl-text-white navbar-brand cl-text-bold">
+        Detail
+      </div>
+      <a routerLink="/user/{{userId}}/website/new" class="cl-text-white cl-icon-padding pull-right cl-text-bold">
+        <div class="alert alert-warning nav-btn" role="alert">
+          Profile
+        </div>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container website-new-content">
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let website of websites" class="list-group-item">
+        <a routerLink="/user/{{userId}}/website/{{website._id}}"><span class="fas fa-cog fontawsome_icon pull-right"></span></a>
+        <a routerLink="/user/{{userId}}/website/{{website._id}}/page">{{website.name}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <nav class="navbar fixed-bottom cl-blue-navbar">
+    <div class="container">
+      <div class="cl-text-white navbar-brand cl-text-bold navbar-header-text">
+        Deliver
+      </div>
+    </div>
+  </nav>
+</div>

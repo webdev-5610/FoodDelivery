@@ -14,6 +14,9 @@ import {RestaurantHomeComponent} from "./components/restaurant/restaurant-home/r
 import {RestaurantOrderHistoryComponent} from "./components/restaurant/order-history/order-history.component";
 import {RestaurantOrderCurrentComponent} from "./components/restaurant/order-current/order-current.component";
 import {MenuEditComponent} from "./components/restaurant/menu-edit/menu-edit.component";
+import { DetailComponent } from './components/deliver/detail/detail.component';
+import { DeliverHomeComponent } from './components/deliver/home/home.component';
+
 // Import all other components here
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -33,10 +36,8 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid/orderhistory', component: OrderhistoryComponent},
   {path: 'user/:uid/order/:oid', component: OrderComponent},
   //delivery
-  {path: 'delivery/:did/home', component: UserProfileComponent},
-  {path: 'delivery/:did/profile', component: UserProfileComponent},
-  {path: 'delivery/:did/pendingorder', component: OrderhistoryComponent},
-  {path: 'delivery/:did/ondelivery', component: OrderComponent},
+  {path: 'deliver/:uid/home', component: DeliverHomeComponent},
+  {path: 'deliver/:uid/detail/:oid', component: DetailComponent}
     //order-history
 
     //admin
