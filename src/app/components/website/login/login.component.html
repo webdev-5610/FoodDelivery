@@ -32,7 +32,7 @@
         <mat-radio-group
                 aria-labelledby="example-radio-group-label"
                 class="example-radio-group"
-                [(ngModel)]="loginrole">
+                [(ngModel)]="loginrole"[ngModelOptions]="{standalone: true}">
             <mat-radio-button class="example-radio-button" *ngFor="let role of roles" [value]="role">
                 {{role}}
             </mat-radio-button>

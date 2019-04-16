@@ -18,14 +18,16 @@ import {RegisterComponent} from "./components/website/register/register.componen
 import {HttpClientModule} from "@angular/common/http";
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
 import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
-import { RestaurantOrderHistoryComponent } from './components/restaurant/order-history/order-history.component';
-import { RestaurantOrderCurrentComponent } from './components/restaurant/order-current/order-current.component';
+import { RestaurantOrderHistoryComponent } from './components/restaurant/restaurant-order-history/order-history.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {UserService} from "./services/user.service.client";
 import {RestaurantService} from "./services/restaurant.service.client";
 import {OrderService} from "./services/order.service.client";
 import {WebsiteService} from "./services/website.service.client";
 import {SharedService} from "./services/shared.service";
+import { CurrentOrderComponent } from './components/restaurant/current-order/current-order.component';
+import {AuthGuard} from "./services/auth-guard.service";
+import {EmployeeService} from "./services/employee.service.client";
 
 
 
@@ -46,7 +48,7 @@ import {SharedService} from "./services/shared.service";
     RestaurantHomeComponent,
     MenuEditComponent,
     RestaurantOrderHistoryComponent,
-    RestaurantOrderCurrentComponent
+    CurrentOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import {SharedService} from "./services/shared.service";
     // QuillEditorModule
       MatRadioModule
   ],
-  providers: [UserService,RestaurantService,OrderService,WebsiteService,SharedService],
+  providers: [UserService,EmployeeService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

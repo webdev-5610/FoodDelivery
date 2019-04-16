@@ -8,9 +8,7 @@ import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class UserService {
     constructor(private _http: HttpClient, private sharedService: SharedService, private router: Router) {}
     baseUrl = environment.baseUrl;

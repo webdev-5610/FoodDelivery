@@ -106,9 +106,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _components_restaurant_restaurant_home_restaurant_home_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/restaurant/restaurant-home/restaurant-home.component */ "./src/app/components/restaurant/restaurant-home/restaurant-home.component.ts");
 /* harmony import */ var _components_restaurant_menu_edit_menu_edit_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/restaurant/menu-edit/menu-edit.component */ "./src/app/components/restaurant/menu-edit/menu-edit.component.ts");
-/* harmony import */ var _components_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/restaurant/order-history/order-history.component */ "./src/app/components/restaurant/order-history/order-history.component.ts");
-/* harmony import */ var _components_restaurant_order_current_order_current_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/restaurant/order-current/order-current.component */ "./src/app/components/restaurant/order-current/order-current.component.ts");
-/* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/esm5/radio.es5.js");
+/* harmony import */ var _components_restaurant_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/restaurant/restaurant-order-history/order-history.component */ "./src/app/components/restaurant/restaurant-order-history/order-history.component.ts");
+/* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/esm5/radio.es5.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
+/* harmony import */ var _services_order_service_client__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/order.service.client */ "./src/app/services/order.service.client.ts");
+/* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/website.service.client */ "./src/app/services/website.service.client.ts");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/restaurant/current-order/current-order.component */ "./src/app/components/restaurant/current-order/current-order.component.ts");
+
+
+
+
+
 
 
 
@@ -151,8 +161,8 @@ var AppModule = /** @class */ (function () {
                 _components_website_restaurant_restaurant_component__WEBPACK_IMPORTED_MODULE_13__["RestaurantComponent"],
                 _components_restaurant_restaurant_home_restaurant_home_component__WEBPACK_IMPORTED_MODULE_17__["RestaurantHomeComponent"],
                 _components_restaurant_menu_edit_menu_edit_component__WEBPACK_IMPORTED_MODULE_18__["MenuEditComponent"],
-                _components_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_19__["RestaurantOrderHistoryComponent"],
-                _components_restaurant_order_current_order_current_component__WEBPACK_IMPORTED_MODULE_20__["RestaurantOrderCurrentComponent"]
+                _components_restaurant_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_19__["RestaurantOrderHistoryComponent"],
+                _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_26__["CurrentOrderComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -160,9 +170,9 @@ var AppModule = /** @class */ (function () {
                 _app_routing__WEBPACK_IMPORTED_MODULE_5__["Routing"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 // QuillEditorModule
-                _angular_material_radio__WEBPACK_IMPORTED_MODULE_21__["MatRadioModule"]
+                _angular_material_radio__WEBPACK_IMPORTED_MODULE_20__["MatRadioModule"]
             ],
-            // providers: [UserService,],
+            providers: [_services_user_service_client__WEBPACK_IMPORTED_MODULE_21__["UserService"], _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_22__["RestaurantService"], _services_order_service_client__WEBPACK_IMPORTED_MODULE_23__["OrderService"], _services_website_service_client__WEBPACK_IMPORTED_MODULE_24__["WebsiteService"], _services_shared_service__WEBPACK_IMPORTED_MODULE_25__["SharedService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
@@ -194,8 +204,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_restaurant_menu_menu_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/restaurant/menu/menu.component */ "./src/app/components/restaurant/menu/menu.component.ts");
 /* harmony import */ var _components_website_register_register_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/website/register/register.component */ "./src/app/components/website/register/register.component.ts");
 /* harmony import */ var _components_restaurant_restaurant_home_restaurant_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/restaurant/restaurant-home/restaurant-home.component */ "./src/app/components/restaurant/restaurant-home/restaurant-home.component.ts");
-/* harmony import */ var _components_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/restaurant/order-history/order-history.component */ "./src/app/components/restaurant/order-history/order-history.component.ts");
-/* harmony import */ var _components_restaurant_order_current_order_current_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/restaurant/order-current/order-current.component */ "./src/app/components/restaurant/order-current/order-current.component.ts");
+/* harmony import */ var _components_restaurant_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/restaurant/restaurant-order-history/order-history.component */ "./src/app/components/restaurant/restaurant-order-history/order-history.component.ts");
+/* harmony import */ var _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/restaurant/current-order/current-order.component */ "./src/app/components/restaurant/current-order/current-order.component.ts");
 /* harmony import */ var _components_restaurant_menu_edit_menu_edit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/restaurant/menu-edit/menu-edit.component */ "./src/app/components/restaurant/menu-edit/menu-edit.component.ts");
 
 
@@ -219,8 +229,8 @@ var APP_ROUTES = [
     //restaurant
     { path: 'restaurant/home', component: _components_restaurant_restaurant_home_restaurant_home_component__WEBPACK_IMPORTED_MODULE_10__["RestaurantHomeComponent"] },
     { path: 'restaurant/profile', component: _components_restaurant_restaurant_profile_restaurant_profile_component__WEBPACK_IMPORTED_MODULE_7__["RestaurantProfileComponent"] },
-    { path: 'restaurant/orderhistory', component: _components_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_11__["RestaurantOrderHistoryComponent"] },
-    { path: 'restaurant/currentorder', component: _components_restaurant_order_current_order_current_component__WEBPACK_IMPORTED_MODULE_12__["RestaurantOrderCurrentComponent"] },
+    { path: 'restaurant/orderhistory', component: _components_restaurant_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_11__["RestaurantOrderHistoryComponent"] },
+    { path: 'restaurant/currentorder', component: _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_12__["CurrentOrderComponent"] },
     { path: 'restaurant/menu', component: _components_restaurant_menu_menu_component__WEBPACK_IMPORTED_MODULE_8__["MenuComponent"] },
     { path: 'restaurant/menu/:dishid', component: _components_restaurant_menu_edit_menu_edit_component__WEBPACK_IMPORTED_MODULE_13__["MenuEditComponent"] },
     //user
@@ -236,7 +246,88 @@ var APP_ROUTES = [
     { path: 'delivery/:did/ondelivery', component: _components_user_order_order_component__WEBPACK_IMPORTED_MODULE_6__["OrderComponent"] },
 ];
 // Export the routes as module providers
-var Routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(APP_ROUTES);
+var Routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(APP_ROUTES, { useHash: true });
+
+
+/***/ }),
+
+/***/ "./src/app/components/restaurant/current-order/current-order.component.css":
+/*!*********************************************************************************!*\
+  !*** ./src/app/components/restaurant/current-order/current-order.component.css ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjdXJyZW50LW9yZGVyL2N1cnJlbnQtb3JkZXIuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/restaurant/current-order/current-order.component.html":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/restaurant/current-order/current-order.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a class=\"navbar-brand cl-text-black cl-icon-padding\"\n         routerLink=\"../\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Menu\n      </h1>\n    </div>\n    <a class=\"navbar-brand cl-text-black float-right cl-icon-padding\"\n       routerLink=\"./new\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<!--<div class=\"container cl-container-padding-more\">-->\n  <!--<div id=\"accordion\">-->\n    <!--<div *ngFor=\"let order of orders\">-->\n\n      <!--<div class=\"card\">-->\n        <!--<div class=\"card-header\" id=\"{{order._id}}\">-->\n          <!--<h5 class=\"mb-0\">-->\n            <!--<button class=\"btn btn-link\" data-toggle=\"collapse\" data-target=\"#collapseOne\"-->\n                    <!--aria-expanded=\"true\" aria-controls=\"collapseOne\">-->\n              <!--{{order.time}}  Customer:{{order.user}}-->\n            <!--</button>-->\n          <!--</h5>-->\n\n          <!--<div class=\"float-right\">-->\n            <!--<button class=\"btn btn-primary btn-small\" [style.color]=\"buttoncolor\"-->\n                    <!--(click)=\"sendtoAlldelivery(order)\"-->\n                    <!--type=\"submit\">Send to Delivery-->\n            <!--</button>-->\n            <!--<button class=\"btn btn-danger btn-small\" [style.color]=\"buttoncolor\"-->\n                    <!--(click)=\"cancalOrder(order)\"-->\n                    <!--type=\"submit\">Cancle Order-->\n            <!--</button>-->\n          <!--</div>-->\n        <!--</div>-->\n\n        <!--<div id=\"collapseOne\" class=\"collapse show\" aria-labelledby=\"{{order._id}}\" data-parent=\"#accordion\">-->\n          <!--<div class=\"card-body\">-->\n            <!--<table class=\"table\">-->\n              <!--<thead class=\"thead-light\">-->\n              <!--<tr>-->\n                <!--<th scope=\"col\">#</th>-->\n                <!--<th scope=\"col\">Name</th>-->\n                <!--<th scope=\"col\">Quantity</th>-->\n              <!--</tr>-->\n              <!--</thead>-->\n              <!--<tbody *ngFor=\"let dish of order.details.dish; index as i\">-->\n\n              <!--<tr>-->\n                <!--<th scope=\"row\">{{i+1}}</th>-->\n                <!--<td>{{dish}}</td>-->\n                <!--<td>{{order.details.quantity[i]}}</td>-->\n              <!--</tr>-->\n\n              <!--</tbody>-->\n            <!--</table>-->\n          <!--</div>-->\n        <!--</div>-->\n\n      <!--</div>-->\n    <!--</div>-->\n  <!--</div>-->\n<!--</div>-->\n\n\n    <nav class=\"navbar fixed-bottom cl-grey-navbar\">\n      <div class=\"container-fluid\">\n        <a routerLink=\"/profile\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n          <i class=\"fas fa-user cl-text-blue\"></i>\n        </a>\n      </div>\n    </nav>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/restaurant/current-order/current-order.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/components/restaurant/current-order/current-order.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: CurrentOrderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CurrentOrderComponent", function() { return CurrentOrderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+
+
+
+
+
+var CurrentOrderComponent = /** @class */ (function () {
+    function CurrentOrderComponent(restaurantService, orderService, route, router, sharedService) {
+        this.restaurantService = restaurantService;
+        this.orderService = orderService;
+        this.route = route;
+        this.router = router;
+        this.sharedService = sharedService;
+    }
+    CurrentOrderComponent.prototype.ngOnInit = function () {
+        //this.employeeId = this.sharedService.user._id;
+        // this.orderService.findOrdersbyStatus(1).suscribe(
+        //     (orders: any) => {
+        //       this.orders = orders;
+        //       console.log(this.orders);
+        //     }
+        // )
+    };
+    CurrentOrderComponent.prototype.sendtoAlldelivery = function (order) {
+        //this.orderService.updateOrderStatus(order._id, 2, order);
+        // this.buttoncolor = '#808389';
+    };
+    CurrentOrderComponent.prototype.cancalOrder = function (order) { };
+    CurrentOrderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-current-order',
+            template: __webpack_require__(/*! ./current-order.component.html */ "./src/app/components/restaurant/current-order/current-order.component.html"),
+            styles: [__webpack_require__(/*! ./current-order.component.css */ "./src/app/components/restaurant/current-order/current-order.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__["RestaurantService"], Object, _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
+    ], CurrentOrderComponent);
+    return CurrentOrderComponent;
+}());
+
 
 
 /***/ }),
@@ -444,158 +535,6 @@ var MenuComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/restaurant/order-current/order-current.component.css":
-/*!*********************************************************************************!*\
-  !*** ./src/app/components/restaurant/order-current/order-current.component.css ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJvcmRlci1jdXJyZW50L29yZGVyLWN1cnJlbnQuY29tcG9uZW50LmNzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/components/restaurant/order-current/order-current.component.html":
-/*!**********************************************************************************!*\
-  !*** ./src/app/components/restaurant/order-current/order-current.component.html ***!
-  \**********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <div>\n            <a class=\"navbar-brand cl-text-black cl-icon-padding\"\n               routerLink=\"../\">\n                <i class=\"fas fa-angle-left\"></i>\n            </a>\n            <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n                Menu\n            </h1>\n        </div>\n        <a class=\"navbar-brand cl-text-black float-right cl-icon-padding\"\n           routerLink=\"./new\">\n            <i class=\"fas fa-plus\"></i>\n        </a>\n    </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n    <div id=\"accordion\">\n        <div *ngFor=\"let order of orders\">\n\n            <div class=\"card\">\n                <div class=\"card-header\" id=\"{{order._id}}\">\n                    <h5 class=\"mb-0\">\n                        <button class=\"btn btn-link\" data-toggle=\"collapse\" data-target=\"#collapseOne\"\n                                aria-expanded=\"true\" aria-controls=\"collapseOne\">\n                            {{order.time}}  Customer:{{order.user}}\n                        </button>\n                    </h5>\n\n                    <div class=\"float-right\">\n                        <button class=\"btn btn-primary btn-small\" [style.color]=\"buttoncolor\"\n                                (click)=\"sendtoAlldelivery(order)\"\n                                type=\"submit\">Send to Delivery\n                        </button>\n                        <button class=\"btn btn-danger btn-small\" [style.color]=\"buttoncolor\"\n                                (click)=\"cancalOrder(order)\"\n                                type=\"submit\">Cancle Order\n                        </button>\n                    </div>\n                </div>\n\n                <div id=\"collapseOne\" class=\"collapse show\" aria-labelledby=\"{{order._id}}\" data-parent=\"#accordion\">\n                    <div class=\"card-body\">\n                        <table class=\"table\">\n                            <thead class=\"thead-light\">\n                            <tr>\n                                <th scope=\"col\">#</th>\n                                <th scope=\"col\">Name</th>\n                                <th scope=\"col\">Quantity</th>\n                            </tr>\n                            </thead>\n                            <tbody *ngFor=\"let dish of order.details.dish; index as i\">\n\n                            <tr>\n                                <th scope=\"row\">{{i+1}}</th>\n                                <td>{{dish}}</td>\n                                <td>{{order.details.quantity[i]}}</td>\n                            </tr>\n\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n\n        </div>\n    </div>\n\n\n    <nav class=\"navbar fixed-bottom cl-grey-navbar\">\n        <div class=\"container-fluid\">\n            <a routerLink=\"/profile\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n                <i class=\"fas fa-user cl-text-blue\"></i>\n            </a>\n        </div>\n    </nav>\n\n"
-
-/***/ }),
-
-/***/ "./src/app/components/restaurant/order-current/order-current.component.ts":
-/*!********************************************************************************!*\
-  !*** ./src/app/components/restaurant/order-current/order-current.component.ts ***!
-  \********************************************************************************/
-/*! exports provided: RestaurantOrderCurrentComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantOrderCurrentComponent", function() { return RestaurantOrderCurrentComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
-
-
-
-
-
-var RestaurantOrderCurrentComponent = /** @class */ (function () {
-    function RestaurantOrderCurrentComponent(restaurantService, orderService, route, router, sharedService) {
-        this.restaurantService = restaurantService;
-        this.orderService = orderService;
-        this.route = route;
-        this.router = router;
-        this.sharedService = sharedService;
-        this.buttoncolor = "";
-    }
-    RestaurantOrderCurrentComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.employeeId = this.sharedService.user._id;
-        this.orderService.findOrdersbyStatus(1).suscribe(function (orders) {
-            _this.orders = orders;
-            console.log(_this.orders);
-        });
-    };
-    RestaurantOrderCurrentComponent.prototype.sendtoAlldelivery = function (order) {
-        this.orderService.updateOrderStatus(order._id, 2, order);
-        // this.buttoncolor = '#808389';
-    };
-    RestaurantOrderCurrentComponent.prototype.cancalOrder = function (order) { };
-    RestaurantOrderCurrentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-order-current',
-            template: __webpack_require__(/*! ./order-current.component.html */ "./src/app/components/restaurant/order-current/order-current.component.html"),
-            styles: [__webpack_require__(/*! ./order-current.component.css */ "./src/app/components/restaurant/order-current/order-current.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__["RestaurantService"], Object, _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            _services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
-    ], RestaurantOrderCurrentComponent);
-    return RestaurantOrderCurrentComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/components/restaurant/order-history/order-history.component.css":
-/*!*********************************************************************************!*\
-  !*** ./src/app/components/restaurant/order-history/order-history.component.css ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJvcmRlci1oaXN0b3J5L29yZGVyLWhpc3RvcnkuY29tcG9uZW50LmNzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/components/restaurant/order-history/order-history.component.html":
-/*!**********************************************************************************!*\
-  !*** ./src/app/components/restaurant/order-history/order-history.component.html ***!
-  \**********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <div>\n            <a routerLink=\"../\"\n               class=\"navbar-brand cl-text-black cl-icon-padding\">\n                <i class=\"fas fa-angle-left\"></i>\n            </a>\n            <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n                Order History\n            </h1>\n        </div>\n        <a routerLink=\"./new\"\n           class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n            <i class=\"fas fa-plus\"></i>\n        </a>\n    </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n\n    <table class=\"table table-striped\">\n        <thead>\n        <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Date</th>\n            <th scope=\"col\">Total</th>\n            <th scope=\"col\">Details</th>\n        </tr>\n        </thead>\n\n        <tbody *ngFor=\"let order of orders; index as i\">\n        <tr>\n            <th scope=\"row\">{{i + 1}}</th>\n            <td>{{order.time}}</td>\n            <td>{{order.user}}</td>\n            <td>{{order.details.total}}</td>\n            <td><a routerLink=\"/restaurant/order/{{order._id}}\" class=\"badge badge-info\">click to view</a></td>\n        </tr>\n        </tbody>\n    </table>\n\n</div>\n\n<nav class=\"navbar fixed-bottom cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <a routerLink=\"restaurant/home\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n            <i class=\"fas fa-user cl-text-blue\"></i>\n        </a>\n    </div>\n</nav>\n"
-
-/***/ }),
-
-/***/ "./src/app/components/restaurant/order-history/order-history.component.ts":
-/*!********************************************************************************!*\
-  !*** ./src/app/components/restaurant/order-history/order-history.component.ts ***!
-  \********************************************************************************/
-/*! exports provided: RestaurantOrderHistoryComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantOrderHistoryComponent", function() { return RestaurantOrderHistoryComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
-/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
-
-
-
-
-var RestaurantOrderHistoryComponent = /** @class */ (function () {
-    function RestaurantOrderHistoryComponent(restaurantService, sharedService, router, route) {
-        this.restaurantService = restaurantService;
-        this.sharedService = sharedService;
-        this.router = router;
-        this.route = route;
-    }
-    RestaurantOrderHistoryComponent.prototype.ngOnInit = function () {
-        this.employeeId = this.sharedService.user._id;
-        this.restaurantService.findAllDishesForRestaurant(this.employeeId);
-    };
-    RestaurantOrderHistoryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-order-history',
-            template: __webpack_require__(/*! ./order-history.component.html */ "./src/app/components/restaurant/order-history/order-history.component.html"),
-            styles: [__webpack_require__(/*! ./order-history.component.css */ "./src/app/components/restaurant/order-history/order-history.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__["RestaurantService"],
-            _services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
-    ], RestaurantOrderHistoryComponent);
-    return RestaurantOrderHistoryComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/components/restaurant/restaurant-home/restaurant-home.component.css":
 /*!*************************************************************************************!*\
   !*** ./src/app/components/restaurant/restaurant-home/restaurant-home.component.css ***!
@@ -678,6 +617,77 @@ var RestaurantHomeComponent = /** @class */ (function () {
             _services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
     ], RestaurantHomeComponent);
     return RestaurantHomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/restaurant/restaurant-order-history/order-history.component.css":
+/*!********************************************************************************************!*\
+  !*** ./src/app/components/restaurant/restaurant-order-history/order-history.component.css ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZXN0YXVyYW50LW9yZGVyLWhpc3Rvcnkvb3JkZXItaGlzdG9yeS5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/components/restaurant/restaurant-order-history/order-history.component.html":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/components/restaurant/restaurant-order-history/order-history.component.html ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <div>\n            <a routerLink=\"../\"\n               class=\"navbar-brand cl-text-black cl-icon-padding\">\n                <i class=\"fas fa-angle-left\"></i>\n            </a>\n            <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n                Order History\n            </h1>\n        </div>\n        <a routerLink=\"./new\"\n           class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n            <i class=\"fas fa-plus\"></i>\n        </a>\n    </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n\n    <table class=\"table table-striped\">\n        <thead>\n        <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Date</th>\n            <th scope=\"col\">Total</th>\n            <th scope=\"col\">Details</th>\n        </tr>\n        </thead>\n\n        <tbody *ngFor=\"let order of orders; index as i\">\n        <tr>\n            <th scope=\"row\">{{i + 1}}</th>\n            <td>{{order.time}}</td>\n            <td>{{order.user}}</td>\n            <td>{{order.details.total}}</td>\n            <td><a routerLink=\"/restaurant/order/{{order._id}}\" class=\"badge badge-info\">click to view</a></td>\n        </tr>\n        </tbody>\n    </table>\n\n</div>\n\n<nav class=\"navbar fixed-bottom cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <a routerLink=\"restaurant/home\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n            <i class=\"fas fa-user cl-text-blue\"></i>\n        </a>\n    </div>\n</nav>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/restaurant/restaurant-order-history/order-history.component.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/components/restaurant/restaurant-order-history/order-history.component.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: RestaurantOrderHistoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantOrderHistoryComponent", function() { return RestaurantOrderHistoryComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+
+var RestaurantOrderHistoryComponent = /** @class */ (function () {
+    function RestaurantOrderHistoryComponent(restaurantService, sharedService, router, route) {
+        this.restaurantService = restaurantService;
+        this.sharedService = sharedService;
+        this.router = router;
+        this.route = route;
+    }
+    RestaurantOrderHistoryComponent.prototype.ngOnInit = function () {
+        this.employeeId = this.sharedService.user._id;
+        this.restaurantService.findAllDishesForRestaurant(this.employeeId);
+    };
+    RestaurantOrderHistoryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-order-history',
+            template: __webpack_require__(/*! ./order-history.component.html */ "./src/app/components/restaurant/restaurant-order-history/order-history.component.html"),
+            styles: [__webpack_require__(/*! ./order-history.component.css */ "./src/app/components/restaurant/restaurant-order-history/order-history.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__["RestaurantService"],
+            _services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+    ], RestaurantOrderHistoryComponent);
+    return RestaurantOrderHistoryComponent;
 }());
 
 
@@ -1361,6 +1371,80 @@ var Restaurant = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/order.service.client.ts":
+/*!**************************************************!*\
+  !*** ./src/app/services/order.service.client.ts ***!
+  \**************************************************/
+/*! exports provided: OrderService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderService", function() { return OrderService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+var OrderService = /** @class */ (function () {
+    //orderApiUrl = '/api/order/';
+    //userApiUrl = '/api/user/';
+    function OrderService(http) {
+        this.http = http;
+        this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl;
+    }
+    OrderService.prototype.createOrder = function (userId, order) {
+        console.log('front order service createOrder() called');
+        return this.http.post(this.baseUrl + userId + '/order', order);
+    };
+    OrderService.prototype.findOrdersByUser = function (userId) {
+        console.log('front order service findOrderByUser() called');
+        return this.http.get(this.baseUrl + userId + '/order');
+    };
+    OrderService.prototype.findAllOrders = function () {
+        console.log('front order service findOrderByRestaurant() called');
+        return this.http.get(this.baseUrl + '/order');
+    };
+    // finishOrder(restaurantId, orderId) {
+    //     console.log('front order service finishOrder() called');
+    //     return this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
+    // }
+    OrderService.prototype.findOrderById = function (userId, orderId) {
+        console.log('front order service findorderById() called');
+        // Only need to call server's url to get the data.
+        // '/api/restaurant/:websiteId/order/:orderId'
+        return this.http.get(this.baseUrl + userId + '/order/' + orderId);
+    };
+    OrderService.prototype.updateOrder = function (userId, orderId, order) {
+        console.log('front order service updateOrder() called');
+        return this.http.put(this.baseUrl + userId + '/order/' + orderId, order);
+    };
+    OrderService.prototype.deleteOrder = function (userId, orderId) {
+        console.log('front order service deleteOrder() called');
+        return this.http.delete(this.baseUrl + userId + '/order/' + orderId);
+    };
+    OrderService.prototype.findOrdersbyStatus = function (status) {
+        return this.http.get(this.baseUrl + '/order/status/' + status);
+    };
+    OrderService.prototype.updateOrderStatus = function (orderId, status, order) {
+        return this.http.put(this.baseUrl + '/order/' + orderId, order);
+    };
+    OrderService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+    ], OrderService);
+    return OrderService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/restaurant.service.client.ts":
 /*!*******************************************************!*\
   !*** ./src/app/services/restaurant.service.client.ts ***!
@@ -1599,6 +1683,67 @@ var UserService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"], _shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
     ], UserService);
     return UserService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/website.service.client.ts":
+/*!****************************************************!*\
+  !*** ./src/app/services/website.service.client.ts ***!
+  \****************************************************/
+/*! exports provided: WebsiteService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebsiteService", function() { return WebsiteService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+var WebsiteService = /** @class */ (function () {
+    function WebsiteService(http) {
+        this.http = http;
+        this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl;
+        this.userApiUrl = '/api/user/';
+    }
+    WebsiteService.prototype.constructFindUpdateDeleteUrl = function (userId, websiteId) {
+        return this.baseUrl + this.userApiUrl + userId + '/restaurant/' + websiteId;
+    };
+    WebsiteService.prototype.createWebsite = function (website, userId) {
+        console.log('front restaurant service createWebsite() called');
+        return this.http.post(this.baseUrl + this.userApiUrl + userId + '/restaurant', website);
+    };
+    WebsiteService.prototype.findWebsitesByUser = function (userId) {
+        console.log('front restaurant service findWebsiteByUser() called');
+        return this.http.get(this.baseUrl + this.userApiUrl + userId + '/restaurant');
+    };
+    WebsiteService.prototype.findWebsiteById = function (userId, websiteId) {
+        console.log('front restaurant service findwebsiteById() called');
+        // Only need to call server's url to get the data.
+        return this.http.get(this.constructFindUpdateDeleteUrl(userId, websiteId));
+    };
+    WebsiteService.prototype.updateWebsite = function (userId, websiteId, website) {
+        console.log('front restaurant service updateWebsite() called');
+        return this.http.put(this.constructFindUpdateDeleteUrl(userId, websiteId), website);
+    };
+    WebsiteService.prototype.deleteWebsite = function (userId, websiteId) {
+        console.log('front restaurant service deleteWebsite() called');
+        return this.http.delete(this.constructFindUpdateDeleteUrl(userId, websiteId));
+    };
+    WebsiteService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+    ], WebsiteService);
+    return WebsiteService;
 }());
 
 

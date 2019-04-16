@@ -3,6 +3,8 @@ import {Router} from "@angular/router";
 import {UserService} from "../../../services/user.service.client";
 import {NgForm} from "@angular/forms";
 import {User} from "../../../model/user.client.model";
+import {RestaurantService} from "../../../services/restaurant.service.client";
+import {EmployeeService} from "../../../services/employee.service.client";
 
 @Component({
   selector: 'app-register',
@@ -18,8 +20,12 @@ export class RegisterComponent implements OnInit {
   user: any = {_id: '', username: '', password: ''};
   userErrorMsg: String;
   userErrorFlag: boolean;
+  registerRole: string;
+  roles: string[] = ['Customer', 'Employee','Delivery'];
+  //roleErrorFlag: boolean
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router,
+              private  employeeService: EmployeeService) {
   }
 
   ngOnInit() {
@@ -30,22 +36,44 @@ export class RegisterComponent implements OnInit {
   register() {
     this.user.username = this.newUsername;
     this.user.password = this.newPassword;
-    this.userService.register(this.user.username, this.user.password)
-        .subscribe(
-            (data: any) => {
-              if (data) {
-                this.router.navigate(['/profile']);
-              } else {
-                this.userErrorFlag = true;
-                console.log(this.userErrorFlag);
+    console.log(this.registerRole);
+    if(this.registerRole === 'Customer'){
+      this.userService.register(this.user.username, this.user.password)
+          .subscribe(
+              (data: any) => {
+                  console.log('input: ' + data);
+                if (data) {
+                  this.router.navigate(['user/home']);
+                } else {
+                  this.userErrorFlag = true;
+                  console.log(this.userErrorFlag);
+                }
+              },
+              (error: any) => {
+                if (error) {
+                  console.log(error);
+                }
               }
-            },
-            (error: any) => {
-              if (error) {
-                console.log(error);
+          );
+    }else if ( this.registerRole === 'Employee'){
+      this.employeeService.register(this.user.username, this.user.password)
+          .subscribe(
+              (data: any) => {
+                if (data) {
+                  this.router.navigate(['restaurant/home']);
+                } else {
+                  this.userErrorFlag = true;
+                  console.log(this.userErrorFlag);
+                }
+              },
+              (error: any) => {
+                if (error) {
+                  console.log(error);
+                }
               }
-            }
-        );
+          );
+    }
+
 
   }
 

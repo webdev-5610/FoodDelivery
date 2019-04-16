@@ -16,17 +16,17 @@
 
 <div class="container">
   <button class="btn btn-primary btn-block"
-          routerLink="../restaurant/{{restaurant._id}}/currentorders">Current Orders
+          routerLink="/restaurant/currentorders">Current Orders
   </button>
   <br/>
   <button class="btn btn-primary btn-block"
-          routerLink="../restaurant/{{restaurant._id}}/website">Profile
+          routerLink="/restaurant/profile">Profile
   </button>
   <button class="btn btn-primary btn-block"
-          routerLink="../restaurant/{{restaurant._id}}/menu">Menu
+          routerLink="/restaurant/menu">Menu
   </button>
   <button class="btn btn-primary btn-block"
-          routerLink="../restaurant/{{restaurant._id}}/orderhistory">Order History
+          routerLink="/restaurant/orderhistory">Order History
   </button>
   <button class="btn btn-danger  btn-block"
           (click)="logout()" routerLinkActive="active">Logout

@@ -1,132 +1,92 @@
 var _ = require('lodash');
-
 module.exports = function (app) {
+    var restaurantModel = require("../model/restaurant/restaurant.model.server.js");
+    var path = require('path');
+    const multer = require('multer'); // npm install multer --save
+    const baseUrl = 'http://localhost:8080';
+    //'https://luckyhusky.herokuapp.com'
+    //"http://localhost:8080"
 
-    var passport = require('passport');
-    const LocalStrategy = require('passport-local').Strategy;
-    var userModel = require("../model/user/user.model.server");
-    const bcrypt = require('bcrypt-nodejs');
+    app.post("/api/restaurant/menu", createDish);
+    app.get("/api/restaurant/menu", findAllDishesForMenu);
+    app.get("/api/restaurant/menu/:did", findDishById);
+    app.put("/api/restaurant/menu/:did", updateDish);
+    app.delete("/api/restaurant/menu/:did", deleteDish);
 
-    app.post("/api/user", createEmployee);
-    app.get("/api/user", findEmployee);
-    app.get("/api/user/:userId", findEmployeeById);
-    app.put("/api/user/:userId", updateEmployee);
-    app.delete("/api/user/:userId", deleteEmployee);
-    app.post("/api/login", passport.authenticate('local'), login);
-    app.post("/api/logout", logout);
-    app.post("/api/register", register);
-    app.post("/api/loggedin", loggedin);
+    app.put("/api/restaurant/menu?", reorderDishes);
 
-    function serializeEmployee(user, done) {
-        done(null, user._id);
+    var storage = multer.diskStorage({
+        destination: __dirname + '/../../dist/web5610/assets/uploads/',
+        filename: function (req, file, cb) {
+            cb(null,  file.fieldname + '-' + Date.now()+ path.extname(file.originalname));
+        }
+    });
+    const upload = multer({
+        storage: storage
+    }).single("myFile");
+    //UPLOAD
+    app.post ("/api/upload", upload, uploadImage);
+    app.get("/api/image/:imageName", findImage);
+
+    function findImage(req, res) {
+        var imageName = req.params.imageName;
+        res.sendFile(path.resolve("/../../src/assets/uploads/" + imageName));
     }
 
-    function deserializeEmployee(uid, done) {
-        userModel.findEmployeeById(uid).then(
-            function (user) {
-                done(null, user);
-            },
-            function (err) {
-                done(err, null);
-            });
-    }
+    function uploadImage(req, res) {
+        //var restaurantId = req.body.restaurantId;
+        var width = req.body.width;
+        var myFile = req.file;
+        var name = req.body.name;
+        var dishId = req.body.menuId;
 
-    passport.serializeUser(serializeEmployee);
-    passport.deserializeUser(deserializeEmployee);
+        // condition when myFile is null
+        const callbackUrl = baseUrl + '/restaurant/menu'+ dishId;
+        if (myFile == null) {
+            res.redirect(callbackUrl + '/' + restaurantId);
+            return;
+        }
 
-    passport.use(new LocalStrategy(localStrategy));
+        var originalname = myFile.originalname; // file name on user's computer
+        var filename = myFile.filename; // new file name in upload folder
+        //var filepath = myFile.path; // full path of uploaded file
+        var destination = myFile.destination; // folder where file is saved to
+        var size = myFile.size;
+        var mimetype = myFile.mimetype;
 
-    // Authentication
+        if (restaurantId === '') {
+            var restaurant = {_id: '', restaurantType: 'IMAGE', pageId: pageId, size: '', text: '', width: '', url: '', name: ''};
+            restaurant._id = (new Date()).getTime().toString();
+            restaurant.url = baseUrl + '/assets/uploads/' + filename;
 
-    function localStrategy(username, password, done) {
-        userModel
-            .findEmployeeByUsername(username)
-            .then(
-                function (user) {
-                    if (user &&
-                        user.username === username &&
-                        bcrypt.compareSync(password, user.password)) {
-                        return done(null, user);
-                    } else {
-                        return done(null, false);
-                    }
+            console.log('create restaurant image: ' + restaurant._id);
+            restaurants.push(restaurant);
+            res.redirect(callbackUrl + '/' + restaurant._id);
+            return;
+        }
+
+        var imageUrl = baseUrl + "/assets/uploads/" + filename;
+        var restaurant = { url: imageUrl };
+        restaurantModel
+            .updateDish(restaurantId, restaurant)
+            .then(function (stats) {
+                    res.send(200);
                 },
                 function (err) {
-                    if (err) {
-                        return done(err);
-                    }
-                }
-            );
+                    res.sendStatus(404).send(err);
+                });
+        res.redirect(callbackUrl+ '/' + restaurantId);
     }
-
-    function login(req, res) {
-        const user = req.user;
-        res.json(user);
-    }
-
-    function logout(req, res) {
-        req.logOut();
-        // res.send(200);
-        res.send({});
-    }
-
-    function loggedin(req, res) {
-        res.send(req.isAuthenticated() ? req.user : '0');
-    }
-
-    function register(req, res) {
-        const user = req.body;
+    // var pick = ["restaurantType", "name", "pageId", "size", "text", "url", "width", "height","rows", "formatted"];
+    function createDish(req, res) {
+        var pageId = req.params.pageId;
+        var restaurant = _.pick(req.body, ["restaurantType", "name", "pageId", "size", "text", "url", "width", "height","rows", "formatted"]);
+        console.log(restaurant);
         console.log(req.body);
-        user.password = bcrypt.hashSync(user.password);
-        userModel
-            .createEmployee(user)
-            .then(
-                function (newEmployee) {
-                    if (newEmployee) {
-                        req.login(newEmployee, function (error) {
-                            if (error) {
-                                res.status(400).send(error);
-                            } else {
-                                res.json(user);
-                            }
-                        });
-                    }
-                }
-            );
-    }
-
-
-
-    function createEmployee(req, res) {
-        var user = _.pick(req.body, ['username', 'password', 'firstName', 'lastName', 'email', 'phone']);
-        userModel.createEmployee(user).then(
-            function (user) {
-                if (user) {
-                    res.json(user);
-                } else {
-                    res.status(400).send("Something went wrong");
-                }
-            },
-            function (err) {
-                res.status(400).send(err);
-            }
-        );
-    };
-
-    function findEmployee(req, res) {
-        if (req.query["password"]) {
-            findEmployeeByCredentials(req, res);
-        } else {
-            findEmployeeByUsername(req, res);
-        }
-    }
-
-    function findEmployeeByUsername(req, res) {
-        var username = req.query["username"];
-        userModel.findEmployeeByUsername(username).then(
-            function (user) {
-                if (user) {
-                    res.status(200).json(user);
+        restaurantModel.createDish(pageId, restaurant).then(
+            function (restaurant) {
+                if (restaurant) {
+                    res.json(restaurant);
                 } else {
                     res.status(200).send({});
                 }
@@ -135,18 +95,13 @@ module.exports = function (app) {
                 res.status(400).send(err);
             }
         );
-    };
+    }
 
-    function findEmployeeByCredentials(req, res) {
-        var username = req.query["username"];
-        var password = req.query["password"];
-        userModel.findEmployeeByCredentials(username, password).then(
-            function (user) {
-                if (user) {
-                    res.json(user);
-                } else {
-                    res.status(400).send("Cannot find user with the username and password");
-                }
+    function findAllDishesForMenu(req, res) {
+        var pageId = req.params.pageId;
+        restaurantModel.findAllDishsForPage(pageId).then(
+            function (restaurant) {
+                res.json(restaurant);
             },
             function (err) {
                 res.status(400).send(err);
@@ -154,49 +109,53 @@ module.exports = function (app) {
         );
     }
 
-    function findEmployeeById(req, res) {
-        var userId = req.params["userId"];
-        userModel.findEmployeeById(userId).then(
-            function (user) {
-                if (user) {
-                    res.json(user);
-                } else {
-                    res.status(400).send("Cannot find user with the userID");
-                }
-            },
-            function (err) {
-                res.status(400).send(err);
-            }
-        );
-    };
+    function reorderDishes(req, res) {
+        var pageId = req.params.pageId;
+        var startIndex = parseInt(req.query.initial);
+        var endIndex = parseInt(req.query.final);
 
-    function updateEmployee(req, res) {
-        var userId = req.params["userId"];
-        var updatedEmployee = req.body;
-        userModel.updateEmployee(userId, updatedEmployee).then(
-            function (user) {
-                if (user) {
-                    res.json(user);
-                } else {
-                    res.status(400).send("Cannot find user")
-                }
-            },
-            function (err) {
+        restaurantModel
+            .reorderDishs(pageId, startIndex, endIndex)
+            .then(function (stats) {
+                res.status(200).send({});
+            }, function (err) {
                 res.status(400).send(err);
-            }
-        );
-    };
+            });
+    }
 
-    function deleteEmployee(req, res) {
-        var userId = req.params["userId"];
-        userModel.deleteEmployee(userId).then(
+    function findDishById(req, res) {
+        var restaurantId = req.params.restaurantId;
+        restaurantModel
+            .findDishById(restaurantId)
+            .then(function (restaurant) {
+                    res.json(restaurant);
+                },
+                function (err) {
+                    res.status(404).send(err);
+                });
+    }
+
+    function updateDish(req, res) {
+        var restaurantId = req.params.restaurantId;
+        var updatedDish = _.pick(req.body,["restaurantType", "name", "pageId", "size", "text", "url", "width", "height","rows", "formatted"]);
+        restaurantModel.updateDish(restaurantId, updatedDish)
+            .then(function (stats) {
+                    res.json(stats);
+                },
+                function (err) {
+                    res.status(404).send(err);
+                });
+    }
+
+    function deleteDish(req, res) {
+        var restaurantId = req.params.restaurantId;
+        restaurantModel.deleteDish(restaurantId).then(
             function (stats) {
                 res.json(stats);
             },
             function (err) {
-                res.status(400).send(err);
+                res.status(404).send(err);
             }
         );
-    };
-
+    }
 }

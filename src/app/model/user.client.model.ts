@@ -12,7 +12,7 @@ export class User {
     order_history: Order[];
 
 
-    constructor(_id, username: String, password: String, email: String, address: String, phone: String, credit_card_info: String,
+    constructor(_id: String, username: String, password: String, email: String, address: String, phone: String, credit_card_info: String,
                 billing_info: String) {
         this._id = _id;
         this.username = username;
