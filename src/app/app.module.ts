@@ -23,6 +23,7 @@ import { RestaurantOrderCurrentComponent } from './components/restaurant/order-c
 import { DetailComponent } from './components/deliver/detail/detail.component';
 import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import { DeliverService } from './services/deliver.service.client';
+import { SharedService } from './services/shared.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { DeliverService } from './services/deliver.service.client';
     FormsModule,
     // QuillEditorModule
   ],
-  providers: [DeliverService],
+  providers: [DeliverService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

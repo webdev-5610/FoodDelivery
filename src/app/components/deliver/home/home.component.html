@@ -12,11 +12,15 @@
     </div>
   </nav>
 
-  <div class="container website-new-content">
-    <ul class="list-group list-group-flush">
-      <li *ngFor="let website of websites" class="list-group-item">
-        <a routerLink="/user/{{userId}}/website/{{website._id}}"><span class="fas fa-cog fontawsome_icon pull-right"></span></a>
-        <a routerLink="/user/{{userId}}/website/{{website._id}}/page">{{website.name}}</a>
+  <div class="container">
+    <ul class="list-group">
+      <li *ngFor="let order of orders" class="list-group-item list-group-item-success">
+        <button class="alert alert-warning pull-right" (click)="detail(order)">detail</button>
+        <div>User: {{order.user}}</div>
+        <div>User Address: {{order.userAddress}}</div>
+        <div>Restaurant: {{order.restaurant}}</div>
+        <div>Time: {{order.time}}</div>
+        <div >Status: active</div>
       </li>
     </ul>
   </div>
