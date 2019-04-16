@@ -18,16 +18,25 @@ import { RegisterComponent } from './components/website/register/register.compon
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
 import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
-import { RestaurantOrderHistoryComponent } from './components/restaurant/order-history/order-history.component';
-import { RestaurantOrderCurrentComponent } from './components/restaurant/order-current/order-current.component';
+import { RestaurantOrderHistoryComponent } from './components/restaurant/restaurant-order-history/order-history.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {UserService} from "./services/user.service.client";
+import {RestaurantService} from "./services/restaurant.service.client";
+import {OrderService} from "./services/order.service.client";
+import {WebsiteService} from "./services/website.service.client";
+import {SharedService} from "./services/shared.service";
+import { CurrentOrderComponent } from './components/restaurant/current-order/current-order.component';
+import {AuthGuard} from "./services/auth-guard.service";
+import {EmployeeService} from "./services/employee.service.client";
 import { DetailComponent } from './components/deliver/detail/detail.component';
 import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import { DeliverService } from './services/deliver.service.client';
-import { SharedService } from './services/shared.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     LoginComponent,
     UserProfileComponent,
     RegisterComponent,
@@ -37,14 +46,13 @@ import { SharedService } from './services/shared.service';
     OrderComponent,
     RestaurantProfileComponent,
     MenuComponent,
-    HomeComponent,
     RestaurantComponent,
     RestaurantHomeComponent,
     MenuEditComponent,
     RestaurantOrderHistoryComponent,
-    RestaurantOrderCurrentComponent,
     DetailComponent,
-    DeliverHomeComponent
+    DeliverHomeComponent,
+    CurrentOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +60,9 @@ import { SharedService } from './services/shared.service';
     Routing,
     FormsModule,
     // QuillEditorModule
+      MatRadioModule
   ],
-  providers: [DeliverService, SharedService],
+  providers: [UserService,EmployeeService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard,DeliverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

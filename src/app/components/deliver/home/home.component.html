@@ -13,14 +13,29 @@
   </nav>
 
   <div class="container">
+      <div class="card current-order-card bg-success">
+        <div class="card-header">
+            <strong>InTransit</strong>
+            <button class="btn btn-primary pull-right" (click)="inTransitDetail()">Details</button>
+        </div>
+        <div class="card-body text-white">
+          <h5 class="card-title">{{inTransitOrder.userAddress}}</h5>
+          <div><strong>User</strong> {{inTransitOrder.user}}</div>
+          <div><strong>User Address:</strong> {{inTransitOrder.userAddress}}</div>
+          <div><strong>Restaurant:</strong> {{inTransitOrder.restaurant}}</div>
+          <div><strong>Time</strong> {{inTransitOrder.time}}</div>
+          <div><strong>Status:</strong> in transit</div>
+        </div>
+      </div>
+
     <ul class="list-group">
-      <li *ngFor="let order of orders" class="list-group-item list-group-item-success">
-        <button class="alert alert-warning pull-right" (click)="detail(order)">detail</button>
-        <div>User: {{order.user}}</div>
-        <div>User Address: {{order.userAddress}}</div>
-        <div>Restaurant: {{order.restaurant}}</div>
-        <div>Time: {{order.time}}</div>
-        <div >Status: active</div>
+      <li *ngFor="let order of orders" class="list-group-item list-group-item-warning text-dark">
+        <button class="alert alert-info pull-right" (click)="detail(order)">detail</button>
+        <div><strong>User</strong> {{order.user}}</div>
+        <div><strong>User Address:</strong> {{order.userAddress}}</div>
+        <div><strong>Restaurant:</strong> {{order.restaurant}}</div>
+        <div><strong>Time</strong> {{order.time}}</div>
+        <div><strong>Status:</strong> active</div>
       </li>
     </ul>
   </div>

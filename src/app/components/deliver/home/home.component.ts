@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DeliverService } from 'src/app/services/deliver.service.client';
 import { Order } from 'src/app/model/order.client.model';
 import { SharedService } from 'src/app/services/shared.service';
@@ -14,7 +14,7 @@ export class DeliverHomeComponent implements OnInit {
   orders: Order[];
   inTransitOrder: Order;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _deliverService: DeliverService, private _sharedService: SharedService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _deliverService: DeliverService, private _sharedService: SharedService, private router: Router) { }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
@@ -45,6 +45,11 @@ export class DeliverHomeComponent implements OnInit {
 
   detail(order: Order) {
     this._sharedService.selectedOrder = order;
-    console.log(order);
+    this.router.navigate(['/deliver/' + this.userId + '/detail/' + this._sharedService.selectedOrder._id]);
+  }
+
+  inTransitDetail() {
+    this._sharedService.selectedOrder = this.inTransitOrder;
+    this.router.navigate(['/deliver/' + this.userId + '/detail/' + this.inTransitOrder._id]);
   }
 }

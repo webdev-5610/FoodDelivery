@@ -1,20 +1,7 @@
 module.exports = function (app){
-
-  // // api list. The restful calls with the same method stay together
-  // app.get("/api/hello", function(req, res) {
-  //   // req: request
-  //   // res: response
-  //   console.log("reached /api/hello");
-  //   res.send("Hello world!");
-  //
-  // });
-  //
-
-
-// separate the test restful call into another file and pass 'app' to that file.
-// Just include the 'test' file by 'require' word
   require('./services/user.service.server')(app);
   require("./services/restaurant.service.server")(app);
   require("./services/order.service.server")(app);
+  var db = require("./model/model.js");
 
 };

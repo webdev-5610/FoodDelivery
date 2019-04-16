@@ -1,30 +1,28 @@
 var _ = require('lodash');
 
 module.exports = function (app) {
-    //var randomstring = require("randomstring");
+
     var passport = require('passport');
     const LocalStrategy = require('passport-local').Strategy;
-
-    var userModel = require("../model/user/user.model.server");
+    var restaurantModel = require("../model/restaurant/restaurant.model.server");
     const bcrypt = require('bcrypt-nodejs');
 
-    app.post("/api/user", createUser);
-    app.get("/api/user", findUser);
-    app.get("/api/user/:userId", findUserById);
-    app.put("/api/user/:userId", updateUser);
-    app.delete("/api/user/:userId", deleteUser);
-    app.post("/api/login", passport.authenticate('local'), login);
-    app.post("/api/logout", logout);
-    app.post("/api/register", register);
-    app.post("/api/loggedin", loggedin);
+    app.post("/api/restaurant", createEmployee);
+    app.get("/api/restaurant", findEmployee);
+    app.get("/api/restaurant/:userId", findEmployeeById);
+    app.put("/api/restaurant/:userId", updateEmployee);
+    app.delete("/api/restaurant/:userId", deleteEmployee);
+    app.post("/api/restaurant/login", passport.authenticate('local'), login);
+    app.post("/api/restaurant/logout", logout);
+    app.post("/api/restaurant/register", register);
+    app.post("/api/restaurant/loggedin", loggedin);
 
-
-    function serializeUser(user, done) {
+    function serializeEmployee(user, done) {
         done(null, user._id);
     }
 
-    function deserializeUser(uid, done) {
-        userModel.findUserById(uid).then(
+    function deserializeEmployee(uid, done) {
+        restaurantModel.findEmployeeById(uid).then(
             function (user) {
                 done(null, user);
             },
@@ -33,16 +31,16 @@ module.exports = function (app) {
             });
     }
 
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    passport.serializeUser(serializeEmployee);
+    passport.deserializeUser(deserializeEmployee);
 
     passport.use(new LocalStrategy(localStrategy));
 
     // Authentication
 
     function localStrategy(username, password, done) {
-        userModel
-            .findUserByUsername(username)
+        restaurantModel
+            .findEmployeeByUsername(username)
             .then(
                 function (user) {
                     if (user &&
@@ -77,15 +75,15 @@ module.exports = function (app) {
     }
 
     function register(req, res) {
-        const user = req.body;
+        const user = _.pick(req.body,['username','password']);
         console.log(req.body);
         user.password = bcrypt.hashSync(user.password);
-        userModel
-            .createUser(user)
+        restaurantModel
+            .createEmployee(user)
             .then(
-                function (newUser) {
-                    if (newUser) {
-                        req.login(newUser, function (error) {
+                function (newEmployee) {
+                    if (newEmployee) {
+                        req.login(newEmployee, function (error) {
                             if (error) {
                                 res.status(400).send(error);
                             } else {
@@ -97,9 +95,11 @@ module.exports = function (app) {
             );
     }
 
-    function createUser(req, res) {
-        var user = _.pick(req.body, ['username', 'password']);
-        userModel.createUser(user).then(
+
+
+    function createEmployee(req, res) {
+        var user = _.pick(req.body, ['username', 'password', 'firstName', 'lastName', 'email', 'phone']);
+        restaurantModel.createEmployee(user).then(
             function (user) {
                 if (user) {
                     res.json(user);
@@ -113,17 +113,17 @@ module.exports = function (app) {
         );
     };
 
-    function findUser(req, res) {
+    function findEmployee(req, res) {
         if (req.query["password"]) {
-            findUserByCredentials(req, res);
+            findEmployeeByCredentials(req, res);
         } else {
-            findUserByUsername(req, res);
+            findEmployeeByUsername(req, res);
         }
     }
 
-    function findUserByUsername(req, res) {
+    function findEmployeeByUsername(req, res) {
         var username = req.query["username"];
-        userModel.findUserByUsername(username).then(
+        restaurantModel.findEmployeeByUsername(username).then(
             function (user) {
                 if (user) {
                     res.status(200).json(user);
@@ -137,10 +137,10 @@ module.exports = function (app) {
         );
     };
 
-    function findUserByCredentials(req, res) {
+    function findEmployeeByCredentials(req, res) {
         var username = req.query["username"];
         var password = req.query["password"];
-        userModel.findUserByCredentials(username, password).then(
+        restaurantModel.findEmployeeByCredentials(username, password).then(
             function (user) {
                 if (user) {
                     res.json(user);
@@ -154,9 +154,9 @@ module.exports = function (app) {
         );
     }
 
-    function findUserById(req, res) {
+    function findEmployeeById(req, res) {
         var userId = req.params["userId"];
-        userModel.findUserById(userId).then(
+        restaurantModel.findEmployeeById(userId).then(
             function (user) {
                 if (user) {
                     res.json(user);
@@ -170,10 +170,10 @@ module.exports = function (app) {
         );
     };
 
-    function updateUser(req, res) {
+    function updateEmployee(req, res) {
         var userId = req.params["userId"];
-        var updatedUser = req.body;
-        userModel.updateUser(userId, updatedUser).then(
+        var updatedEmployee = req.body;
+        restaurantModel.updateEmployee(userId, updatedEmployee).then(
             function (user) {
                 if (user) {
                     res.json(user);
@@ -187,9 +187,9 @@ module.exports = function (app) {
         );
     };
 
-    function deleteUser(req, res) {
+    function deleteEmployee(req, res) {
         var userId = req.params["userId"];
-        userModel.deleteUser(userId).then(
+        restaurantModel.deleteEmployee(userId).then(
             function (stats) {
                 res.json(stats);
             },

@@ -1,10 +1,18 @@
-// Get the dependencies
-
 const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 const app = express();
+
+//add cookies
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+app.use(cookieParser());
+app.use(session({ secret: 'S3CR#T!' }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // var db = mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds263847.mlab.com:63847/heroku_khn0t993');
 
@@ -41,6 +49,7 @@ require("./server/app")(app);
 
 // Point static path to dist -- For building -- REMOVE
 app.use(express.static(path.join(__dirname, 'dist/web5610')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('/**', function (req, res) {
   res.sendFile(__dirname + '/dist/web5610/index.html');
 });
@@ -48,4 +57,3 @@ app.get('/**', function (req, res) {
 
 server.listen( port , function() {
   console.log('Node app is running on port', app.get('port'))});
-

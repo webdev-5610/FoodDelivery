@@ -1,19 +1,19 @@
 var mongoose = require('mongoose');
 
-var restaurantSchema = mongoose.Schema(
+var emloyeeSchema = mongoose.Schema(
     {
-        name: String,
+        username: String,
         password: String,
         email: String,
-        address: String,
+        firstname: String,
+        lastname: String,
         phone: String,
-        description: String,
         dateCreate: {
             type: Date,
             default: Date.now()
         }
 
-    }, {collection: "restaurant"}
+    }, {collection: "employee"}
 );
 
-module.exports = restaurantSchema;
+module.exports = emloyeeSchema;

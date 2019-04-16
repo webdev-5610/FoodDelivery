@@ -16,6 +16,7 @@ export class DetailComponent implements OnInit {
   orderId: string;
   user: User;
   order: Order;
+  status: string;
 
   constructor(private _activatedRoute: ActivatedRoute, private _deliverService: DeliverService, private _sharedService: SharedService) { }
 
@@ -27,11 +28,25 @@ export class DetailComponent implements OnInit {
 
       this.user = this._sharedService.user;
       this.order = this._sharedService.selectedOrder;
+      if (this.order.status === 3) {
+        this.status = 'in transit';
+      } else if (this.order.status === 2) {
+        this.status = 'active';
+      }
     });
   }
 
   acceptOrder() {
-    this._deliverService.acceptOrder(this.userId, this.orderId, '3').subscribe();
+    this._deliverService.acceptOrder(this.userId, this.orderId, '3').subscribe(
+      data => {
+        
+          console.log(data);
+
+      },
+      error =>{
+
+      }
+    );
   }
 
   completeOrder() {

@@ -50,7 +50,7 @@ export class DeliverService {
                 userAddress: '14725 NE 20th St, Bellevue, WA 98007',
                 restaurant: 'little garden',
                 time: '4/16/2019 3:40:26 AM',
-                status: 4,
+                status: 3,
                 details: {
                     dish: ['abc', 'nba', 'blabla'],
                     quantity: [2, 1, 3],
@@ -71,7 +71,7 @@ export class DeliverService {
                     userAddress: '14725 NE 20th St, Bellevue, WA 98007',
                     restaurant: 'little garden',
                     time: '4/16/2019 3:40:26 AM',
-                    status: 4,
+                    status: 2,
                     details: {
                         dish: ['abc', 'nba', 'blabla'],
                         quantity: [2, 1, 3],
@@ -84,7 +84,7 @@ export class DeliverService {
                     userAddress: '15920 NE 8th St #3, Bellevue, WA 98008',
                     restaurant: 'Dough Zone',
                     time: '4/16/2019 13:40:26 PM',
-                    status: 4,
+                    status: 2,
                     details: {
                         dish: ['abc', 'nba', 'blabla'],
                         quantity: [2, 1, 3],
@@ -97,7 +97,7 @@ export class DeliverService {
                     userAddress: '2347, 1915 140th Ave NE, Bellevue, WA 98005',
                     restaurant: 'Frying Fish',
                     time: '4/16/2019 3:40:26 AM',
-                    status: 4,
+                    status: 2,
                     details: {
                         dish: ['abc', 'nba', 'blabla'],
                         quantity: [2, 1, 3],
