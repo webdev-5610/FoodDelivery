@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var menuSchema = require('./menu.schema.server.js');
-var Menu = mongoose.model('menu', menuSchema);
+var Menu = mongoose.model('Menu', menuSchema);
 
 Menu.createDish = createDish;
 Menu.findAllDishes = findAllDishes;
@@ -12,12 +12,13 @@ Menu.resetDishes = resetDishes;
 
 module.exports =Menu;
 
-function createDish(pageId, dish) {
+function createDish(dish) {
     dish.position = 999999;
     return Menu.create(dish);
 }
 
 function findAllDishes() {
+    console.log("find all");
     return Menu.find({}).sort({ position: 1, dateCreated: 1});
 }
 

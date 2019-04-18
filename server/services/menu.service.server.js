@@ -8,7 +8,7 @@ module.exports = function (app) {
     //"http://localhost:8080"
 
     app.post("/api/restaurant/menu", createDish);
-    app.get("/api/restaurant/menu/", findAllDishesForMenu);
+    app.get("/api/menu", findAllDishesForRestaurant);
     app.get("/api/restaurant/menu/:did", findDishById);
     app.put("/api/restaurant/menu/:did", updateDish);
     app.delete("/api/restaurant/menu/:did", deleteDish);
@@ -95,7 +95,7 @@ module.exports = function (app) {
         );
     }
 
-    function findAllDishesForMenu(req, res) {
+    function findAllDishesForRestaurant(req, res) {
 
         menuModel.findAllDishes().then(
             function (dish) {

@@ -18,7 +18,7 @@ export class MenuEditComponent implements OnInit {
   name: String;
   description: String;
   url: String;
-  dish: Menu;
+  dish: any = {};
   baseUrl: String = environment.baseUrl;
   dishErrorFlag: boolean;
   priceErrorFlag:boolean;
@@ -29,7 +29,7 @@ export class MenuEditComponent implements OnInit {
               private sharedService: SharedService,
               private menuService: MenuService,
               private route: Router) {
-    this.dish = new Menu('', null,'','');
+    //this.dish = new Menu('',  '',0,'','');
   }
 
   ngOnInit() {

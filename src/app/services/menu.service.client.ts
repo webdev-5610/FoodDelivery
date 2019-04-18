@@ -19,7 +19,7 @@ export class MenuService {
     }
 
     findAllDishesForRestaurant() {
-        return this._http.get(this.baseUrl + '/api/restaurant/menu/');
+        return this._http.get(this.baseUrl + '/api/menu');
     }
 
     findDishById(dishId) {
