@@ -49,6 +49,7 @@ require("./server/app")(app);
 
 // Point static path to dist -- For building -- REMOVE
 app.use(express.static(path.join(__dirname, 'dist/web5610')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('/**', function (req, res) {
   res.sendFile(__dirname + '/dist/web5610/index.html');
 });

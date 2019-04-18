@@ -13,9 +13,9 @@ import { RestaurantProfileComponent } from './components/restaurant/restaurant-p
 import { MenuComponent } from './components/restaurant/menu/menu.component';
 import { HomeComponent } from './components/website/home/home.component';
 import { RestaurantComponent } from './components/website/restaurant/restaurant.component';
-import {LoginComponent} from "./components/website/login/login.component";
-import {RegisterComponent} from "./components/website/register/register.component";
-import {HttpClientModule} from "@angular/common/http";
+import { LoginComponent } from './components/website/login/login.component';
+import { RegisterComponent } from './components/website/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
 import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
 import { RestaurantOrderHistoryComponent } from './components/restaurant/restaurant-order-history/order-history.component';
@@ -27,6 +27,11 @@ import {WebsiteService} from "./services/website.service.client";
 import {SharedService} from "./services/shared.service";
 import { CurrentOrderComponent } from './components/restaurant/current-order/current-order.component';
 import {AuthGuard} from "./services/auth-guard.service";
+import { DetailComponent } from './components/deliver/detail/detail.component';
+import { DeliverHomeComponent } from './components/deliver/home/home.component';
+import { DeliverService } from './services/deliver.service.client';
+import { AgmDirectionModule} from 'agm-direction'; // agm-direction
+import { AgmCoreModule } from '@agm/core';
 import {MenuService} from "./services/menu.service.client";
 
 
@@ -47,6 +52,8 @@ import {MenuService} from "./services/menu.service.client";
     RestaurantHomeComponent,
     MenuEditComponent,
     RestaurantOrderHistoryComponent,
+    DetailComponent,
+    DeliverHomeComponent,
     CurrentOrderComponent
   ],
   imports: [
@@ -55,10 +62,11 @@ import {MenuService} from "./services/menu.service.client";
     Routing,
     FormsModule,
     // QuillEditorModule
-      MatRadioModule
+    MatRadioModule,
+    AgmDirectionModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM', libraries: ['geometry']})
   ],
-  providers: [UserService,RestaurantService,MenuService,OrderService,WebsiteService,SharedService,AuthGuard],
+  providers: [UserService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard,DeliverService,MenuService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -4,7 +4,6 @@ import {UserService} from "../../../services/user.service.client";
 import {NgForm} from "@angular/forms";
 import {User} from "../../../model/user.client.model";
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

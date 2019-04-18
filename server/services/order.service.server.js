@@ -1,5 +1,3 @@
-import {Order} from "../../src/app/model/order.client.model";
-
 module.exports = function(app) {
     // fake data
     // var orders=[

@@ -139,6 +139,9 @@ a:hover {
   border-color: #494F57;
 }
 
+.pull-right {
+  float: right;
+}
 .example-radio-group {
   display: flex;
   flex-direction: row;

@@ -32,6 +32,10 @@ export class OrderService {
         console.log('front order service findOrderByRDeliver() called');
         return this.http.get<Order[]>(this.baseUrl +'/deliver/'+ deliverId + '/order');
     }
+    // finishOrder(restaurantId, orderId) {
+    //     console.log('front order service finishOrder() called');
+    //     return this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
+    // }
 
 
     findOrderById(userId, orderId) {

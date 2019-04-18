@@ -2,7 +2,7 @@ class Details {
   dish: String[];
   quantity: Number[];
   total: Number;
-  constructor(dish:String[],quantity:Number[],total:Number){
+  constructor(dish: String[], quantity: Number[], total: Number) {
     this.dish = dish;
     this.quantity = quantity;
     this.total = total;
@@ -17,7 +17,6 @@ export class Order {
   status: Number;
   details: Details;//0 for not check out, 1 for not finished by the restaurant, 2 for finished.
   userAddress: String;
-
 
   constructor(user: String, time: Date, status: Number,details: Details, userAddress: String) {
     this.user = user;

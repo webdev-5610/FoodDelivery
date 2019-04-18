@@ -12,6 +12,8 @@ import {RestaurantHomeComponent} from "./components/restaurant/restaurant-home/r
 import {RestaurantOrderHistoryComponent} from "./components/restaurant/restaurant-order-history/order-history.component";
 import {CurrentOrderComponent} from "./components/restaurant/current-order/current-order.component";
 import {MenuEditComponent} from "./components/restaurant/menu-edit/menu-edit.component";
+import { DetailComponent } from './components/deliver/detail/detail.component';
+import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import {AuthGuard} from "./services/auth-guard.service";
 import {MenuComponent} from "./components/restaurant/menu/menu.component";
 // Import all other components here
@@ -35,6 +37,9 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid/orderhistory', component: OrderhistoryComponent},
   {path: 'user/:uid/order/:oid', component: OrderComponent},
   //delivery
+  {path: 'deliver/:uid/home', component: DeliverHomeComponent},
+  {path: 'deliver/:uid/detail/:oid', component: DetailComponent},
+    //order-history
   {path: 'delivery/:did/home', component: UserProfileComponent},
   {path: 'delivery/:did/profile', component: UserProfileComponent},
   {path: 'delivery/:did/pendingorder', component: OrderhistoryComponent},
