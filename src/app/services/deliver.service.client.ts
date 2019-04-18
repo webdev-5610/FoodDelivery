@@ -50,7 +50,7 @@ export class DeliverService {
                 _id: '1234',
                 user: 'Shiqi',
                 userAddress: '14725 NE 20th St, Bellevue, WA 98007',
-                restaurant: 'little garden',
+                restaurant: 'La Ciel',
                 time: '4/16/2019 3:40:26 AM',
                 status: 3,
                 details: {
@@ -71,7 +71,7 @@ export class DeliverService {
                     _id: '1564',
                     user: 'Shiqi1',
                     userAddress: '14725 NE 20th St, Bellevue, WA 98007',
-                    restaurant: 'little garden',
+                    restaurant: 'La Ciel',
                     time: '4/16/2019 3:40:26 AM',
                     status: 2,
                     details: {
@@ -84,7 +84,7 @@ export class DeliverService {
                     _id: '4567',
                     user: 'Shiqi2',
                     userAddress: '15920 NE 8th St #3, Bellevue, WA 98008',
-                    restaurant: 'Dough Zone',
+                    restaurant: 'La Ciel',
                     time: '4/16/2019 13:40:26 PM',
                     status: 2,
                     details: {
@@ -97,7 +97,7 @@ export class DeliverService {
                     _id: '7986',
                     user: 'Shiqi3',
                     userAddress: '2347, 1915 140th Ave NE, Bellevue, WA 98005',
-                    restaurant: 'Frying Fish',
+                    restaurant: 'La Ciel',
                     time: '4/16/2019 3:40:26 AM',
                     status: 2,
                     details: {
