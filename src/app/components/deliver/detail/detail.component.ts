@@ -66,9 +66,7 @@ export class DetailComponent implements OnInit {
   acceptOrder() {
     this._deliverService.acceptOrder(this.userId, this.orderId, '3').subscribe(
       data => {
-        
           console.log(data);
-
       },
       error =>{
 
@@ -77,11 +75,11 @@ export class DetailComponent implements OnInit {
   }
 
   completeOrder() {
-    this._deliverService.completeOrder(this.userId, this.orderId, '3').subscribe();
+    this._deliverService.completeOrder(this.userId, this.orderId, '4').subscribe();
   }
 
   cancelOrder() {
-    this._deliverService.cancelOrder(this.userId, this.orderId, '3').subscribe();
+    this._deliverService.cancelOrder(this.userId, this.orderId, '5').subscribe();
   }
 
   calculateDistance(lat: Number, lng: Number, destination: String) {
