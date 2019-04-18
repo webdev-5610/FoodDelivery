@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from '../../../model/order.client.model';
-import { OrderService } from '../../../services/order.service.client';
+import {Order} from "../../../model/order.client.model";
+import {RestaurantService} from "../../../services/restaurant.service.client";
+import {ActivatedRoute, Router} from "@angular/router";
+import {SharedService} from "../../../services/shared.service";
+import {OrderService} from "../../../services/order.service.client";
 
 @Component({
   selector: 'app-current-order',
@@ -11,17 +14,29 @@ export class CurrentOrderComponent implements OnInit {
 
   employeeId: String;
   orders: Order[];
-  buttoncolor = "";
 
-  constructor(private orderService: OrderService) { }
+  constructor(private restaurantService: RestaurantService,
+              private orderService: OrderService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private sharedService: SharedService) { }
 
   ngOnInit() {
-    this.orderService.findOrdersbyStatus(1);
+    this.employeeId = this.sharedService.user._id;
+    this.orderService.findOrdersbyStatus(1).subscribe(
+        (orders: any) => {
+          this.orders = orders;
+          console.log(this.orders);
+        }
+    )
   }
 
   sendtoAlldelivery(order: Order){
     this.orderService.updateOrderStatus(order._id, 2, order);
     //this.buttoncolor = '#808389';
   }
+
+  cancalOrder(order: Order){}
+
 
 }

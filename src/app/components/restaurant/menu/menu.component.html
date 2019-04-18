@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div>
-      <a routerLink="../"
+      <a routerLink="../home"
          class="navbar-brand cl-text-black cl-icon-padding">
         <i class="fas fa-angle-left"></i>
       </a>
@@ -21,7 +21,7 @@
     <div *ngFor="let dish of dishes">
       <div class="float-right">
         <a class="float-right cl-text-blue fa fa-bars"></a>
-        <a routerLink="/restaurant/{{restaurantId}}/menu/{{dish._id}}"
+        <a routerLink="/restaurant/menu/{{dish._id}}"
            class="fa fa-cog cl-text-blue"></a>
       </div>
       <p>{{dish.dish_name}}</p>

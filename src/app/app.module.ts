@@ -33,6 +33,7 @@ import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import { DeliverService } from './services/deliver.service.client';
 import { AgmDirectionModule} from 'agm-direction'; // agm-direction
 import { AgmCoreModule } from '@agm/core';
+import {MenuService} from "./services/menu.service.client";
 
 
 @NgModule({
@@ -66,7 +67,7 @@ import { AgmCoreModule } from '@agm/core';
     AgmDirectionModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM', libraries: ['geometry']})
   ],
-  providers: [UserService,EmployeeService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard,DeliverService],
+  providers: [UserService,EmployeeService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard,DeliverService,MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

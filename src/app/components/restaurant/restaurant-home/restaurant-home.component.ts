@@ -3,6 +3,7 @@ import {RestaurantService} from "../../../services/restaurant.service.client";
 import {ActivatedRoute, Router} from "@angular/router";
 import {SharedService} from "../../../services/shared.service";
 import {Restaurant} from "../../../model/restaurant.client.model";
+import {UserService} from "../../../services/user.service.client";
 
 @Component({
   selector: 'app-restaurant-home',
@@ -14,6 +15,7 @@ export class RestaurantHomeComponent implements OnInit {
   restaurantId: String;
 
   constructor(private restaurantService: RestaurantService,
+              private userService: UserService,
               private route: ActivatedRoute,
               private router: Router,
               private sharedService: SharedService) {
@@ -36,7 +38,7 @@ export class RestaurantHomeComponent implements OnInit {
   }
 
   logout() {
-    this.restaurantService.logout().subscribe((data: any) => {
+    this.userService.logout().subscribe((data: any) => {
       this.sharedService.user = null;
       this.router.navigate(['/login']);
     });

@@ -1,9 +1,9 @@
+
 var mongoose = require('mongoose');
 
 var restaurantSchema = mongoose.Schema(
     {
         name: String,
-        password: String,
         email: String,
         address: String,
         phone: String,
@@ -11,7 +11,11 @@ var restaurantSchema = mongoose.Schema(
         dateCreate: {
             type: Date,
             default: Date.now()
-        }
+        },
+        menu: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'menu'
+        }],
 
     }, {collection: "restaurant"}
 );

@@ -98,7 +98,7 @@ module.exports = function (app) {
     }
 
     function createUser(req, res) {
-        var user = _.pick(req.body, ['username', 'password']);
+        var user = _.pick(req.body, ['username', 'password','userType']);
         userModel.createUser(user).then(
             function (user) {
                 if (user) {

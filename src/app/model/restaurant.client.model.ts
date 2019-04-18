@@ -7,7 +7,8 @@ export class Menu {
     description: String;
     url: String;
 
-    constructor(name: String, price: Number, description: String, url: String) {
+    constructor(id: String, name: String, price: Number, description: String, url: String) {
+        this._id = id;
         this.description = description;
         this.dish_name = name;
         this.price = price;

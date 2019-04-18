@@ -77,14 +77,14 @@ function postOrder(deliverId,orderId) {
         .then(function (responseOrder) {
             responseOrder.status = 1;
             orderModel.updateOrder(orderId,responseOrder);
-        // next, for the current deliver/user, push this order into deliver's order list.
-        orderModel.findDeliverById(deliverId)
-            .then(function (deliver) {
-                deliver.oders.push(responseOrder);
-                return deliver.save();
-            });
-        return responseOrder;
-    });
+            // next, for the current deliver/user, push this order into deliver's order list.
+            orderModel.findDeliverById(deliverId)
+                .then(function (deliver) {
+                    deliver.oders.push(responseOrder);
+                    return deliver.save();
+                });
+            return responseOrder;
+        });
 }
 
 function finishOrder(deliverId,orderId) {

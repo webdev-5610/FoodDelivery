@@ -5,9 +5,10 @@ const userSchema = new mongoose.Schema({
   email: String,
   address: String,
   phone: String,
-  credit_card_info: String,
-  billing_info:String,
-  //order_history:[orderSchema],
+  userType:{
+    type: String,
+    enum: ['Customer', 'Employee', 'Delivery','Admin']
+  },
   order_history: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Order'

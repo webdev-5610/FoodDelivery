@@ -11,6 +11,7 @@ userModel.findUserByCredentials = findUserByCredentials;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
 
+
 module.exports = userModel;
 
 // functions go here
