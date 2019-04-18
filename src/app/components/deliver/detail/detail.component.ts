@@ -67,6 +67,7 @@ export class DetailComponent implements OnInit {
     this._deliverService.acceptOrder(this.userId, this.orderId, '3').subscribe(
       data => {
           console.log(data);
+          this.order.status = 3;
       },
       error =>{
 
@@ -75,11 +76,27 @@ export class DetailComponent implements OnInit {
   }
 
   completeOrder() {
-    this._deliverService.completeOrder(this.userId, this.orderId, '4').subscribe();
+    this._deliverService.completeOrder(this.userId, this.orderId, '4').subscribe(
+      data => {
+        console.log(data);
+        this.order.status = 4;
+      },
+      error =>{
+
+      }
+    );
   }
 
   cancelOrder() {
-    this._deliverService.cancelOrder(this.userId, this.orderId, '5').subscribe();
+    this._deliverService.cancelOrder(this.userId, this.orderId, '5').subscribe(
+      data => {
+        console.log(data);
+        this.order.status = 5;
+      },
+      error =>{
+
+      }
+    );
   }
 
   calculateDistance(lat: Number, lng: Number, destination: String) {

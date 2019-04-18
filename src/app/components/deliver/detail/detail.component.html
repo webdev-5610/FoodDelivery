@@ -26,6 +26,7 @@
             <h5 class="card-title">{{order.userAddress}}</h5>
             <div><strong>User</strong> {{order.user}}</div>
             <div><strong>User Address:</strong> {{order.userAddress}}</div>
+            <div><strong>User Phone Number:</strong> {{order.phone}}</div>
             <div><strong>Restaurant:</strong> {{order.restaurant}}</div>
             <div><strong>Time</strong> {{order.time}}</div>
             <div><strong>Status:</strong> {{status}}</div>
@@ -47,9 +48,9 @@
             <br>
             <div><strong>Distance:</strong> {{distance}}</div>
             <br>
-            <button type="button" class="btn btn-warning pull-right deliver-btn" *ngIf="order.status==2">Accept</button>
-            <button type="button" class="btn btn-success pull-right deliver-btn" *ngIf="order.status==3">Complete</button>
-            <button type="button" class="btn btn-info pull-right deliver-btn" *ngIf="order.status==3">Cancel</button>
+            <button type="button" class="btn btn-warning pull-right deliver-btn" *ngIf="order.status==2" (click)="acceptOrder()">Accept</button>
+            <button type="button" class="btn btn-success pull-right deliver-btn" *ngIf="order.status==3" (click)="completeOrder()">Complete</button>
+            <button type="button" class="btn btn-info pull-right deliver-btn" *ngIf="order.status==3" (click)="cancelOrder()">Cancel</button>
             <div class="row">
               <div class="col-10">
                 <agm-map [latitude]="lat" [longitude]="lng" style="height: 600px">
