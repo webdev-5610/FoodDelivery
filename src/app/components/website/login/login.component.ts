@@ -4,11 +4,9 @@ import {environment} from "../../../../environments/environment";
 import {UserService} from "../../../services/user.service.client";
 import {Router} from "@angular/router";
 import {SharedService} from "../../../services/shared.service";
-import {EmployeeService} from "../../../services/employee.service.client";
-
 
 @Component({
-  selector: 'app-component',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -24,7 +22,6 @@ export class LoginComponent implements OnInit {
   roles: string[] = ['Customer', 'Employee','Delivery', 'Admin'];
 
   constructor(private userService: UserService,
-              private employeeService: EmployeeService,
   private router: Router, private sharedService: SharedService) {
   }
 
@@ -35,25 +32,17 @@ export class LoginComponent implements OnInit {
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
     console.log('data', this.username);
-    if(this.loginrole === 'Customer'){
-      this.userService.login(this.username, this.password).subscribe(
-          (data: any) => {
+    this.userService.login(this.username, this.password,this.loginrole).subscribe(
+        (data: any) => {
             this.sharedService.user = data;
-            this.router.navigate(['user/home']);
-          }, (error: any) => {
+            if(this.loginrole === 'Customer'){
+                this.router.navigate(['user/home']);
+            }else if(this.loginrole === 'Employee'){
+                this.router.navigate(['restaurant/home'])
+            }
+            }, (error: any) => {
             this.errorFlag = true;
-          } )
-    } else if( this.loginrole ==='Employee'){
-      this.employeeService.login(this.username,this.password).subscribe(
-          (data: any) => {
-            this.sharedService.user = data;
-            this.router.navigate(['restaurant/home']);
-          }, (error: any) => {
-            this.errorFlag = true;
-          }
-      )
-    }
-
+        } )
   }
 
 }

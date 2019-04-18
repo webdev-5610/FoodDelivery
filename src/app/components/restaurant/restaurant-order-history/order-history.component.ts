@@ -4,6 +4,7 @@ import {RestaurantService} from "../../../services/restaurant.service.client";
 import {SharedService} from "../../../services/shared.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Restaurant} from "../../../model/restaurant.client.model";
+import {OrderService} from "../../../services/order.service.client";
 
 @Component({
   selector: 'app-order-history',
@@ -14,14 +15,18 @@ export class RestaurantOrderHistoryComponent implements OnInit {
   orders: Order[];
   employeeId: String;
 
-  constructor(private  restaurantService: RestaurantService,
+  constructor(private  orderService: OrderService,
               private sharedService: SharedService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.employeeId = this.sharedService.user._id;
-    this.restaurantService.findAllDishesForRestaurant(this.employeeId)
+    this.orderService.findAllOrders().subscribe(
+        (orders: any) => {
+          this.orders = orders;
+        }
+    )
 
   }
 

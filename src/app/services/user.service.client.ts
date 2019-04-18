@@ -6,6 +6,7 @@ import {environment} from 'src/environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
+import {MatSelectTrigger} from "@angular/material";
 
 
 @Injectable()
@@ -38,12 +39,13 @@ export class UserService {
         return this._http.delete(this.baseUrl + '/api/user/' + userId);
     }
 
-    login(username: String, password: String) {
+    login(username: String, password: String, userType: String) {
         this.options.withCredentials = true; // jga
 
         const body = {
             username: username,
-            password: password
+            password: password,
+            userTpye: userType
         };
 
         return this._http.post(this.baseUrl + '/api/login', body, this.options);
@@ -55,9 +57,9 @@ export class UserService {
             .post(this.baseUrl + '/api/logout', '', this.options);
     }
 
-    register(username: String, password: String) {
+    register(username: String, password: String, userType: String) {
         this.options.withCredentials = true;
-        const user = {username: username, password: password};
+        const user = {username: username, password: password, userType: userType};
         return this._http
             .post(this.baseUrl + '/api/register', user, this.options);
     }

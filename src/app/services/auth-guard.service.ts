@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, Router} from '@angular/router';
-import {RestaurantService} from "./restaurant.service.client";
+import {UserService} from "./user.service.client";
+
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-    constructor(private restaurantService: RestaurantService,
-                private router: Router) {
+    constructor(private userService: UserService) {
     }
 
     canActivate() {
-        return this.restaurantService.loggedIn();
+        return this.userService.loggedIn();
     }
 
     // make sure to import AuthGuard in app.routing.ts and app.module.ts.
