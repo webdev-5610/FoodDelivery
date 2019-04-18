@@ -17,6 +17,32 @@ export class DetailComponent implements OnInit {
   user: User;
   order: Order;
   status: string;
+  distance: String;
+
+  //initial center position
+  lat: Number = 24.799448;
+  lng: Number = 120.979021;
+  //google maps zoom
+  zoom: Number = 14;
+
+    //Get Directions
+  dir = undefined;
+
+  markerOptions = {
+    orgin: {
+      infoWindow: 'You are here',
+      draggable: false
+    },
+    destination: {
+      label: 'Destination',
+      draggable: false
+    }
+  };
+
+  renderOptions = {
+    supperssMarkers: true,
+    draggable: false
+  };
 
   constructor(private _activatedRoute: ActivatedRoute, private _deliverService: DeliverService, private _sharedService: SharedService) { }
 
@@ -33,6 +59,7 @@ export class DetailComponent implements OnInit {
       } else if (this.order.status === 2) {
         this.status = 'active';
       }
+      this.getDirection();
     });
   }
 
@@ -57,8 +84,28 @@ export class DetailComponent implements OnInit {
     this._deliverService.cancelOrder(this.userId, this.orderId, '3').subscribe();
   }
 
-  calculateDistance() {
-    // this._deliverService.calculate();
+  calculateDistance(lat: Number, lng: Number, destination: String) {
+    this._deliverService.calculate(lat.toString(), lng.toString(), destination).subscribe(
+      (data: any) => {
+        console.log('distance: ' + data.distance.text);
+        this.distance = data.distance.text;
+      }
+    );
+  }
+
+  getDirection() {
+    console.log(this.lat);
+    console.log(this.lng);
+    navigator.geolocation.getCurrentPosition( pos => {
+      console.log(pos);
+        this.lng = pos.coords.longitude;
+        this.lat = pos.coords.latitude;
+        this.dir = {
+          origin: { lat: this.lat, lng: this.lng },
+          destination: this.order.userAddress// { lat: 24.799524, lng: 120.975017 }
+        };
+        this.calculateDistance(this.lat, this.lng, this.order.userAddress);
+      });
   }
 
 }

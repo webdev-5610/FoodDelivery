@@ -17,6 +17,8 @@ export class DeliverService {
         'findAllPendingOrder' : this.findAllPendingOrder
     };
 
+    public mapAPIKey = 'AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM';
+
     acceptOrder(deliverId: string, orderId: string, status: string) {
         // return this.http.put( environment.baseUrl + '/api/deliver/' + deliverId + '/order/' + orderId + '/accept', {});
         return new Observable((observer) => {
@@ -106,6 +108,14 @@ export class DeliverService {
                 },
             ]);
             return {unsubscribe() {}};
+        });
+    }
+
+    calculate(lat: String, lng: String, destination: String) {
+        return this.http.post('http://localhost:3200/api/deliver/getdistance', {
+            lat: lat,
+            lng: lng,
+            destination: destination
         });
     }
 }

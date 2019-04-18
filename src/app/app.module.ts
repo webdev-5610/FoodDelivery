@@ -31,6 +31,8 @@ import {EmployeeService} from "./services/employee.service.client";
 import { DetailComponent } from './components/deliver/detail/detail.component';
 import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import { DeliverService } from './services/deliver.service.client';
+import { AgmDirectionModule} from 'agm-direction'; // agm-direction
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { DeliverService } from './services/deliver.service.client';
     Routing,
     FormsModule,
     // QuillEditorModule
-      MatRadioModule
+    MatRadioModule,
+    AgmDirectionModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM', libraries: ['geometry']})
   ],
   providers: [UserService,EmployeeService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard,DeliverService],
   bootstrap: [AppComponent]
