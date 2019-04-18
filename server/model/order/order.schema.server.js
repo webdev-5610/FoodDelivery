@@ -8,6 +8,7 @@ var orderSchema = new mongoose.Schema({
     user: String,
     deliver: String,
     status: Number,
+    userAddress: String,
     time: {type: Date, default: Date.now()}
 }, {collection: 'order'});
 
