@@ -45,9 +45,10 @@
     }
     
  Delivery: 
-   home: url/deliver/uid/home
-   detail: url/deliver/uid/detail
-   profile: url/user/uid/profile
+ 
+    home: url/deliver/uid/home
+    detail: url/deliver/uid/detail
+    profile: url/user/uid/profile
 
  Customer: url/user/uid
  
@@ -192,4 +193,4 @@ API
     restaurantModel.updateRestaurant = updateRestaurant;
     restaurantModel.deleteRestaurant = deleteRestaurant;
     
- google map api key: AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM
+google map api key: AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM
