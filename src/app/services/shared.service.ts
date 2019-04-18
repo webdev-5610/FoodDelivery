@@ -4,6 +4,6 @@ import { Order } from '../model/order.client.model';
 
 @Injectable()
 export class SharedService {
-    user: User;
+    user: any;
     selectedOrder: Order;
 }

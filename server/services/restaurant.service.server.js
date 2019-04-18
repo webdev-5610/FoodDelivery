@@ -8,27 +8,4 @@ module.exports = function (app) {
     //"http://localhost:8080"
 
 
-    function updateDish(req, res) {
-        var restaurantId = req.params.restaurantId;
-        var updatedDish = _.pick(req.body,["restaurantType", "name", "pageId", "size", "text", "url", "width", "height","rows", "formatted"]);
-        restaurantModel.updateDish(restaurantId, updatedDish)
-            .then(function (stats) {
-                    res.json(stats);
-                },
-                function (err) {
-                    res.status(404).send(err);
-                });
-    }
-
-    function deleteDish(req, res) {
-        var restaurantId = req.params.restaurantId;
-        restaurantModel.deleteDish(restaurantId).then(
-            function (stats) {
-                res.json(stats);
-            },
-            function (err) {
-                res.status(404).send(err);
-            }
-        );
-    }
 }

@@ -27,7 +27,6 @@ import {WebsiteService} from "./services/website.service.client";
 import {SharedService} from "./services/shared.service";
 import { CurrentOrderComponent } from './components/restaurant/current-order/current-order.component';
 import {AuthGuard} from "./services/auth-guard.service";
-import {EmployeeService} from "./services/employee.service.client";
 import { DetailComponent } from './components/deliver/detail/detail.component';
 import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import { DeliverService } from './services/deliver.service.client';
@@ -67,7 +66,7 @@ import {MenuService} from "./services/menu.service.client";
     AgmDirectionModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM', libraries: ['geometry']})
   ],
-  providers: [UserService,EmployeeService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard,DeliverService,MenuService],
+  providers: [UserService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard,DeliverService,MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
