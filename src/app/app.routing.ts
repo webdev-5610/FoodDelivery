@@ -8,13 +8,13 @@ import {OrderhistoryComponent} from "./components/user/orderhistory/orderhistory
 import {CheckoutComponent} from "./components/user/checkout/checkout.component";
 import {OrderComponent} from "./components/user/order/order.component";
 import {RestaurantProfileComponent} from "./components/restaurant/restaurant-profile/restaurant-profile.component";
-import {MenuComponent} from "./components/restaurant/menu/menu.component";
 import {RegisterComponent} from "./components/website/register/register.component";
 import {RestaurantHomeComponent} from "./components/restaurant/restaurant-home/restaurant-home.component";
 import {RestaurantOrderHistoryComponent} from "./components/restaurant/restaurant-order-history/order-history.component";
 import {CurrentOrderComponent} from "./components/restaurant/current-order/current-order.component";
 import {MenuEditComponent} from "./components/restaurant/menu-edit/menu-edit.component";
 import {AuthGuard} from "./services/auth-guard.service";
+import {MenuComponent} from "./components/restaurant/menu/menu.component";
 // Import all other components here
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +28,7 @@ const APP_ROUTES: Routes = [
   {path: 'restaurant/orderhistory', component: RestaurantOrderHistoryComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/currentorders', component: CurrentOrderComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/menu', component: MenuComponent,canActivate: [AuthGuard]},
-  {path: 'restaurant/menu/:dishid', component: MenuEditComponent,canActivate: [AuthGuard]},
+  {path: 'restaurant/menu/:did', component: MenuEditComponent,canActivate: [AuthGuard]},
     //user
   {path: 'user/:uid/home', component: UserProfileComponent},
   {path: 'user/:uid/profile', component: UserProfileComponent},

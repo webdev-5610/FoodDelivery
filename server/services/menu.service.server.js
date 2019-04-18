@@ -8,7 +8,7 @@ module.exports = function (app) {
     //"http://localhost:8080"
 
     app.post("/api/restaurant/menu", createDish);
-    app.get("/api/restaurant/menu", findAllDishesForMenu);
+    app.get("/api/restaurant/menu/", findAllDishesForMenu);
     app.get("/api/restaurant/menu/:did", findDishById);
     app.put("/api/restaurant/menu/:did", updateDish);
     app.delete("/api/restaurant/menu/:did", deleteDish);
@@ -53,7 +53,7 @@ module.exports = function (app) {
         var mimetype = myFile.mimetype;
 
         if (dishId === '') {
-            var dish = {_id: '', name: '', price:'', description: '', url: ''};
+            var dish = {_id: '', dish_name: '', price: 0, description: '', url: ''};
             dish._id = (new Date()).getTime().toString();
             dish.url = baseUrl + '/assets/uploads/' + filename;
 
@@ -78,7 +78,7 @@ module.exports = function (app) {
     // var pick = ["dishType", "name", "pageId", "size", "text", "url", "width", "height","rows", "formatted"];
     function createDish(req, res) {
         // var pageId = req.params.pageId;
-        var dish = _.pick(req.body, [,"name",  "description", "url", "price"]);
+        var dish = _.pick(req.body, ["dish_name",  "description", "url", "price"]);
         console.log(dish);
         console.log(req.body);
         menuModel.createDish(dish).then(
@@ -100,6 +100,7 @@ module.exports = function (app) {
         menuModel.findAllDishes().then(
             function (dish) {
                 res.json(dish);
+                console.log(dish);
             },
             function (err) {
                 res.status(400).send(err);

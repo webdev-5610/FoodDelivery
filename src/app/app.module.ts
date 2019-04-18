@@ -27,6 +27,7 @@ import {WebsiteService} from "./services/website.service.client";
 import {SharedService} from "./services/shared.service";
 import { CurrentOrderComponent } from './components/restaurant/current-order/current-order.component';
 import {AuthGuard} from "./services/auth-guard.service";
+import {MenuService} from "./services/menu.service.client";
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import {AuthGuard} from "./services/auth-guard.service";
     // QuillEditorModule
       MatRadioModule
   ],
-  providers: [UserService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard],
+  providers: [UserService,RestaurantService,MenuService,OrderService,WebsiteService,SharedService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
