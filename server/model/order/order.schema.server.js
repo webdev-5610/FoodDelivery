@@ -6,8 +6,9 @@ var orderSchema = new mongoose.Schema({
         ref: 'Details'
     },
     user: String,
-    restaurant: String,
+    deliver: String,
     status: Number,
+    userAddress: String,
     time: {type: Date, default: Date.now()}
 }, {collection: 'order'});
 

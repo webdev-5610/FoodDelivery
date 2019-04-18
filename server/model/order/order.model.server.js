@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var userModel = require('../user/user.model.server');
+var userModel = require('server/model/user/user.model.server');
 var orderSchema = require('./order.schema.server');
 var orderModel = mongoose.model("order",orderSchema);
 var restaurantModel = require("../restaurant/restaurant.model.server");
@@ -9,7 +9,7 @@ orderModel.findAllOrdersByDeliver = findAllOrdersByDeliver;
 orderModel.findOrderById = findOrderById;
 orderModel.updateOrder = updateOrder;// also check status if finished or not.
 orderModel.deleteOrder = deleteOrder;
-orderModel.createOrder = createOrder;
+orderMedel.createOrder = createOrder;
 orderModel.finishOrder = finishOrder;
 orderModel.postOrder = postOrder;
 orderModel.acceptOrder=acceptOrder;
@@ -77,14 +77,14 @@ function postOrder(deliverId,orderId) {
         .then(function (responseOrder) {
             responseOrder.status = 1;
             orderModel.updateOrder(orderId,responseOrder);
-            // next, for the current deliver/user, push this order into deliver's order list.
-            orderModel.findDeliverById(deliverId)
-                .then(function (deliver) {
-                    deliver.oders.push(responseOrder);
-                    return deliver.save();
-                });
-            return responseOrder;
-        });
+        // next, for the current deliver/user, push this order into deliver's order list.
+        orderModel.findDeliverById(deliverId)
+            .then(function (deliver) {
+                deliver.oders.push(responseOrder);
+                return deliver.save();
+            });
+        return responseOrder;
+    });
 }
 
 function finishOrder(deliverId,orderId) {

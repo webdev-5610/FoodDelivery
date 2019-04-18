@@ -1,15 +1,16 @@
-var _ = require('lodash');
+import {Order} from "../../src/app/model/order.client.model";
+
 module.exports = function(app) {
-    // fake data
-    // var orders=[
-    //   { "_id": "321", "name": "Post 1", "websiteId": "456", "title": "Lorem" },
-    //   { "_id": "432", "name": "Post 2", "websiteId": "456", "title": "Lorem" },
-    //   { "_id": "543", "name": "Post 3", "websiteId": "456", "title": "Lorem" }
-    //
-    // ];
-    // db
-    const orderModel = require('../model/order/order.model.server');
-    // api list
+  // fake data
+  // var orders=[
+  //   { "_id": "321", "name": "Post 1", "websiteId": "456", "title": "Lorem" },
+  //   { "_id": "432", "name": "Post 2", "websiteId": "456", "title": "Lorem" },
+  //   { "_id": "543", "name": "Post 3", "websiteId": "456", "title": "Lorem" }
+  //
+  // ];
+  // db
+  const orderModel = require('../model/order/order.model.server');
+  // api list
 
     app.post('/api/user/:userId/order', createOrder);
     app.post('/api/deliver/:deliverId/order', orderAccept);
@@ -24,34 +25,34 @@ module.exports = function(app) {
 
 
     // function list
-    function createOrder(req, res) {
-        var order = req.body;
-        var userId = req.params['userId'];
-        order.user = userId;
-        delete order._id;
-        orderModel.createOrder(userId, order)
-            .then(function (order) {
-                    res.status(200).send(order);
-                    return order;  // must return order here, in order to prevent further asynchronous calls.
-                },
-                function (err) {
-                    console.log('create order error! ' + err);
-                    res.sendStatus(400);
-                    return err;
+  function createOrder(req, res) {
+    var order = req.body;
+    var userId = req.params['userId'];
+    order.user = userId;
+    delete order._id;
+    orderModel.createOrder(userId, order)
+        .then(function (order) {
+              res.status(200).send(order);
+              return order;  // must return order here, in order to prevent further asynchronous calls.
+            },
+            function (err) {
+              console.log('create order error! ' + err);
+              res.sendStatus(400);
+              return err;
 
-                });
-    }
+            });
+  }
 
 
 
-    function findOrdersByUser(req, res) {
-        const userId = req.params['userId'];
-        orderModel.findAllOrdersByUser(userId)
-            .then(function (orders) {
-                return res.status(200).json(orders);
-            })
+  function findOrdersByUser(req, res) {
+      const userId = req.params['userId'];
+    orderModel.findAllOrdersByUser(userId)
+        .then(function (orders) {
+          return res.status(200).json(orders);
+        })
 
-    }
+  }
 
     function findOrdersByDeliver(req,res) {
         const deliverId = req.params['deliverId'];
@@ -61,50 +62,50 @@ module.exports = function(app) {
             })
 
     }
-    function findOrderById(req, res){
-        var userId = req.params['userId'];
-        var orderId = req.params['orderId'];
-        orderModel.findOrderById(userId,orderId).exec(
-            function (err, order) {
-                if (err) {
-                    return res.status(400).send(err);
-                }
-                if (order == null) {
-                    return res.sendStatus(404);
-                }
-                return res.status(200).send(order);
-            }
-        );
+  function findOrderById(req, res){
+      var userId = req.params['userId'];
+    var orderId = req.params['orderId'];
+    orderModel.findOrderById(userId,orderId).exec(
+        function (err, order) {
+          if (err) {
+            return res.status(400).send(err);
+          }
+          if (order == null) {
+            return res.sendStatus(404);
+          }
+          return res.status(200).send(order);
+      }
+    );
     }
 
-    function updateOrder(req, res) {
-        var userId = req.params['userId'];
-        var orderId = req.params["orderId"];
-        var order = req.body;
-        orderModel.updateOrder(userId,orderId, order).exec(
-            function (err, order) {
-                if (err) {
-                    return res.status(400).send(err);
-                }
-                return res.status(200).send(order);
-            }
-        )
+  function updateOrder(req, res) {
+      var userId = req.params['userId'];
+    var orderId = req.params["orderId"];
+    var order = req.body;
+    orderModel.updateOrder(userId,orderId, order).exec(
+        function (err, order) {
+          if (err) {
+            return res.status(400).send(err);
+          }
+          return res.status(200).send(order);
+      }
+    )
 
-    }
+  }
 
-    function deleteOrder(req, res) {
-        var orderId = req.params['orderId'];
-        var userId = req.params['userId'];
-        orderModel.deleteOrder(userId, orderId).exec(
-            function (err, order) {
-                if (err) {
-                    return res.status(400).send(err);
-                } else {
-                    return res.status(200).send(order);
-                }
-            }
-        )
-    }
+  function deleteOrder(req, res) {
+    var orderId = req.params['orderId'];
+    var userId = req.params['userId'];
+    orderModel.deleteOrder(userId, orderId).exec(
+        function (err, order) {
+          if (err) {
+            return res.status(400).send(err);
+          } else {
+            return res.status(200).send(order);
+          }
+      }
+    )
+}
 
     function findOrdersByStatus(req, res){
         var deliverId = req.params['deliverId'];
@@ -123,10 +124,10 @@ module.exports = function(app) {
     }
 
     function orderAccept(req,res) {
-        var order = req.body;
-        var deliverId = req.params['deliverId'];
-        order.deliver = deliverId;
-        orderModel.orderAccept(deliverId, order)
+      var order = req.body;
+      var deliverId = req.params['deliverId'];
+      order.deliver = deliverId;
+      orderModel.orderAccept(deliverId, order)
             .then(function (order) {
                     res.status(200).send(order);
                     return order;  // must return order here, in order to prevent further asynchronous calls.
@@ -138,13 +139,13 @@ module.exports = function(app) {
                 });
     }
     function updateOrderStatus(req,res) {
-        const orderStatus = req.params.status;
-        const userId = req.params['userId'];
-        const orderId = req.params["orderId"];
-        const order = oderModel.findOrderById(userId,orderId);
+      const orderStatus = req.params.status;
+      const userId = req.params['userId'];
+      const orderId = req.params["orderId"];
+      const order = oderModel.findOrderById(userId,orderId);
         if (orderStatus===1){
-            finishOrder(res,userId,orderId,order);
-        }
+          finishOrder(res,userId,orderId,order);
+      }
         if (orderStatus===2){
             postOrder(res,userId,orderId,order);
         }
@@ -159,16 +160,16 @@ module.exports = function(app) {
         }
 
     }
-    function postOrder(res,userId,orderId,order) {
-        orderModel.postOrder(userId,orderId, order).exec(
-            function (err, order) {
-                if (err) {
-                    return res.status(400).send(err);
-                }
-                return res.status(200).send(order);
-            }
-        )
-    }
+  function postOrder(res,userId,orderId,order) {
+      orderModel.postOrder(userId,orderId, order).exec(
+          function (err, order) {
+              if (err) {
+                  return res.status(400).send(err);
+              }
+              return res.status(200).send(order);
+          }
+      )
+  }
 
     function acceptOrder(res,userId,orderId,order) {
         orderModel.acceptOrder(userId,orderId, order).exec(
