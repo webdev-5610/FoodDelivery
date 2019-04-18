@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/order.client.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/order.client.model.ts" afterDir="false" />
-    </list>
+    <list default="true" id="2bd6c050-a883-46b3-a40f-71be9a2c387e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -19,16 +16,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/services/order.service.server.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/model/order/order.schema.server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="873">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/model/order.client.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+              <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -71,11 +90,11 @@
         <option value="$PROJECT_DIR$/server/model/user/user.model.server.js" />
         <option value="$PROJECT_DIR$/server/model/restaurant/restaurant.schema.server.js" />
         <option value="$PROJECT_DIR$/server/model/restaurant/restaurant.model.server.js" />
-        <option value="$PROJECT_DIR$/server/model/order/order.schema.server.js" />
         <option value="$PROJECT_DIR$/server/model/order/order.model.server.js" />
         <option value="$PROJECT_DIR$/src/app/services/order.service.client.ts" />
-        <option value="$PROJECT_DIR$/server/services/order.service.server.js" />
         <option value="$PROJECT_DIR$/src/app/model/order.client.model.ts" />
+        <option value="$PROJECT_DIR$/server/model/order/order.schema.server.js" />
+        <option value="$PROJECT_DIR$/server/services/order.service.server.js" />
       </list>
     </option>
   </component>
@@ -116,6 +135,13 @@
               <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodDelivery" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="order" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FoodDelivery" type="b2602c69:ProjectViewProjectNode" />
@@ -233,12 +259,12 @@
       <workItem from="1554703439443" duration="42771000" />
       <workItem from="1555297960330" duration="1116000" />
       <workItem from="1555299120269" duration="825000" />
-      <workItem from="1555489706705" duration="1321000" />
+      <workItem from="1555489706705" duration="1668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53474000" />
+    <option name="totallyTimeSpent" value="53821000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -251,11 +277,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="23" width="1393" height="877" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4971537" visible="true" weight="0.24927114" />
       <window_info id="Structure" order="1" sideWeight="0.50190115" side_tool="true" weight="0.24945295" />
-      <window_info active="true" id="Favorites" order="2" sideWeight="0.5028463" side_tool="true" visible="true" weight="0.24927114" />
+      <window_info id="Favorites" order="2" sideWeight="0.5028463" side_tool="true" weight="0.24927114" />
       <window_info id="npm" order="3" sideWeight="0.50190115" side_tool="true" weight="0.24945295" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32866243" />
@@ -267,7 +292,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3299363" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.3299363" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32866243" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32866243" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -454,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/order.service.client.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
@@ -497,20 +515,31 @@
     <entry file="file://$PROJECT_DIR$/server/services/website.service.server.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/model/order.client.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/model/order/order.model.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="873">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/model/order/order.schema.server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="150">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/services/order.service.server.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/model/order.client.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="157">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
         </state>
       </provider>
     </entry>
