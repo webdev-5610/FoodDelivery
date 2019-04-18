@@ -138,3 +138,13 @@ a:hover {
   background-color: #808389;
   border-color: #494F57;
 }
+
+.example-radio-group {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}

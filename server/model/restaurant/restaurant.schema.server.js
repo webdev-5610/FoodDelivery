@@ -1,16 +1,23 @@
+
 var mongoose = require('mongoose');
 
-var orderSchema = require('../order/order.schema.server');
+var restaurantSchema = mongoose.Schema(
+    {
+        name: String,
+        email: String,
+        address: String,
+        phone: String,
+        description: String,
+        dateCreate: {
+            type: Date,
+            default: Date.now()
+        },
+        menu: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'menu'
+        }],
 
-var websiteSchema = mongoose.Schema(
-  {
-    _user: {type: mongoose.Schema.ObjectId, ref: "User"},
-    name: String,
-    description: String,
-    pages: [orderSchema],
-    dateCreate: {type: Date, default: Date.now()}
-
-  },{collection: "restaurant"}
+    }, {collection: "restaurant"}
 );
 
-module.exports = websiteSchema;
+module.exports = restaurantSchema;

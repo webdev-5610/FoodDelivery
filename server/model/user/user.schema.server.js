@@ -1,19 +1,22 @@
 const mongoose = require('mongoose');
+<<<<<<< HEAD
 var orderSchema = require('../order/order.schema.server');
+=======
+
+>>>>>>> Lulin
 const userSchema = new mongoose.Schema({
-  _id:String,
-  name: String,
+  username: String,
   password: String,
   email: String,
   address: String,
   phone: String,
-  credit_card_info: String,
-  billing_info:String,
-  order_history:[orderSchema]
-  // facebook identity of the user
-  /*facebook: {
-    id: String,
-    token: String
-  }*/
+  userType:{
+    type: String,
+    enum: ['Customer', 'Employee', 'Delivery','Admin']
+  },
+  order_history: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Order'
+  }],
 }, {collection: 'user'});
 module.exports = userSchema;

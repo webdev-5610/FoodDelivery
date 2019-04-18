@@ -2,7 +2,7 @@ import {Order} from "./order.client.model";
 
 export class User {
     _id: String;
-    name: String;
+    username: String;
     password: String;
     email: String;
     address: String;
@@ -12,9 +12,10 @@ export class User {
     order_history: Order[];
 
 
-    constructor(username: String, password: String, email: String, address: String, phone: String, credit_card_info: String,
+    constructor(_id: String, username: String, password: String, email: String, address: String, phone: String, credit_card_info: String,
                 billing_info: String) {
-        this.name = username;
+        this._id = _id;
+        this.username = username;
         this.password = password;
         this.email = email;
         this.address = address;

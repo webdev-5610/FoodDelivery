@@ -18,12 +18,27 @@ import {RegisterComponent} from "./components/website/register/register.componen
 import {HttpClientModule} from "@angular/common/http";
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
 import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
+<<<<<<< HEAD
 import { RestaurantOrderHistoryComponent } from './components/restaurant/order-history/order-history.component';
 import { RestaurantOrderCurrentComponent } from './components/restaurant/order-current/order-current.component';
+=======
+import { RestaurantOrderHistoryComponent } from './components/restaurant/restaurant-order-history/order-history.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {UserService} from "./services/user.service.client";
+import {RestaurantService} from "./services/restaurant.service.client";
+import {OrderService} from "./services/order.service.client";
+import {WebsiteService} from "./services/website.service.client";
+import {SharedService} from "./services/shared.service";
+import { CurrentOrderComponent } from './components/restaurant/current-order/current-order.component';
+import {AuthGuard} from "./services/auth-guard.service";
+import {MenuService} from "./services/menu.service.client";
+
+>>>>>>> Lulin
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     LoginComponent,
     UserProfileComponent,
     RegisterComponent,
@@ -33,12 +48,19 @@ import { RestaurantOrderCurrentComponent } from './components/restaurant/order-c
     OrderComponent,
     RestaurantProfileComponent,
     MenuComponent,
+<<<<<<< HEAD
     HomeComponent,
+=======
+>>>>>>> Lulin
     RestaurantComponent,
     RestaurantHomeComponent,
     MenuEditComponent,
     RestaurantOrderHistoryComponent,
+<<<<<<< HEAD
     RestaurantOrderCurrentComponent
+=======
+    CurrentOrderComponent
+>>>>>>> Lulin
   ],
   imports: [
     BrowserModule,
@@ -46,8 +68,9 @@ import { RestaurantOrderCurrentComponent } from './components/restaurant/order-c
     Routing,
     FormsModule,
     // QuillEditorModule
+      MatRadioModule
   ],
-  // providers: [UserService,],
+  providers: [UserService,RestaurantService,MenuService,OrderService,WebsiteService,SharedService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -28,14 +28,22 @@ export class OrderService {
         return this.http.get<Order[]>(this.baseUrl + userId + '/order');
     }
 
-    findAllOrdersByRestaurant(restaurantId): Observable<Order[]> {
+    findAllOrders(): Observable<Order[]> {
         console.log('front order service findOrderByRestaurant() called');
+<<<<<<< HEAD
         return this.http.get<Order[]>(this.baseUrl + restaurantId + '/order');
     }
     finishOrder(restaurantId, orderId) {
         console.log('front order service finishOrder() called');
         return null; // this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
+=======
+        return this.http.get<Order[]>(this.baseUrl + '/order');
+>>>>>>> Lulin
     }
+    // finishOrder(restaurantId, orderId) {
+    //     console.log('front order service finishOrder() called');
+    //     return this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
+    // }
 
 
     findOrderById(userId,orderId) {

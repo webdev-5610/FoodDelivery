@@ -1,10 +1,17 @@
 var mongoose = require('mongoose');
+var RestaurantSchema = require('./restaurant.schema.server.js');
+var Restaurant = mongoose.model('Restaurant', RestaurantSchema);
 
-var restaurantSchema = require('./restaurant.schema.server');
-var restaurantModel = mongoose.model("Restaurant",restaurantSchema);
+Restaurant.createDish = createDish;
+Restaurant.findDishById = findDishById;
+Restaurant.findDishByUsername = findDishByUsername;
+Restaurant.findDishByCredentials = findDishByCredentials;
+Restaurant.updateDish = updateDish;
+Restaurant.deleteDish = deleteDish;
 
-var userModel = require('../user/user.model.server');
+module.exports = Restaurant;
 
+<<<<<<< HEAD
 // websiteService at server side will call this function
 //restaurantModel.findAllOrders = findAllOrders;
 //restaurantModel.createRestaurant = createRestaurant;
@@ -29,46 +36,28 @@ function createWebsiteForUser(userId, website) {
                 });
             return responseWebsite;
         });
+=======
+function createDish(user) {
+    return Restaurant.create(user);
+>>>>>>> Lulin
 }
 
-function findAllWebsitesForUser(userId) {
-    console.log('Mongoose: findAllWebsitesForUser() called');
-    return websiteModel.find({_user: userId})
-        .populate('_user', '_id');
-
+function findDishById(userId) {
+    return Restaurant.findById(userId);
 }
 
-function findWebsiteById(websiteId) {
-    console.log('Mongoose: findWebsiteById() called: ');
-    return websiteModel.findOne({_id: websiteId});
+function findDishByUsername(username) {
+    return Restaurant.findOne({ username: username });
 }
 
-function updateWebsite(websiteId, website) {
-    console.log('Mongoose: updateWebsite() called');
-    return websiteModel.updateOne({_id: websiteId}, website);
+function findDishByCredentials(username, password) {
+    return Restaurant.findOne({ username: username, password: password });
 }
 
-function deleteWebsite(userId, websiteId) {
-    console.log('Mongoose: deleteWebsite() called');
-    // first, find the original restaurant
-    websiteModel.findOne({_id: websiteId})
-        .then(function (responseWebsite) {
-            // next, for the current user, delete this restaurant from user's restaurant list.
-            userModel.findUserById(userId)
-                .then(function (user) {
-                    user.websites.pull({ _id: responseWebsite._id });
-                    return user.save();
-                });
-            return responseWebsite;
-        });
-    // then, delete this restaurant
-    return websiteModel.deleteOne({_id: websiteId});
-
-
+function updateDish(userId, user) {
+    return Restaurant.findByIdAndUpdate(userId, user, {new: true});
 }
 
-function findAllWebsites() {
-    websiteModel.find(function (err, website) {
-        console.log(website);
-    })
+function deleteDish(userId) {
+    return Restaurant.findByIdAndRemove(userId);
 }

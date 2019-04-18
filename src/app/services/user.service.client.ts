@@ -3,87 +3,55 @@ import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
 import {SharedService} from './shared.service';
 import {environment} from 'src/environments/environment';
-import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
+import {MatSelectTrigger} from "@angular/material";
 
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class UserService {
-    constructor(private http: HttpClient, private router: Router, private sharedService: SharedService) {
-    }
-    options = {
-        withCredentials: true
-    };
-    // api = {
-    //     createUser: this.createUser,
-    //     findUserById: this.findUserById,
-    //     findUserByUsername: this.findUserByUserName,
-    //     findUserByCredentials: this.findUserByCredentials,
-    //     updateUser: this.updateUser,
-    //     deleteUser: this.deleteUser
-    // };
-
+    constructor(private _http: HttpClient, private sharedService: SharedService, private router: Router) {}
     baseUrl = environment.baseUrl;
-    userApiUrl = '/api/user';
+    options = {withCredentials: false};
 
-    createUser(user): Observable<User> {
-        console.log('front service createUser() called');
-        return this.http.post<User>(this.baseUrl + this.userApiUrl, user);
+    createUser(user: User) {
+        return this._http.post(this.baseUrl + '/api/user', user);
     }
 
-    findUserById(userId): Observable<User> {
-        console.log('front service findUserById() called');
-        return this.http.get<User>(this.baseUrl + this.userApiUrl + '/' + userId);
+    findUserById(userId: String) {
+        return this._http.get(this.baseUrl + '/api/user/' + userId);
     }
 
-    findUserByUserName(userName): Observable<User> {
-        console.log('front service findUserByUserName() called');
-        return this.http.get<User>(this.baseUrl + this.userApiUrl + '?name=' + userName);
-    }
-    //
-    // findUserByCredentials(userName, password): Observable<User> {
-    //     console.log('front service findUserByCredentials() called');
-    //     return this.http.get<User>(this.baseUrl + this.userApiUrl + '?name=' + userName + '&password=' + password);
-    // }
-    register(username: String, password: String) {
-        this.options.withCredentials = true;
-        const user = {
-            username: username,
-            password: password
-        };
-        return this.http.post(this.baseUrl + '/api/register', user, this.options)
-            .map(
-                (res: Response) => {
-                    return res;
-                }
-            );
+    findUserByUsername(username: String) {
+        return this._http.get(this.baseUrl + '/api/user?username=' + username);
     }
 
-    login(username: String, password: String) {
-        console.log('front user service login() called');
-        this.options.withCredentials = true;
+    findUserByCredentials(username: String, password: String) {
+        return this._http.get<User>(this.baseUrl + '/api/user?username=' + username + '&password=' + password);
+    }
+
+    updateUser(userId: String, user: User) {
+        return this._http.put(this.baseUrl + '/api/user/' + userId, user);
+    }
+
+    deleteUser(userId: String) {
+        return this._http.delete(this.baseUrl + '/api/user/' + userId);
+    }
+
+    login(username: String, password: String, userType: String) {
+        this.options.withCredentials = true; // jga
+
         const body = {
             username: username,
-            password: password
+            password: password,
+            userTpye: userType
         };
-        return this.http.post(this.baseUrl + '/api/login', body, this.options).map(
-            (res: Response) => {
-                console.log('Inside login() response, res is ' + res);
-                return res;
-            });
+
+        return this._http.post(this.baseUrl + '/api/login', body, this.options);
     }
 
-    logout() {
-        return this.http.post(this.baseUrl + '/api/logout', '', this.options).map(
-            (res: Response) => {
-                return res;
-            });
-    }
-
+<<<<<<< HEAD
     loggedIn() {
         return this.http.get(this.baseUrl + '/api/loggedIn', this.options)
             .pipe()
@@ -100,17 +68,35 @@ export class UserService {
                     return false;
                 }
             });
+=======
+    logout() {
+        this.options.withCredentials = true;
+        return this._http
+            .post(this.baseUrl + '/api/logout', '', this.options);
+>>>>>>> Lulin
     }
 
-    updateUser(userId, user): Observable<User> {
-        console.log('front service updateUser() called');
-        return this.http.put<User>(this.baseUrl + this.userApiUrl + '/' + userId, user);
+    register(username: String, password: String, userType: String) {
+        this.options.withCredentials = true;
+        const user = {username: username, password: password, userType: userType};
+        return this._http
+            .post(this.baseUrl + '/api/register', user, this.options);
     }
 
-    deleteUser(userId) {
-        console.log('front service deleteUser() called');
-        return this.http.delete<User>(this.baseUrl + this.userApiUrl + '/' + userId);
+    loggedIn() {
+        return this._http
+            .post(this.baseUrl + '/api/loggedin', '', this.options)
+            .pipe(
+                map((user) => {
+                        if (user !== 0) {
+                            this.sharedService.user = user;
+                            return true;
+                        } else {
+                            this.router.navigate(['/login']);
+                            return false;
+                        }
+                    }
+                ));
     }
-
-
 }
+
