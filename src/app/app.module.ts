@@ -18,10 +18,6 @@ import {RegisterComponent} from "./components/website/register/register.componen
 import {HttpClientModule} from "@angular/common/http";
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
 import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
-<<<<<<< HEAD
-import { RestaurantOrderHistoryComponent } from './components/restaurant/order-history/order-history.component';
-import { RestaurantOrderCurrentComponent } from './components/restaurant/order-current/order-current.component';
-=======
 import { RestaurantOrderHistoryComponent } from './components/restaurant/restaurant-order-history/order-history.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {UserService} from "./services/user.service.client";
@@ -33,7 +29,6 @@ import { CurrentOrderComponent } from './components/restaurant/current-order/cur
 import {AuthGuard} from "./services/auth-guard.service";
 import {MenuService} from "./services/menu.service.client";
 
->>>>>>> Lulin
 
 @NgModule({
   declarations: [
@@ -48,19 +43,11 @@ import {MenuService} from "./services/menu.service.client";
     OrderComponent,
     RestaurantProfileComponent,
     MenuComponent,
-<<<<<<< HEAD
-    HomeComponent,
-=======
->>>>>>> Lulin
     RestaurantComponent,
     RestaurantHomeComponent,
     MenuEditComponent,
     RestaurantOrderHistoryComponent,
-<<<<<<< HEAD
-    RestaurantOrderCurrentComponent
-=======
     CurrentOrderComponent
->>>>>>> Lulin
   ],
   imports: [
     BrowserModule,

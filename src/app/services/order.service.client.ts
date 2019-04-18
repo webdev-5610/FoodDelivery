@@ -30,15 +30,7 @@ export class OrderService {
 
     findAllOrders(): Observable<Order[]> {
         console.log('front order service findOrderByRestaurant() called');
-<<<<<<< HEAD
-        return this.http.get<Order[]>(this.baseUrl + restaurantId + '/order');
-    }
-    finishOrder(restaurantId, orderId) {
-        console.log('front order service finishOrder() called');
-        return null; // this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
-=======
         return this.http.get<Order[]>(this.baseUrl + '/order');
->>>>>>> Lulin
     }
     // finishOrder(restaurantId, orderId) {
     //     console.log('front order service finishOrder() called');

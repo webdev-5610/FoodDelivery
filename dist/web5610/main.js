@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi8uLi9hcHAuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -114,6 +114,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/website.service.client */ "./src/app/services/website.service.client.ts");
 /* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/shared.service */ "./src/app/services/shared.service.ts");
 /* harmony import */ var _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/restaurant/current-order/current-order.component */ "./src/app/components/restaurant/current-order/current-order.component.ts");
+/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var _services_menu_service_client__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/menu.service.client */ "./src/app/services/menu.service.client.ts");
+
+
 
 
 
@@ -172,7 +176,7 @@ var AppModule = /** @class */ (function () {
                 // QuillEditorModule
                 _angular_material_radio__WEBPACK_IMPORTED_MODULE_20__["MatRadioModule"]
             ],
-            providers: [_services_user_service_client__WEBPACK_IMPORTED_MODULE_21__["UserService"], _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_22__["RestaurantService"], _services_order_service_client__WEBPACK_IMPORTED_MODULE_23__["OrderService"], _services_website_service_client__WEBPACK_IMPORTED_MODULE_24__["WebsiteService"], _services_shared_service__WEBPACK_IMPORTED_MODULE_25__["SharedService"]],
+            providers: [_services_user_service_client__WEBPACK_IMPORTED_MODULE_21__["UserService"], _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_22__["RestaurantService"], _services_menu_service_client__WEBPACK_IMPORTED_MODULE_28__["MenuService"], _services_order_service_client__WEBPACK_IMPORTED_MODULE_23__["OrderService"], _services_website_service_client__WEBPACK_IMPORTED_MODULE_24__["WebsiteService"], _services_shared_service__WEBPACK_IMPORTED_MODULE_25__["SharedService"], _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_27__["AuthGuard"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
@@ -201,12 +205,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/user/checkout/checkout.component */ "./src/app/components/user/checkout/checkout.component.ts");
 /* harmony import */ var _components_user_order_order_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/user/order/order.component */ "./src/app/components/user/order/order.component.ts");
 /* harmony import */ var _components_restaurant_restaurant_profile_restaurant_profile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/restaurant/restaurant-profile/restaurant-profile.component */ "./src/app/components/restaurant/restaurant-profile/restaurant-profile.component.ts");
-/* harmony import */ var _components_restaurant_menu_menu_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/restaurant/menu/menu.component */ "./src/app/components/restaurant/menu/menu.component.ts");
-/* harmony import */ var _components_website_register_register_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/website/register/register.component */ "./src/app/components/website/register/register.component.ts");
-/* harmony import */ var _components_restaurant_restaurant_home_restaurant_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/restaurant/restaurant-home/restaurant-home.component */ "./src/app/components/restaurant/restaurant-home/restaurant-home.component.ts");
-/* harmony import */ var _components_restaurant_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/restaurant/restaurant-order-history/order-history.component */ "./src/app/components/restaurant/restaurant-order-history/order-history.component.ts");
-/* harmony import */ var _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/restaurant/current-order/current-order.component */ "./src/app/components/restaurant/current-order/current-order.component.ts");
-/* harmony import */ var _components_restaurant_menu_edit_menu_edit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/restaurant/menu-edit/menu-edit.component */ "./src/app/components/restaurant/menu-edit/menu-edit.component.ts");
+/* harmony import */ var _components_website_register_register_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/website/register/register.component */ "./src/app/components/website/register/register.component.ts");
+/* harmony import */ var _components_restaurant_restaurant_home_restaurant_home_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/restaurant/restaurant-home/restaurant-home.component */ "./src/app/components/restaurant/restaurant-home/restaurant-home.component.ts");
+/* harmony import */ var _components_restaurant_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/restaurant/restaurant-order-history/order-history.component */ "./src/app/components/restaurant/restaurant-order-history/order-history.component.ts");
+/* harmony import */ var _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/restaurant/current-order/current-order.component */ "./src/app/components/restaurant/current-order/current-order.component.ts");
+/* harmony import */ var _components_restaurant_menu_edit_menu_edit_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/restaurant/menu-edit/menu-edit.component */ "./src/app/components/restaurant/menu-edit/menu-edit.component.ts");
+/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var _components_restaurant_menu_menu_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/restaurant/menu/menu.component */ "./src/app/components/restaurant/menu/menu.component.ts");
+
 
 
 
@@ -225,14 +231,15 @@ __webpack_require__.r(__webpack_exports__);
 var APP_ROUTES = [
     { path: '', component: _components_website_home_home_component__WEBPACK_IMPORTED_MODULE_1__["HomeComponent"] },
     { path: 'login', component: _components_website_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
-    { path: 'register', component: _components_website_register_register_component__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"] },
+    { path: 'register', component: _components_website_register_register_component__WEBPACK_IMPORTED_MODULE_8__["RegisterComponent"] },
+    //employee
     //restaurant
-    { path: 'restaurant/home', component: _components_restaurant_restaurant_home_restaurant_home_component__WEBPACK_IMPORTED_MODULE_10__["RestaurantHomeComponent"] },
-    { path: 'restaurant/profile', component: _components_restaurant_restaurant_profile_restaurant_profile_component__WEBPACK_IMPORTED_MODULE_7__["RestaurantProfileComponent"] },
-    { path: 'restaurant/orderhistory', component: _components_restaurant_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_11__["RestaurantOrderHistoryComponent"] },
-    { path: 'restaurant/currentorder', component: _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_12__["CurrentOrderComponent"] },
-    { path: 'restaurant/menu', component: _components_restaurant_menu_menu_component__WEBPACK_IMPORTED_MODULE_8__["MenuComponent"] },
-    { path: 'restaurant/menu/:dishid', component: _components_restaurant_menu_edit_menu_edit_component__WEBPACK_IMPORTED_MODULE_13__["MenuEditComponent"] },
+    { path: 'restaurant/home', component: _components_restaurant_restaurant_home_restaurant_home_component__WEBPACK_IMPORTED_MODULE_9__["RestaurantHomeComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_13__["AuthGuard"]] },
+    { path: 'restaurant/profile', component: _components_restaurant_restaurant_profile_restaurant_profile_component__WEBPACK_IMPORTED_MODULE_7__["RestaurantProfileComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_13__["AuthGuard"]] },
+    { path: 'restaurant/orderhistory', component: _components_restaurant_restaurant_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_10__["RestaurantOrderHistoryComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_13__["AuthGuard"]] },
+    { path: 'restaurant/currentorders', component: _components_restaurant_current_order_current_order_component__WEBPACK_IMPORTED_MODULE_11__["CurrentOrderComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_13__["AuthGuard"]] },
+    { path: 'restaurant/menu', component: _components_restaurant_menu_menu_component__WEBPACK_IMPORTED_MODULE_14__["MenuComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_13__["AuthGuard"]] },
+    { path: 'restaurant/menu/:did', component: _components_restaurant_menu_edit_menu_edit_component__WEBPACK_IMPORTED_MODULE_12__["MenuEditComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_13__["AuthGuard"]] },
     //user
     { path: 'user/:uid/home', component: _components_user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_3__["UserProfileComponent"] },
     { path: 'user/:uid/profile', component: _components_user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_3__["UserProfileComponent"] },
@@ -258,7 +265,7 @@ var Routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjdXJyZW50LW9yZGVyL2N1cnJlbnQtb3JkZXIuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzdGF1cmFudC9jdXJyZW50LW9yZGVyL2N1cnJlbnQtb3JkZXIuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -269,7 +276,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a class=\"navbar-brand cl-text-black cl-icon-padding\"\n         routerLink=\"../\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Menu\n      </h1>\n    </div>\n    <a class=\"navbar-brand cl-text-black float-right cl-icon-padding\"\n       routerLink=\"./new\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<!--<div class=\"container cl-container-padding-more\">-->\n  <!--<div id=\"accordion\">-->\n    <!--<div *ngFor=\"let order of orders\">-->\n\n      <!--<div class=\"card\">-->\n        <!--<div class=\"card-header\" id=\"{{order._id}}\">-->\n          <!--<h5 class=\"mb-0\">-->\n            <!--<button class=\"btn btn-link\" data-toggle=\"collapse\" data-target=\"#collapseOne\"-->\n                    <!--aria-expanded=\"true\" aria-controls=\"collapseOne\">-->\n              <!--{{order.time}}  Customer:{{order.user}}-->\n            <!--</button>-->\n          <!--</h5>-->\n\n          <!--<div class=\"float-right\">-->\n            <!--<button class=\"btn btn-primary btn-small\" [style.color]=\"buttoncolor\"-->\n                    <!--(click)=\"sendtoAlldelivery(order)\"-->\n                    <!--type=\"submit\">Send to Delivery-->\n            <!--</button>-->\n            <!--<button class=\"btn btn-danger btn-small\" [style.color]=\"buttoncolor\"-->\n                    <!--(click)=\"cancalOrder(order)\"-->\n                    <!--type=\"submit\">Cancle Order-->\n            <!--</button>-->\n          <!--</div>-->\n        <!--</div>-->\n\n        <!--<div id=\"collapseOne\" class=\"collapse show\" aria-labelledby=\"{{order._id}}\" data-parent=\"#accordion\">-->\n          <!--<div class=\"card-body\">-->\n            <!--<table class=\"table\">-->\n              <!--<thead class=\"thead-light\">-->\n              <!--<tr>-->\n                <!--<th scope=\"col\">#</th>-->\n                <!--<th scope=\"col\">Name</th>-->\n                <!--<th scope=\"col\">Quantity</th>-->\n              <!--</tr>-->\n              <!--</thead>-->\n              <!--<tbody *ngFor=\"let dish of order.details.dish; index as i\">-->\n\n              <!--<tr>-->\n                <!--<th scope=\"row\">{{i+1}}</th>-->\n                <!--<td>{{dish}}</td>-->\n                <!--<td>{{order.details.quantity[i]}}</td>-->\n              <!--</tr>-->\n\n              <!--</tbody>-->\n            <!--</table>-->\n          <!--</div>-->\n        <!--</div>-->\n\n      <!--</div>-->\n    <!--</div>-->\n  <!--</div>-->\n<!--</div>-->\n\n\n    <nav class=\"navbar fixed-bottom cl-grey-navbar\">\n      <div class=\"container-fluid\">\n        <a routerLink=\"/profile\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n          <i class=\"fas fa-user cl-text-blue\"></i>\n        </a>\n      </div>\n    </nav>\n"
+module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a class=\"navbar-brand cl-text-black cl-icon-padding\"\n         routerLink=\"../home\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Menu\n      </h1>\n    </div>\n    <a class=\"navbar-brand cl-text-black float-right cl-icon-padding\"\n       routerLink=\"./new\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n  <div id=\"accordion\">\n    <!--<div *ngFor=\"let order of orders\">-->\n\n      <!--<div class=\"card\">-->\n        <!--<div class=\"card-header\" id=\"{{order._id}}\">-->\n          <!--<h5 class=\"mb-0\">-->\n            <!--<button class=\"btn btn-link\" data-toggle=\"collapse\" data-target=\"#collapseOne\"-->\n                    <!--aria-expanded=\"true\" aria-controls=\"collapseOne\">-->\n              <!--{{order.time}}  Customer:{{order.user}}-->\n            <!--</button>-->\n          <!--</h5>-->\n\n          <!--<div class=\"float-right\">-->\n            <!--<button class=\"btn btn-primary btn-small\" [style.color]=\"buttoncolor\"-->\n                    <!--(click)=\"sendtoAlldelivery(order)\"-->\n                    <!--type=\"submit\">Send to Delivery-->\n            <!--</button>-->\n            <!--<button class=\"btn btn-danger btn-small\" [style.color]=\"buttoncolor\"-->\n                    <!--(click)=\"cancalOrder(order)\"-->\n                    <!--type=\"submit\">Cancle Order-->\n            <!--</button>-->\n          <!--</div>-->\n        <!--</div>-->\n\n        <!--<div id=\"collapseOne\" class=\"collapse show\" aria-labelledby=\"{{order._id}}\" data-parent=\"#accordion\">-->\n          <!--<div class=\"card-body\">-->\n            <!--<table class=\"table\">-->\n              <!--<thead class=\"thead-light\">-->\n              <!--<tr>-->\n                <!--<th scope=\"col\">#</th>-->\n                <!--<th scope=\"col\">Name</th>-->\n                <!--<th scope=\"col\">Quantity</th>-->\n              <!--</tr>-->\n              <!--</thead>-->\n              <!--<tbody *ngFor=\"let dish of order.details.dish; index as i\">-->\n\n              <!--<tr>-->\n                <!--<th scope=\"row\">{{i+1}}</th>-->\n                <!--<td>{{dish}}</td>-->\n                <!--<td>{{order.details.quantity[i]}}</td>-->\n              <!--</tr>-->\n\n              <!--</tbody>-->\n            <!--</table>-->\n          <!--</div>-->\n        <!--</div>-->\n\n      <!--</div>-->\n    <!--</div>-->\n  </div>\n</div>\n\n\n    <nav class=\"navbar fixed-bottom cl-grey-navbar\">\n      <div class=\"container-fluid\">\n        <a routerLink=\"/profile\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n          <i class=\"fas fa-user cl-text-blue\"></i>\n        </a>\n      </div>\n    </nav>\n"
 
 /***/ }),
 
@@ -288,6 +295,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _services_order_service_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/order.service.client */ "./src/app/services/order.service.client.ts");
+
 
 
 
@@ -302,17 +311,16 @@ var CurrentOrderComponent = /** @class */ (function () {
         this.sharedService = sharedService;
     }
     CurrentOrderComponent.prototype.ngOnInit = function () {
-        //this.employeeId = this.sharedService.user._id;
-        // this.orderService.findOrdersbyStatus(1).suscribe(
-        //     (orders: any) => {
-        //       this.orders = orders;
-        //       console.log(this.orders);
-        //     }
-        // )
+        var _this = this;
+        this.employeeId = this.sharedService.user._id;
+        this.orderService.findOrdersbyStatus(1).subscribe(function (orders) {
+            _this.orders = orders;
+            console.log(_this.orders);
+        });
     };
     CurrentOrderComponent.prototype.sendtoAlldelivery = function (order) {
-        //this.orderService.updateOrderStatus(order._id, 2, order);
-        // this.buttoncolor = '#808389';
+        this.orderService.updateOrderStatus(order._id, 2, order);
+        //this.buttoncolor = '#808389';
     };
     CurrentOrderComponent.prototype.cancalOrder = function (order) { };
     CurrentOrderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -321,7 +329,9 @@ var CurrentOrderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./current-order.component.html */ "./src/app/components/restaurant/current-order/current-order.component.html"),
             styles: [__webpack_require__(/*! ./current-order.component.css */ "./src/app/components/restaurant/current-order/current-order.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__["RestaurantService"], Object, _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__["RestaurantService"],
+            _services_order_service_client__WEBPACK_IMPORTED_MODULE_5__["OrderService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             _services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
     ], CurrentOrderComponent);
@@ -339,7 +349,7 @@ var CurrentOrderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtZW51LWVkaXQvbWVudS1lZGl0LmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzdGF1cmFudC9tZW51LWVkaXQvbWVudS1lZGl0LmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -350,7 +360,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a routerLink=\"..\" class=\"navbar-brand cl-text-black cl-icon-padding\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Course Edit\n      </h1>\n    </div>\n    <a (click)=\"updateDish()\" class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n      <i class=\"fas fa-check\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <form>\n    <div class=\"form-group\" *ngIf=\"dish\">\n      <label for=\"dish-name\">Name</label>\n      <input [(ngModel)]=\"dish.dish_name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"dish-name\"\n             placeholder=\"name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"dish-price\">Price</label>\n      <span>$</span>\n      <input [(ngModel)]=\"dish.price\"\n             name=\"width\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"dish-price\"\n             placeholder=\"Price\"/>\n    </div>\n    <div class=\"form-group\" *ngIf=\"dish\">\n      <label for=\"dish-description\">Description</label>\n      <textarea [(ngModel)]=\"dish.description\" name=\"description\" id=\"dish-description\" class=\"form-control\" rows=\"3\"\n                placeholder=\"Description\"></textarea>\n    </div>\n\n    <div class=\"form-group\" *ngIf=\"dish\">\n      <label for=\"image-URL\">URL</label>\n      <input [(ngModel)]=\"dish.url\"\n             type=\"text\"\n             name=\"url\"\n             class=\"form-control\"\n             id=\"image-URL\"\n             placeholder=\"{{dish.url}}\"\n             ngModel required\n             #url=\"ngModel\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"exampleInputFile\">Upload</label>\n      <form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n        <input  name=\"myFile\"   type=\"file\" class=\"form-control\"  id=\"exampleInputFile\"/>\n        <input  name=\"dishId\" value=\"{{dishId}}\"   style=\"display: none\"/>\n        <input  name=\"restaurant\" value=\"{{restaurantId}}\"   style=\"display: none\"/>\n        <button type=\"submit\" class=\"btn btn-block btn-primary\">Upload Image</button>\n        <br/>\n      </form>\n    </div>\n  </form>\n\n  <button class=\"btn btn-danger  btn-block\" (click)=\"deleteDish()\">Delete</button>\n</div>\n\n<nav class=\"navbar fixed-bottom cl-grey-navbar\">\n  <div class=\"container-fluid justify-content-end\">\n    <a routerLink=\"restaurant/home\" class=\"navbar-brand cl-icon-padding cl-text-blue\">\n      <span class=\"fas fa-user\"></span>\n    </a>\n  </div>\n</nav>\n"
+module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a routerLink=\"..\" class=\"navbar-brand cl-text-black cl-icon-padding\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Dish Edit\n      </h1>\n    </div>\n    <a (click)=\"updateDish()\" class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n      <i class=\"fas fa-check\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"dish-name\">Name</label>\n      <input [(ngModel)]=\"dish.dish_name\"\n             name = \"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"dish-name\"\n             placeholder=\"name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"dish-price\">Price</label>\n      <span>$</span>\n      <input [(ngModel)]=\"dish.price\"\n             name=\"width\"\n             type=\"number\"\n             class=\"form-control\"\n             id=\"dish-price\"\n             placeholder=\"Price\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"dish-description\">Description</label>\n      <textarea [(ngModel)]=\"dish.description\" name=\"description\" id=\"dish-description\" class=\"form-control\" rows=\"3\"\n                placeholder=\"Description\"></textarea>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"image-URL\">URL</label>\n      <input [(ngModel)]=\"dish.url\"\n             type=\"text\"\n             name=\"url\"\n             class=\"form-control\"\n             id=\"image-URL\"\n             placeholder=\"{{dish.url}}\"\n             ngModel required\n             #url=\"ngModel\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"exampleInputFile\">Upload</label>\n      <form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n        <input  name=\"myFile\"   type=\"file\" class=\"form-control\"  id=\"exampleInputFile\"/>\n        <input  name=\"dishId\" value=\"{{dishId}}\"   style=\"display: none\"/>\n        <button type=\"submit\" class=\"btn btn-block btn-primary\">Upload Image</button>\n        <br/>\n      </form>\n    </div>\n  </form>\n\n  <button class=\"btn btn-danger  btn-block\" (click)=\"deleteDish()\">Delete</button>\n</div>\n\n<nav class=\"navbar fixed-bottom cl-grey-navbar\">\n  <div class=\"container-fluid justify-content-end\">\n    <a routerLink=\"restaurant/home\" class=\"navbar-brand cl-icon-padding cl-text-blue\">\n      <span class=\"fas fa-user\"></span>\n    </a>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -367,12 +377,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _model_restaurant_client_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../model/restaurant.client.model */ "./src/app/model/restaurant.client.model.ts");
-/* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
-
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _services_menu_service_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../services/menu.service.client */ "./src/app/services/menu.service.client.ts");
 
 
 
@@ -381,23 +389,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MenuEditComponent = /** @class */ (function () {
-    function MenuEditComponent(activatedRoute, sharedService, restaurantService, route) {
+    function MenuEditComponent(activatedRoute, sharedService, menuService, route) {
         this.activatedRoute = activatedRoute;
         this.sharedService = sharedService;
-        this.restaurantService = restaurantService;
+        this.menuService = menuService;
         this.route = route;
-        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].baseUrl;
+        this.dish = {};
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].baseUrl;
         this.dishErrorMsg = "Dish name can't be empty!";
         this.priceErrorMsg = "Price can't be empty!";
-        this.dish = new _model_restaurant_client_model__WEBPACK_IMPORTED_MODULE_3__["Menu"]('', null, '', '');
+        //this.dish = new Menu('',  '',0,'','');
     }
     MenuEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.dishErrorFlag = false;
         this.priceErrorFlag = false;
-        this.restaurantId = this.sharedService.user._id;
-        if (this.dishId) {
-            this.restaurantService.findDishById(this.dishId).subscribe(function (dish) {
+        this.activatedRoute.params.subscribe(function (params) {
+            _this.dishId = params['did'];
+        });
+        if (this.dishId !== 'new') {
+            this.menuService.findDishById(this.dishId).subscribe(function (dish) {
                 _this.dish = dish;
             });
         }
@@ -412,14 +423,14 @@ var MenuEditComponent = /** @class */ (function () {
             this.priceErrorFlag = true;
             return;
         }
-        if (!this.dishId) {
-            this.restaurantService.createDish(this.restaurantId, this.dish).subscribe(function (dish) {
+        if (this.dishId === 'new') {
+            this.menuService.createDish(this.dish).subscribe(function (dish) {
                 console.log('create dish !');
                 _this.route.navigate(['../'], { relativeTo: _this.activatedRoute });
             }, function (error) { return console.log(error); });
         }
         else {
-            this.restaurantService.updateDish(this.dish._id, this.dish).subscribe(function (dish) {
+            this.menuService.updateDish(this.dish._id, this.dish).subscribe(function (dish) {
                 console.log('update dish !');
                 _this.route.navigate(['../'], { relativeTo: _this.activatedRoute });
             }, function (error) { return console.log(error); });
@@ -427,11 +438,11 @@ var MenuEditComponent = /** @class */ (function () {
     };
     MenuEditComponent.prototype.deleteDish = function () {
         var _this = this;
-        this.restaurantService.deleteDish(this.dishId).subscribe(function () { return _this.route.navigate(['../'], { relativeTo: _this.activatedRoute }); });
+        this.menuService.deleteDish(this.dishId).subscribe(function () { return _this.route.navigate(['../'], { relativeTo: _this.activatedRoute }); });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('f'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgForm"])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"])
     ], MenuEditComponent.prototype, "imageForm", void 0);
     MenuEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -440,8 +451,8 @@ var MenuEditComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./menu-edit.component.css */ "./src/app/components/restaurant/menu-edit/menu-edit.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-            _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_4__["RestaurantService"],
+            _services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+            _services_menu_service_client__WEBPACK_IMPORTED_MODULE_6__["MenuService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], MenuEditComponent);
     return MenuEditComponent;
@@ -458,7 +469,7 @@ var MenuEditComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtZW51L21lbnUuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzdGF1cmFudC9tZW51L21lbnUuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -469,7 +480,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a routerLink=\"../\"\n         class=\"navbar-brand cl-text-black cl-icon-padding\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Menu\n      </h1>\n    </div>\n    <a routerLink=\"./new\"\n       class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n  <div appSortable (newIndexes) = \"onNewIndexes($event)\">\n    <div *ngFor=\"let dish of dishes\">\n      <div class=\"float-right\">\n        <a class=\"float-right cl-text-blue fa fa-bars\"></a>\n        <a routerLink=\"/restaurant/{{restaurantId}}/menu/{{dish._id}}\"\n           class=\"fa fa-cog cl-text-blue\"></a>\n      </div>\n      <p>{{dish.dish_name}}</p>\n      <p>{{dish.price}}</p>\n      <p>{{dish.description}}</p>\n      <img class=\"img-responsive img-rounded cl-widget-images\" src=\"{{dish.url}}\">\n\n    </div>\n</div>\n</div>\n\n  <nav class=\"navbar fixed-bottom cl-grey-navbar\">\n    <div class=\"container-fluid\">\n      <a routerLink=\"/profile\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n        <i class=\"fas fa-user cl-text-blue\"></i>\n      </a>\n    </div>\n  </nav>\n"
+module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a routerLink=\"../home\"\n         class=\"navbar-brand cl-text-black cl-icon-padding\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Menu\n      </h1>\n    </div>\n    <a routerLink=\"./new\"\n       class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n  <div appSortable (newIndexes) = \"onNewIndexes($event)\">\n    <div *ngFor=\"let dish of dishes\">\n      <div class=\"float-right\">\n        <a class=\"float-right cl-text-blue fa fa-bars\"></a>\n        <a routerLink=\"/restaurant/menu/{{dish._id}}\"\n           class=\"fa fa-cog cl-text-blue\"></a>\n      </div>\n      <p>{{dish.dish_name}}</p>\n      <p>{{dish.price}}</p>\n      <p>{{dish.description}}</p>\n      <img class=\"img-responsive img-rounded cl-widget-images\" src=\"{{dish.url}}\">\n\n    </div>\n</div>\n</div>\n\n  <nav class=\"navbar fixed-bottom cl-grey-navbar\">\n    <div class=\"container-fluid\">\n      <a routerLink=\"/profile\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n        <i class=\"fas fa-user cl-text-blue\"></i>\n      </a>\n    </div>\n  </nav>\n"
 
 /***/ }),
 
@@ -486,16 +497,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
-/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _services_menu_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/menu.service.client */ "./src/app/services/menu.service.client.ts");
 
 
 
 
 
 var MenuComponent = /** @class */ (function () {
-    function MenuComponent(restaurantService, sharedService, router, route) {
-        this.restaurantService = restaurantService;
+    function MenuComponent(menuService, sharedService, router, route) {
+        this.menuService = menuService;
         this.sharedService = sharedService;
         this.router = router;
         this.route = route;
@@ -504,9 +515,8 @@ var MenuComponent = /** @class */ (function () {
     }
     MenuComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //this.restaurant = this.sharedService.user;
-        this.restaurantId = this.sharedService.user._id;
-        this.restaurantService.findAllDishesForRestaurant(this.restaurantId).subscribe(function (dishes) {
+        //this.userId = this.sharedService.user._id;
+        this.menuService.findAllDishesForRestaurant().subscribe(function (dishes) {
             _this.dishes = dishes;
             console.log(_this.dishes);
         });
@@ -514,8 +524,11 @@ var MenuComponent = /** @class */ (function () {
     MenuComponent.prototype.onNewIndexes = function (newIndexes) {
         this.startIndex = newIndexes.startIndex;
         this.endIndex = newIndexes.endIndex;
-        this.restaurantService.reorderDishes(this.restaurantId, this.startIndex, this.endIndex, this.dishes)
+        this.menuService.reorderDishes(this.startIndex, this.endIndex, this.dishes)
             .subscribe();
+    };
+    MenuComponent.prototype.refresh = function () {
+        this.router.navigate(['restaurant/menu']);
     };
     MenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -523,8 +536,8 @@ var MenuComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./menu.component.html */ "./src/app/components/restaurant/menu/menu.component.html"),
             styles: [__webpack_require__(/*! ./menu.component.css */ "./src/app/components/restaurant/menu/menu.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_3__["RestaurantService"],
-            _services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_menu_service_client__WEBPACK_IMPORTED_MODULE_4__["MenuService"],
+            _services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], MenuComponent);
@@ -542,7 +555,7 @@ var MenuComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZXN0YXVyYW50LWhvbWUvcmVzdGF1cmFudC1ob21lLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzdGF1cmFudC9yZXN0YXVyYW50LWhvbWUvcmVzdGF1cmFudC1ob21lLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -553,7 +566,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n\n<body>\n<nav class=\"navbar fixed-top cl-blue-navbar\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <h1 class=\"cl-text-white navbar-brand cl-text-bold\">\n        Restaurant Home Page\n      </h1>\n    </div>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <button class=\"btn btn-primary btn-block\"\n          routerLink=\"../restaurant/{{restaurant._id}}/currentorders\">Current Orders\n  </button>\n  <br/>\n  <button class=\"btn btn-primary btn-block\"\n          routerLink=\"../restaurant/{{restaurant._id}}/website\">Profile\n  </button>\n  <button class=\"btn btn-primary btn-block\"\n          routerLink=\"../restaurant/{{restaurant._id}}/menu\">Menu\n  </button>\n  <button class=\"btn btn-primary btn-block\"\n          routerLink=\"../restaurant/{{restaurant._id}}/orderhistory\">Order History\n  </button>\n  <button class=\"btn btn-danger  btn-block\"\n          (click)=\"logout()\" routerLinkActive=\"active\">Logout\n  </button>\n  <button class=\"btn btn-danger  btn-block\"\n          (click)=\"deleteUser()\" routerLinkActive=\"active\">Delete\n  </button>\n</div>\n"
+module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n\n<body>\n<nav class=\"navbar fixed-top cl-blue-navbar\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <h1 class=\"cl-text-white navbar-brand cl-text-bold\">\n        Restaurant Home Page\n      </h1>\n    </div>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <button class=\"btn btn-primary btn-block\"\n          routerLink=\"/restaurant/currentorders\">Current Orders\n  </button>\n  <br/>\n  <button class=\"btn btn-primary btn-block\"\n          routerLink=\"/restaurant/profile\">Profile\n  </button>\n  <button class=\"btn btn-primary btn-block\"\n          routerLink=\"/restaurant/menu\">Menu\n  </button>\n  <button class=\"btn btn-primary btn-block\"\n          routerLink=\"/restaurant/orderhistory\">Order History\n  </button>\n  <button class=\"btn btn-danger  btn-block\"\n          (click)=\"logout()\" routerLinkActive=\"active\">Logout\n  </button>\n  <button class=\"btn btn-danger  btn-block\"\n          (click)=\"deleteUser()\" routerLinkActive=\"active\">Delete\n  </button>\n</div>\n"
 
 /***/ }),
 
@@ -573,6 +586,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
 /* harmony import */ var _model_restaurant_client_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../model/restaurant.client.model */ "./src/app/model/restaurant.client.model.ts");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../services/user.service.client */ "./src/app/services/user.service.client.ts");
+
 
 
 
@@ -580,8 +595,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RestaurantHomeComponent = /** @class */ (function () {
-    function RestaurantHomeComponent(restaurantService, route, router, sharedService) {
+    function RestaurantHomeComponent(restaurantService, userService, route, router, sharedService) {
         this.restaurantService = restaurantService;
+        this.userService = userService;
         this.route = route;
         this.router = router;
         this.sharedService = sharedService;
@@ -600,7 +616,7 @@ var RestaurantHomeComponent = /** @class */ (function () {
     };
     RestaurantHomeComponent.prototype.logout = function () {
         var _this = this;
-        this.restaurantService.logout().subscribe(function (data) {
+        this.userService.logout().subscribe(function (data) {
             _this.sharedService.user = null;
             _this.router.navigate(['/login']);
         });
@@ -612,6 +628,7 @@ var RestaurantHomeComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./restaurant-home.component.css */ "./src/app/components/restaurant/restaurant-home/restaurant-home.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__["RestaurantService"],
+            _services_user_service_client__WEBPACK_IMPORTED_MODULE_6__["UserService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             _services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
@@ -630,7 +647,7 @@ var RestaurantHomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZXN0YXVyYW50LW9yZGVyLWhpc3Rvcnkvb3JkZXItaGlzdG9yeS5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzdGF1cmFudC9yZXN0YXVyYW50LW9yZGVyLWhpc3Rvcnkvb3JkZXItaGlzdG9yeS5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -641,7 +658,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <div>\n            <a routerLink=\"../\"\n               class=\"navbar-brand cl-text-black cl-icon-padding\">\n                <i class=\"fas fa-angle-left\"></i>\n            </a>\n            <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n                Order History\n            </h1>\n        </div>\n        <a routerLink=\"./new\"\n           class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n            <i class=\"fas fa-plus\"></i>\n        </a>\n    </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n\n    <table class=\"table table-striped\">\n        <thead>\n        <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Date</th>\n            <th scope=\"col\">Total</th>\n            <th scope=\"col\">Details</th>\n        </tr>\n        </thead>\n\n        <tbody *ngFor=\"let order of orders; index as i\">\n        <tr>\n            <th scope=\"row\">{{i + 1}}</th>\n            <td>{{order.time}}</td>\n            <td>{{order.user}}</td>\n            <td>{{order.details.total}}</td>\n            <td><a routerLink=\"/restaurant/order/{{order._id}}\" class=\"badge badge-info\">click to view</a></td>\n        </tr>\n        </tbody>\n    </table>\n\n</div>\n\n<nav class=\"navbar fixed-bottom cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <a routerLink=\"restaurant/home\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n            <i class=\"fas fa-user cl-text-blue\"></i>\n        </a>\n    </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar fixed-top cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <div>\n            <a routerLink=\"../home\"\n               class=\"navbar-brand cl-text-black cl-icon-padding\">\n                <i class=\"fas fa-angle-left\"></i>\n            </a>\n            <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n                Order History\n            </h1>\n        </div>\n        <a routerLink=\"./new\"\n           class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n            <i class=\"fas fa-plus\"></i>\n        </a>\n    </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n\n    <table class=\"table table-striped\">\n        <thead>\n        <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Date</th>\n            <th scope=\"col\">Total</th>\n            <th scope=\"col\">Details</th>\n        </tr>\n        </thead>\n\n        <tbody *ngFor=\"let order of orders; index as i\">\n        <tr>\n            <th scope=\"row\">{{i + 1}}</th>\n            <td>{{order.time}}</td>\n            <td>{{order.user}}</td>\n            <td>{{order.details.total}}</td>\n            <td><a routerLink=\"/restaurant/order/{{order._id}}\" class=\"badge badge-info\">click to view</a></td>\n        </tr>\n        </tbody>\n    </table>\n\n</div>\n\n<nav class=\"navbar fixed-bottom cl-grey-navbar\">\n    <div class=\"container-fluid\">\n        <a routerLink=\"restaurant/home\" class=\"navbar-brand cl-icon-padding cl-text-blue float-right\">\n            <i class=\"fas fa-user cl-text-blue\"></i>\n        </a>\n    </div>\n</nav>\n"
 
 /***/ }),
 
@@ -657,24 +674,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantOrderHistoryComponent", function() { return RestaurantOrderHistoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/restaurant.service.client */ "./src/app/services/restaurant.service.client.ts");
-/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_order_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/order.service.client */ "./src/app/services/order.service.client.ts");
 
 
 
 
 
 var RestaurantOrderHistoryComponent = /** @class */ (function () {
-    function RestaurantOrderHistoryComponent(restaurantService, sharedService, router, route) {
-        this.restaurantService = restaurantService;
+    function RestaurantOrderHistoryComponent(orderService, sharedService, router, route) {
+        this.orderService = orderService;
         this.sharedService = sharedService;
         this.router = router;
         this.route = route;
     }
     RestaurantOrderHistoryComponent.prototype.ngOnInit = function () {
         this.employeeId = this.sharedService.user._id;
-        this.restaurantService.findAllDishesForRestaurant(this.employeeId);
+        // this.orderService.findAllOrders().subscribe(
+        //     (orders: any) => {
+        //       this.orders = orders;
+        //     }
+        // )
     };
     RestaurantOrderHistoryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -682,10 +703,10 @@ var RestaurantOrderHistoryComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./order-history.component.html */ "./src/app/components/restaurant/restaurant-order-history/order-history.component.html"),
             styles: [__webpack_require__(/*! ./order-history.component.css */ "./src/app/components/restaurant/restaurant-order-history/order-history.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_restaurant_service_client__WEBPACK_IMPORTED_MODULE_2__["RestaurantService"],
-            _services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_order_service_client__WEBPACK_IMPORTED_MODULE_4__["OrderService"],
+            _services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], RestaurantOrderHistoryComponent);
     return RestaurantOrderHistoryComponent;
 }());
@@ -701,7 +722,7 @@ var RestaurantOrderHistoryComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZXN0YXVyYW50LXByb2ZpbGUvcmVzdGF1cmFudC1wcm9maWxlLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVzdGF1cmFudC9yZXN0YXVyYW50LXByb2ZpbGUvcmVzdGF1cmFudC1wcm9maWxlLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -817,7 +838,7 @@ var RestaurantProfileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi91c2VyL2NoZWNrb3V0L2NoZWNrb3V0LmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9jaGVja291dC9jaGVja291dC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -873,7 +894,7 @@ var CheckoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi91c2VyL29yZGVyL29yZGVyLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9vcmRlci9vcmRlci5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -929,7 +950,7 @@ var OrderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi91c2VyL29yZGVyaGlzdG9yeS9vcmRlcmhpc3RvcnkuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9vcmRlcmhpc3Rvcnkvb3JkZXJoaXN0b3J5LmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -985,7 +1006,7 @@ var OrderhistoryComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi91c2VyL3VzZXItcHJvZmlsZS91c2VyLXByb2ZpbGUuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci91c2VyLXByb2ZpbGUvdXNlci1wcm9maWxlLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -1041,7 +1062,7 @@ var UserProfileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi93ZWJzaXRlL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvd2Vic2l0ZS9ob21lL2hvbWUuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -1097,7 +1118,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-radio-group {\n    display: flex;\n    flex-direction: column;\n    margin: 15px 0;\n}\n\n.example-radio-button {\n    margin: 5px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3dlYnNpdGUvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGFBQWE7SUFDYixzQkFBc0I7SUFDdEIsY0FBYztBQUNsQjs7QUFFQTtJQUNJLFdBQVc7QUFDZiIsImZpbGUiOiIuLi93ZWJzaXRlL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhhbXBsZS1yYWRpby1ncm91cCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIG1hcmdpbjogMTVweCAwO1xufVxuXG4uZXhhbXBsZS1yYWRpby1idXR0b24ge1xuICAgIG1hcmdpbjogNXB4O1xufVxuIl19 */"
+module.exports = ".example-radio-group {\n    display: flex;\n    flex-direction: row;\n    margin: 15px 0;\n}\n\n.example-radio-button {\n    margin: 5px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy93ZWJzaXRlL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxXQUFXO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3dlYnNpdGUvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLXJhZGlvLWdyb3VwIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAgbWFyZ2luOiAxNXB4IDA7XG59XG5cbi5leGFtcGxlLXJhZGlvLWJ1dHRvbiB7XG4gICAgbWFyZ2luOiA1cHg7XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -1108,7 +1129,7 @@ module.exports = ".example-radio-group {\n    display: flex;\n    flex-direction
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n    {{errorMsg}}\n</div>\n<div class=\"container\">\n    <h1>Login</h1>\n\n    <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n        <input placeholder=\"username\"\n               name=\"username\"\n               type=\"text\"\n               class=\"form-control\"\n               ngModel\n               required\n               #username=\"ngModel\"/>\n        <span class=\"help-block\" *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n\n        <input placeholder=\"password\"\n               name=\"password\"\n               type=\"password\"\n               class=\"form-control\"\n               ngModel\n               required\n               #password=\"ngModel\"/>\n        <span class=\"help-block\" *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n\n        <label id=\"example-radio-group-label\">Login as</label>\n        <mat-radio-group\n                aria-labelledby=\"example-radio-group-label\"\n                class=\"example-radio-group\"\n                [(ngModel)]=\"loginrole\">\n            <mat-radio-button class=\"example-radio-button\" *ngFor=\"let role of roles\" [value]=\"role\">\n                {{role}}\n            </mat-radio-button>\n        </mat-radio-group>\n\n        <button class=\"btn btn-primary btn-block\"\n                type=\"submit\"\n                [disabled]=\"!f.valid\">Login\n        </button>\n        <button class=\"btn btn-success btn-block\"\n                routerLink=\"/register\"\n                type=\"submit\">Register\n        </button>\n    </form>\n</div>\n\n"
+module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n    {{errorMsg}}\n</div>\n<div class=\"container\">\n    <h1>Login</h1>\n\n    <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n        <input placeholder=\"username\"\n               name=\"username\"\n               type=\"text\"\n               class=\"form-control\"\n               ngModel\n               required\n               #username=\"ngModel\"/>\n        <span class=\"help-block\" *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n\n        <input placeholder=\"password\"\n               name=\"password\"\n               type=\"password\"\n               class=\"form-control\"\n               ngModel\n               required\n               #password=\"ngModel\"/>\n        <span class=\"help-block\" *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n\n        <label id=\"example-radio-group-label\">Login as</label>\n        <mat-radio-group\n                aria-labelledby=\"example-radio-group-label\"\n                class=\"example-radio-group\"\n                [(ngModel)]=\"loginrole\"[ngModelOptions]=\"{standalone: true}\">\n            <mat-radio-button class=\"example-radio-button\" *ngFor=\"let role of roles\" [value]=\"role\">\n                {{role}}\n            </mat-radio-button>\n        </mat-radio-group>\n\n        <button class=\"btn btn-primary btn-block\"\n                type=\"submit\"\n                [disabled]=\"!f.valid\">Login\n        </button>\n        <button class=\"btn btn-success btn-block\"\n                routerLink=\"/register\"\n                type=\"submit\">Register\n        </button>\n    </form>\n</div>\n\n"
 
 /***/ }),
 
@@ -1143,8 +1164,7 @@ var LoginComponent = /** @class */ (function () {
         this.sharedService = sharedService;
         this.errorMsg = 'Invalid username or password !';
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl;
-        this.roles = ['Customer', 'Employee', 'Admin'];
-        // this.username = 'hello world!';
+        this.roles = ['Customer', 'Employee', 'Delivery', 'Admin'];
     }
     LoginComponent.prototype.ngOnInit = function () {
         console.log('Login page!' + this.username);
@@ -1154,13 +1174,16 @@ var LoginComponent = /** @class */ (function () {
         this.username = this.loginForm.value.username;
         this.password = this.loginForm.value.password;
         console.log('data', this.username);
-        this.userService.login(this.username, this.password).subscribe(function (data) {
+        this.userService.login(this.username, this.password, this.loginrole).subscribe(function (data) {
             _this.sharedService.user = data;
-            _this.router.navigate(['/home']);
+            if (_this.loginrole === 'Customer') {
+                _this.router.navigate(['user/home']);
+            }
+            else if (_this.loginrole === 'Employee') {
+                _this.router.navigate(['restaurant/home']);
+            }
         }, function (error) {
             _this.errorFlag = true;
-            // this.errorMsg = error;
-            // console.log(this.errorMsg);
         });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1169,11 +1192,12 @@ var LoginComponent = /** @class */ (function () {
     ], LoginComponent.prototype, "loginForm", void 0);
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-component',
+            selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/components/website/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/components/website/login/login.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1189,7 +1213,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi93ZWJzaXRlL3JlZ2lzdGVyL3JlZ2lzdGVyLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvd2Vic2l0ZS9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -1200,7 +1224,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h1>Register</h1>\n  <form\n          (ngSubmit)=\"register()\"\n          #form='ngForm'>\n    <div class=\"form-group\">\n      <input\n              type=\"text\"\n              name=\"username\"\n              class=\"form-control\"\n              placeholder=\"username\"\n              [(ngModel)]=\"newUsername\"\n              required\n              #username=\"ngModel\">\n      <span\n              class=\"help-block\"\n              *ngIf=\"!username.valid && username.touched\">\n        Please enter a valid username\n      </span>\n    </div>\n    <div class=\"form-group\">\n      <input\n              type=\"password\"\n              name=\"password\"\n              class=\"form-control\"\n              placeholder=\"password\"\n              [(ngModel)]=\"newPassword\"\n              required\n              #password=\"ngModel\">\n      <span\n              class=\"help-block\"\n              *ngIf=\"!password.valid && password.touched\">\n        Please enter a valid password\n      </span>\n    </div>\n    <div class=\"form-group\">\n      <input\n              type=\"password\"\n              name=\"verifiedPassword\"\n              class=\"form-control\"\n              placeholder=\"verify password\"\n              [(ngModel)]=\"regVerifiedPassword\"\n              required\n              #verifiedPassword=\"ngModel\">\n      <span\n              class=\"help-block\"\n              *ngIf=\"(newPassword !== regVerifiedPassword || !verifiedPassword.valid) && verifiedPassword.touched\">\n        Password mis-matching !\n      </span>\n    </div>\n    <div class=\"form-group\">\n      <button\n              class=\"btn btn-primary btn-block\"\n              type=\"submit\"\n              [disabled]=\"!form.valid || newPassword !== regVerifiedPassword\">\n        Register\n      </button>\n    </div>\n    <div class=\"form-group\">\n      <button class=\"btn btn-danger btn-block cl-text-white\" (click)=\"onCancel()\">Cancel</button>\n    </div>\n  </form>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <h1>Register</h1>\n  <form\n          (ngSubmit)=\"register()\"\n          #form='ngForm'>\n    <div class=\"form-group\">\n      <input\n              type=\"text\"\n              name=\"username\"\n              class=\"form-control\"\n              placeholder=\"username\"\n              [(ngModel)]=\"newUsername\"\n              required\n              #username=\"ngModel\">\n      <span\n              class=\"help-block\"\n              *ngIf=\"!username.valid && username.touched\">\n        Please enter a valid username\n      </span>\n    </div>\n    <div class=\"form-group\">\n      <input\n              type=\"password\"\n              name=\"password\"\n              class=\"form-control\"\n              placeholder=\"password\"\n              [(ngModel)]=\"newPassword\"\n              required\n              #password=\"ngModel\">\n      <span\n              class=\"help-block\"\n              *ngIf=\"!password.valid && password.touched\">\n        Please enter a valid password\n      </span>\n    </div>\n    <div class=\"form-group\">\n      <input\n              type=\"password\"\n              name=\"verifiedPassword\"\n              class=\"form-control\"\n              placeholder=\"verify password\"\n              [(ngModel)]=\"regVerifiedPassword\"\n              required\n              #verifiedPassword=\"ngModel\">\n      <span\n              class=\"help-block\"\n              *ngIf=\"(newPassword !== regVerifiedPassword || !verifiedPassword.valid) && verifiedPassword.touched\">\n        Password mis-matching !\n      </span>\n    </div>\n    <label id=\"example-radio-group-label\">Register as</label>\n    <mat-radio-group\n            aria-labelledby=\"example-radio-group-label\"\n            class=\"example-radio-group\"\n            [(ngModel)]=\"registerRole\"[ngModelOptions]=\"{standalone: true}\">\n      <mat-radio-button class=\"example-radio-button\" *ngFor=\"let role of roles\" [value]=\"role\">\n        {{role}}\n      </mat-radio-button>\n    </mat-radio-group>\n    <div class=\"form-group\">\n      <button\n              class=\"btn btn-primary btn-block\"\n              type=\"submit\"\n              [disabled]=\"!form.valid || newPassword !== regVerifiedPassword\">\n        Register\n      </button>\n    </div>\n    <div class=\"form-group\">\n      <button class=\"btn btn-danger btn-block cl-text-white\" (click)=\"onCancel()\">Cancel</button>\n    </div>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1225,10 +1249,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RegisterComponent = /** @class */ (function () {
+    //roleErrorFlag: boolean
     function RegisterComponent(userService, router) {
         this.userService = userService;
         this.router = router;
-        this.user = { _id: '', username: '', password: '' };
+        this.user = { _id: '', username: '', password: '', userType: '' };
+        this.roles = ['Customer', 'Employee', 'Delivery'];
     }
     RegisterComponent.prototype.ngOnInit = function () {
         this.userErrorFlag = false;
@@ -1238,10 +1264,17 @@ var RegisterComponent = /** @class */ (function () {
         var _this = this;
         this.user.username = this.newUsername;
         this.user.password = this.newPassword;
-        this.userService.register(this.user.username, this.user.password)
+        console.log(this.registerRole);
+        this.userService.register(this.user.username, this.user.password, this.registerRole)
             .subscribe(function (data) {
+            console.log('input: ' + data);
             if (data) {
-                _this.router.navigate(['/profile']);
+                if (_this.registerRole === 'Customer') {
+                    _this.router.navigate(['user/home']);
+                }
+                else if (_this.registerRole === 'Employee') {
+                    _this.router.navigate(['restaurant/home']);
+                }
             }
             else {
                 _this.userErrorFlag = true;
@@ -1282,7 +1315,7 @@ var RegisterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi93ZWJzaXRlL3Jlc3RhdXJhbnQvcmVzdGF1cmFudC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvd2Vic2l0ZS9yZXN0YXVyYW50L3Jlc3RhdXJhbnQuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -1343,7 +1376,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Menu", function() { return Menu; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Restaurant", function() { return Restaurant; });
 var Menu = /** @class */ (function () {
-    function Menu(name, price, description, url) {
+    function Menu(id, name, price, description, url) {
+        this._id = id;
         this.description = description;
         this.dish_name = name;
         this.price = price;
@@ -1365,6 +1399,104 @@ var Restaurant = /** @class */ (function () {
         this.menus = menus;
     }
     return Restaurant;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth-guard.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/auth-guard.service.ts ***!
+  \************************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _user_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user.service.client */ "./src/app/services/user.service.client.ts");
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(userService) {
+        this.userService = userService;
+    }
+    AuthGuard.prototype.canActivate = function () {
+        return this.userService.loggedIn();
+    };
+    AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service_client__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+    ], AuthGuard);
+    return AuthGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/menu.service.client.ts":
+/*!*************************************************!*\
+  !*** ./src/app/services/menu.service.client.ts ***!
+  \*************************************************/
+/*! exports provided: MenuService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuService", function() { return MenuService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
+
+
+
+
+
+var MenuService = /** @class */ (function () {
+    function MenuService(_http, sharedService, router) {
+        this._http = _http;
+        this.sharedService = sharedService;
+        this.router = router;
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].baseUrl;
+        this.options = { withCredentials: false };
+    }
+    MenuService.prototype.createDish = function (dish) {
+        return this._http.post(this.baseUrl + '/api/restaurant/menu/', dish);
+    };
+    MenuService.prototype.findAllDishesForRestaurant = function () {
+        return this._http.get(this.baseUrl + '/api/menu');
+    };
+    MenuService.prototype.findDishById = function (dishId) {
+        return this._http.get(this.baseUrl + '/api/restaurant/menu/' + dishId);
+    };
+    MenuService.prototype.updateDish = function (dishId, dish) {
+        return this._http.put(this.baseUrl + '/api/restaurant/menu/' + dishId, dish);
+    };
+    MenuService.prototype.deleteDish = function (dishId) {
+        return this._http.delete(this.baseUrl + '/api/restaurant/menu/' + dishId);
+    };
+    MenuService.prototype.reorderDishes = function (startIndex, endIndex, dishes) {
+        return this._http.put(this.baseUrl + '/api/restaurant/menu/'
+            + '/dish?initial=' + startIndex + '&final=' + endIndex, dishes);
+    };
+    MenuService.prototype.findImage = function (imageName) {
+        var url = this.baseUrl + '/api/image/' + imageName;
+        return this._http.get(url);
+    };
+    MenuService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+    ], MenuService);
+    return MenuService;
 }());
 
 
@@ -1461,8 +1593,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared.service */ "./src/app/services/shared.service.ts");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-
 
 
 
@@ -1494,63 +1624,6 @@ var RestaurantService = /** @class */ (function () {
     };
     RestaurantService.prototype.deleteRestaurant = function (restaurantId) {
         return this._http.delete(this.baseUrl + '/api/restaurant/' + restaurantId);
-    };
-    RestaurantService.prototype.login = function (username, password) {
-        this.options.withCredentials = true; // jga
-        var body = {
-            username: username,
-            password: password
-        };
-        return this._http.post(this.baseUrl + '/api/login', body, this.options);
-    };
-    RestaurantService.prototype.logout = function () {
-        this.options.withCredentials = true;
-        return this._http
-            .post(this.baseUrl + '/api/logout', '', this.options);
-    };
-    RestaurantService.prototype.register = function (username, password) {
-        this.options.withCredentials = true;
-        var restaurant = { username: username, password: password };
-        return this._http
-            .post(this.baseUrl + '/api/register', restaurant, this.options);
-    };
-    RestaurantService.prototype.loggedIn = function () {
-        var _this = this;
-        return this._http
-            .post(this.baseUrl + '/api/loggedin', '', this.options)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (restaurant) {
-            if (restaurant !== 0) {
-                _this.sharedService.user = restaurant;
-                return true;
-            }
-            else {
-                _this.router.navigate(['/login']);
-                return false;
-            }
-        }));
-    };
-    RestaurantService.prototype.createDish = function (restaurantId, dish) {
-        return this._http.post(this.baseUrl + '/api/restaurant/' + restaurantId + '/menu', dish);
-    };
-    RestaurantService.prototype.findAllDishesForRestaurant = function (restaurantId) {
-        return this._http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/menu');
-    };
-    RestaurantService.prototype.findDishById = function (dishId) {
-        return this._http.get(this.baseUrl + '/api/menu/' + dishId);
-    };
-    RestaurantService.prototype.updateDish = function (dishId, dish) {
-        return this._http.put(this.baseUrl + '/api/menu/' + dishId, dish);
-    };
-    RestaurantService.prototype.deleteDish = function (dishId) {
-        return this._http.delete(this.baseUrl + '/api/menu/' + dishId);
-    };
-    RestaurantService.prototype.reorderDishes = function (dishId, startIndex, endIndex, dishes) {
-        return this._http.put(this.baseUrl + '/api/menu/' + dishId
-            + '/widget?initial=' + startIndex + '&final=' + endIndex, dishes);
-    };
-    RestaurantService.prototype.findImage = function (imageName) {
-        var url = this.baseUrl + '/api/image/' + imageName;
-        return this._http.get(url);
     };
     RestaurantService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -1642,11 +1715,12 @@ var UserService = /** @class */ (function () {
     UserService.prototype.deleteUser = function (userId) {
         return this._http.delete(this.baseUrl + '/api/user/' + userId);
     };
-    UserService.prototype.login = function (username, password) {
+    UserService.prototype.login = function (username, password, userType) {
         this.options.withCredentials = true; // jga
         var body = {
             username: username,
-            password: password
+            password: password,
+            userTpye: userType
         };
         return this._http.post(this.baseUrl + '/api/login', body, this.options);
     };
@@ -1655,9 +1729,9 @@ var UserService = /** @class */ (function () {
         return this._http
             .post(this.baseUrl + '/api/logout', '', this.options);
     };
-    UserService.prototype.register = function (username, password) {
+    UserService.prototype.register = function (username, password, userType) {
         this.options.withCredentials = true;
-        var user = { username: username, password: password };
+        var user = { username: username, password: password, userType: userType };
         return this._http
             .post(this.baseUrl + '/api/register', user, this.options);
     };
@@ -1677,9 +1751,7 @@ var UserService = /** @class */ (function () {
         }));
     };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"], _shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
     ], UserService);
     return UserService;
@@ -1765,7 +1837,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    baseUrl: 'http://localhost:3200'
+    baseUrl: 'http://localhost:8080'
 };
 /*
  * For easier debugging in development mode, you can import the following file

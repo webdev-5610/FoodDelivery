@@ -22,11 +22,11 @@ export class RestaurantOrderHistoryComponent implements OnInit {
 
   ngOnInit() {
     this.employeeId = this.sharedService.user._id;
-    this.orderService.findAllOrders().subscribe(
-        (orders: any) => {
-          this.orders = orders;
-        }
-    )
+    // this.orderService.findAllOrders().subscribe(
+    //     (orders: any) => {
+    //       this.orders = orders;
+    //     }
+    // )
 
   }
 

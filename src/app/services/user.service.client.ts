@@ -51,29 +51,11 @@ export class UserService {
         return this._http.post(this.baseUrl + '/api/login', body, this.options);
     }
 
-<<<<<<< HEAD
-    loggedIn() {
-        return this.http.get(this.baseUrl + '/api/loggedIn', this.options)
-            .pipe()
-            .map((res: Response) => {
-                const user = JSON.stringify(res);
-                console.log('Inside loggedIn(), the user is ' + user);
-                if (user !== '0') {
-                    // console.log('Inside loggedIn(), the user is ' + user);
-                    console.log(this.sharedService);
-                    this.sharedService.user = user; // setting user so as to share with all components
-                    return true;
-                } else {
-                    this.router.navigate(['/login']);
-                    return false;
-                }
-            });
-=======
+
     logout() {
         this.options.withCredentials = true;
         return this._http
             .post(this.baseUrl + '/api/logout', '', this.options);
->>>>>>> Lulin
     }
 
     register(username: String, password: String, userType: String) {

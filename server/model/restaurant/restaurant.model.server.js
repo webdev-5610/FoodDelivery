@@ -11,53 +11,27 @@ Restaurant.deleteDish = deleteDish;
 
 module.exports = Restaurant;
 
-<<<<<<< HEAD
-// websiteService at server side will call this function
-//restaurantModel.findAllOrders = findAllOrders;
-//restaurantModel.createRestaurant = createRestaurant;
-//restaurantModel.findRestaurantByName = findRestaurantByName;
-//restaurantModel.findRestaurantByCredentials = findRestaurantByCredentials;
-//restaurantModel.findRestaurantByType = findRestaurantByType;
-//restaurantModel.updateRestaurant = updateRestaurant;
-//restaurantModel.deleteRestaurant = deleteRestaurant;
+    function createDish(user) {
+        return Restaurant.create(user);
+    }
 
-module.exports = restaurantModel;
+    function findDishById(userId) {
+        return Restaurant.findById(userId);
+    }
 
-// functions go here
-function createWebsiteForUser(userId, website) {
-    console.log('Mongoose: createWebsite() called');
-    return websiteModel.create(website)
-        .then(function (responseWebsite) {
-            userModel.findUserById(userId)
-                .then(function (user) {
-                    user.websites.push(responseWebsite);
-                    //console.log(user)
-                    return user.save();
-                });
-            return responseWebsite;
-        });
-=======
-function createDish(user) {
-    return Restaurant.create(user);
->>>>>>> Lulin
-}
+    function findDishByUsername(username) {
+        return Restaurant.findOne({username: username});
+    }
 
-function findDishById(userId) {
-    return Restaurant.findById(userId);
-}
+    function findDishByCredentials(username, password) {
+        return Restaurant.findOne({username: username, password: password});
+    }
 
-function findDishByUsername(username) {
-    return Restaurant.findOne({ username: username });
-}
+    function updateDish(userId, user) {
+        return Restaurant.findByIdAndUpdate(userId, user, {new: true});
+    }
 
-function findDishByCredentials(username, password) {
-    return Restaurant.findOne({ username: username, password: password });
-}
+    function deleteDish(userId) {
+        return Restaurant.findByIdAndRemove(userId);
+    }
 
-function updateDish(userId, user) {
-    return Restaurant.findByIdAndUpdate(userId, user, {new: true});
-}
-
-function deleteDish(userId) {
-    return Restaurant.findByIdAndRemove(userId);
-}

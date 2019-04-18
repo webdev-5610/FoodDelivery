@@ -1,9 +1,4 @@
 const mongoose = require('mongoose');
-<<<<<<< HEAD
-var orderSchema = require('../order/order.schema.server');
-=======
-
->>>>>>> Lulin
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,
