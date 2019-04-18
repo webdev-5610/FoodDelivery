@@ -12,16 +12,19 @@ class Details {
 export class Order {
   _id: String;
   user: String;
-  restaurant: String;
+  deliver: String;
   time: Date;
   status: Number;
   details: Details;//0 for not check out, 1 for not finished by the restaurant, 2 for finished.
+  userAddress: String;
 
-  constructor(user: String, restaurant: String, time: Date, status: Number,details: Details) {
+
+  constructor(user: String, time: Date, status: Number,details: Details, userAddress: String) {
     this.user = user;
-    this.restaurant = restaurant;
     this.time = time;
     this.status = status;
     this.details = details;
+    this.deliver = null;
+    this.userAddress = userAddress;
   }
 }
