@@ -23,7 +23,7 @@ export class CurrentOrderComponent implements OnInit {
 
   ngOnInit() {
     this.employeeId = this.sharedService.user._id;
-    this.orderService.findOrdersbyStatus(1).subscribe(
+    this.orderService.findOrderByStatus(null,1).subscribe(
         (orders: any) => {
           this.orders = orders;
           console.log(this.orders);
@@ -32,11 +32,13 @@ export class CurrentOrderComponent implements OnInit {
   }
 
   sendtoAlldelivery(order: Order){
-    this.orderService.updateOrderStatus(order._id, 2, order);
+    this.orderService.postOrder(order.user ,order._id, 2);
     //this.buttoncolor = '#808389';
   }
 
-  cancalOrder(order: Order){}
+  cancalOrder(order: Order){
+    this.orderService.cancelOrder(order.user ,order._id,5,);
+  }
 
 
 }
