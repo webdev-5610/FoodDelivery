@@ -16,6 +16,7 @@ orderModel.acceptOrder=acceptOrder;
 orderModel.completeOrder = completeOrder;
 orderModel.cancelOrder=cancelOrder;
 orderModel.findOrdersByStatus = findOrdersByStatus;
+orderModel.orderAccept = orderAccept;
 
 module.exports = orderModel;
 
@@ -26,6 +27,20 @@ function createOrder(orderId,order) {
         .then(function (responseOrder) {
             // next, for the current restaurant/user, push this order into restaurant's order list.
             userModel.findUserById(userId)
+                .then(function (user) {
+                    user.order_history.push(responseOrder);
+                    return user.save();
+                });
+            return responseOrder;
+        });
+}
+
+function orderAccept(deliverId, order) {
+    console.log('Mongoose: orderAccept called');
+    return orderModel.create(order)
+        .then(function (responseOrder) {
+            // next, for the current restaurant/user, push this order into restaurant's order list.
+            userModel.findUserById(deliverId)
                 .then(function (user) {
                     user.order_history.push(responseOrder);
                     return user.save();
