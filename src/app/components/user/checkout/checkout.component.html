@@ -6,7 +6,7 @@
 <nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div>
-      <a routerLink="/delivery/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding">
+      <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding">
         <i class="fas fa-angle-left"></i>
       </a>
       <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
@@ -65,7 +65,7 @@
       <textarea [(ngModel)]="dish.description" name="description" id="dish-description" class="form-control" rows="3"
                 placeholder="Description"></textarea>
     </div>
-    
+
 
     <div class="form-group">
       <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
