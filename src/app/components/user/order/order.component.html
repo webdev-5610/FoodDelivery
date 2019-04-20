@@ -2,3 +2,72 @@
      class="alert alert-danger text-center">
   {{errorMsg}}
 </div>
+<nav class="navbar fixed-top cl-grey-navbar">
+  <div class="container-fluid">
+    <div>
+      <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding">
+        <i class="fas fa-angle-left"></i>
+      </a>
+      <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
+        Check out
+      </h1>
+    </div>
+    <a (click)="updateOrder()" class="navbar-brand cl-text-black float-right cl-icon-padding">
+      <i class="fas fa-check"></i>
+    </a>
+  </div>
+</nav>
+
+<div class="container website-new-content">
+  <div class="card order-card">
+    <div class="card-header">
+      <strong>{{status}}</strong>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{order.userAddress}}</h5>
+      <div><strong>User</strong> {{order.user}}</div>
+      <div><strong>User Address:</strong> {{order.userAddress}}</div>
+      <div><strong>User Phone Number:</strong> {{order.phone}}</div>
+      <div><strong>Restaurant:</strong> {{order.restaurant}}</div>
+      <div><strong>Time</strong> {{order.time}}</div>
+      <div><strong>Status:</strong> {{status}}</div>
+      <br>
+      <div><strong>Details:</strong></div>
+      <table class="table table-responsive table-bordered ">
+        <thead>
+        <tr>
+          <th scope="col">dish</th>
+          <th scope="col" *ngFor="let dish of order.details.dish">{{dish}}</th>
+        </tr>
+        <tr>
+          <th scope="col">amount</th>
+          <th scope="col" *ngFor="let amount of order.details.quantity">{{amount}}</th>
+        </tr>
+        </thead>
+      </table>
+      <div><strong>Total: $</strong>{{order.details.total}}</div>
+      <br>
+      <div><strong>Distance:</strong> {{distance}}</div>
+      <br>
+      <button type="button" class="btn btn-warning pull-right deliver-btn" *ngIf="order.status==2" (click)="acceptOrder()">Accept</button>
+      <button type="button" class="btn btn-success pull-right deliver-btn" *ngIf="order.status==3" (click)="completeOrder()">Complete</button>
+      <button type="button" class="btn btn-info pull-right deliver-btn" *ngIf="order.status==3" (click)="cancelOrder()">Cancel</button>
+      <div class="row">
+        <div class="col-10">
+          <agm-map [latitude]="lat" [longitude]="lng" style="height: 600px">
+            <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [markerOptions]="markerOptions" [renderOptions]="renderOptions"></agm-direction>
+          </agm-map>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar fixed-bottom cl-blue-navbar">
+    <div class="container">
+      <div class="cl-text-white navbar-brand cl-text-bold navbar-header-text">
+        User
+      </div>
+    </div>
+  </nav>
+</div>
+
+

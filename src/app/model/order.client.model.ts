@@ -1,5 +1,6 @@
 class Details {
   dish: String[];
+  //dishname
   quantity: Number[];
   total: Number;
   constructor(dish: String[], quantity: Number[], total: Number) {
