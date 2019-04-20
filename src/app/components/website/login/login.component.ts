@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
             this.sharedService.user = data;
             if(this.loginrole === 'Customer'){
                 this.router.navigate(['user/home']);
-            }else if(this.loginrole === 'Employee'){
-                this.router.navigate(['restaurant/home'])
+            }else if(this.loginrole === 'Delivery'){
+                this.router.navigate(['/deliver/' + data._id + '/home']);
             }
             }, (error: any) => {
             this.errorFlag = true;
