@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Menu} from "../../../model/restaurant.client.model";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SharedService} from "../../../services/shared.service";
-import {MenuService} from "../../../services/menu.service.client";
+import {Menu} from '../../../model/restaurant.client.model';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SharedService} from '../../../services/shared.service';
+import {MenuService} from '../../../services/menu.service.client';
 
 @Component({
   selector: 'app-menu',
@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.userId = this.sharedService.user._id;
+    // this.userId = this.sharedService.user._id;
     this.menuService.findAllDishesForRestaurant().subscribe(
         (dishes: any) => {
           this.dishes = dishes;
