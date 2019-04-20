@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
     this.user = new User('', '', '', '', '', '', '', '');
   }
 
-  restaurantId: String;
+  userId: String;
   user: User;
   username: String;
   updateFlag: boolean;
@@ -49,10 +49,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateProfile() {
-    this.restaurantService.updateRestaurant(this.restaurant._id, this.restaurant).subscribe(
-        (restaurant: Restaurant) => {
-          console.log(restaurant);
-          this.restaurant = restaurant;
+    this.userService.updateUser(this.user._id, this.user).subscribe(
+        (user: User) => {
+          console.log(user);
+          this.user = user;
           this.updateFlag = true;
         },
         (error: any) => {
@@ -62,18 +62,18 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.restaurant = this.sharedService.user;
-    this.restaurantId = this.sharedService.user._id;
+    this.user = this.sharedService.user;
+    this.userId = this.sharedService.user._id;
     this.route.params.subscribe(params => {
       this.updateFlag = false;
       this.userErrorFlag = false;
       this.updateMsg = 'Profile updated!';
       this.userErrorMsg = 'The username already exists! Please use a different name.';
-      this.restaurantService.findRestaurantById(this.restaurantId).subscribe(
-          (restaurant: Restaurant) => {
-            console.log((restaurant));
-            this.restaurant = restaurant;
-            this.username = this.restaurant.username;
+      this.userService.findUserById(this.userId).subscribe(
+          (user: User) => {
+            console.log((user));
+            this.user = user;
+            this.username = this.user.username;
           },
           (error: any) => console.log(error)
       );
