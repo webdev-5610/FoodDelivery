@@ -30,8 +30,8 @@ const APP_ROUTES: Routes = [
   {path: 'restaurant/profile', component: RestaurantProfileComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/orderhistory', component: RestaurantOrderHistoryComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/currentorders', component: CurrentOrderComponent, canActivate: [AuthGuard]},
-  {path: 'restaurant/menu', component: MenuComponent,canActivate: [AuthGuard]},
-  {path: 'restaurant/menu/:did', component: MenuEditComponent,canActivate: [AuthGuard]},
+  {path: 'restaurant/menu', component: MenuComponent, canActivate: [AuthGuard]},
+  {path: 'restaurant/menu/:did', component: MenuEditComponent, canActivate: [AuthGuard]},
     //user
   {path: 'user/:uid/home', component: UserProfileComponent},
   {path: 'user/:uid/profile', component: UserProfileComponent},
