@@ -19,14 +19,15 @@ app.use(passport.session());
 var connectionString = 'mongodb://localhost:27017/web5610';
 var mongoose = require("mongoose");
 
-mongoose.createConnection(connectionString);
+mongoose.connect('mongodb://heroku_d26z84tb:fj106769q3m73ko1rhtsqmn4je@ds121406.mlab.com:21406/heroku_d26z84tb', {useNewUrlParser:true});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   next();

@@ -32,12 +32,12 @@ export class CurrentOrderComponent implements OnInit {
   }
 
   sendtoAlldelivery(order: Order){
-    this.orderService.postOrder(order.user ,order._id, 2);
+    this.orderService.postOrder(order.user, order._id);
     //this.buttoncolor = '#808389';
   }
 
   cancalOrder(order: Order){
-    this.orderService.cancelOrder(order.user ,order._id,5,);
+    this.orderService.cancelOrder(order.user, order._id);
   }
 
 

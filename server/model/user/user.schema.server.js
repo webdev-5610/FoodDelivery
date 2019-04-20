@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const orderSchema = require('../order/order.schema.server');
+
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,
@@ -9,9 +11,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ['Customer', 'Employee', 'Delivery','Admin']
   },
-  order_history: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Order'
-  }],
+  order_history: [orderSchema],
 }, {collection: 'user'});
 module.exports = userSchema;

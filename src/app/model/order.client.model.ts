@@ -1,6 +1,5 @@
 class Details {
   dish: String[];
-  //dishname
   quantity: Number[];
   total: Number;
   constructor(dish: String[], quantity: Number[], total: Number) {
@@ -13,18 +12,22 @@ class Details {
 export class Order {
   _id: String;
   user: String;
-  deliver: String;
+  userId: String;
+  deliverId: String;
   time: Date;
   status: Number;
   details: Details;//0 for not check out, 1 for not finished by the restaurant, 2 for finished.
   userAddress: String;
+  phone: String;
 
-  constructor(user: String, time: Date, status: Number,details: Details, userAddress: String) {
+  constructor(user: String, userId: String, time: Date, status: Number, details: Details, userAddress: String, phone: String) {
     this.user = user;
+    this.userId = userId;
     this.time = time;
     this.status = status;
     this.details = details;
-    this.deliver = null;
+    this.deliverId = null;
     this.userAddress = userAddress;
+    this.phone = phone;
   }
 }
