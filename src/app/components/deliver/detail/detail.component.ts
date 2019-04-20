@@ -4,6 +4,7 @@ import { DeliverService } from 'src/app/services/deliver.service.client';
 import { User } from 'src/app/model/user.client.model';
 import { Order } from 'src/app/model/order.client.model';
 import { SharedService } from 'src/app/services/shared.service';
+import { OrderService } from '../../../services/order.service.client';
 
 @Component({
   selector: 'app-detail',
@@ -44,7 +45,10 @@ export class DetailComponent implements OnInit {
     draggable: false
   };
 
-  constructor(private _activatedRoute: ActivatedRoute, private _deliverService: DeliverService, private _sharedService: SharedService) { }
+  constructor(private _activatedRoute: ActivatedRoute,
+    private _deliverService: DeliverService,
+    private _sharedService: SharedService,
+    private _orderService: OrderService) { }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
@@ -64,10 +68,11 @@ export class DetailComponent implements OnInit {
   }
 
   acceptOrder() {
-    this._deliverService.acceptOrder(this.userId, this.orderId, '3').subscribe(
+    this._orderService.acceptOrder(this.userId, this.orderId).subscribe(
       data => {
           console.log(data);
           this.order.status = 3;
+          this.status = 'in transit';
       },
       error =>{
 
@@ -76,10 +81,11 @@ export class DetailComponent implements OnInit {
   }
 
   completeOrder() {
-    this._deliverService.completeOrder(this.userId, this.orderId, '4').subscribe(
+    this._orderService.completeOrder(this.userId, this.orderId).subscribe(
       data => {
         console.log(data);
         this.order.status = 4;
+        this.status = 'completed';
       },
       error =>{
 
@@ -88,10 +94,11 @@ export class DetailComponent implements OnInit {
   }
 
   cancelOrder() {
-    this._deliverService.cancelOrder(this.userId, this.orderId, '5').subscribe(
+    this._orderService.cancelOrder(this.userId, this.orderId).subscribe(
       data => {
         console.log(data);
         this.order.status = 5;
+        this.status = 'cancelled';
       },
       error =>{
 
