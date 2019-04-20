@@ -12,9 +12,6 @@
         Check out
       </h1>
     </div>
-    <a (click)="updateOrder()" class="navbar-brand cl-text-black float-right cl-icon-padding">
-      <i class="fas fa-check"></i>
-    </a>
   </div>
 </nav>
 
@@ -47,11 +44,6 @@
       </table>
       <div><strong>Total: $</strong>{{order.details.total}}</div>
       <br>
-      <div><strong>Distance:</strong> {{distance}}</div>
-      <br>
-      <button type="button" class="btn btn-warning pull-right deliver-btn" *ngIf="order.status==2" (click)="acceptOrder()">Accept</button>
-      <button type="button" class="btn btn-success pull-right deliver-btn" *ngIf="order.status==3" (click)="completeOrder()">Complete</button>
-      <button type="button" class="btn btn-info pull-right deliver-btn" *ngIf="order.status==3" (click)="cancelOrder()">Cancel</button>
       <div class="row">
         <div class="col-10">
           <agm-map [latitude]="lat" [longitude]="lng" style="height: 600px">
