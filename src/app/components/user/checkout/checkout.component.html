@@ -65,18 +65,7 @@
       <textarea [(ngModel)]="dish.description" name="description" id="dish-description" class="form-control" rows="3"
                 placeholder="Description"></textarea>
     </div>
-
-    <div class="form-group">
-      <label for="image-URL">URL</label>
-      <input [(ngModel)]="dish.url"
-             type="text"
-             name="url"
-             class="form-control"
-             id="image-URL"
-             placeholder="{{dish.url}}"
-             ngModel required
-             #url="ngModel"/>
-    </div>
+    
 
     <div class="form-group">
       <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
