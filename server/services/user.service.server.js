@@ -6,6 +6,7 @@ module.exports = function (app) {
     const LocalStrategy = require('passport-local').Strategy;
 
     var userModel = require("../model/user/user.model.server");
+    const orderModel = require('../model/order/order.model.server');
     const bcrypt = require('bcrypt-nodejs');
 
     app.post("/api/user", createUser);
@@ -17,7 +18,6 @@ module.exports = function (app) {
     app.post("/api/logout", logout);
     app.post("/api/register", register);
     app.post("/api/loggedin", loggedin);
-
 
     function serializeUser(user, done) {
         done(null, user._id);
@@ -126,7 +126,17 @@ module.exports = function (app) {
         userModel.findUserByUsername(username).then(
             function (user) {
                 if (user) {
-                    res.status(200).json(user);
+                    orderModel.findAllOrdersByUser(user._id).then(
+                        function (orders) {
+                            if(orders == null){
+                                res.status(200).json(user);
+                            }
+                            else {
+                                user.order_history = orders;
+                                res.status(200).json(user);
+                            }
+                        }
+                    );
                 } else {
                     res.status(200).send({});
                 }
@@ -143,7 +153,17 @@ module.exports = function (app) {
         userModel.findUserByCredentials(username, password).then(
             function (user) {
                 if (user) {
-                    res.json(user);
+                    orderModel.findAllOrdersByUser(user._id).then(
+                        function (orders) {
+                            if(orders == null){
+                                res.status(200).json(user);
+                            }
+                            else {
+                                user.order_history = orders;
+                                res.status(200).json(user);
+                            }
+                        }
+                    );
                 } else {
                     res.status(400).send("Cannot find user with the username and password");
                 }
@@ -158,8 +178,19 @@ module.exports = function (app) {
         var userId = req.params["userId"];
         userModel.findUserById(userId).then(
             function (user) {
+                console.log(user);
                 if (user) {
-                    res.json(user);
+                    orderModel.findAllOrdersByUser(user._id).then(
+                        function (orders) {
+                            if(orders == null){
+                                res.status(200).json(user);
+                            }
+                            else {
+                                user.order_history = orders;
+                                res.status(200).json(user);
+                            }
+                        }
+                    );
                 } else {
                     res.status(400).send("Cannot find user with the userID");
                 }
