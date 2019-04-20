@@ -38,8 +38,8 @@
 
   <p>user Information</p>
   <div class="form-group cl-text-bold">
-    <label>Name</label>
-    <input [(ngModel)]="user.name" name="name" type="text" class="form-control" placeholder="Wander">
+    <label>Password</label>
+    <input [(ngModel)]="user.password" name="password" type="password" class="form-control" placeholder="Wander">
   </div>
 
   <div class="form-group cl-text-bold">
@@ -47,11 +47,15 @@
     <input [(ngModel)]="user.address" name="address" type="text" class="form-control" placeholder="Wander">
   </div>
   <div class="form-group cl-text-bold">
-    <label>Type</label>
-    <input [(ngModel)]="user.type" name="type" type="text" class="form-control" placeholder="Wander">
+    <label>Credit card info</label>
+    <input [(ngModel)]="user.credit_card_info" name="credit_card_info" type="text" class="form-control" placeholder="Wander">
+  </div>
+  <div class="form-group cl-text-bold">
+    <label>Billing info</label>
+    <input [(ngModel)]="user.billing_info" name="billing_info" type="text" class="form-control" placeholder="Wander">
   </div>
   <button class="btn btn-primary btn-block"
-          routerLink="../user/{{user._id}}/website">Order
+          routerLink="../user/{{user._id}}/orderhistory">Order History
   </button>
   <button class="btn btn-danger  btn-block"
           (click)="logout()" routerLinkActive="active">Logout

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service';
-import {RestaurantService} from '../../../services/restaurant.service.client'
+import {RestaurantService} from '../../../services/restaurant.service.client';
 import {Restaurant} from "../../../model/restaurant.client.model";
 
 @Component({
