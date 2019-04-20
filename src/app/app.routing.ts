@@ -11,13 +11,15 @@ import {RegisterComponent} from "./components/website/register/register.componen
 import {RestaurantHomeComponent} from "./components/restaurant/restaurant-home/restaurant-home.component";
 import {RestaurantOrderHistoryComponent} from "./components/restaurant/restaurant-order-history/order-history.component";
 import {CurrentOrderComponent} from "./components/restaurant/current-order/current-order.component";
-import {MenuEditComponent} from "./components/restaurant/menu-edit/menu-edit.component";
+import {MenuEditComponent} from './components/restaurant/menu-edit/menu-edit.component';
 import { DetailComponent } from './components/deliver/detail/detail.component';
 import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import {AuthGuard} from "./services/auth-guard.service";
 import {MenuComponent} from "./components/restaurant/menu/menu.component";
 // Import all other components here
-const APP_ROUTES: Routes = [
+import {UsermenuComponent} from './components/user/menu/menu.component';
+
+: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -36,6 +38,7 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid/checkout', component: CheckoutComponent},
   {path: 'user/:uid/orderhistory', component: OrderhistoryComponent},
   {path: 'user/:uid/order/:oid', component: OrderComponent},
+  {path: 'user/:uid/menu', component: UsermenuComponent},
   //delivery
   {path: 'deliver/:uid/home', component: DeliverHomeComponent},
   {path: 'deliver/:uid/detail/:oid', component: DetailComponent},
