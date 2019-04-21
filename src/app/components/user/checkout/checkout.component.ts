@@ -18,7 +18,6 @@ export class CheckoutComponent implements OnInit {
   @ViewChild('f') imageForm: NgForm;
   userId: String;
   order: Order;
-  dish: Dish;
   name: String;
   description: String;
   orderId: String;
@@ -42,7 +41,8 @@ export class CheckoutComponent implements OnInit {
           this.order = order;
           this.orderId = order._id;
         });
-
+    console.log('find cart order called！！！！！！！！！！');
+    console.log(this.order.dishes);
   }
 
 
