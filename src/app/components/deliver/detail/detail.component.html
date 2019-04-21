@@ -32,11 +32,20 @@
             <br>
             <div><strong>Details:</strong></div>
             <table class="table table-responsive">
-              <thead *ngFor="let dish of order.dishes">
+                <thead>
+                    <tr>
+                      <th scope="col">Dish</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Price</th>
+                    </tr>
+                  </thead>
+              <tbody *ngFor="let dish of order.dishes">
                 <tr>
-                  <th scope="col">{{dish.dish}}: {{dish.quantity}}</th>
+                  <th scope="col">{{dish.dish}}</th>
+                  <td>{{dish.quantity}}</td>
+                  <td>{{dish.price}}</td>
                 </tr>
-              </thead>
+              </tbody>
             </table>
             <div><strong>Total: $</strong>{{order.total}}</div>
             <br>
