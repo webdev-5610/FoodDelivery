@@ -228,7 +228,7 @@ module.exports = function(app) {
         var status = 0;
         orderModel.findOrdersByUserAndStatus(userId, status)
             .then(function (orders) {
-                console.log(orders);
+                console.log(orders.dishes);
                 if(orders == null){
                     res.status(200).send();
                 }
