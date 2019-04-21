@@ -13,6 +13,7 @@ import { OrderService } from '../../../services/order.service.client';
 export class DeliverHomeComponent implements OnInit {
   userId: string;
   orders: Order[];
+  orderHistory: Order[];
   inTransitOrder: Order;
   hasInTransitOrder = false;
 
@@ -53,11 +54,14 @@ export class DeliverHomeComponent implements OnInit {
       }
     );
 
-    // this._orderService.postOrder('5cbab74b8a25db15a06e87fa', '5cbb68fe23f20d4460b6e459').subscribe(
-    //   (data: Order) => {
-    //     console.log(data);
-    //   }
-    // );
+    this._orderService.findAllOrdersByDeliver(this.userId).subscribe(
+      (orders: Order[]) => {
+        this.orderHistory = orders == null ? [] : orders;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
   detail(order: Order) {
