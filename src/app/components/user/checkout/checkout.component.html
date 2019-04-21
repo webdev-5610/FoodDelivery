@@ -1,6 +1,6 @@
-<div *ngIf="errorFlag"
+<div *ngIf="numErrorFlag"
      class="alert alert-danger text-center">
-  {{errorMsg}}
+  {{numErrorMsg}}
 </div>
 
 <nav class="navbar fixed-top cl-grey-navbar">
@@ -41,7 +41,7 @@
           <label for="dish-num">Quantity</label>
           <input [(ngModel)]="dish.quantity"
                  name = "quantity"
-                 type="number"
+                 type="Number"
                  class="form-control"
                  id="dish-num"
                  placeholder="quantity"/>

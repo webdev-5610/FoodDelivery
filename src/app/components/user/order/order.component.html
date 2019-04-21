@@ -51,13 +51,6 @@
       </table>
       <div><strong>Total: $</strong>{{order.total}}</div>
       <br>
-      <div class="row">
-        <div class="col-10">
-          <agm-map [latitude]="lat" [longitude]="lng" style="height: 600px">
-            <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [markerOptions]="markerOptions" [renderOptions]="renderOptions"></agm-direction>
-          </agm-map>
-        </div>
-      </div>
     </div>
   </div>
   <nav class="navbar fixed-bottom cl-blue-navbar">

@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
             }
             }, (error: any) => {
             this.errorFlag = true;
-        } )
+        } );
   }
 
 }
