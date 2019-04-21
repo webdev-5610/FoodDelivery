@@ -19,32 +19,38 @@
 </nav>
 
 <div class="container cl-container-padding-more">
+    <div class="section-top-border">
     <div *ngFor="let dish of dishes">
-        <div class="float-right">
-            <button class="btn btn-primary btn-block btn-sm"
-                    type="submit"
-                    (click)="addToShoppingCart(dish.dish_name)">Add to Cart
-            </button>
-        </div>
+        <!--<div class="float-right">-->
+            <!--<button class="btn btn-primary btn-block btn-sm col-md-6 mt-sm-10"-->
+                    <!--type="submit"-->
+                    <!--(click)="addToShoppingCart(dish.dish_name)">Add to Cart-->
+            <!--</button>-->
+        <!--</div>-->
 
         <div class="container">
-            <div class="section-top-border">
-                <p></p>
+
                 <div class="row">
                     <div class="col-md-3">
                         <img src="{{dish.url}}" alt="" class="img-fluid">
                     </div>
-                    <div class="col-md-9 mt-sm-20">
+                    <div class="col-md-6 mt-sm-20">
                         <div style="clear: both">
-                            <h3 style="float: left">{{dish.dish_name}}</h3>
-                            <h3 style="float: right">$ {{dish.price}}</h3>
+                            <h4 style="float: left">{{dish.dish_name}}</h4>
+                            <h4 style="float: right">$ {{dish.price}}</h4>
                         </div>
                         <hr />
                         <p>{{dish.description}}</p>
                     </div>
+                    <div class="float-right col-md-3">
+                        <button class="btn-primary btn-block btn-sm"
+                                type="submit"
+                                (click)="addToShoppingCart(dish.dish_name)">Add to Cart
+                        </button>
+                    </div>
                 </div>
+            <p></p>
             </div>
-
         </div>
     </div>
 
