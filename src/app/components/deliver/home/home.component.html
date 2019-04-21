@@ -11,7 +11,7 @@
       </a>
     </div>
   </nav>
-
+  
   <div class="container">
       <div *ngIf="hasInTransitOrder" class="card current-order-card bg-success">
         <div class="card-header">
@@ -22,22 +22,37 @@
           <h5 class="card-title">{{inTransitOrder.userAddress}}</h5>
           <div><strong>User</strong> {{inTransitOrder.user}}</div>
           <div><strong>User Address:</strong> {{inTransitOrder.userAddress}}</div>
-          <div><strong>Restaurant:</strong> {{inTransitOrder.restaurant}}</div>
           <div><strong>Time</strong> {{inTransitOrder.time}}</div>
           <div><strong>Status:</strong> in transit</div>
         </div>
       </div>
-
-    <ul class="list-group">
-      <li *ngFor="let order of orders" class="list-group-item list-group-item-warning text-dark">
-        <button class="alert alert-info pull-right" (click)="detail(order)">detail</button>
-        <div><strong>User</strong> {{order.user}}</div>
-        <div><strong>User Address:</strong> {{order.userAddress}}</div>
-        <div><strong>Restaurant:</strong> {{order.restaurant}}</div>
-        <div><strong>Time</strong> {{order.time}}</div>
-        <div><strong>Status:</strong> active</div>
-      </li>
-    </ul>
+      <div>
+        <mat-tab-group style="background-color: grey">
+          <mat-tab label="Pending orders">
+              <ul class="list-group">
+                  <li *ngFor="let order of orders" class="list-group-item list-group-item-warning text-dark">
+                    <button class="alert alert-info pull-right" (click)="detail(order)">detail</button>
+                    <div><strong>User</strong> {{order.user}}</div>
+                    <div><strong>User Address:</strong> {{order.userAddress}}</div>
+                    <div><strong>Time</strong> {{order.time}}</div>
+                    <div><strong>Status:</strong> active</div>
+                  </li>
+                </ul>
+          </mat-tab>
+          <mat-tab label="Order history">
+              <ul class="list-group">
+                  <li *ngFor="let order of orderHistory" class="list-group-item list-group-item-warning text-dark">
+                    <button class="alert alert-info pull-right" (click)="detail(order)">detail</button>
+                    <div><strong>User</strong> {{order.user}}</div>
+                    <div><strong>User Address:</strong> {{order.userAddress}}</div>
+                    <div><strong>Time</strong> {{order.time}}</div>
+                    <div><strong>Status:</strong> active</div>
+                  </li>
+                </ul>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
   </div>
 
   <nav class="navbar fixed-bottom cl-blue-navbar">

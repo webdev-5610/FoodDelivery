@@ -34,6 +34,8 @@ import { AgmDirectionModule} from 'agm-direction'; // agm-direction
 import { AgmCoreModule } from '@agm/core';
 import {MenuService} from './services/menu.service.client';
 import {UsermenuComponent} from './components/user/menu/menu.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SortableDirective} from './sortable.directive';
 
 @NgModule({
@@ -67,6 +69,8 @@ import {SortableDirective} from './sortable.directive';
     // QuillEditorModule
     MatRadioModule,
     AgmDirectionModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM', libraries: ['geometry']})
   ],
   providers: [UserService, RestaurantService, OrderService, WebsiteService, SharedService, AuthGuard, DeliverService, MenuService],
