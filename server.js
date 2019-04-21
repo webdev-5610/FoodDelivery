@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-const port=process.env.PORT || '3200';
+const port=process.env.PORT || '8080';
 app.set('port', port);
 
 // Create HTTP server

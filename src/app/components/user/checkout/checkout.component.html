@@ -28,20 +28,20 @@
         <th scope="col">Dish name</th>
         <th scope="col">Price</th>
         <th scope="col">Quantity</th>
-        <th scope="col">Picture</th>
+        <!--<th scope="col">Picture</th>-->
         <th scope="col"></th>
       </tr>
       </thead>
-  <tbody *ngFor="let dish of order.details.dishes; index as i">
-        <p>{{dish.dish_name}}</p>
+  <tbody *ngFor="let dish of order.dishes; index as i">
+        <p>{{dish.dish}}</p>
         <p>{{dish.price}}</p>
-        <p>{{order.details.quantity[i]}}</p>
-        <img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">
+        <p>{{dish.quantity}}</p>
+        <!--<img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">-->
         <div class="form-group">
           <label for="dish-num">Quantity</label>
-          <input [(ngModel)]="order.details.quantity[i]"
+          <input [(ngModel)]="dish.quantity"
                  name = "quantity"
-                 type="text"
+                 type="number"
                  class="form-control"
                  id="dish-num"
                  placeholder="quantity"/>
@@ -49,6 +49,8 @@
         </div>
 
       </tbody>
+    </table>
+  </div>
   <button class="btn btn-danger  btn-block" (click)="deleteOrder()">Delete</button>
 </div>
 

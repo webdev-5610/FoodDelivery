@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service';
 import {OrderService} from '../../../services/order.service.client';
 import {Order} from '../../../model/order.client.model';
-import {Dish}
+import {Dish} from '../../../model/order.client.model';
 
 @Component({
   selector: 'app-checkout',
@@ -22,8 +22,9 @@ export class CheckoutComponent implements OnInit {
   name: String;
   description: String;
   orderId: String;
-  numErrorFlag:boolean;
+  numErrorFlag: boolean;
   numErrorMsg = 'Invalid number!';
+
 
   constructor(private activatedRoute: ActivatedRoute,
               private sharedService: SharedService,
@@ -47,14 +48,17 @@ export class CheckoutComponent implements OnInit {
 
 
   updateOrder() {
-    if (!this.order.details.quantity) {
-      this.numErrorFlag = true;
-      return;
+    for(let i = 0; i < this.order.dishes.length; i++) {
+      if (this.order.dishes[i].quantity < 0 || !Number.isInteger(Number(this.order.dishes[i].quantity))) {
+        this.numErrorFlag = true;
+        return;
+      }
     }
-    if (this.order.details === null) {
-      this.orderService.deleteOrder(this.userId,this.orderId);
+    if (this.order.dishes === []) {
+      this.orderService.deleteOrder(this.userId, this.orderId);
     } else {
-      this.orderService.updateOrder(this.userId,this.orderId, this.order).subscribe(
+
+      this.orderService.updateOrder(this.userId, this.orderId, this.order).subscribe(
           () => {
             console.log('update order!');
             this.route.navigate(['../'], {relativeTo: this.activatedRoute});
