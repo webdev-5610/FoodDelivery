@@ -1,9 +1,11 @@
+import{Menu} from './restaurant.client.model';
+
 class Details {
-  dish: String[];
+  dishes: Menu[];
   quantity: Number[];
   total: Number;
-  constructor(dish: String[], quantity: Number[], total: Number) {
-    this.dish = dish;
+  constructor(dishes: Menu[], quantity: Number[], total: Number) {
+    this.dishes = dishes;
     this.quantity = quantity;
     this.total = total;
   }

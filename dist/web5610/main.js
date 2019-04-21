@@ -228,6 +228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_deliver_home_home_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/deliver/home/home.component */ "./src/app/components/deliver/home/home.component.ts");
 /* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
 /* harmony import */ var _components_restaurant_menu_menu_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/restaurant/menu/menu.component */ "./src/app/components/restaurant/menu/menu.component.ts");
+/* harmony import */ var _components_user_menu_menu_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/user/menu/menu.component */ "./src/app/components/user/menu/menu.component.ts");
 
 
 
@@ -246,6 +247,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Import all other components here
+
 var APP_ROUTES = [
     { path: '', component: _components_website_home_home_component__WEBPACK_IMPORTED_MODULE_1__["HomeComponent"] },
     { path: 'login', component: _components_website_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
@@ -264,6 +266,7 @@ var APP_ROUTES = [
     { path: 'user/:uid/checkout', component: _components_user_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_5__["CheckoutComponent"] },
     { path: 'user/:uid/orderhistory', component: _components_user_orderhistory_orderhistory_component__WEBPACK_IMPORTED_MODULE_4__["OrderhistoryComponent"] },
     { path: 'user/:uid/order/:oid', component: _components_user_order_order_component__WEBPACK_IMPORTED_MODULE_6__["OrderComponent"] },
+    { path: 'user/:uid/menu', component: _components_user_menu_menu_component__WEBPACK_IMPORTED_MODULE_17__["UsermenuComponent"] },
     //delivery
     { path: 'deliver/:uid/home', component: _components_deliver_home_home_component__WEBPACK_IMPORTED_MODULE_14__["DeliverHomeComponent"] },
     { path: 'deliver/:uid/detail/:oid', component: _components_deliver_detail_detail_component__WEBPACK_IMPORTED_MODULE_13__["DetailComponent"] },
@@ -576,11 +579,11 @@ var CurrentOrderComponent = /** @class */ (function () {
         });
     };
     CurrentOrderComponent.prototype.sendtoAlldelivery = function (order) {
-        this.orderService.postOrder(order.user, order._id, 2);
+        this.orderService.postOrder(order.user, order._id);
         //this.buttoncolor = '#808389';
     };
     CurrentOrderComponent.prototype.cancalOrder = function (order) {
-        this.orderService.cancelOrder(order.user, order._id, 5);
+        this.orderService.cancelOrder(order.user, order._id);
     };
     CurrentOrderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -774,7 +777,7 @@ var MenuComponent = /** @class */ (function () {
     }
     MenuComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //this.userId = this.sharedService.user._id;
+        // this.userId = this.sharedService.user._id;
         this.menuService.findAllDishesForRestaurant().subscribe(function (dishes) {
             _this.dishes = dishes;
             console.log(_this.dishes);
@@ -1108,7 +1111,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n"
+module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n\n<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a routerLink=\"/user/{{userId}}/profile\" class=\"navbar-brand cl-text-black cl-icon-padding\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Check out\n      </h1>\n    </div>\n    <a (click)=\"updateOrder()\" class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n      <i class=\"fas fa-check\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n  <div class=\"container cl-container-padding-more\">\n\n    <table class=\"table table-striped\">\n      <thead>\n      <tr>\n        <th scope=\"col\">Dish name</th>\n        <th scope=\"col\">Price</th>\n        <th scope=\"col\">Quantity</th>\n        <th scope=\"col\">Picture</th>\n        <th scope=\"col\"></th>\n      </tr>\n      </thead>\n  <tbody *ngFor=\"let dish of order.details.dishes; index as i\">\n        <p>{{dish.dish_name}}</p>\n        <p>{{dish.price}}</p>\n        <p>{{order.details.quantity[i]}}</p>\n        <img class=\"img-responsive img-rounded cl-widget-images\" src=\"{{dish.url}}\">\n        <div class=\"form-group\">\n          <label for=\"dish-num\">Quantity</label>\n          <input [(ngModel)]=\"order.details.quantity[i]\"\n                 name = \"quantity\"\n                 type=\"text\"\n                 class=\"form-control\"\n                 id=\"dish-num\"\n                 placeholder=\"quantity\"/>\n          <button type=\"submit\" class=\"btn btn-block btn-primary\">change quantities</button>\n        </div>\n\n      </tbody>\n  <button class=\"btn btn-danger  btn-block\" (click)=\"deleteOrder()\">Delete</button>\n</div>\n\n\n\n<nav class=\"navbar fixed-bottom cl-grey-navbar\">\n  <div class=\"container-fluid justify-content-end\">\n    <a routerLink=\"restaurant/home\" class=\"navbar-brand cl-icon-padding cl-text-blue\">\n      <span class=\"fas fa-user\"></span>\n    </a>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -1124,22 +1127,165 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckoutComponent", function() { return CheckoutComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _services_order_service_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/order.service.client */ "./src/app/services/order.service.client.ts");
+
+
+
+
 
 
 var CheckoutComponent = /** @class */ (function () {
-    function CheckoutComponent() {
+    function CheckoutComponent(activatedRoute, sharedService, orderService, route) {
+        this.activatedRoute = activatedRoute;
+        this.sharedService = sharedService;
+        this.orderService = orderService;
+        this.route = route;
+        this.numErrorMsg = 'Invalid number!';
     }
     CheckoutComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.numErrorFlag = false;
+        this.activatedRoute.params.subscribe(function (params) {
+            _this.userId = params['uid'];
+        });
+        this.orderService.findCartorderByUser(this.userId).subscribe(function (order) {
+            _this.order = order;
+            _this.orderId = order._id;
+        });
     };
+    CheckoutComponent.prototype.updateOrder = function () {
+        var _this = this;
+        if (!this.order.details.quantity) {
+            this.numErrorFlag = true;
+            return;
+        }
+        if (this.order.details === null) {
+            this.orderService.deleteOrder(this.userId, this.orderId);
+        }
+        else {
+            this.orderService.updateOrder(this.userId, this.orderId, this.order).subscribe(function () {
+                console.log('update order!');
+                _this.route.navigate(['../'], { relativeTo: _this.activatedRoute });
+            }, function (error) { return console.log(error); });
+        }
+    };
+    CheckoutComponent.prototype.deleteOrder = function () {
+        var _this = this;
+        this.orderService.deleteOrder(this.userId, this.orderId).subscribe(function () { return _this.route.navigate(['../'], { relativeTo: _this.activatedRoute }); });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('f'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"])
+    ], CheckoutComponent.prototype, "imageForm", void 0);
     CheckoutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-checkout',
             template: __webpack_require__(/*! ./checkout.component.html */ "./src/app/components/user/checkout/checkout.component.html"),
             styles: [__webpack_require__(/*! ./checkout.component.css */ "./src/app/components/user/checkout/checkout.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+            _services_order_service_client__WEBPACK_IMPORTED_MODULE_5__["OrderService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], CheckoutComponent);
     return CheckoutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/user/menu/menu.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/components/user/menu/menu.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9tZW51L21lbnUuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/user/menu/menu.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/components/user/menu/menu.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n\n<nav class=\"navbar fixed-top cl-grey-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a routerLink=\"/delivery/{{userId}}/profile\" class=\"navbar-brand cl-text-black cl-icon-padding\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Check out\n      </h1>\n    </div>\n    <a (click)=\"updateOrder()\" class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n      <i class=\"fas fa-check\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n  <div appSortable (newIndexes) = \"onNewIndexes($event)\">\n    <div *ngFor=\"let dish of dishes\">\n      <div class=\"float-right\">\n        <a class=\"float-right cl-text-blue fa fa-bars\"></a>\n        <a routerLink=\"/restaurant/menu/{{dish._id}}\"\n           class=\"fa fa-cog cl-text-blue\"></a>\n<!--        <a class=\"float-right cl-text-blue fa fa-bars\"></a>\n        <a routerLink=\"/restaurant/menu/{{dish._id}}\"\n           class=\"fa fa-cog cl-text-blue\"></a>修改数量-->\n      </div>\n      <p>{{dish.dish_name}}</p>\n      <p>{{dish.price}}</p>\n      <p>{{dish.description}}</p>\n      <img class=\"img-responsive img-rounded cl-widget-images\" src=\"{{dish.url}}\">\n\n    </div>\n  </div>\n</div>\n\n<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"dish-name\">Name</label>\n      <input [(ngModel)]=\"order.dish[]\"\n             name = \"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"dish-name\"\n             placeholder=\"name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"dish-price\">Price</label>\n      <span>$</span>\n      <input [(ngModel)]=\"dish.price\"\n             name=\"width\"\n             type=\"number\"\n             class=\"form-control\"\n             id=\"dish-price\"\n             placeholder=\"Price\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"dish-description\">Description</label>\n      <textarea [(ngModel)]=\"dish.description\" name=\"description\" id=\"dish-description\" class=\"form-control\" rows=\"3\"\n                placeholder=\"Description\"></textarea>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"image-URL\">URL</label>\n      <input [(ngModel)]=\"dish.url\"\n             type=\"text\"\n             name=\"url\"\n             class=\"form-control\"\n             id=\"image-URL\"\n             placeholder=\"{{dish.url}}\"\n             ngModel required\n             #url=\"ngModel\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n        <input  name=\"dishId\" value=\"{{dishId}}\"   style=\"display: none\"/>\n        <button type=\"submit\" class=\"btn btn-block btn-primary\">Upload Image</button>\n        <br/>\n      </form>\n    </div>\n  </form>\n\n  <button class=\"btn btn-danger  btn-block\" (click)=\"deleteDish()\">Delete</button>\n</div>\n\n<nav class=\"navbar fixed-bottom cl-grey-navbar\">\n  <div class=\"container-fluid justify-content-end\">\n    <a routerLink=\"restaurant/home\" class=\"navbar-brand cl-icon-padding cl-text-blue\">\n      <span class=\"fas fa-user\"></span>\n    </a>\n  </div>\n</nav>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/user/menu/menu.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/components/user/menu/menu.component.ts ***!
+  \********************************************************/
+/*! exports provided: UsermenuComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsermenuComponent", function() { return UsermenuComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _services_order_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/order.service.client */ "./src/app/services/order.service.client.ts");
+
+
+
+
+
+var UsermenuComponent = /** @class */ (function () {
+    //
+    //
+    //   @ViewChild('f') imageForm: NgForm;
+    //   userId: String;
+    //   name: String;
+    //   description: String;
+    //   url: String;
+    //   dish: any = {};
+    //   baseUrl: String = environment.baseUrl;
+    //   dishErrorFlag: boolean;
+    //   priceErrorFlag:boolean;
+    //   dishErrorMsg = "Dish name can't be empty!";
+    //   priceErrorMsg = "Price can't be empty!";
+    //
+    function UsermenuComponent(activatedRoute, sharedService, orderService, route) {
+        this.activatedRoute = activatedRoute;
+        this.sharedService = sharedService;
+        this.orderService = orderService;
+        this.route = route;
+        //const time = new Date();
+        //this.dish = new Order('',  time, 0, '', '');
+    }
+    UsermenuComponent.prototype.ngOnInit = function () {
+        // this.dishErrorFlag = false;
+        // this.priceErrorFlag = false;
+        // this.activatedRoute.params.subscribe(params => {
+        //   this.userId = params['uid'];
+        // });
+        // this.orderService.findOrdersByUser()ById(this.dishId).subscribe(
+        //     (dish: Order.) => {
+        //       this.dish = dish;
+        //     });
+    };
+    UsermenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-checkout',
+            template: __webpack_require__(/*! ./menu.component.html */ "./src/app/components/user/menu/menu.component.html"),
+            styles: [__webpack_require__(/*! ./menu.component.css */ "./src/app/components/user/menu/menu.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+            _services_order_service_client__WEBPACK_IMPORTED_MODULE_4__["OrderService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], UsermenuComponent);
+    return UsermenuComponent;
 }());
 
 
@@ -1164,7 +1310,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n"
+module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n<nav class=\"navbar fixed-top cl-blue-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a routerLink=\"/user/{{userId}}/profile\" class=\"navbar-brand cl-text-black cl-icon-padding\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Order details\n      </h1>\n    </div>\n  </div>\n</nav>\n\n<div class=\"container website-new-content\">\n  <div class=\"card order-card\">\n    <div class=\"card-header\">\n      <strong>{{status}}</strong>\n    </div>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{order.userAddress}}</h5>\n      <div><strong>User</strong> {{order.user}}</div>\n      <div><strong>User Address:</strong> {{order.userAddress}}</div>\n      <div><strong>User Phone Number:</strong> {{order.phone}}</div>\n      <div><strong>Time</strong> {{order.time}}</div>\n      <div><strong>Status:</strong> {{status}}</div>\n      <br>\n      <div><strong>Details:</strong></div>\n      <table class=\"table table-responsive table-bordered \">\n        <thead>\n        <tr>\n          <th scope=\"col\">dish</th>\n          <th scope=\"col\" *ngFor=\"let dish of order.details.dish\">{{dish}}</th>\n        </tr>\n        <tr>\n          <th scope=\"col\">amount</th>\n          <th scope=\"col\" *ngFor=\"let amount of order.details.quantity\">{{amount}}</th>\n        </tr>\n        </thead>\n      </table>\n      <div><strong>Total: $</strong>{{order.details.total}}</div>\n      <br>\n      <div class=\"row\">\n        <div class=\"col-10\">\n          <agm-map [latitude]=\"lat\" [longitude]=\"lng\" style=\"height: 600px\">\n            <agm-direction *ngIf=\"dir\" [origin]=\"dir.origin\" [destination]=\"dir.destination\" [markerOptions]=\"markerOptions\" [renderOptions]=\"renderOptions\"></agm-direction>\n          </agm-map>\n        </div>\n      </div>\n    </div>\n  </div>\n  <nav class=\"navbar fixed-bottom cl-blue-navbar\">\n    <div class=\"container-fluid justify-content-end\">\n      <a href=\"#\" routerLink=\"/profile\" class=\"navbar-brand cl-text-white cl-icon-padding\">\n        <span class=\"fas fa-user\"></span>\n      </a>\n    </div>\n  </nav>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1180,12 +1326,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderComponent", function() { return OrderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+
+
 
 
 var OrderComponent = /** @class */ (function () {
-    function OrderComponent() {
+    function OrderComponent(_activatedRoute, _sharedService) {
+        this._activatedRoute = _activatedRoute;
+        this._sharedService = _sharedService;
     }
     OrderComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._activatedRoute.params.subscribe(function (params) {
+            _this.userId = params['uid'];
+            _this.orderId = params['oid'];
+            console.log('user id: ' + _this.userId);
+            _this.user = _this._sharedService.user;
+            _this.order = _this._sharedService.selectedOrder;
+            if (_this.order.status === 3) {
+                _this.status = 'in transit';
+            }
+            else if (_this.order.status === 2) {
+                _this.status = 'active';
+            }
+            else if (_this.order.status === 0) {
+                _this.status = 'incomplete';
+            }
+            else if (_this.order.status === 1) {
+                _this.status = 'preparing';
+            }
+            else if (_this.order.status === 4) {
+                _this.status = 'completed';
+            }
+            else if (_this.order.status === 5) {
+                _this.status = 'cancelled';
+            }
+        });
     };
     OrderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1193,7 +1371,7 @@ var OrderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./order.component.html */ "./src/app/components/user/order/order.component.html"),
             styles: [__webpack_require__(/*! ./order.component.css */ "./src/app/components/user/order/order.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])
     ], OrderComponent);
     return OrderComponent;
 }());
@@ -1220,7 +1398,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger text-center\">\n  {{errorMsg}}\n</div>\n"
+module.exports = "<nav class=\"navbar fixed-top cl-blue-navbar\">\n  <div class=\"container-fluid\">\n    <div>\n      <a routerLink=\"../home\"\n         class=\"navbar-brand cl-text-black cl-icon-padding\">\n        <i class=\"fas fa-angle-left\"></i>\n      </a>\n      <h1 class=\"navbar-brand cl-text-black cl-text-bold cl-text-grey\">\n        Order History\n      </h1>\n    </div>\n    <a routerLink=\"./menu\"\n       class=\"navbar-brand cl-text-black float-right cl-icon-padding\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container cl-container-padding-more\">\n\n  <table class=\"table table-striped\">\n    <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Date</th>\n      <th scope=\"col\">Total</th>\n      <th scope=\"col\">Details</th>\n    </tr>\n    </thead>\n\n    <tbody *ngFor=\"let order of orders; index as i\">\n    <tr>\n      <th scope=\"row\">{{i + 1}}</th>\n      <td>{{order.time}}</td>\n      <td>{{order.user}}</td>\n      <td>{{order.details.total}}</td>\n      <td><a routerLink=\"/user/{{user._id}}/order/{{order._id}}\" class=\"badge badge-info\">click to view</a></td>\n    </tr>\n    </tbody>\n  </table>\n\n</div>\n\n<nav class=\"navbar fixed-bottom cl-blue-navbar\">\n  <div class=\"container-fluid justify-content-end\">\n    <a href=\"#\" routerLink=\"/profile\" class=\"navbar-brand cl-text-white cl-icon-padding\">\n      <span class=\"fas fa-user\"></span>\n    </a>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -1236,12 +1414,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderhistoryComponent", function() { return OrderhistoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_order_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/order.service.client */ "./src/app/services/order.service.client.ts");
+/* harmony import */ var _services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared.service */ "./src/app/services/shared.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
 
 
 var OrderhistoryComponent = /** @class */ (function () {
-    function OrderhistoryComponent() {
+    function OrderhistoryComponent(orderService, sharedService, router, route) {
+        this.orderService = orderService;
+        this.sharedService = sharedService;
+        this.router = router;
+        this.route = route;
     }
     OrderhistoryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.employeeId = this.sharedService.user._id;
+        this.orderService.findOrdersByUser(this.employeeId).subscribe(function (orders) {
+            _this.orders = orders;
+        });
     };
     OrderhistoryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1249,7 +1442,10 @@ var OrderhistoryComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./orderhistory.component.html */ "./src/app/components/user/orderhistory/orderhistory.component.html"),
             styles: [__webpack_require__(/*! ./orderhistory.component.css */ "./src/app/components/user/orderhistory/orderhistory.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_order_service_client__WEBPACK_IMPORTED_MODULE_2__["OrderService"],
+            _services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], OrderhistoryComponent);
     return OrderhistoryComponent;
 }());
@@ -1498,8 +1694,8 @@ var LoginComponent = /** @class */ (function () {
             if (_this.loginrole === 'Customer') {
                 _this.router.navigate(['user/home']);
             }
-            else if (_this.loginrole === 'Employee') {
-                _this.router.navigate(['restaurant/home']);
+            else if (_this.loginrole === 'Delivery') {
+                _this.router.navigate(['/deliver/' + data._id + '/home']);
             }
         }, function (error) {
             _this.errorFlag = true;
@@ -2016,26 +2212,26 @@ var OrderService = /** @class */ (function () {
     };
     OrderService.prototype.findOrdersByUser = function (userId) {
         console.log('front order service findOrderByUser() called');
-        return this.http.get(this.baseUrl + this.userApiUrl + userId + '/order');
+        return this.http.get(this.baseUrl + this.userApiUrl + userId + '/orders');
     };
     OrderService.prototype.findAllOrdersByDeliver = function (deliverId) {
         console.log('front order service findOrderByRDeliver() called');
-        return this.http.get(this.baseUrl + '/deliver/' + deliverId + '/order');
+        return this.http.get(this.baseUrl + '/api/deliver/' + deliverId + '/orders');
     };
-    // finishOrder(restaurantId, orderId) {
-    //     console.log('front order service finishOrder() called');
-    //     return this.http.post<Order>(this.baseUrl+restaurantId+'/order',this.findOrderById(orderId));
-    // }
+    OrderService.prototype.findCartorderByUser = function (userId) {
+        return this.http.get(this.baseUrl + '/api/user/' + userId + '/cartorders');
+    };
+    OrderService.prototype.findIntransitOrderByUser = function (userId) {
+        return this.http.get(this.baseUrl + '/api/user/' + userId + '/intransitorder');
+    };
+    OrderService.prototype.findIntransitOrderByDeliver = function (deliverId) {
+        return this.http.get(this.baseUrl + '/api/deliver/' + deliverId + '/intransitorder');
+    };
     OrderService.prototype.findOrderById = function (userId, orderId) {
         console.log('front order service findorderById() called');
         // Only need to call server's url to get the data.
-        return this.http.get(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId);
+        return this.http.get(this.baseUrl + '/api/order/' + orderId);
     };
-    // findOrderById(userId, orderId) {
-    //     console.log('front order service findorderById() called');
-    //     // Only need to call server's url to get the data.
-    //     return this.http.get<Order>(this.baseUrl+ userId + '/order/'+orderId);
-    // }
     OrderService.prototype.updateOrder = function (userId, orderId, order) {
         console.log('front order service updateOrder() called');
         return this.http.put(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId, order);
@@ -2044,38 +2240,34 @@ var OrderService = /** @class */ (function () {
         console.log('front order service deleteOrder() called');
         return this.http.delete(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId);
     };
+    // maybe use findAllPendingOrders instead of this one
     OrderService.prototype.findOrderByStatus = function (deliverId, status) {
         console.log('front end service findOrderByStatus called');
         return this.http.get(this.baseUrl + this.userApiUrl + deliverId + '/order/' + status);
     };
-    OrderService.prototype.finishOrder = function (userId, orderId, orderStatus) {
-        if (orderStatus === void 0) { orderStatus = 1; }
-        console.log('front order service finishOrder() called');
-        return this.http.put(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId + orderStatus, this.findOrderById(userId, orderId));
+    OrderService.prototype.findAllPendingOrders = function () {
+        console.log('front end service findAllPendingOrders called');
+        return this.http.get(this.baseUrl + '/api/allpendingorders');
     };
-    OrderService.prototype.postOrder = function (userId, orderId, orderStatus) {
-        if (orderStatus === void 0) { orderStatus = 2; }
+    OrderService.prototype.checkoutOrder = function (userId, orderId) {
         console.log('front end service findOrderByStatus called');
-        return this.http.put(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId + orderStatus, this.findOrderById(userId, orderId));
+        return this.http.post(this.baseUrl + '/api/user/' + userId + '/order/' + orderId + '/checkout', {});
     };
-    OrderService.prototype.acceptOrder = function (userId, orderId, orderStatus) {
-        if (orderStatus === void 0) { orderStatus = 3; }
+    OrderService.prototype.postOrder = function (userId, orderId) {
         console.log('front end service findOrderByStatus called');
-        return this.http.put(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId + orderStatus, this.findOrderById(userId, orderId));
+        return this.http.post(this.baseUrl + '/api/user/' + userId + '/order/' + orderId + '/post', {});
     };
-    OrderService.prototype.completeOrder = function (userId, orderId, orderStatus) {
-        if (orderStatus === void 0) { orderStatus = 4; }
+    OrderService.prototype.acceptOrder = function (userId, orderId) {
         console.log('front end service findOrderByStatus called');
-        return this.http.put(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId + orderStatus, this.findOrderById(userId, orderId));
+        return this.http.post(this.baseUrl + '/api/deliver/' + userId + '/order/' + orderId + '/accept', {});
     };
-    OrderService.prototype.cancelOrder = function (userId, orderId, orderStatus) {
-        if (orderStatus === void 0) { orderStatus = 5; }
+    OrderService.prototype.completeOrder = function (userId, orderId) {
         console.log('front end service findOrderByStatus called');
-        return this.http.put(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId + orderStatus, this.findOrderById(userId, orderId));
+        return this.http.post(this.baseUrl + '/api/deliver/' + userId + '/order/' + orderId + '/complete', {});
     };
-    OrderService.prototype.orderAccept = function (deliverId, userId, orderId) {
-        console.log('');
-        return this.http.post(this.baseUrl + '/deliver/' + deliverId + '/order', this.findOrderById(userId, orderId));
+    OrderService.prototype.cancelOrder = function (userId, orderId) {
+        console.log('front end service findOrderByStatus called');
+        return this.http.post(this.baseUrl + '/api/user/' + userId + '/order/' + orderId + '/cancel', {});
     };
     OrderService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

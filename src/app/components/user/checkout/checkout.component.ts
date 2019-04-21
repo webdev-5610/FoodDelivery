@@ -19,12 +19,9 @@ export class CheckoutComponent implements OnInit {
   order: Order;
   name: String;
   description: String;
-  dish: any = {};
   orderId: String;
-  dishErrorFlag: boolean;
-  priceErrorFlag:boolean;
-  dishErrorMsg = "Dish name can't be empty!";
-  priceErrorMsg = "Price can't be empty!";
+  numErrorFlag:boolean;
+  numErrorMsg = 'Invalid number!';
 
   constructor(private activatedRoute: ActivatedRoute,
               private sharedService: SharedService,
@@ -33,8 +30,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dishErrorFlag = false;
-    this.priceErrorFlag = false;
+    this.numErrorFlag = false;
     this.activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
     });
@@ -49,27 +45,16 @@ export class CheckoutComponent implements OnInit {
 
 
   updateOrder() {
-    if (!this.dish.dish_name) {
-      this.dishErrorFlag = true;
+    if (!this.order.details.quantity) {
+      this.numErrorFlag = true;
       return;
     }
-    if (!this.dish.price) {
-      this.priceErrorFlag = true;
-      return;
-    }
-
-    if (this.dishId === 'new') {
-      this.orderService.createDish(this.dish).subscribe(
-          (dish: Menu) => {
-            console.log('create dish !');
-            this.route.navigate(['../'], {relativeTo: this.activatedRoute});
-          },
-          (error: any) => console.log(error)
-      );
+    if (this.order.details === null) {
+      this.orderService.deleteOrder(this.userId,this.orderId);
     } else {
-      this.orderService.updateDish(this.dish._id, this.dish).subscribe(
-          (dish: Menu) => {
-            console.log('update dish !');
+      this.orderService.updateOrder(this.userId,this.orderId, this.order).subscribe(
+          () => {
+            console.log('update order!');
             this.route.navigate(['../'], {relativeTo: this.activatedRoute});
           },
           (error: any) => console.log(error)

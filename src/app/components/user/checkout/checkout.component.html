@@ -20,49 +20,39 @@
 </nav>
 
 <div class="container cl-container-padding-more">
-  <div appSortable (newIndexes) = "onNewIndexes($event)">
-    <div *ngFor="let dish of dishes">
-      <div class="float-right">
-        <a class="float-right cl-text-blue fa fa-bars"></a>
-        <a routerLink="/restaurant/menu/{{dish._id}}"
-           class="fa fa-cog cl-text-blue"></a>
-<!--        <a class="float-right cl-text-blue fa fa-bars"></a>
-        <a routerLink="/restaurant/menu/{{dish._id}}"
-           class="fa fa-cog cl-text-blue"></a>修改数量-->
-      </div>
-      <p>{{dish.dish_name}}</p>
-      <p>{{dish.price}}</p>
-      <p>{{dish.description}}</p>
-      <img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">
+  <div class="container cl-container-padding-more">
 
-    </div>
-  </div>
-</div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Dish name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Picture</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+  <tbody *ngFor="let dish of order.details.dishes; index as i">
+        <p>{{dish.dish_name}}</p>
+        <p>{{dish.price}}</p>
+        <p>{{order.details.quantity[i]}}</p>
+        <img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">
+        <div class="form-group">
+          <label for="dish-num">Quantity</label>
+          <input [(ngModel)]="order.details.quantity[i]"
+                 name = "quantity"
+                 type="text"
+                 class="form-control"
+                 id="dish-num"
+                 placeholder="quantity"/>
+          <button type="submit" class="btn btn-block btn-primary">change quantities</button>
+        </div>
 
-<div class="container cl-container-padding-more">
-
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Date</th>
-      <th scope="col">Total</th>
-      <th scope="col">Details</th>
-    </tr>
-    </thead>
-
-    <tbody *ngFor="let order of orders; index as i">
-    <tr>
-      <th scope="row">{{i + 1}}</th>
-      <td>{{order.time}}</td>
-      <td>{{order.user}}</td>
-      <td>{{order.details.total}}</td>
-      <td><a routerLink="/user/{{user._id}}/order/{{order._id}}" class="badge badge-info">click to view</a></td>
-    </tr>
-    </tbody>
-  </table>
+      </tbody>
   <button class="btn btn-danger  btn-block" (click)="deleteOrder()">Delete</button>
 </div>
+
+
 
 <nav class="navbar fixed-bottom cl-grey-navbar">
   <div class="container-fluid justify-content-end">
