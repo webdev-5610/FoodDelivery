@@ -20,19 +20,20 @@ import { RestaurantHomeComponent } from './components/restaurant/restaurant-home
 import { MenuEditComponent } from './components/restaurant/menu-edit/menu-edit.component';
 import { RestaurantOrderHistoryComponent } from './components/restaurant/restaurant-order-history/order-history.component';
 import {MatRadioModule} from '@angular/material/radio';
-import {UserService} from "./services/user.service.client";
-import {RestaurantService} from "./services/restaurant.service.client";
-import {OrderService} from "./services/order.service.client";
-import {WebsiteService} from "./services/website.service.client";
-import {SharedService} from "./services/shared.service";
+import {UserService} from './services/user.service.client';
+import {RestaurantService} from './services/restaurant.service.client';
+import {OrderService} from './services/order.service.client';
+import {WebsiteService} from './services/website.service.client';
+import {SharedService} from './services/shared.service';
 import { CurrentOrderComponent } from './components/restaurant/current-order/current-order.component';
-import {AuthGuard} from "./services/auth-guard.service";
+import {AuthGuard} from './services/auth-guard.service';
 import { DetailComponent } from './components/deliver/detail/detail.component';
 import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import { DeliverService } from './services/deliver.service.client';
 import { AgmDirectionModule} from 'agm-direction'; // agm-direction
 import { AgmCoreModule } from '@agm/core';
-import {MenuService} from "./services/menu.service.client";
+import {MenuService} from './services/menu.service.client';
+import {UsermenuComponent} from './components/user/menu/menu.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {MenuService} from "./services/menu.service.client";
     RestaurantOrderHistoryComponent,
     DetailComponent,
     DeliverHomeComponent,
-    CurrentOrderComponent
+    CurrentOrderComponent,
+    UsermenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,7 @@ import {MenuService} from "./services/menu.service.client";
     AgmDirectionModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM', libraries: ['geometry']})
   ],
-  providers: [UserService,RestaurantService,OrderService,WebsiteService,SharedService,AuthGuard,DeliverService,MenuService],
+  providers: [UserService, RestaurantService, OrderService, WebsiteService, SharedService, AuthGuard, DeliverService, MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

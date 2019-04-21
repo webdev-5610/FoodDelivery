@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 var orderSchema = new mongoose.Schema({
-    details: {
-        dish: [String],
-        quantity: [Number],
-        total: Number
-    },
+    dishes: [{
+        dish: String,
+        quantity: Number,
+    }],
+    total:Number,
     user: String,
     userId: String,
     deliverId: String,

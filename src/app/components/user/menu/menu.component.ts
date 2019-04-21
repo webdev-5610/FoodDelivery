@@ -8,11 +8,11 @@ import {Order} from '../../../model/order.client.model';
 
 @Component({
   selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class CheckoutComponent implements OnInit {
-
+export class UsermenuComponent implements OnInit {
+//
 //
 //   @ViewChild('f') imageForm: NgForm;
 //   userId: String;
@@ -35,25 +35,17 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit() {
-//     this.dishErrorFlag = false;
-//     this.priceErrorFlag = false;
-//     this.activatedRoute.params.subscribe(params => {
-//       this.userId = params['uid'];
-//     });
-//     this.orderService.findOrdersByUser()ById(this.dishId).subscribe(
-//         (dish: Order.) => {
-//           this.dish = dish;
-//         });
-   }
+    // this.dishErrorFlag = false;
+    // this.priceErrorFlag = false;
+    // this.activatedRoute.params.subscribe(params => {
+    //   this.userId = params['uid'];
+    // });
+    // this.orderService.findOrdersByUser()ById(this.dishId).subscribe(
+    //     (dish: Order.) => {
+    //       this.dish = dish;
+    //     });
+  }
 //
-//
-//
-//   onNewIndexes(newIndexes) {
-//     this.startIndex = newIndexes.startIndex;
-//     this.endIndex = newIndexes.endIndex;
-//     this.orderService.reorderDishes(this.startIndex, this.endIndex, this.dishes)
-//         .subscribe();
-//   }
 //
 //   updateOrder() {
 //     if (!this.dish.dish_name) {

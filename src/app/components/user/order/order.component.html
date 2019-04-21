@@ -2,14 +2,14 @@
      class="alert alert-danger text-center">
   {{errorMsg}}
 </div>
-<nav class="navbar fixed-top cl-grey-navbar">
+<nav class="navbar fixed-top cl-blue-navbar">
   <div class="container-fluid">
     <div>
       <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding">
         <i class="fas fa-angle-left"></i>
       </a>
       <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
-        Check out
+        Order details
       </h1>
     </div>
   </div>
@@ -25,7 +25,6 @@
       <div><strong>User</strong> {{order.user}}</div>
       <div><strong>User Address:</strong> {{order.userAddress}}</div>
       <div><strong>User Phone Number:</strong> {{order.phone}}</div>
-      <div><strong>Restaurant:</strong> {{order.restaurant}}</div>
       <div><strong>Time</strong> {{order.time}}</div>
       <div><strong>Status:</strong> {{status}}</div>
       <br>
@@ -54,10 +53,10 @@
     </div>
   </div>
   <nav class="navbar fixed-bottom cl-blue-navbar">
-    <div class="container">
-      <div class="cl-text-white navbar-brand cl-text-bold navbar-header-text">
-        User
-      </div>
+    <div class="container-fluid justify-content-end">
+      <a href="#" routerLink="/profile" class="navbar-brand cl-text-white cl-icon-padding">
+        <span class="fas fa-user"></span>
+      </a>
     </div>
   </nav>
 </div>

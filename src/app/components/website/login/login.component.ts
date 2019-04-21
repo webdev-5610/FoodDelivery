@@ -31,12 +31,12 @@ export class LoginComponent implements OnInit {
   login() {
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
-    console.log('data', this.username);
+    console.log('data:' + this.username +  this.loginrole);
     this.userService.login(this.username, this.password,this.loginrole).subscribe(
         (data: any) => {
             this.sharedService.user = data;
             if(this.loginrole === 'Customer'){
-                this.router.navigate(['user/home']);
+                this.router.navigate(['/menu']);
             }else if(this.loginrole === 'Delivery'){
                 this.router.navigate(['/deliver/' + data._id + '/home']);
             }

@@ -17,7 +17,7 @@ export class OrderService {
 
     createOrder(userId, order) {
         console.log('front order service createOrder() called');
-        return this.http.post<Order>(this.baseUrl + this.userApiUrl + userId + '/order', order);
+        return this.http.post(this.baseUrl + this.userApiUrl + userId + '/order', order);
     }
 
     findOrdersByUser(userId): Observable<Order[]> {
@@ -50,7 +50,7 @@ export class OrderService {
 
     updateOrder(userId, orderId, order) {
         console.log('front order service updateOrder() called');
-        return this.http.put<Order>(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId, order);
+        return this.http.put(this.baseUrl + this.userApiUrl + userId + '/order/' + orderId, order);
     }
 
     deleteOrder(userId, orderId) {
