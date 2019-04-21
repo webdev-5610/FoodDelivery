@@ -1,18 +1,18 @@
-// import {Component, OnInit, ViewChild} from '@angular/core';
-// import {NgForm} from '@angular/forms';
-// import {environment} from '../../../../environments/environment';
-// import {ActivatedRoute, Router} from '@angular/router';
-// import {SharedService} from '../../../services/shared.service';
-// import {OrderService} from '../../../services/order.service.client';
-// import {Order} from '../../../model/order.client.model';
-//
-// @Component({
-//   selector: 'app-checkout',
-//   templateUrl: './checkout.component.html',
-//   styleUrls: ['./checkout.component.css']
-// })
-// export class CheckoutComponent implements OnInit {
-//
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {environment} from '../../../../environments/environment';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SharedService} from '../../../services/shared.service';
+import {OrderService} from '../../../services/order.service.client';
+import {Order} from '../../../model/order.client.model';
+
+@Component({
+  selector: 'app-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.css']
+})
+export class CheckoutComponent implements OnInit {
+
 //
 //   @ViewChild('f') imageForm: NgForm;
 //   userId: String;
@@ -26,15 +26,15 @@
 //   dishErrorMsg = "Dish name can't be empty!";
 //   priceErrorMsg = "Price can't be empty!";
 //
-//   constructor(private activatedRoute: ActivatedRoute,
-//               private sharedService: SharedService,
-//               private orderService: OrderService,
-//               private route: Router) {
-//     //const time = new Date();
-//     //this.dish = new Order('',  time, 0, '', '');
-//   }
-//
-//   ngOnInit() {
+  constructor(private activatedRoute: ActivatedRoute,
+              private sharedService: SharedService,
+              private orderService: OrderService,
+              private route: Router) {
+    //const time = new Date();
+    //this.dish = new Order('',  time, 0, '', '');
+  }
+
+  ngOnInit() {
 //     this.dishErrorFlag = false;
 //     this.priceErrorFlag = false;
 //     this.activatedRoute.params.subscribe(params => {
@@ -44,7 +44,7 @@
 //         (dish: Order.) => {
 //           this.dish = dish;
 //         });
-//   }
+   }
 //
 //
 //
@@ -89,4 +89,4 @@
 //         () => this.route.navigate(['../'], {relativeTo: this.activatedRoute})
 //     );
 //   }
-// }
+ }

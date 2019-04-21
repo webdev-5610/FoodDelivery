@@ -187,16 +187,18 @@ module.exports = function(app) {
 
     function updateOrder(req, res) {
         var userId = req.params['userId'];
-        var orderId = req.params["orderId"];
-        var order = req.body;
-        orderModel.updateOrder(userId, orderId, order)
+        var orderId = req.params.orderId;
+        var update_order = req.body;
+        //var orderId = order._id;
+        orderModel.updateOrder(userId, orderId, update_order)
             .then(function (order) {
-                if(order == null){
-                    res.status(404).send();
+                if(order){
+                    res.json(order);
                 }
                 else {
-                    res.status(200).json(order);
+                    res.status(404).send({});
                 }
+                //res.json(order);
             },
             function (err) {
                 console.log('create order error! ' + err);

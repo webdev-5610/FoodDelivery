@@ -31,7 +31,7 @@ export class Restaurant {
     menus: Menu[];
 
 
-    constructor(username: String, password: String,name: String, email: String, address: String, phone: String, type: String, orders: Order[], menus: Menu[]) {
+    constructor(username: String, password: String, name: String, email: String, address: String, phone: String, type: String, orders: Order[], menus: Menu[]) {
         this.username = username;
         this.password = password;
         this.name = name;

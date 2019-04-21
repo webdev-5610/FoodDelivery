@@ -33,6 +33,7 @@ import { DeliverService } from './services/deliver.service.client';
 import { AgmDirectionModule} from 'agm-direction'; // agm-direction
 import { AgmCoreModule } from '@agm/core';
 import {MenuService} from './services/menu.service.client';
+import {UsermenuComponent} from './components/user/menu/menu.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {MenuService} from './services/menu.service.client';
     RestaurantOrderHistoryComponent,
     DetailComponent,
     DeliverHomeComponent,
-    CurrentOrderComponent
+    CurrentOrderComponent,
+    UsermenuComponent,
   ],
   imports: [
     BrowserModule,

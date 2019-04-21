@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
                   console.log('input: ' + data);
                 if (data) {
                     if(this.registerRole === 'Customer'){
-                        this.router.navigate(['user/home']);
+                        this.router.navigate(['menu']);
                     }else if(this.registerRole === 'Employee'){
                         this.router.navigate(['restaurant/home'])
                     }
