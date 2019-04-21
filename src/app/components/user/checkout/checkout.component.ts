@@ -48,11 +48,13 @@ export class CheckoutComponent implements OnInit {
 
 
   updateOrder() {
-    for(let i = 0; i < this.order.dishes.length; i++) {
+    this.order.total = Number(0);
+    for (let i = 0; i < this.order.dishes.length; i++) {
       if (this.order.dishes[i].quantity < 0 || !Number.isInteger(Number(this.order.dishes[i].quantity))) {
         this.numErrorFlag = true;
         return;
       }
+      this.order.total = Number(this.order.total) + Number(this.order.dishes[i].quantity) * Number(this.order.dishes[i].price);
     }
     if (this.order.dishes === []) {
       this.orderService.deleteOrder(this.userId, this.orderId);
