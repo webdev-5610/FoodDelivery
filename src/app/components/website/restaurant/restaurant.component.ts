@@ -59,9 +59,16 @@ export class RestaurantComponent implements OnInit {
 
             console.log(this.currentOrder);
         } else {
-            this.currentOrder.dishes.push({dish: dish.dish_name, price:dish.price, quantity: 1});
+            var i = this.currentOrder.dishes.findIndex(x => x.dish === dish.dish_name);
+            if(i === -1){
+                this.currentOrder.dishes.push({dish: dish.dish_name, price:dish.price, quantity: 1});
+            }else{
+                var pre = this.currentOrder.dishes[i].quantity;
+                this.currentOrder.dishes[i].quantity = +pre + +1;
+            }
 
             console.log(this.currentOrder);
+
             this.orderService.updateOrder(this.user._id, this.currentOrder._id, this.currentOrder)
                 .subscribe(
                     (order: Order) => {
