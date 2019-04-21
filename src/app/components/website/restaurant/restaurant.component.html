@@ -1,3 +1,43 @@
-<p>
-  restaurant works!
-</p>
+<nav class="navbar fixed-top cl-grey-navbar">
+  <div class="container-fluid">
+    <div>
+      <a routerLink=".."
+         class="navbar-brand cl-text-black cl-icon-padding">
+        <i class="fas fa-angle-left"></i>
+      </a>
+      <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
+        Menu
+      </h1>
+    </div>
+    <!--<a routerLink="./new"-->
+       <!--class="navbar-brand cl-text-black float-right cl-icon-padding">-->
+      <!--<i class="fas fa-plus"></i>-->
+    <!--</a>-->
+  </div>
+</nav>
+
+<div class="container cl-container-padding-more">
+    <div *ngFor="let dish of dishes">
+      <div class="float-right">
+        <button class="btn btn-primary btn-block btn-sm"
+                type="submit"
+                (click)="addToShoppingCart(dish.dish_name)">Add to Cart
+        </button>
+      </div>
+      <p>{{dish.dish_name}}</p>
+      <p>{{dish.price}}</p>
+      <p>{{dish.description}}</p>
+      <img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">
+
+    </div>
+
+</div>
+
+<nav class="navbar fixed-bottom cl-grey-navbar">
+  <div class="container-fluid">
+    <a routerLink="/profile" class="navbar-brand cl-icon-padding cl-text-blue float-right">
+      <i class="fas fa-user cl-text-blue"></i>
+    </a>
+  </div>
+</nav>
+

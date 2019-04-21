@@ -10,10 +10,11 @@ export class User {
     credit_card_info: String;
     billing_info: String;
     order_history: Order[];
+    currentOrder: Order;
 
 
     constructor(_id: String, username: String, password: String, email: String, address: String, phone: String, credit_card_info: String,
-                billing_info: String) {
+                billing_info: String, currentOrder: Order = null) {
         this._id = _id;
         this.username = username;
         this.password = password;

@@ -21,7 +21,7 @@ export class MenuEditComponent implements OnInit {
   dish: any = {};
   baseUrl: String = environment.baseUrl;
   dishErrorFlag: boolean;
-  priceErrorFlag:boolean;
+  priceErrorFlag: boolean;
   dishErrorMsg = "Dish name can't be empty!";
   priceErrorMsg = "Price can't be empty!";
 
