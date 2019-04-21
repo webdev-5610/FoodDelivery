@@ -190,7 +190,7 @@ module.exports = function(app) {
         var orderId = req.params['orderId'];
         var update_order = req.body;
         //var orderId = order._id;
-        orderModel.updateOrder(userId, orderId, update_order)
+        orderModel.updateOrder(orderId, update_order)
             .then(function (order) {
                 if(order){
                     res.json(order);
@@ -198,7 +198,6 @@ module.exports = function(app) {
                 else {
                     res.status(404).send({});
                 }
-                //res.json(order);
             },
             function (err) {
                 console.log('create order error! ' + err);
