@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['/menu']);
             }else if(this.loginrole === 'Delivery'){
                 this.router.navigate(['/deliver/' + data._id + '/home']);
+            }else if(this.loginrole === 'Employee'){
+                this.router.navigate(['restaurant/home']);
             }
             }, (error: any) => {
             this.errorFlag = true;

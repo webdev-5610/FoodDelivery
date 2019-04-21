@@ -18,7 +18,6 @@ function createDish(dish) {
 }
 
 function findAllDishes() {
-    console.log("find all");
     return Menu.find({}).sort({ position: 1, dateCreated: 1});
 }
 
@@ -27,6 +26,7 @@ function findDishById(dishId) {
 }
 
 function updateDish(dishId, dish) {
+    console.log('backend: update dish!')
     return Menu.findByIdAndUpdate(dishId, dish, {new: true});
 }
 

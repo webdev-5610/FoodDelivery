@@ -15,7 +15,7 @@ import {User} from '../../../model/user.client.model';
 export class RestaurantComponent implements OnInit {
     // userId: String;
     dishes: Menu[];
-    user: User;
+    user: any ={};
     currentOrder: Order;
     loginErrorFlag: boolean;
     loginErrorMsg = 'You need to login to place order!';
@@ -25,10 +25,14 @@ export class RestaurantComponent implements OnInit {
                 private orderService: OrderService,
                 private router: Router,
                 private route: ActivatedRoute) {
-        //this.currentOrder = new Order('', '', 0, null, 0, '', '');
     }
 
     ngOnInit() {
+        this.user = this.sharedService.user;
+        if(!this.user){
+            this.user = new User('guest','','','','','','','');
+        }
+        //this.user._id = 'guest';
         this.menuService.findAllDishesForRestaurant().subscribe(
             (dishes: any) => {
                 this.dishes = dishes;
@@ -36,12 +40,12 @@ export class RestaurantComponent implements OnInit {
             }
         );
         this.currentOrder = null;
-        this.user = this.sharedService.user;
+
         console.log(this.user);
     }
 
     addToShoppingCart(dish: Menu) {
-        if (this.user === undefined) {
+        if (this.user._id === 'guest') {
             this.loginErrorFlag = true;
             return;
         }
@@ -77,6 +81,14 @@ export class RestaurantComponent implements OnInit {
                     }
                 );
         }
+    }
+
+    checkout(){
+        if (this.user._id === 'guest') {
+            this.loginErrorFlag = true;
+            return;
+        }
+        this.router.navigate(['/user',this.user._id, 'checkout']);
     }
 
 }

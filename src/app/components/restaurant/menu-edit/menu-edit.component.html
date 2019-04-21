@@ -5,7 +5,8 @@
 <nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div>
-      <a routerLink=".." class="navbar-brand cl-text-black cl-icon-padding">
+      <a routerLink=".."
+         class="navbar-brand cl-text-black cl-icon-padding">
         <i class="fas fa-angle-left"></i>
       </a>
       <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
@@ -23,7 +24,7 @@
     <div class="form-group">
       <label for="dish-name">Name</label>
       <input [(ngModel)]="dish.dish_name"
-             name = "name"
+             name = "dishname"
              type="text"
              class="form-control"
              id="dish-name"
@@ -33,7 +34,7 @@
       <label for="dish-price">Price</label>
       <span>$</span>
       <input [(ngModel)]="dish.price"
-             name="width"
+             name="price"
              type="number"
              class="form-control"
              id="dish-price"

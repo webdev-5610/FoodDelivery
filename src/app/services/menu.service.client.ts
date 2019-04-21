@@ -23,6 +23,7 @@ export class MenuService {
     }
 
     findDishById(dishId) {
+        console.log('front call: find dishBy id');
         return this._http.get(this.baseUrl + '/api/restaurant/menu/' + dishId);
     }
 

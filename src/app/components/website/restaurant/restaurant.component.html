@@ -1,43 +1,61 @@
 <nav class="navbar fixed-top cl-grey-navbar">
-  <div class="container-fluid">
-    <div>
-      <a routerLink=".."
-         class="navbar-brand cl-text-black cl-icon-padding">
-        <i class="fas fa-angle-left"></i>
-      </a>
-      <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
-        Menu
-      </h1>
+    <div class="container-fluid">
+        <div>
+            <a routerLink=".."
+               class="navbar-brand cl-text-black cl-icon-padding">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
+                Menu
+            </h1>
+        </div>
+        <a  href="# " (click)="checkout()" class="genric-btn default-border circle arrow">Check Out
+            <span class="lnr lnr-arrow-right"></span></a>
+        <!--<a routerLink="./new"-->
+        <!--class="navbar-brand cl-text-black float-right cl-icon-padding">-->
+        <!--<i class="fas fa-plus"></i>-->
+        <!--</a>-->
     </div>
-    <!--<a routerLink="./new"-->
-       <!--class="navbar-brand cl-text-black float-right cl-icon-padding">-->
-      <!--<i class="fas fa-plus"></i>-->
-    <!--</a>-->
-  </div>
 </nav>
 
 <div class="container cl-container-padding-more">
     <div *ngFor="let dish of dishes">
-      <div class="float-right">
-        <button class="btn btn-primary btn-block btn-sm"
-                type="submit"
-                (click)="addToShoppingCart(dish.dish_name)">Add to Cart
-        </button>
-      </div>
-      <p>{{dish.dish_name}}</p>
-      <p>{{dish.price}}</p>
-      <p>{{dish.description}}</p>
-      <img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">
+        <div class="float-right">
+            <button class="btn btn-primary btn-block btn-sm"
+                    type="submit"
+                    (click)="addToShoppingCart(dish.dish_name)">Add to Cart
+            </button>
+        </div>
 
+        <div class="container">
+            <div class="section-top-border">
+                <p></p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{dish.url}}" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20">
+                        <div style="clear: both">
+                            <h3 style="float: left">{{dish.dish_name}}</h3>
+                            <h3 style="float: right">$ {{dish.price}}</h3>
+                        </div>
+                        <hr />
+                        <p>{{dish.description}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </div>
 
+
 <nav class="navbar fixed-bottom cl-grey-navbar">
-  <div class="container-fluid">
-    <a routerLink="/profile" class="navbar-brand cl-icon-padding cl-text-blue float-right">
-      <i class="fas fa-user cl-text-blue"></i>
-    </a>
-  </div>
+    <div class="container-fluid">
+        <a routerLink="/profile" class="navbar-brand cl-icon-padding cl-text-blue float-right">
+            <i class="fas fa-user cl-text-blue"></i>
+        </a>
+    </div>
 </nav>
 

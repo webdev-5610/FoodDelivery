@@ -41,7 +41,7 @@ module.exports = function (app) {
         // condition when myFile is null
         const callbackUrl = baseUrl + '/restaurant/menu/'+ dishId;
         if (myFile == null) {
-            res.redirect(callbackUrl + '/' + dishId);
+            res.redirect(callbackUrl);
             return;
         }
 
@@ -52,14 +52,14 @@ module.exports = function (app) {
         var size = myFile.size;
         var mimetype = myFile.mimetype;
 
-        if (dishId === '') {
-            var dish = {_id: '', dish_name: '', price: 0, description: '', url: ''};
+        if (dishId === 'new') {
+            var dish = {_id: 'new', dish_name: '', price: 0, description: '', url: ''};
             dish._id = (new Date()).getTime().toString();
             dish.url = baseUrl + '/assets/uploads/' + filename;
 
             console.log('create dish image: ' + dish._id);
             dishs.push(dish);
-            res.redirect(callbackUrl + '/' + dish._id);
+            res.redirect(callbackUrl);
             return;
         }
 
@@ -73,9 +73,9 @@ module.exports = function (app) {
                 function (err) {
                     res.sendStatus(404).send(err);
                 });
-        res.redirect(callbackUrl+ '/' + dishId);
+        res.redirect(callbackUrl);
     }
-    // var pick = ["dishType", "name", "pageId", "size", "text", "url", "width", "height","rows", "formatted"];
+
     function createDish(req, res) {
         // var pageId = req.params.pageId;
         var dish = _.pick(req.body, ["dish_name",  "description", "url", "price"]);
@@ -122,7 +122,7 @@ module.exports = function (app) {
     }
 
     function findDishById(req, res) {
-        var dishId = req.params.dishId;
+        var dishId = req.params['did'];
         menuModel
             .findDishById(dishId)
             .then(function (dish) {
@@ -134,8 +134,9 @@ module.exports = function (app) {
     }
 
     function updateDish(req, res) {
-        var dishId = req.params.dishId;
-        var updatedDish = _.pick(req.body,["name", "description", "price", "url"]);
+        var dishId = req.params['did'];
+        var updatedDish = _.pick(req.body,["dish_name", "description", "price", "url"]);
+        console.log(updatedDish);
         menuModel.updateDish(dishId, updatedDish)
             .then(function (stats) {
                     res.json(stats);
@@ -146,7 +147,7 @@ module.exports = function (app) {
     }
 
     function deleteDish(req, res) {
-        var dishId = req.params.dishId;
+        var dishId = req.params['did'];
         menuModel.deleteDish(dishId).then(
             function (stats) {
                 res.json(stats);

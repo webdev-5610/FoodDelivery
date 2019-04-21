@@ -34,11 +34,13 @@ export class MenuEditComponent implements OnInit {
     this.errorFlag = false;
     this.activatedRoute.params.subscribe(params => {
       this.dishId = params['did'];
+      console.log(this.dishId);
     });
     if(this.dishId !== 'new'){
       this.menuService.findDishById(this.dishId).subscribe(
           (dish: Menu) => {
             this.dish = dish;
+            console.log(this.dish);
           }
       )
     }
@@ -48,10 +50,6 @@ export class MenuEditComponent implements OnInit {
       this.errorFlag = true;
       return;
     }
-    // if (!this.dish.price) {
-    //   this.priceErrorFlag = true;
-    //   return;
-    // }
 
     if (this.dishId === 'new') {
       this.menuService.createDish(this.dish).subscribe(
