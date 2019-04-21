@@ -189,7 +189,7 @@ module.exports = function(app) {
         var userId = req.params['userId'];
         var orderId = req.params["orderId"];
         var order = req.body;
-        orderModel.updateOrder(userId, orderId, order)
+        orderModel.updateOrder(orderId, order)
             .then(function (order) {
                 if(order == null){
                     res.status(404).send();
