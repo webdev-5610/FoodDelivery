@@ -1,99 +1,65 @@
-<!--<div *ngIf="errorFlag"-->
-     <!--class="alert alert-danger text-center">-->
-  <!--{{errorMsg}}-->
-<!--</div>-->
+<div *ngIf="numErrorFlag"
+     class="alert alert-danger text-center">
+  {{numErrorMsg}}
+</div>
 
-<!--<nav class="navbar fixed-top cl-grey-navbar">-->
-  <!--<div class="container-fluid">-->
-    <!--<div>-->
-      <!--<a routerLink="/delivery/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding">-->
-        <!--<i class="fas fa-angle-left"></i>-->
-      <!--</a>-->
-      <!--<h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">-->
-        <!--Check out-->
-      <!--</h1>-->
-    <!--</div>-->
-    <!--<a (click)="updateOrder()" class="navbar-brand cl-text-black float-right cl-icon-padding">-->
-      <!--<i class="fas fa-check"></i>-->
-    <!--</a>-->
-  <!--</div>-->
-<!--</nav>-->
+<nav class="navbar fixed-top cl-grey-navbar">
+  <div class="container-fluid">
+    <div>
+      <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding">
+        <i class="fas fa-angle-left"></i>
+      </a>
+      <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
+        Check out
+      </h1>
+    </div>
+    <a (click)="updateOrder()" class="navbar-brand cl-text-black float-right cl-icon-padding">
+      <i class="fas fa-check"></i>
+    </a>
+  </div>
+</nav>
 
-<!--<div class="container cl-container-padding-more">-->
-  <!--<div appSortable (newIndexes) = "onNewIndexes($event)">-->
-    <!--<div *ngFor="let dish of dishes">-->
-      <!--<div class="float-right">-->
-        <!--<a class="float-right cl-text-blue fa fa-bars"></a>-->
-        <!--<a routerLink="/restaurant/menu/{{dish._id}}"-->
-           <!--class="fa fa-cog cl-text-blue"></a>-->
-<!--&lt;!&ndash;        <a class="float-right cl-text-blue fa fa-bars"></a>-->
-        <!--<a routerLink="/restaurant/menu/{{dish._id}}"-->
-           <!--class="fa fa-cog cl-text-blue"></a>修改数量&ndash;&gt;-->
-      <!--</div>-->
-      <!--<p>{{dish.dish_name}}</p>-->
-      <!--<p>{{dish.price}}</p>-->
-      <!--<p>{{dish.description}}</p>-->
-      <!--<img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">-->
+<div class="container cl-container-padding-more">
+  <div class="container cl-container-padding-more">
 
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Dish name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <!--<th scope="col">Picture</th>-->
+        <th scope="col"></th>
+      </tr>
+      </thead>
+  <tbody *ngFor="let dish of order.dishes; index as i">
+        <p>{{dish.dish}}</p>
+        <p>{{dish.price}}</p>
+        <p>{{dish.quantity}}</p>
+        <!--<img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">-->
+        <div class="form-group">
+          <label for="dish-num">Quantity</label>
+          <input [(ngModel)]="dish.quantity"
+                 name = "quantity"
+                 type="Number"
+                 class="form-control"
+                 id="dish-num"
+                 placeholder="quantity"/>
+          <button type="submit" class="btn btn-block btn-primary">change quantities</button>
+        </div>
 
-<!--<div class="container">-->
-  <!--<form>-->
-    <!--<div class="form-group">-->
-      <!--<label for="dish-name">Name</label>-->
-      <!--<input [(ngModel)]="order.dish[]"-->
-             <!--name = "name"-->
-             <!--type="text"-->
-             <!--class="form-control"-->
-             <!--id="dish-name"-->
-             <!--placeholder="name"/>-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-      <!--<label for="dish-price">Price</label>-->
-      <!--<span>$</span>-->
-      <!--<input [(ngModel)]="dish.price"-->
-             <!--name="width"-->
-             <!--type="number"-->
-             <!--class="form-control"-->
-             <!--id="dish-price"-->
-             <!--placeholder="Price"/>-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-      <!--<label for="dish-description">Description</label>-->
-      <!--<textarea [(ngModel)]="dish.description" name="description" id="dish-description" class="form-control" rows="3"-->
-                <!--placeholder="Description"></textarea>-->
-    <!--</div>-->
+      </tbody>
+    </table>
+  </div>
+  <button class="btn btn-danger  btn-block" (click)="deleteOrder()">Delete</button>
+</div>
 
-    <!--<div class="form-group">-->
-      <!--<label for="image-URL">URL</label>-->
-      <!--<input [(ngModel)]="dish.url"-->
-             <!--type="text"-->
-             <!--name="url"-->
-             <!--class="form-control"-->
-             <!--id="image-URL"-->
-             <!--placeholder="{{dish.url}}"-->
-             <!--ngModel required-->
-             <!--#url="ngModel"/>-->
-    <!--</div>-->
 
-    <!--<div class="form-group">-->
-      <!--<form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">-->
-        <!--<input  name="dishId" value="{{dishId}}"   style="display: none"/>-->
-        <!--<button type="submit" class="btn btn-block btn-primary">Upload Image</button>-->
-        <!--<br/>-->
-      <!--</form>-->
-    <!--</div>-->
-  <!--</form>-->
 
-  <!--<button class="btn btn-danger  btn-block" (click)="deleteDish()">Delete</button>-->
-<!--</div>-->
-
-<!--<nav class="navbar fixed-bottom cl-grey-navbar">-->
-  <!--<div class="container-fluid justify-content-end">-->
-    <!--<a routerLink="restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue">-->
-      <!--<span class="fas fa-user"></span>-->
-    <!--</a>-->
-  <!--</div>-->
-<!--</nav>-->
+<nav class="navbar fixed-bottom cl-grey-navbar">
+  <div class="container-fluid justify-content-end">
+    <a routerLink="restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue">
+      <span class="fas fa-user"></span>
+    </a>
+  </div>
+</nav>

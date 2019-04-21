@@ -187,7 +187,7 @@ module.exports = function(app) {
 
     function updateOrder(req, res) {
         var userId = req.params['userId'];
-        var orderId = req.params.orderId;
+        var orderId = req.params['orderId'];
         var update_order = req.body;
         //var orderId = order._id;
         orderModel.updateOrder(orderId, update_order)

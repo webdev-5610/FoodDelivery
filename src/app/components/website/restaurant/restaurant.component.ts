@@ -40,30 +40,43 @@ export class RestaurantComponent implements OnInit {
         console.log(this.user);
     }
 
-    addToShoppingCart(dish: String) {
+    addToShoppingCart(dish: Menu) {
         if (this.user === undefined) {
             this.loginErrorFlag = true;
             return;
         }
         if (this.currentOrder === null) {
             this.currentOrder = new Order(this.user.username, this.user._id, 0, [], 0, '', '');
-            this.currentOrder.dishes.push({dish: dish, quantity: 1});
+            this.currentOrder.dishes.push({dish: dish.dish_name, price: dish.price, quantity: 1});
+
+            console.log(this.currentOrder);
             this.orderService.createOrder(this.user._id, this.currentOrder)
                 .subscribe(
                     (order: Order) => {
-                this.currentOrder = order;
-            }
-        );
+                 this.currentOrder = order;
+                    }
+                );
+
+            console.log(this.currentOrder);
         } else {
-            this.currentOrder.dishes.push({dish: dish, quantity: 1});
+            var i = this.currentOrder.dishes.findIndex(x => x.dish === dish.dish_name);
+            if(i === -1){
+                this.currentOrder.dishes.push({dish: dish.dish_name, price:dish.price, quantity: 1});
+            }else{
+                var pre = this.currentOrder.dishes[i].quantity;
+                this.currentOrder.dishes[i].quantity = +pre + 1;
+            }
+
+            console.log(this.currentOrder);
+
             this.orderService.updateOrder(this.user._id, this.currentOrder._id, this.currentOrder)
                 .subscribe(
                     (order: Order) => {
+                        console.log(order);
                         this.currentOrder = order;
                     }
                 );
         }
-        console.log(this.currentOrder);
     }
 
 }

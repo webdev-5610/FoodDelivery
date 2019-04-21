@@ -22,7 +22,7 @@
     <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Date</th>
+      <!--<th scope="col">Date</th>-->
       <th scope="col">Total</th>
       <th scope="col">Details</th>
     </tr>
@@ -31,9 +31,8 @@
     <tbody *ngFor="let order of orders; index as i">
     <tr>
       <th scope="row">{{i + 1}}</th>
-      <td>{{order.time}}</td>
-      <td>{{order.user}}</td>
-      <td>{{order.details.total}}</td>
+      <!--<td>{{order.time}}</td>-->
+      <td>{{order.total}}</td>
       <td><a routerLink="/user/{{user._id}}/order/{{order._id}}" class="badge badge-info">click to view</a></td>
     </tr>
     </tbody>

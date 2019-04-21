@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service';
 import {OrderService} from '../../../services/order.service.client';
 import {Order} from '../../../model/order.client.model';
+import {Dish} from '../../../model/order.client.model';
 
 @Component({
   selector: 'app-checkout',
@@ -13,80 +14,65 @@ import {Order} from '../../../model/order.client.model';
 })
 export class CheckoutComponent implements OnInit {
 
-//
-//   @ViewChild('f') imageForm: NgForm;
-//   userId: String;
-//   name: String;
-//   description: String;
-//   url: String;
-//   dish: any = {};
-//   baseUrl: String = environment.baseUrl;
-//   dishErrorFlag: boolean;
-//   priceErrorFlag:boolean;
-//   dishErrorMsg = "Dish name can't be empty!";
-//   priceErrorMsg = "Price can't be empty!";
-//
+
+  @ViewChild('f') imageForm: NgForm;
+  userId: String;
+  order: Order;
+  dish: Dish;
+  name: String;
+  description: String;
+  orderId: String;
+  numErrorFlag: boolean;
+  numErrorMsg = 'Invalid number!';
+
+
   constructor(private activatedRoute: ActivatedRoute,
               private sharedService: SharedService,
               private orderService: OrderService,
               private route: Router) {
-    //const time = new Date();
-    //this.dish = new Order('',  time, 0, '', '');
   }
 
   ngOnInit() {
-//     this.dishErrorFlag = false;
-//     this.priceErrorFlag = false;
-//     this.activatedRoute.params.subscribe(params => {
-//       this.userId = params['uid'];
-//     });
-//     this.orderService.findOrdersByUser()ById(this.dishId).subscribe(
-//         (dish: Order.) => {
-//           this.dish = dish;
-//         });
-   }
-//
-//
-//
-//   onNewIndexes(newIndexes) {
-//     this.startIndex = newIndexes.startIndex;
-//     this.endIndex = newIndexes.endIndex;
-//     this.orderService.reorderDishes(this.startIndex, this.endIndex, this.dishes)
-//         .subscribe();
-//   }
-//
-//   updateOrder() {
-//     if (!this.dish.dish_name) {
-//       this.dishErrorFlag = true;
-//       return;
-//     }
-//     if (!this.dish.price) {
-//       this.priceErrorFlag = true;
-//       return;
-//     }
-//
-//     if (this.dishId === 'new') {
-//       this.menuService.createDish(this.dish).subscribe(
-//           (dish: Menu) => {
-//             console.log('create dish !');
-//             this.route.navigate(['../'], {relativeTo: this.activatedRoute});
-//           },
-//           (error: any) => console.log(error)
-//       );
-//     } else {
-//       this.menuService.updateDish(this.dish._id, this.dish).subscribe(
-//           (dish: Menu) => {
-//             console.log('update dish !');
-//             this.route.navigate(['../'], {relativeTo: this.activatedRoute});
-//           },
-//           (error: any) => console.log(error)
-//       );
-//     }
-//   }
-//
-//   deleteDish() {
-//     this.menuService.deleteDish(this.dishId).subscribe(
-//         () => this.route.navigate(['../'], {relativeTo: this.activatedRoute})
-//     );
-//   }
- }
+    this.numErrorFlag = false;
+    this.activatedRoute.params.subscribe(params => {
+      this.userId = params['uid'];
+    });
+    this.orderService.findCartorderByUser(this.userId).subscribe(
+        (order: any) => {
+          this.order = order;
+          this.orderId = order._id;
+        });
+
+  }
+
+
+
+  updateOrder() {
+    this.order.total = Number(0);
+    for (let i = 0; i < this.order.dishes.length; i++) {
+      if (this.order.dishes[i].quantity < 0 || !Number.isInteger(Number(this.order.dishes[i].quantity))) {
+        this.numErrorFlag = true;
+        return;
+      }
+      this.order.total = Number(this.order.total) + Number(this.order.dishes[i].quantity) * Number(this.order.dishes[i].price);
+    }
+    if (this.order.dishes === []) {
+      this.orderService.deleteOrder(this.userId, this.orderId);
+    } else {
+
+      this.orderService.updateOrder(this.userId, this.orderId, this.order).subscribe(
+          () => {
+            console.log('update order!');
+            this.route.navigate(['../'], {relativeTo: this.activatedRoute});
+          },
+          (error: any) => console.log(error)
+      );
+    }
+  }
+
+  deleteOrder() {
+    this.orderService.deleteOrder(this.userId, this.orderId).subscribe(
+        () => this.route.navigate(['../'], {relativeTo: this.activatedRoute})
+    );
+  }
+}

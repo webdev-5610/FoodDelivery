@@ -36,6 +36,7 @@ import {MenuService} from './services/menu.service.client';
 import {UsermenuComponent} from './components/user/menu/menu.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SortableDirective} from './sortable.directive';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     DeliverHomeComponent,
     CurrentOrderComponent,
     UsermenuComponent,
+    SortableDirective,
   ],
   imports: [
     BrowserModule,

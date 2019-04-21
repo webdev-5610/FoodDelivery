@@ -1,8 +1,10 @@
-class Dish {
+export class Dish {
   dish: String;
+  price: Number;
   quantity: Number;
-  constructor(dish: String, quantity: Number) {
+  constructor(dish: String, price: Number, quantity: Number) {
     this.dish = dish;
+    this.price = price;
     this.quantity = quantity;
   }
 }
@@ -12,7 +14,7 @@ export class Order {
   user: String;
   userId: String;
   deliverId: String;
-  //time: Date;
+  time: Date;
   status: Number;// 0 for not check out, 1 for not finished by the restaurant, 2 for finished.
   dishes: Dish[];
   total: Number;

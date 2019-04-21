@@ -1,6 +1,6 @@
-<div *ngIf="errorFlag"
+<div *ngIf="userErrorFlag"
 class="alert alert-danger text-center">
-{{errorMsg}}
+{{userErrorMsg}}
 </div>
 
 <body>
@@ -53,9 +53,9 @@ class="alert alert-danger text-center">
   <button class="btn btn-primary btn-block"
           routerLink="../restaurant/{{restaurant._id}}/website">Menu
   </button>
-  <button class="btn btn-danger  btn-block"
-          (click)="logout()" routerLinkActive="active">Logout
-  </button>
+  <!--<button class="btn btn-danger  btn-block"-->
+          <!--(click)="logout()" routerLinkActive="active">Logout-->
+  <!--</button>-->
   <!--<button class="btn btn-danger  btn-block"-->
           <!--(click)="deleteUser()" routerLinkActive="active">Delete-->
   <!--</button>-->

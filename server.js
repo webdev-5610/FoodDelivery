@@ -19,7 +19,7 @@ app.use(passport.session());
 var connectionString = 'mongodb://localhost:27017/web5610';
 var mongoose = require("mongoose");
 
-mongoose.connect('mongodb://heroku_d26z84tb:fj106769q3m73ko1rhtsqmn4je@ds121406.mlab.com:21406/heroku_d26z84tb', {useNewUrlParser:true});
+mongoose.createConnection(connectionString);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-const port=process.env.PORT || '3200';
+const port=process.env.PORT || '8080';
 app.set('port', port);
 
 // Create HTTP server

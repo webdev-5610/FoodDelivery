@@ -23,7 +23,7 @@ export class RestaurantProfileComponent implements OnInit {
   restaurant: Restaurant;
   username: String;
   updateFlag: boolean;
-  updateMsg: String;
+  updateMsg: String;r
   userErrorFlag: boolean;
   userErrorMsg: String;
 
