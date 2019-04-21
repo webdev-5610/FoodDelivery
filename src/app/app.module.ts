@@ -34,7 +34,7 @@ import { AgmDirectionModule} from 'agm-direction'; // agm-direction
 import { AgmCoreModule } from '@agm/core';
 import {MenuService} from './services/menu.service.client';
 import {UsermenuComponent} from './components/user/menu/menu.component';
-
+import {SortableDirective} from './sortable.directive';
 
 @NgModule({
   declarations: [
@@ -57,6 +57,7 @@ import {UsermenuComponent} from './components/user/menu/menu.component';
     DeliverHomeComponent,
     CurrentOrderComponent,
     UsermenuComponent,
+    SortableDirective,
   ],
   imports: [
     BrowserModule,
