@@ -15,7 +15,7 @@ export class Order {
   userId: String;
   deliverId: String;
   time: Date;
-  status: Number;// 0 for not check out, 1 for not finished by the restaurant, 2 for finished.
+  status: Number; // 0 for not check out, 1 for not finished by the restaurant, 2 for finished.
   dishes: Dish[];
   total: Number;
   userAddress: String;
