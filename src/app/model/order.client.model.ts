@@ -1,4 +1,4 @@
-class Dish {
+export class Dish {
   dish: String;
   quantity: Number;
   constructor(dish: String, quantity: Number) {

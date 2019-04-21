@@ -25,23 +25,31 @@
       <div><strong>User</strong> {{order.user}}</div>
       <div><strong>User Address:</strong> {{order.userAddress}}</div>
       <div><strong>User Phone Number:</strong> {{order.phone}}</div>
-      <div><strong>Time</strong> {{order.time}}</div>
+      <!--<div><strong>Time</strong> {{order.time}}</div>-->
       <div><strong>Status:</strong> {{status}}</div>
       <br>
       <div><strong>Details:</strong></div>
       <table class="table table-responsive table-bordered ">
         <thead>
         <tr>
-          <th scope="col">dish</th>
-          <th scope="col" *ngFor="let dish of order.details.dish">{{dish}}</th>
-        </tr>
-        <tr>
-          <th scope="col">amount</th>
-          <th scope="col" *ngFor="let amount of order.details.quantity">{{amount}}</th>
+          <th scope="col">#</th>
+          <!--<th scope="col">Date</th>-->
+          <th scope="col">Dish</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
         </tr>
         </thead>
+        <tbody *ngFor="let dish of order.dishes; index as i">
+        <tr>
+          <th scope="row">{{i + 1}}</th>
+          <!--<td>{{order.time}}</td>-->
+          <td>{{dish.dish}}</td>
+          <td>{{dish.dish}}</td>
+          <td>{{dish.quantity}}</td>
+        </tr>
+        </tbody>
       </table>
-      <div><strong>Total: $</strong>{{order.details.total}}</div>
+      <div><strong>Total: $</strong>{{order.total}}</div>
       <br>
       <div class="row">
         <div class="col-10">

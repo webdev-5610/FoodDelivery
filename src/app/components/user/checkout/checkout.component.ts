@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service';
 import {OrderService} from '../../../services/order.service.client';
 import {Order} from '../../../model/order.client.model';
+import {Dish}
 
 @Component({
   selector: 'app-checkout',
@@ -17,6 +18,7 @@ export class CheckoutComponent implements OnInit {
   @ViewChild('f') imageForm: NgForm;
   userId: String;
   order: Order;
+  dish: Dish;
   name: String;
   description: String;
   orderId: String;
