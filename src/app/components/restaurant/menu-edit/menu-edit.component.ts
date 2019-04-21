@@ -20,10 +20,8 @@ export class MenuEditComponent implements OnInit {
   url: String;
   dish: any = {};
   baseUrl: String = environment.baseUrl;
-  dishErrorFlag: boolean;
-  priceErrorFlag: boolean;
-  dishErrorMsg = "Dish name can't be empty!";
-  priceErrorMsg = "Price can't be empty!";
+  errorFlag: boolean;
+  errorMsg = "Dish name or Price can't be empty!";
 
   constructor(private activatedRoute: ActivatedRoute,
               private sharedService: SharedService,
@@ -33,8 +31,7 @@ export class MenuEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dishErrorFlag = false;
-    this.priceErrorFlag = false;
+    this.errorFlag = false;
     this.activatedRoute.params.subscribe(params => {
       this.dishId = params['did'];
     });
@@ -47,14 +44,14 @@ export class MenuEditComponent implements OnInit {
     }
   }
   updateDish() {
-    if (!this.dish.dish_name) {
-      this.dishErrorFlag = true;
+    if (!this.dish.dish_name || !this.dish.price) {
+      this.errorFlag = true;
       return;
     }
-    if (!this.dish.price) {
-      this.priceErrorFlag = true;
-      return;
-    }
+    // if (!this.dish.price) {
+    //   this.priceErrorFlag = true;
+    //   return;
+    // }
 
     if (this.dishId === 'new') {
       this.menuService.createDish(this.dish).subscribe(

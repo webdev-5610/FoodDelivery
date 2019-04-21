@@ -64,7 +64,7 @@ export class RestaurantComponent implements OnInit {
                 this.currentOrder.dishes.push({dish: dish.dish_name, price:dish.price, quantity: 1});
             }else{
                 var pre = this.currentOrder.dishes[i].quantity;
-                this.currentOrder.dishes[i].quantity = +pre + +1;
+                this.currentOrder.dishes[i].quantity = +pre + 1;
             }
 
             console.log(this.currentOrder);
