@@ -14,8 +14,6 @@ app.use(session({ secret: 'S3CR#T!' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// var db = mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds263847.mlab.com:63847/heroku_khn0t993');
-
 var connectionString = 'mongodb://localhost:27017/web5610';
 var mongoose = require("mongoose");
 
