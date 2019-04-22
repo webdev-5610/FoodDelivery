@@ -1,5 +1,3 @@
-import * as userModel from "../model/user/user.model.server";
-
 module.exports = function(app) {
     // db
     const orderModel = require('../model/order/order.model.server');
@@ -41,7 +39,6 @@ module.exports = function(app) {
 
     function checkoutOrder(req,res) {
         var orderId = req.params['orderId'];
-        var userId = req.params['userId'];
         console.log(orderId);
         orderModel.updateOrderStatus(null, orderId, 1)
             .then(function (order) {
@@ -49,10 +46,6 @@ module.exports = function(app) {
                     res.status(404).send();
                 }
                 else {
-                    userModel.findUserById(userId)
-                        .then(function (user) {
-                            user.order_history.push(order);
-                        });
                     res.status(200).json(order);
                 }
             },
