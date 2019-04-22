@@ -2,3 +2,13 @@
 /src/assets/uploads/
 /.idea/
 
+dist/web5610/vendor.js.map
+dist/web5610/main.js
+dist/web5610/main.js.map
+dist/web5610/polyfills.js
+dist/web5610/polyfills.js.map
+dist/web5610/runtime.js
+dist/web5610/runtime.js.map
+dist/web5610/styles.js
+dist/web5610/styles.js.map
+dist/web5610/vendor.js

@@ -55,7 +55,7 @@
     <input [(ngModel)]="user.billing_info" name="billing_info" type="text" class="form-control" placeholder="Wander">
   </div>
   <button class="btn btn-primary btn-block"
-          routerLink="../user/{{user._id}}/orderhistory">Order History
+          routerLink="../user/{{userId}}/orderhistory">Order History
   </button>
   <button class="btn btn-danger  btn-block"
           (click)="logout()" routerLinkActive="active">Logout
