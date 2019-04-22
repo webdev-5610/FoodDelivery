@@ -18,6 +18,8 @@ module.exports = function (app) {
     app.post("/api/logout", logout);
     app.post("/api/register", register);
     app.post("/api/loggedin", loggedin);
+    app.get("/api/allusers/:userType", findAllUsersByType);
+
 
     function serializeUser(user, done) {
         done(null, user._id);
@@ -113,6 +115,24 @@ module.exports = function (app) {
         );
     };
 
+    function findAllUsersByType(req, res) {
+        var type = req.params["userType"];
+        console.log(type);
+        userModel.findAllUsersByType(type).then(
+            function (users) {
+                console.log(users);
+                if (users) {
+                    res.status(200).json(users);
+                } else {
+                    res.status(200).send({});
+                }
+            },
+            function (err) {
+                res.status(400).send(err);
+            }
+        );
+    }
+
     function findUser(req, res) {
         if (req.query["password"]) {
             findUserByCredentials(req, res);
@@ -122,21 +142,14 @@ module.exports = function (app) {
     }
 
     function findUserByUsername(req, res) {
+        console.log('find user by username run');
         var username = req.query["username"];
+        console.log(username);
         userModel.findUserByUsername(username).then(
             function (user) {
+                console.log(user);
                 if (user) {
-                    orderModel.findAllOrdersByUser(user._id).then(
-                        function (orders) {
-                            if(orders == null){
-                                res.status(200).json(user);
-                            }
-                            else {
-                                user.order_history = orders;
-                                res.status(200).json(user);
-                            }
-                        }
-                    );
+                    res.status(200).json(user);
                 } else {
                     res.status(200).send({});
                 }

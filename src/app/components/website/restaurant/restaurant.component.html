@@ -12,7 +12,7 @@
         <a (click)="checkout()" class="button1" href=".">Check Out</a>
     </div>
 </nav>
-
+<p></p>
 <div class="container cl-container-padding-more">
     <div class="section-top-border">
     <div *ngFor="let dish of dishes">
@@ -25,8 +25,8 @@
                     </div>
                     <div class="col-md-6 mt-sm-20">
                         <div style="clear: both">
-                            <h4 style="float: left">{{dish.dish_name}}</h4>
-                            <h4 style="float: right">$ {{dish.price}}</h4>
+                            <h3 style="float: left">{{dish.dish_name}}</h3>
+                            <h3 style="float: right">$ {{dish.price}}</h3>
                         </div>
                         <hr />
                         <p>{{dish.description}}</p>
@@ -38,6 +38,7 @@
                         </button>
                     </div>
                 </div>
+            <p></p>
             <p></p>
             </div>
         </div>

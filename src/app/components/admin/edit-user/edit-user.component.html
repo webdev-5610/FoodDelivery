@@ -1,0 +1,108 @@
+<nav class="navbar fixed-top cl-grey-navbar">
+  <div class="container-fluid">
+    <div>
+      <a routerLink="../home"
+         class="navbar-brand cl-text-black cl-icon-padding">
+        <i class="fas fa-angle-left"></i>
+      </a>
+      <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
+        User Management
+      </h1>
+    </div>
+    <!--<a (click)="updateDish()" class="navbar-brand cl-text-black float-right cl-icon-padding">-->
+      <!--<i class="fas fa-check"></i>-->
+    <!--</a>-->
+  </div>
+</nav>
+<p></p>
+
+<div class="container">
+  <h3>Admin</h3>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">UserName</th>
+      <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let admin of admins; index as i">
+
+    <tr>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{admin.username}}</td>
+      <td><button class = "btn btn-danger btn-sm" (click)="deleteUser(admin)">Delete</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h3>Employee</h3>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">UserName</th>
+      <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let ee of employee; index as i">
+
+    <tr>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{ee.username}}</td>
+      <td><button class = "btn btn-danger btn-sm" (click)="deleteUser(ee)">Delete</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="container">
+  <h3>Delivery</h3>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">UserName</th>
+      <th scope="col">#of delivered orders</th>
+      <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let deliver of delivers; index as i">
+
+    <tr>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{deliver.username}}</td>
+      <td>{{deliver.order_history.length}}</td>
+      <td><button class = "btn btn-danger btn-sm" (click)="deleteUser(deliver)">Delete</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="container">
+  <h3>Customer</h3>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">UserName</th>
+      <th scope="col">Total Orders</th>
+      <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let customer of customers; index as i">
+
+    <tr>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{customer.username}}</td>
+      <td>{{customer.order_history.length}}</td>
+      <td><button class = "btn btn-danger btn-sm" (click)="deleteUser(customer)">Delete</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+

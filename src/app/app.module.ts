@@ -23,7 +23,6 @@ import {MatRadioModule} from '@angular/material/radio';
 import {UserService} from './services/user.service.client';
 import {RestaurantService} from './services/restaurant.service.client';
 import {OrderService} from './services/order.service.client';
-import {WebsiteService} from './services/website.service.client';
 import {SharedService} from './services/shared.service';
 import { CurrentOrderComponent } from './components/restaurant/current-order/current-order.component';
 import {AuthGuard} from './services/auth-guard.service';
@@ -37,6 +36,9 @@ import {UsermenuComponent} from './components/user/menu/menu.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SortableDirective} from './sortable.directive';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AddUserComponent } from './components/admin/add-user/add-user.component';
+import { EditUserComponent } from './components/admin/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,9 @@ import {SortableDirective} from './sortable.directive';
     CurrentOrderComponent,
     UsermenuComponent,
     SortableDirective,
+    AdminHomeComponent,
+    AddUserComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +78,7 @@ import {SortableDirective} from './sortable.directive';
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM', libraries: ['geometry']})
   ],
-  providers: [UserService, RestaurantService, OrderService, WebsiteService, SharedService, AuthGuard, DeliverService, MenuService],
+  providers: [UserService, RestaurantService, OrderService, SharedService, AuthGuard, DeliverService, MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
