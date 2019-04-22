@@ -4,6 +4,7 @@ export class User {
     _id: String;
     username: String;
     password: String;
+    // userType: String;
     email: String;
     address: String;
     phone: String;

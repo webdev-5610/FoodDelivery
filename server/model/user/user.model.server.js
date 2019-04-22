@@ -10,11 +10,17 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
+userModel.findAllUsersByType = findAllUsersByType;
 
 
 module.exports = userModel;
 
 // functions go here
+
+function findAllUsersByType(type) {
+    return userModel.find({ userType: type});
+
+}
 function createUser(user) {
     return userModel.create(user);
 }

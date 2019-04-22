@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   userErrorMsg: String;
   userErrorFlag: boolean;
   registerRole: string;
-  roles: string[] = ['Customer', 'Employee','Delivery'];
+  roles: string[] = ['Customer', 'Employee', 'Delivery', 'Admin'];
   //roleErrorFlag: boolean
 
   constructor(private userService: UserService, private router: Router) {
@@ -43,7 +43,9 @@ export class RegisterComponent implements OnInit {
                     if(this.registerRole === 'Customer'){
                         this.router.navigate(['menu']);
                     }else if(this.registerRole === 'Employee'){
-                        this.router.navigate(['restaurant/home'])
+                        this.router.navigate(['restaurant/home']);
+                    }else if(this.registerRole === 'Admin') {
+                        this.router.navigate(['admin/home']);
                     }
 
                 } else {

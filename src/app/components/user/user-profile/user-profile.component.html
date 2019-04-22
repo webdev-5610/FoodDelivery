@@ -4,10 +4,10 @@
 </div>
 
 <body>
-<nav class="navbar fixed-top cl-blue-navbar">
+<nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div class="navbar-header">
-      <h1 class="cl-text-white navbar-brand cl-text-bold">
+      <h1 class="cl-text-black navbar-brand cl-text-bold">
         User Profile
       </h1>
     </div>
@@ -55,7 +55,7 @@
     <input [(ngModel)]="user.billing_info" name="billing_info" type="text" class="form-control" placeholder="Wander">
   </div>
   <button class="btn btn-primary btn-block"
-          routerLink="../user/{{user._id}}/orderhistory">Order History
+          routerLink="../user/{{userId}}/orderhistory">Order History
   </button>
   <button class="btn btn-danger  btn-block"
           (click)="logout()" routerLinkActive="active">Logout
@@ -67,9 +67,9 @@
 </div>
 
 
-<nav class="navbar fixed-bottom cl-blue-navbar">
+<nav class="navbar fixed-bottom cl-grey-navbar">
   <div class="container-fluid justify-content-end">
-    <a href="#" routerLink="/profile" class="navbar-brand cl-text-white cl-icon-padding">
+    <a href="#" routerLink="/profile" class="navbar-brand cl-text-black cl-icon-padding">
       <span class="fas fa-user"></span>
     </a>
   </div>

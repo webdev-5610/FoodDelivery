@@ -15,7 +15,7 @@ import {User} from '../../../model/user.client.model';
 export class RestaurantComponent implements OnInit {
     // userId: String;
     dishes: Menu[];
-    user: any ={};
+    user: any = {};
     currentOrder: Order;
     loginErrorFlag: boolean;
     loginErrorMsg = 'You need to login to place order!';
@@ -29,10 +29,10 @@ export class RestaurantComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.sharedService.user;
-        if(!this.user){
-            this.user = new User('guest','','','','','','','');
+        if (!this.user) {
+            this.user = new User('guest', '', '', '', '', '', '', '');
         }
-        //this.user._id = 'guest';
+        // this.user._id = 'guest';
         this.menuService.findAllDishesForRestaurant().subscribe(
             (dishes: any) => {
                 this.dishes = dishes;
@@ -63,11 +63,11 @@ export class RestaurantComponent implements OnInit {
 
             console.log(this.currentOrder);
         } else {
-            var i = this.currentOrder.dishes.findIndex(x => x.dish === dish.dish_name);
-            if(i === -1){
-                this.currentOrder.dishes.push({dish: dish.dish_name, price:dish.price, quantity: 1});
-            }else{
-                var pre = this.currentOrder.dishes[i].quantity;
+            const i = this.currentOrder.dishes.findIndex(x => x.dish === dish.dish_name);
+            if (i === -1) {
+                this.currentOrder.dishes.push({dish: dish.dish_name, price: dish.price, quantity: 1});
+            } else {
+                const pre = this.currentOrder.dishes[i].quantity;
                 this.currentOrder.dishes[i].quantity = +pre + 1;
             }
 
@@ -83,12 +83,12 @@ export class RestaurantComponent implements OnInit {
         }
     }
 
-    checkout(){
+    checkout() {
         if (this.user._id === 'guest') {
             this.loginErrorFlag = true;
             return;
         }
-        this.router.navigate(['/user',this.user._id, 'checkout']);
+        this.router.navigate(['/user', this.user._id, 'checkout']);
     }
 
 }

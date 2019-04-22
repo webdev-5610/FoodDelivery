@@ -1,6 +1,5 @@
 import {User} from '../model/user.client.model';
 import {Injectable} from '@angular/core';
-import 'rxjs/Rx';
 import {SharedService} from './shared.service';
 import {environment} from 'src/environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -14,6 +13,10 @@ export class UserService {
     constructor(private _http: HttpClient, private sharedService: SharedService, private router: Router) {}
     baseUrl = environment.baseUrl;
     options = {withCredentials: false};
+
+    findAllUsersByType(type: String) {
+        return this._http.get<User>(this.baseUrl + '/api/allusers/' + type);
+    }
 
     createUser(user: User) {
         return this._http.post(this.baseUrl + '/api/user', user);

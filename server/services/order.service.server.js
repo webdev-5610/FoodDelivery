@@ -16,6 +16,7 @@ module.exports = function(app) {
     app.get('/api/deliver/:deliverId/intransitorder', findIntransitOrderByDeliver);
     app.get('/api/user/:userId/intransitorder', findIntransitOrderByUser);
     app.get('/api/allpendingorders', findAllPendingOrders);
+    app.get('/api/allcurrentorders', findAllCurrentOrders);
 
     app.put('/api/user/:userId/order/:orderId', updateOrder);// also check status if finished or not.
     app.delete('/api/user/:userId/order/:orderId', deleteOrder);
@@ -228,12 +229,12 @@ module.exports = function(app) {
         var status = 0;
         orderModel.findOrdersByUserAndStatus(userId, status)
             .then(function (orders) {
-                console.log(orders.dishes);
-                if(orders == null){
-                    res.status(200).send();
+                //console.log(orders.dishes);
+                if(orders){
+                    res.status(200).send(orders);
                 }
                 else {
-                    res.status(200).json(orders);
+                    res.status(200).json({});
                 }
             },
             function (err) {
@@ -293,6 +294,21 @@ module.exports = function(app) {
                 console.log('create order error! ' + err);
                 res.status(400).send(err);
             });
+    }
+    function findAllCurrentOrders(req,res) {
+        orderModel.findOrdersByStatus(1)
+            .then(function (orders) {
+                    if(orders == null){
+                        res.status(200).send([]);
+                    }
+                    else {
+                        res.status(200).json(orders);
+                    }
+                },
+                function (err) {
+                    console.log('create order error! ' + err);
+                    res.status(400).send(err);
+                });
     }
 
 };

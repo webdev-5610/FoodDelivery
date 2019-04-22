@@ -19,6 +19,9 @@ import {MenuComponent} from './components/restaurant/menu/menu.component';
 // Import all other components here
 import {UsermenuComponent} from './components/user/menu/menu.component';
 import {RestaurantComponent} from './components/website/restaurant/restaurant.component';
+import {AdminHomeComponent} from './components/admin/admin-home/admin-home.component';
+import {AddUserComponent} from './components/admin/add-user/add-user.component';
+import {EditUserComponent} from './components/admin/edit-user/edit-user.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -52,6 +55,10 @@ const APP_ROUTES: Routes = [
     //restaurant-order-history
 
     //admin
+  {path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard]},
+  {path: 'admin/adduser', component: AddUserComponent, canActivate: [AuthGuard]},
+  {path: 'admin/edituser', component: EditUserComponent},
+  // {path: 'admin/currentorders', component: CurrentOrderComponent, canActivate: [AuthGuard]},
 
 
   // so on

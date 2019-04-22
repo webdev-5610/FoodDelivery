@@ -14,6 +14,10 @@ export class OrderService {
     userApiUrl = '/api/user/';
 
     constructor(private http: HttpClient) { }
+    findAllCurrentOrders() {
+        console.log('front call all current orders');
+        return this.http.get(this.baseUrl + '/api/allcurrentorders');
+    }
 
     createOrder(userId, order) {
         console.log('front order service createOrder() called');
@@ -77,7 +81,7 @@ export class OrderService {
         console.log('front end service findOrderByStatus called');
         return this.http.post<Order>(this.baseUrl + '/api/user/' + userId + '/order/' + orderId + '/post', {});
     }
-    acceptOrder(userId, orderId){
+    acceptOrder(userId, orderId) {
         console.log('front end service findOrderByStatus called');
         return this.http.post<Order>(this.baseUrl + '/api/deliver/' + userId + '/order/' + orderId + '/accept', {});
     }
