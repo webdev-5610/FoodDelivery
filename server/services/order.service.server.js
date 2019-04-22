@@ -116,6 +116,10 @@ module.exports = function(app) {
                     res.status(404).send();
                 }
                 else {
+                    userModel.findUserById(userId)
+                        .then(function (user) {
+                            user.order_history.push(order);
+                        });
                     res.status(200).json(order);
                 }
             },
