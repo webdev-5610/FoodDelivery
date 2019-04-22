@@ -122,7 +122,7 @@
 
 
 .banner-area{
-    background:url(../../../../assets/uploads/header-bg.jpg) right;
+    background:url(https://webdev-final-cs5610.herokuapp.com/assets/uploads/header-bg.jpg) right;
     background-size:cover
 }
 @media (max-width: 767.98px){
