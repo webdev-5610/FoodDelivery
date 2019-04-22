@@ -88,7 +88,7 @@ export class RestaurantComponent implements OnInit {
             this.loginErrorFlag = true;
             return;
         }
-        this.router.navigate(['/user',this.user._id, 'checkout']);
+        this.router.navigate(['/user',this.user._id, '/checkout']);
     }
 
 }
