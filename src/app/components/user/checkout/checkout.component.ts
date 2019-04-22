@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+""
 import {NgForm} from '@angular/forms';
 import {environment} from '../../../../environments/environment';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -36,6 +37,7 @@ export class CheckoutComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
     });
+    console.log(this.userId);
     this.orderService.findCartorderByUser(this.userId).subscribe(
         (order: any) => {
           this.order = order;

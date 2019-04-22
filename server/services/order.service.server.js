@@ -228,12 +228,12 @@ module.exports = function(app) {
         var status = 0;
         orderModel.findOrdersByUserAndStatus(userId, status)
             .then(function (orders) {
-                console.log(orders.dishes);
-                if(orders == null){
-                    res.status(200).send();
+                //console.log(orders.dishes);
+                if(orders){
+                    res.status(200).send(orders);
                 }
                 else {
-                    res.status(200).json(orders);
+                    res.status(200).json({});
                 }
             },
             function (err) {
