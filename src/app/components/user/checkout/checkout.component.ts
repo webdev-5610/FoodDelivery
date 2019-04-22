@@ -42,6 +42,7 @@ export class CheckoutComponent implements OnInit {
           this.orderId = this.order._id;
         });
     console.log('find cart order called！！！！！！！！！！');
+      console.log(this.order.dishes);
     console.log(this.order.dishes);
   }
 
