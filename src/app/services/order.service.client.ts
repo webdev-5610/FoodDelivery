@@ -14,6 +14,10 @@ export class OrderService {
     userApiUrl = '/api/user/';
 
     constructor(private http: HttpClient) { }
+    findAllCurrentOrders() {
+        console.log('front call all current orders');
+        return this.http.get(this.baseUrl + '/api/allcurrentorders');
+    }
 
     createOrder(userId, order) {
         console.log('front order service createOrder() called');
