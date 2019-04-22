@@ -43,6 +43,7 @@ export class CheckoutComponent implements OnInit {
           this.order.dishes = orders[orders.length - 1].dishes;
           console.log(orders);
             console.log(orders[orders.length - 1].dishes);
+            console.log(this.order);
         });
     console.log('find cart order called！！！！！！！！！！');
 
