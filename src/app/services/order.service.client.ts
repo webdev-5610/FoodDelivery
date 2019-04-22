@@ -77,7 +77,7 @@ export class OrderService {
         console.log('front end service findOrderByStatus called');
         return this.http.post<Order>(this.baseUrl + '/api/user/' + userId + '/order/' + orderId + '/post', {});
     }
-    acceptOrder(userId, orderId){
+    acceptOrder(userId, orderId) {
         console.log('front end service findOrderByStatus called');
         return this.http.post<Order>(this.baseUrl + '/api/deliver/' + userId + '/order/' + orderId + '/accept', {});
     }

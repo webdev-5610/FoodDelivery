@@ -12,6 +12,7 @@ var orderSchema = new mongoose.Schema({
     deliverId: String,
     status: Number,
     userAddress: String,
+    phone:String,
     time: {type: Date, default: Date.now()}
 }, {collection: 'order'});
 

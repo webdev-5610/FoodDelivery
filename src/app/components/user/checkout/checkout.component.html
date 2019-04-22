@@ -22,35 +22,48 @@
 <div class="container cl-container-padding-more">
   <div class="container cl-container-padding-more">
 
-    <table class="table table-striped">
+    <table class="table table-striped table-center">
       <thead>
       <tr>
-        <th scope="col">Dish name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Quantity</th>
+        <th scope="col" class="col-sm-3">Dish name</th>
+        <th scope="col" class="col-sm-3">Price</th>
+        <th scope="col" class="col-sm-3">Quantity</th>
         <!--<th scope="col">Picture</th>-->
         <th scope="col"></th>
       </tr>
       </thead>
   <tbody *ngFor="let dish of dishes; index as i">
-        <p>{{dish.dish}}</p>
-        <p>{{dish.price}}</p>
-        <p>{{dish.quantity}}</p>
-        <!--<img class="img-responsive img-rounded cl-widget-images" src="{{dish.url}}">-->
-        <div class="form-group">
-          <label for="dish-num">Quantity</label>
+        <td>{{dish.dish}}</td>
+        <td>{{dish.price}}</td>
+        <td>
+          <div class="form-group ">
           <input [(ngModel)]="dish.quantity"
                  name = "quantity"
                  type="Number"
                  class="form-control"
                  id="dish-num"
                  placeholder="quantity"/>
-          <button type="submit" class="btn btn-block btn-primary">change quantities</button>
+          <!--<button type="submit" class="btn btn-block btn-primary">change quantities</button>-->
         </div>
-
+        </td>
       </tbody>
     </table>
   </div>
+
+  <div>
+    <div class="form-group cl-text-bold">
+      <label>Delivery Address</label>
+      <textarea [(ngModel)]="order.userAddress" rows="4" name="address" type="text" class="form-control"
+                placeholder="{{user.address}}">
+      </textarea>
+    </div>
+    <div class="form-group cl-text-bold">
+      <label>Contact Phone</label>
+      <input [(ngModel)]="order.phone" name="phone" type = "email" class="form-control" placeholder="{{user.phone}}">
+    </div>
+  </div>
+
+  <button class="btn btn-primary  btn-block" (click)="updateOrder()">Submit Order</button>
   <button class="btn btn-danger  btn-block" (click)="deleteOrder()">Delete</button>
 </div>
 
