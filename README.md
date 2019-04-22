@@ -1,8 +1,29 @@
 # FoodDelivery
 
+
+api:
+Frontend
+    
+   Angular google maps - AgmDirectionModule, AgmCoreModule
+
+    dependencies:
+        "@agm/core": "^1.0.0-beta.5",
+        "agm-core": "^1.0.0-beta.5",
+        "agm-direction": "^0.7.6",
+        "@types/googlemaps": "^3.30.19"
+    
+Backend
+
+   Google distancematrix api (https://developers.google.com/maps/documentation/distance-matrix/start)
+        
+        https://maps.googleapis.com/maps/api/distancematrix/json?
+
+
+
 4.13:update order api
 
-    app.post('/api/user/:userId/order', createOrder);
+    app.post('/    updateOrder(userId, orderId, order) {
+api/user/:userId/order', createOrder);
     app.post('/api/deliver/:deliverId/order', orderAccept);
     app.get('/api/user/:userId/order', findOrdersByUser);
     app.get('/api/user/:userId/order/:orderId', findOrderById);
@@ -46,7 +67,8 @@
     
  Delivery: 
  
-    home: url/deliver/uid/home
+    home: url/deliver/uid/home    updateOrder(userId, orderId, order) {
+
     detail: url/deliver/uid/detail
     profile: url/user/uid/profile
 
