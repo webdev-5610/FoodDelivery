@@ -23,6 +23,7 @@ export class CheckoutComponent implements OnInit {
   orderId: String;
   numErrorFlag: boolean;
   numErrorMsg = 'Invalid number!';
+  dishes: any[];
 
 
   constructor(private activatedRoute: ActivatedRoute,
