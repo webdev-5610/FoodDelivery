@@ -154,7 +154,8 @@ footer-area h4{padding-bottom:30px}.footer-area .number{color:#f42f2c;font-size:
 .footer-area .footer-bottom .footer-social a:hover{background-color:#f42f2c}
 .footer-area .footer-bottom .footer-social i{color:#cccccc;-webkit-transition:all 0.3s ease 0s;-moz-transition:all 0.3s ease 0s;-o-transition:all 0.3s ease 0s;transition:all 0.3s ease 0s}@media (max-width: 991.98px){
     .footer-area .footer-bottom .footer-social{text-align:left}}@media (max-width: 768px){.footer-area .footer-bottom .footer-social{margin-top:20px}}@media (max-width: 768px){.footer-area .single-footer-widget .newsletter .primary-btn{
-    right:2% !important;width:auto;right:0;top:5px;transform:translate(0%, 0)}}.single-footer-widget .navbar-form{width:100%}.single-footer-widget .navbar-form .form-control{border:none;border-radius:20px;font-size:13px}
+    right:2% !important;width:auto;right:0;top:5px;transform:translate(0%, 0)}}
+.single-footer-widget .navbar-form{width:100%}.single-footer-widget .navbar-form .form-control{border:none;border-radius:20px;font-size:13px}
 .single-footer-widget .navbar-form .add-on{background:#fff;border-radius:20px}.single-footer-widget .navbar-form .genric-btn:hover{background-color:#f42f2c}
 .single-footer-widget .navbar-form .genric-btn:hover .lnr{color:#fff}.single-footer-widget .navbar-form .lnr{font-weight:900;font-size:18px !important;color:#fff}.whole-wrap{background-color:#fff}.generic-banner{margin-top:60px;background-color:#f42f2c;text-align:center}.generic-banner .height{height:600px}@media (max-width: 767.98px){.generic-banner .height{height:400px}}.generic-banner .generic-banner-content h2{line-height:1.2em;margin-bottom:20px}@media (max-width: 991.98px){.generic-banner .generic-banner-content h2 br{display:none}}.generic-banner .generic-banner-content p{text-align:center;font-size:16px}@media (max-width: 991.98px)
 {.generic-banner .generic-banner-content p br{display:none}}
