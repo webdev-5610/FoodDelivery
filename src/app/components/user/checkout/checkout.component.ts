@@ -37,9 +37,9 @@ export class CheckoutComponent implements OnInit {
       this.userId = params['uid'];
     });
     this.orderService.findCartorderByUser(this.userId).subscribe(
-        (order: any) => {
-          this.order = order;
-          this.orderId = order._id;
+        (orders: any) => {
+          this.order = orders[orders.length - 1];
+          this.orderId = this.order._id;
         });
     console.log('find cart order called！！！！！！！！！！');
     console.log(this.order.dishes);
