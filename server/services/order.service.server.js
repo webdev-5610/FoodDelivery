@@ -1,8 +1,9 @@
-import * as userModel from "../model/user/user.model.server";
+
 
 module.exports = function(app) {
     // db
     const orderModel = require('../model/order/order.model.server');
+    const userModel = require('../model/user/user.model.server');
     // api list
     app.post('/api/user/:userId/order', createOrder);
     app.post('/api/user/:userId/order/:orderId/checkout', checkoutOrder);
