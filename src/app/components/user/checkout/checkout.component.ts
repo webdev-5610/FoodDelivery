@@ -24,6 +24,7 @@ export class CheckoutComponent implements OnInit {
   orderId: String;
   numErrorFlag: boolean;
   numErrorMsg = 'Invalid number!';
+  dishes: any[];
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -39,12 +40,16 @@ export class CheckoutComponent implements OnInit {
     });
     console.log(this.userId);
     this.orderService.findCartorderByUser(this.userId).subscribe(
-        (order: any) => {
-          this.order = order;
-          this.orderId = order._id;
+        (orders: any) => {
+          this.order = orders[orders.length - 1];
+          this.orderId = this.order._id;
+          this.dishes = orders[orders.length - 1].dishes;
+          console.log(orders);
+            console.log(orders[orders.length - 1]);
+            console.log(this.order);
         });
     console.log('find cart order called！！！！！！！！！！');
-    console.log(this.order.dishes);
+
   }
 
 
