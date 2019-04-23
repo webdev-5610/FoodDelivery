@@ -4,6 +4,7 @@ import {Order} from '../../../model/order.client.model';
 import {ActivatedRoute} from '@angular/router';
 import {SharedService} from '../../../services/shared.service';
 import {OrderService} from '../../../services/order.service.client';
+import {UserService} from '../../../services/user.service.client';
 
 @Component({
   selector: 'app-order-details',
@@ -11,25 +12,38 @@ import {OrderService} from '../../../services/order.service.client';
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent implements OnInit {
-  userId: string;
-  orderId: string;
-  user: User;
+  orderId: String;
   order: Order;
   status: any = 'unknown';
+  delivername: String;
+  dishes: any[];
 
   constructor(private _activatedRoute: ActivatedRoute, private _sharedService: SharedService,
-              private orderService: OrderService) { }
+              private userSevice: UserService, private orderService: OrderService) { }
 
   ngOnInit() {
+    // this.order.dishes = [];
     this._activatedRoute.params.subscribe(params => {
-      this.userId = params['uid'];
       this.orderId = params['oid'];
       console.log('order id: ' + this.orderId);
     });
 
     this.orderService.findOrderById(this.orderId).subscribe(
-        (order: any) => {
-          this.order = order;
+        (order1: any) => {
+          this.order = order1;
+          this.dishes = order1.dishes;
+          console.log(this.order);
+          if (this.order.deliverId) {
+              this.userSevice.findUserById(this.order.deliverId).subscribe(
+                  (user: User) => {
+                      this.delivername = user.username;
+                      console.log(this.delivername);
+                  }
+              );
+          } else {
+              this.delivername = 'N/A';
+          }
+
           if (this.order.status === 3) {
             this.status = 'In transit';
           } else if (this.order.status === 2) {
@@ -45,7 +59,7 @@ export class OrderDetailsComponent implements OnInit {
           }
         }
     );
-    // console.log(this.order.status);
+
   }
 
 }
