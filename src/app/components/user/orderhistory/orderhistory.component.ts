@@ -19,7 +19,7 @@ export class OrderhistoryComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.userId = this.sharedService.user._id;
+    this.userId = params['uid'];
      this.orderService.findOrdersByUser(this.userId).subscribe(
          (orders: any) => {
            this.orders = orders;
