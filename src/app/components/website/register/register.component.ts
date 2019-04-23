@@ -46,6 +46,8 @@ export class RegisterComponent implements OnInit {
                         this.router.navigate(['restaurant/home']);
                     }else if(this.registerRole === 'Admin') {
                         this.router.navigate(['admin/home']);
+                    }else if(this.registerRole === 'Delivery') {
+                        this.router.navigate(['/deliver/' + data._id + '/home']);
                     }
 
                 } else {

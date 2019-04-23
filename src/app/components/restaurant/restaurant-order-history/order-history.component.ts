@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../../../model/order.client.model";
-import {RestaurantService} from "../../../services/restaurant.service.client";
-import {SharedService} from "../../../services/shared.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Restaurant} from "../../../model/restaurant.client.model";
-import {OrderService} from "../../../services/order.service.client";
+import {Order} from '../../../model/order.client.model';
+import {RestaurantService} from '../../../services/restaurant.service.client';
+import {SharedService} from '../../../services/shared.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Restaurant} from '../../../model/restaurant.client.model';
+import {OrderService} from '../../../services/order.service.client';
 
 @Component({
   selector: 'app-order-history',
@@ -21,12 +21,13 @@ export class RestaurantOrderHistoryComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.employeeId = this.sharedService.user._id;
-    // this.orderService.findAllOrders().subscribe(
-    //     (orders: any) => {
-    //       this.orders = orders;
-    //     }
-    // )
+    // this.employeeId = this.sharedService.user._id;
+    this.orderService.findOrderByStatus(4).subscribe(
+        (orders: any) => {
+          this.orders = orders;
+        }
+    );
+    //console.log(this.orders);
 
   }
 

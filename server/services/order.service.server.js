@@ -17,12 +17,30 @@ module.exports = function(app) {
     app.get('/api/user/:userId/intransitorder', findIntransitOrderByUser);
     app.get('/api/allpendingorders', findAllPendingOrders);
     app.get('/api/allcurrentorders', findAllCurrentOrders);
+    app.get('/api/order/status/:status', findOrdersByStatus);
 
     app.put('/api/user/:userId/order/:orderId', updateOrder);// also check status if finished or not.
     app.delete('/api/user/:userId/order/:orderId', deleteOrder);
 
 
     // function list
+    function findOrdersByStatus(req,res) {
+        var status = req.params['status'];
+        orderModel.findOrdersByStatus(status)
+            .then(function (orders) {
+                if(orders == null){
+                    res.status(200).send([]);
+                }
+                else {
+                    res.status(200).json(orders);
+                }
+            },
+                function (err) {
+                    console.log('create order error! ' + err);
+                    res.status(400).send(err);
+                });
+
+    }
     function createOrder(req, res) {
         var order = req.body;
         var userId = req.params['userId'];

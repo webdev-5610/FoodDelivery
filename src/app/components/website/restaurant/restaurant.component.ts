@@ -18,6 +18,7 @@ export class RestaurantComponent implements OnInit {
     user: any = {};
     currentOrder: Order;
     loginErrorFlag: boolean;
+    userId: String;
     loginErrorMsg = 'You need to login to place order!';
 
     constructor(private  menuService: MenuService,
@@ -29,6 +30,7 @@ export class RestaurantComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.sharedService.user;
+        this.userId = this.user._id;
         if (!this.user) {
             this.user = new User('guest', '', '', '', '', '', '', '');
         }
