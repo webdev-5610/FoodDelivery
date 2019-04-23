@@ -14,26 +14,24 @@
     float:left;
 }
 #menu li a {
-    display:block;
-    /* 如果是中英文混排的文字，建议用固定宽度
-    width:150px;
-    height:30px;
-    line-height:30px;
-    text-align:center;
-    */
-    padding:8px 50px;
-    background:#3A4953;
-    color:#fff;
-    text-decoration:none;
-    border-right:1px solid #000;
+
+}
+#menu li a span{
+
+    display: inline-block;
+    font-size: 18px;
+    width: 200px;
+    text-align: center;
+    line-height: 60px;
+    font-weight: 800;
+    cursor: pointer;
+
+
 }
 #menu li a:hover {
-    background:#146C9C;
-    color:#fff;
-    text-decoration:none;
-    border-right:1px solid #000;
+
 }
 #menu li a.last {
-    border-right:0; /* 去掉左侧边框 */
+
 }
 
