@@ -1,7 +1,124 @@
 # FoodDelivery
 
+## Guide
 
-api:
+   1. Install node.js, npm and mongodb
+   2. Install Angular cli
+   
+            npm install -g @angular/cli
+        
+   3. Install dependencies
+   
+            npm install
+        
+   4. Build & run frontend
+   
+            ng serve
+        
+   5. Run backend
+   
+            node server.js
+        
+## Structure
+
+#### Frontend
+    
+   Model
+   
+        order
+        restaurant
+        user
+   Service
+   
+        auth-guard
+        deliver
+        menu
+        order
+        restaurant
+        shared
+        user
+   Component
+   
+        admin
+            - add-user
+            - admin-home
+            - edit-user
+            
+        deliver
+            - home
+            - detail
+            
+        restaurant
+            - current-order
+            - menu
+            - menu-deit
+            - restaurant-home
+            - restaurant-order-history
+            - restaurant-profile
+            
+        user
+            - checkout
+            - menu
+            - order
+            - orderhistory
+            - user-profile
+            
+        website
+            - home
+            - login
+            - register
+            - restaurant
+
+#### Backend
+    
+   Model
+   
+        order
+        restaurant
+        user
+   Service
+   
+        auth-guard
+        deliver
+        menu
+        order
+        restaurant
+        shared
+        user
+   Component
+   
+        admin
+            - add-user
+            - admin-home
+            - edit-user
+            
+        deliver
+            - home
+            - detail
+            
+        restaurant
+            - current-order
+            - menu
+            - menu-deit
+            - restaurant-home
+            - restaurant-order-history
+            - restaurant-profile
+            
+        user
+            - checkout
+            - menu
+            - order
+            - orderhistory
+            - user-profile
+            
+        website
+            - home
+            - login
+            - register
+            - restaurant
+
+
+### External API:
 Frontend
     
    Angular google maps - AgmDirectionModule, AgmCoreModule
@@ -14,7 +131,7 @@ Frontend
     
 Backend
 
-   Google distancematrix api (https://developers.google.com/maps/documentation/distance-matrix/start)
+   Google distancematrix api [Learn more](https://developers.google.com/maps/documentation/distance-matrix/start)
         
         https://maps.googleapis.com/maps/api/distancematrix/json?
 
@@ -119,100 +236,6 @@ api/user/:userId/order', createOrder);
 
 
              
-    restaurant: _id, name, password, email , address, phone, type , orders, menus(_id, dish_name, price,discription)
-      class Menu {
-      _id: String;
-      dish_name: String;
-      price: Number;
-      description: String;
-
-      constructor(name: String, price: Number, description: String) {
-          this.description = description;
-          this.dish_name = name;
-          this.price = price;
-      }
-      }
-      export class Restaurant {
-      _id: String;
-      name: String;
-      password: String;
-      email: String;
-      address: String;
-      phone: String;
-      type: String;
-      oders: Order[];
-      menus: Menu[];
-    constructor(name: String, password: String, email: String, address: String, phone: String, type: String, orders: Order[], menus: Menu[]) {
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.address = address;
-        this.phone = phone;
-        this.type = type;
-        this.oders = orders;
-        this.menus = menus;
-    }}
-
-    order:  user, restaurant, time, status，details(dish, quantity, total) 
-    class Details {
-    dish: String[];
-    quantity: Number[];
-    total: Number;
-    constructor(dish:String[],quantity:Number[],total:Number){
-      this.dish = dish;
-      this.quantity = quantity;
-      this.total = total;
-    }
-    }
-    export class Order {
-      _id: String;
-      user: String;
-      restaurant: String;
-      time: Date;
-      status: Boolean;
-      details: Details;
-      constructor(user: String, restaurant: String, time: Date, status: Boolean,details: Details) {
-        this.user = user;
-        this.restaurant = restaurant;
-        this.time = time;
-        this.status = status;
-        this.details = details;
-      }
-    }
-
-
-API
     
-    user:
-    userModel.createUser = createUser;
-    userModel.findUserById = findUserById;
-    //userModel.findUserByFacebookId = findUserByFacebookId;
-    userModel.findUserByUsername = findUserByUsername;
-    userModel.findUserByCredentials = findUserByCredentials;
-    userModel.updateUser = updateUser;
-    userModel.deleteUser = deleteUser;
-    userModel.findAllOrders = findAllOrders;
-    
-    order:
-    orderModel.findAllOrdersByUser = findAllOrdersByUser;
-    orderModel.findOrderById = findOrderById;
-    orderModel.updateOrder = updateOrder;// also check status if finished or not.
-    orderModel.deleteOrder = deleteOrder;
-    orderMedel.createOrder = createorder;
-    orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;   
-    orderModel.finishOrder = finishOrder;
-
-    deliver:
-    deliverModel.findAllPendingOrder = findAllPendingOrder;
-    deliverModel.findInTransitOrder = findInTransitOrder;
-    
-    restaurant:
-    restaurantModel.findAllOrders = findAllOrders;
-    restaurantModel.createRestaurant = createRestaurant;
-    restaurantModel.findRestaurantByName = findRestaurantByName;
-    restaurantModel.findRestaurantByCredentials = findRestaurantByCredentials;
-    restaurantModel.findRestaurantByType = findRestaurantByType;
-    restaurantModel.updateRestaurant = updateRestaurant;
-    restaurantModel.deleteRestaurant = deleteRestaurant;
     
 google map api key: AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM
