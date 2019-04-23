@@ -25,49 +25,48 @@
     
    Model
    
-        order
-        restaurant
-        user
+        order           //define the frontend order data structure
+        restaurant      //define the frontend restaurant data structure
+        user            //define the frontend user data structure
    Service
    
-        auth-guard
-        deliver
-        menu
-        order
-        restaurant
-        shared
-        user
+        auth-guard      //provide authorised user logged in verification
+        deliver         //provide client side deliver distance function
+        menu            //provide client side menu related functions
+        order           //provide client side order data operation functions
+        restaurant      //provide client side restaurant related function
+        shared          //provide client side sharable user and selected order
+        user            //provide client side user related functions
    Component
    
         admin
-            - add-user
-            - admin-home
-            - edit-user
+            - add-user           //add user to system page
+            - admin-home         //admin home page
+            - edit-user          //edit user information page
             
         deliver
-            - home
-            - detail
+            - home               //home page of deliver including in transit order, order history and all the pending order
+            - detail             //order details page including direction map, distance, accept/complete/cancel order
             
         restaurant
-            - current-order
-            - menu
-            - menu-deit
-            - restaurant-home
-            - restaurant-order-history
-            - restaurant-profile
+            - current-order      //restaurant current order page to show orders pending post
+            - menu               //menu page to show all the dishes provided by restaurant
+            - menu-edit          //menu edit page to update menu
+            - restaurant-home          //home page of restaurant
+            - restaurant-order-history    //order history page of restaurant
+            - restaurant-profile       //profile page of restaurant
             
         user
-            - checkout
-            - menu
-            - order
-            - orderhistory
-            - user-profile
+            - checkout           //checkout page of customer to add dishes and checkout
+            - order              //order detail page of customer
+            - orderhistory       //order history page of customer
+            - user-profile       //user profile page
             
         website
-            - home
-            - login
-            - register
-            - restaurant
+            - home               //home page of website
+            - login              //login page of user
+            - register           //register page of user
+            - restaurant         //restaurant dishes page
 
 #### Backend
     
