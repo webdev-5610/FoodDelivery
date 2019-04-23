@@ -39,6 +39,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AddUserComponent } from './components/admin/add-user/add-user.component';
 import { EditUserComponent } from './components/admin/edit-user/edit-user.component';
 import { OrderDetailsComponent } from './components/restaurant/order-details/order-details.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { OrderDetailsComponent } from './components/restaurant/order-details/ord
     OrderDetailsComponent,
   ],
   imports: [
+      NgbModule,
     BrowserModule,
     HttpClientModule,
     Routing,
