@@ -11,7 +11,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class OrderhistoryComponent implements OnInit {
   orders: Order[];
-  employeeId: String;
   userId: String;
 
   constructor(private  orderService: OrderService,
@@ -21,7 +20,7 @@ export class OrderhistoryComponent implements OnInit {
 
   ngOnInit() {
     this.userId = this.sharedService.user._id;
-     this.orderService.findOrdersByUser(this.employeeId).subscribe(
+     this.orderService.findOrdersByUser(this.userId).subscribe(
          (orders: any) => {
            this.orders = orders;
          }
