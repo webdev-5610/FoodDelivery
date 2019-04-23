@@ -1,3 +1,43 @@
 .container-margin-bottom {
     margin-bottom: 80px;
 }
+
+#menu {
+    font:12px verdana, arial, sans-serif;
+}
+#menu, #menu li {
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+#menu li {
+    float:left;
+}
+#menu li a {
+    display:block;
+    /* 如果是中英文混排的文字，建议用固定宽度
+    width:150px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    */
+    padding:8px 50px;
+    background:#3A4953;
+    color:#fff;
+    text-decoration:none;
+    border-right:1px solid #000;
+}
+#menu li a:hover {
+    background:#146C9C;
+    color:#fff;
+    text-decoration:none;
+    border-right:1px solid #000;
+}
+#menu li a.last {
+    border-right:0; /* 去掉左侧边框 */
+}
+---------------------
+作者：leewokan
+来源：CSDN
+原文：https://blog.csdn.net/leewokan/article/details/6626774
+版权声明：本文为博主原创文章，转载请附上博文链接！
