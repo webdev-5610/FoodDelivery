@@ -46,6 +46,7 @@ export class CheckoutComponent implements OnInit {
       this.userService.findUserById(this.userId).subscribe(
           (user: any) => {
             this.user = user;
+            this.address = user.address;
           }
       );
     });

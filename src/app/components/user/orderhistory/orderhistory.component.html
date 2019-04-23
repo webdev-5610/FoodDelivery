@@ -9,7 +9,7 @@
         Order History
       </h1>
     </div>
-    <a routerLink="./menu"
+    <a routerLink="/menu"
        class="navbar-brand cl-text-black float-right cl-icon-padding">
       <i class="fas fa-plus"></i>
     </a>
@@ -29,12 +29,12 @@
     </thead>
 
     <tbody *ngFor="let order of orders; index as i">
-    <tr>
-      <th scope="row">{{i + 1}}</th>
-      <!--<td>{{order.time}}</td>-->
-      <td>{{order.total}}</td>
-      <td><a routerLink="/user/{{user._id}}/order/{{order._id}}" class="badge badge-info">click to view</a></td>
-    </tr>
+      <tr>
+        <th scope="row">{{i + 1}}</th>
+        <!--<td>{{order.time}}</td>-->
+        <td>{{order.total}}</td>
+        <td><a routerLink="/user/{{userId}}/order/{{order._id}}" class="badge badge-info">click to view</a></td>
+      </tr>
     </tbody>
   </table>
 

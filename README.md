@@ -1,218 +1,152 @@
 # FoodDelivery
 
+## Guide
 
-api:
-Frontend
-    
-   Angular google maps - AgmDirectionModule, AgmCoreModule
-
-    dependencies:
-        "@agm/core": "^1.0.0-beta.5",
-        "agm-core": "^1.0.0-beta.5",
-        "agm-direction": "^0.7.6",
-        "@types/googlemaps": "^3.30.19"
-    
-Backend
-
-   Google distancematrix api (https://developers.google.com/maps/documentation/distance-matrix/start)
+   1. Install node.js, npm and mongodb
+   2. Install Angular cli
+   
+            npm install -g @angular/cli
         
-        https://maps.googleapis.com/maps/api/distancematrix/json?
+   3. Install dependencies
+   
+            npm install
+        
+   4. Build & run frontend
+   
+            ng serve
+        
+   5. Run backend
+   
+            node server.js
+        
+## Structure
 
-
-
-4.13:update order api
-
-    app.post('/    updateOrder(userId, orderId, order) {
-api/user/:userId/order', createOrder);
-    app.post('/api/deliver/:deliverId/order', orderAccept);
-    app.get('/api/user/:userId/order', findOrdersByUser);
-    app.get('/api/user/:userId/order/:orderId', findOrderById);
-    app.put('/api/user/:userId/order/:orderId', updateOrder);// also check status if finished or not.
-    app.delete('/api/user/:userId/order/:orderId', deleteOrder);
-    app.get('/api/user/:userId/order/:orderId/:status',findOrdersByStatus);
-    app.put('/api/user/:userId/order/:orderId/:status', updateOrderStatus);
-    app.get('/api/deliver/:deliverId/order', findOrdersByDeliver);
+#### Frontend
     
-    app.get('/api/deliver/pending', findAllPendingOrders);
-    app.get('/api/deliver/:deliverId/currentOrder', findCurrentOrderByDeliver);
-    
-  order signature
-  
-    createOrder(userId, order) {
-    }
-    findOrdersByUser(userId): Observable<Order[]> {
-    }
-    findAllOrdersByDeliver(deliverId): Observable<Order[]> {
-    }
-    findOrderById(userId, orderId) {
-    }
-    updateOrder(userId, orderId, order) {
-    }
-    deleteOrder(userId, orderId) {
-    }
-    findOrderByStatus(deliverId, status){
-    }
-    finishOrder(userId, orderId, orderStatus=1) {
-    }
-    postOrder(userId, orderId, orderStatus=2){
-    }
-    acceptOrder(userId, orderId, orderStatus=3){
-    }
-    completeOrder(userId, orderId, orderStatus=4){
-    }
-    cancelOrder(userId,orderId, orderStatus=5){
-    }
-    orderAccept(deliverId, userId, orderId){
-    }
-    
- Delivery: 
- 
-    home: url/deliver/uid/home    updateOrder(userId, orderId, order) {
+   Model
+   
+        order           //define the frontend order data structure
+        restaurant      //define the frontend restaurant data structure
+        user            //define the frontend user data structure
+   Service
+   
+        auth-guard      //provide authorised user logged in verification
+        deliver         //provide client side deliver distance function
+        menu            //provide client side menu related functions
+        order           //provide client side order data operation functions
+        restaurant      //provide client side restaurant related function
+        shared          //provide client side sharable user and selected order
+        user            //provide client side user related functions
+   Component
+   
+        admin
+            - add-user           //add user to system page
+            - admin-home         //admin home page
+            - edit-user          //edit user information page
+            
+        deliver
+            - home               //home page of deliver including in transit order, order history and all the pending order
+            - detail             //order details page including direction map, distance, accept/complete/cancel order
+            
+        restaurant
+            - current-order      //restaurant current order page to show orders pending post
+            - menu               //menu page to show all the dishes provided by restaurant
+            - menu-edit          //menu edit page to update menu
+            - restaurant-home          //home page of restaurant
+            - restaurant-order-history    //order history page of restaurant
+            - restaurant-profile       //profile page of restaurant
+            
+        user
+            - checkout           //checkout page of customer to add dishes and checkout
+            - order              //order detail page of customer
+            - orderhistory       //order history page of customer
+            - user-profile       //user profile page
+            
+        website
+            - home               //home page of website
+            - login              //login page of user
+            - register           //register page of user
+            - restaurant         //restaurant dishes page
 
-    detail: url/deliver/uid/detail
-    profile: url/user/uid/profile
-
- Customer: url/user/uid
- 
-    profile: url/user/uid/profile
-    order_history: url/user/uid/orderhistory
-    checkout: url/restaurant=rid/user=uid/checkout
+#### Backend
     
- Order: url/user/uid/orderId
- 
-    order_edit: url/restaurant=rid/user=uid/order
- 
+   Schema
+   
+        order           //define the backend order schema
+        restaurant      //define the backend restaurant schema
+        user            //define the backend user schema
+        menu            //define the backend menu schema  
+   Model
+   
+        order           //define the backend order model functions
+        restaurant      //define the backend restaurant model functions
+        user            //define the backend user model functions
+        menu            //define the backend menu model functions
+   Service (api)
+   
+        deliver //provide deliver distance calculation api
+         (get)     /api/deliver/getdistance
+<br>
+        
+        menu //provide server side menu related functions
+         (post)    /api/restaurant/menu
+         (get)    /api/menu
+         (get)    /api/restaurant/menu/:did
+         (put)    /api/restaurant/menu/:did
+         (delete)    /api/restaurant/menu/:did
+         (put)    /api/restaurant/menu?
+<br>   
 
- Restaurant:url/restaurant/rid
- 
-    profile: url/restaurant/rid/profile
-    menu: url/restaurant/rid/menu
-    menu_edit : url/restaurant/rid/menu-edit
-    statistics: url/restaurant/rid/statistics
-    
- Admin: url/admin
- 
-    admin-list
-    admin-edit
- All user can access:
- 
-    home(login,search)
-    login: url/login
-    register: url/register
-    searchbyaddress: url/restaurant/search=location
-    searchbytype: url/restaurant/search=location/type
-    Restaurant: url/restaurant/rid
-    review: url/restaurant/rid/review
-    
-    
- Backend data design:
-  
-    user:  _id, name, password, email, address, phone, credit_card_info, billing_info, order_history
-    restaurant: _id,name, password, email , address, phone, type , orders, menu(dish name, price,discription)
-    order: _id, user, restaurant, time, status，details(dish, quantity, total) 
-    
- Backend model design:给menu增加了id，因为按照原本的结构一个menu只有一个dish，所以把restaurant的menu改成了menu[]，details因为是一对一的，没有做改动。
-  
-    user:  _id, name, password, email, address, phone, credit_card_info, billing_info, order_history, all string type
-             constructor(username: String, password: String, email: String, address: String, phone: String,              credit_card_info: String,billing_info: String)
-             
+        order //provide server side order data operation functions
+         (post)    /api/user/:userId/order
+         (post)    /api/user/:userId/order/:orderId/checkout
+         (post)    /api/user/:userId/order/:orderId/post
+         (post)    /api/deliver/:deliverId/order/:orderId/accept
+         (post)    /api/deliver/:deliverId/order/:orderId/complete
+         (post)    /api/user/:userId/order/:orderId/cancel
 
+         (get)    /api/user/:userId/orders
+         (get)    /api/deliver/:deliverId/orders
+         (get)    /api/order/:orderId
+         (get)    /api/user/:userId/cartorders
+         (get)    /api/deliver/:deliverId/intransitorder
+         (get)    /api/user/:userId/intransitorder
+         (get)    /api/allpendingorders
+         (get)    /api/allcurrentorders
+         
+         (put)    /api/user/:userId/order/:orderId
+         (delete)    /api/user/:userId/order/:orderId
 
-             
-    restaurant: _id, name, password, email , address, phone, type , orders, menus(_id, dish_name, price,discription)
-      class Menu {
-      _id: String;
-      dish_name: String;
-      price: Number;
-      description: String;
+<br>
 
-      constructor(name: String, price: Number, description: String) {
-          this.description = description;
-          this.dish_name = name;
-          this.price = price;
-      }
-      }
-      export class Restaurant {
-      _id: String;
-      name: String;
-      password: String;
-      email: String;
-      address: String;
-      phone: String;
-      type: String;
-      oders: Order[];
-      menus: Menu[];
-    constructor(name: String, password: String, email: String, address: String, phone: String, type: String, orders: Order[], menus: Menu[]) {
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.address = address;
-        this.phone = phone;
-        this.type = type;
-        this.oders = orders;
-        this.menus = menus;
-    }}
-
-    order:  user, restaurant, time, status，details(dish, quantity, total) 
-    class Details {
-    dish: String[];
-    quantity: Number[];
-    total: Number;
-    constructor(dish:String[],quantity:Number[],total:Number){
-      this.dish = dish;
-      this.quantity = quantity;
-      this.total = total;
-    }
-    }
-    export class Order {
-      _id: String;
-      user: String;
-      restaurant: String;
-      time: Date;
-      status: Boolean;
-      details: Details;
-      constructor(user: String, restaurant: String, time: Date, status: Boolean,details: Details) {
-        this.user = user;
-        this.restaurant = restaurant;
-        this.time = time;
-        this.status = status;
-        this.details = details;
-      }
-    }
+        user //provide server side user related functions
+         (post)    /api/user
+         (get)    /api/user
+         (get)    /api/user/:userId
+         (put)    /api/user/:userId
+         (delete)    /api/user/:userId
+         (post)    /api/login
+         (post)    /api/logout
+         (post)    /api/register
+         (post)    /api/loggedin
+         (get)    /api/allusers/:userType
 
 
-API
-    
-    user:
-    userModel.createUser = createUser;
-    userModel.findUserById = findUserById;
-    //userModel.findUserByFacebookId = findUserByFacebookId;
-    userModel.findUserByUsername = findUserByUsername;
-    userModel.findUserByCredentials = findUserByCredentials;
-    userModel.updateUser = updateUser;
-    userModel.deleteUser = deleteUser;
-    userModel.findAllOrders = findAllOrders;
-    
-    order:
-    orderModel.findAllOrdersByUser = findAllOrdersByUser;
-    orderModel.findOrderById = findOrderById;
-    orderModel.updateOrder = updateOrder;// also check status if finished or not.
-    orderModel.deleteOrder = deleteOrder;
-    orderMedel.createOrder = createorder;
-    orderModel.findAllOrdersByRestaurant = findAllOrdersByRestaurant;   
-    orderModel.finishOrder = finishOrder;
+   External API:
+   
+      Frontend (build deliver direction map)
 
-    deliver:
-    deliverModel.findAllPendingOrder = findAllPendingOrder;
-    deliverModel.findInTransitOrder = findInTransitOrder;
-    
-    restaurant:
-    restaurantModel.findAllOrders = findAllOrders;
-    restaurantModel.createRestaurant = createRestaurant;
-    restaurantModel.findRestaurantByName = findRestaurantByName;
-    restaurantModel.findRestaurantByCredentials = findRestaurantByCredentials;
-    restaurantModel.findRestaurantByType = findRestaurantByType;
-    restaurantModel.updateRestaurant = updateRestaurant;
-    restaurantModel.deleteRestaurant = deleteRestaurant;
-    
-google map api key: AIzaSyBtrCeFbuL6cSgjC2UyJsaJuJoXKXAmQQM
+         Angular google maps - AgmDirectionModule, AgmCoreModule
+
+         dependencies:
+            "@agm/core": "^1.0.0-beta.5",
+            "agm-core": "^1.0.0-beta.5",
+            "agm-direction": "^0.7.6",
+            "@types/googlemaps": "^3.30.19"
+
+      Backend (calculate distance between deliver and customer)
+
+         Google distancematrix api [Learn more](https://developers.google.com/maps/documentation/distance-matrix/start)
+
+              https://maps.googleapis.com/maps/api/distancematrix/json?
+
