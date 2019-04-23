@@ -46,7 +46,7 @@ export class OrderService {
         return this.http.get<Order[]>(this.baseUrl + '/api/deliver/' + deliverId + '/intransitorder');
     }
 
-    findOrderById(userId, orderId) {
+    findOrderById(orderId) {
         console.log('front order service findorderById() called');
         // Only need to call server's url to get the data.
         return this.http.get<Order>(this.baseUrl + '/api/order/' + orderId);
@@ -63,9 +63,9 @@ export class OrderService {
     }
 
     // maybe use findAllPendingOrders instead of this one
-    findOrderByStatus(deliverId, status) {
+    findOrderByStatus(status) {
         console.log('front end service findOrderByStatus called');
-        return this.http.get<Order[]>(this.baseUrl+this.userApiUrl+deliverId+'/order/'+status);
+        return this.http.get<Order[]>(this.baseUrl + '/api/order/status/' + status);
     }
 
     findAllPendingOrders() {

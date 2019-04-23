@@ -38,6 +38,7 @@ import {SortableDirective} from './sortable.directive';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AddUserComponent } from './components/admin/add-user/add-user.component';
 import { EditUserComponent } from './components/admin/edit-user/edit-user.component';
+import { OrderDetailsComponent } from './components/restaurant/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { EditUserComponent } from './components/admin/edit-user/edit-user.compon
     AdminHomeComponent,
     AddUserComponent,
     EditUserComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,

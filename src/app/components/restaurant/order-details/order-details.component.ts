@@ -6,18 +6,16 @@ import {SharedService} from '../../../services/shared.service';
 import {OrderService} from '../../../services/order.service.client';
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css']
+  selector: 'app-order-details',
+  templateUrl: './order-details.component.html',
+  styleUrls: ['./order-details.component.css']
 })
-export class OrderComponent implements OnInit {
+export class OrderDetailsComponent implements OnInit {
   userId: string;
   orderId: string;
   user: User;
   order: Order;
   status: any = 'unknown';
-
-
 
   constructor(private _activatedRoute: ActivatedRoute, private _sharedService: SharedService,
               private orderService: OrderService) { }
@@ -26,10 +24,9 @@ export class OrderComponent implements OnInit {
     this._activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
       this.orderId = params['oid'];
-      console.log('user id: ' + this.userId);
+      console.log('order id: ' + this.orderId);
     });
 
-    this.user = this._sharedService.user;
     this.orderService.findOrderById(this.orderId).subscribe(
         (order: any) => {
           this.order = order;
@@ -48,8 +45,7 @@ export class OrderComponent implements OnInit {
           }
         }
     );
+    // console.log(this.order.status);
   }
-
-
 
 }

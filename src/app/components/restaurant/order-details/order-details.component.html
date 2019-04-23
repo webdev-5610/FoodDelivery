@@ -1,8 +1,7 @@
-
 <nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div>
-      <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding">
+      <a routerLink="../../orderhistory" class="navbar-brand cl-text-black cl-icon-padding">
         <i class="fas fa-angle-left"></i>
       </a>
       <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
@@ -19,10 +18,11 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">{{order.userAddress}}</h5>
+      <div><strong>Time</strong> {{order.time}}</div>
       <div><strong>User: </strong> {{order.user}}</div>
       <div><strong>User Address: </strong> {{order.userAddress}}</div>
       <div><strong>User Phone Number: </strong> {{order.phone}}</div>
-      <!--<div><strong>Time</strong> {{order.time}}</div>-->
+      <div><strong>Deliver</strong> {{order.deliverId}}</div>
       <div><strong>Status:</strong> {{status}}</div>
       <br>
       <div><strong>Details:</strong></div>
@@ -52,11 +52,9 @@
   </div>
   <nav class="navbar fixed-bottom cl-grey-navbar">
     <div class="container-fluid justify-content-end">
-      <a routerLink="/profile" class="navbar-brand cl-text-black cl-icon-padding">
+      <a routerLink="restaurant/home" class="navbar-brand cl-text-black cl-icon-padding">
         <span class="fas fa-user"></span>
       </a>
     </div>
   </nav>
 </div>
-
-

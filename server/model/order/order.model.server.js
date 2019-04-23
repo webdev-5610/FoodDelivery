@@ -48,7 +48,7 @@ function findAllOrdersByDeliver(deliverId) {
 //         .populate('_restaurant', '_id');      // Do not append all the user info here. Just populate user with its id.
 // }
 
-function findOrderById(userId, orderId) {
+function findOrderById(orderId) {
     console.log('Mongoose: findOrderById() called: ' + orderId);
     return orderModel.findById(orderId);
 }

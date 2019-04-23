@@ -21,6 +21,7 @@ import {RestaurantComponent} from './components/website/restaurant/restaurant.co
 import {AdminHomeComponent} from './components/admin/admin-home/admin-home.component';
 import {AddUserComponent} from './components/admin/add-user/add-user.component';
 import {EditUserComponent} from './components/admin/edit-user/edit-user.component';
+import {OrderDetailsComponent} from './components/restaurant/order-details/order-details.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -32,10 +33,11 @@ const APP_ROUTES: Routes = [
     //restaurant
   {path: 'restaurant/home', component: RestaurantHomeComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/profile', component: RestaurantProfileComponent, canActivate: [AuthGuard]},
-  {path: 'restaurant/orderhistory', component: RestaurantOrderHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'restaurant/orderhistory', component: RestaurantOrderHistoryComponent},
   {path: 'restaurant/currentorders', component: CurrentOrderComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/menu', component: MenuComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/menu/:did', component: MenuEditComponent},
+  {path: 'restaurant/order/:oid', component: OrderDetailsComponent},
     //user
   {path: 'user/:uid/home', component: UserProfileComponent},
   {path: 'user/:uid/profile', component: UserProfileComponent},
