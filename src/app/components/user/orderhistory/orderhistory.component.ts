@@ -15,6 +15,7 @@ export class OrderhistoryComponent implements OnInit {
 
   constructor(private  orderService: OrderService,
               private sharedService: SharedService,
+              private activatedRoute: ActivatedRoute,
               private router: Router,
               private route: ActivatedRoute) { }
 
@@ -26,7 +27,7 @@ export class OrderhistoryComponent implements OnInit {
                   this.orders = orders;
               }
           );
-      }
+      });
 
 
   }
