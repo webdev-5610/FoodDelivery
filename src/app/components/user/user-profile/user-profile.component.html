@@ -20,7 +20,7 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="container container-margin-bottom">
   <p> Account info</p>
   <div class="form-group cl-text-bold">
     <label>Username</label>
@@ -65,21 +65,26 @@
 
 </div>
 
-<div class ="footer">
+
 <nav class="navbar fixed-bottom cl-grey-navbar">
   <div class="container-fluid">
-    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
-      <span class="fas fa-home"></span>
-    </a>
-    <a routerLink="/orderhistory" class="navbar-brand cl-text-black cl-icon-padding">
-      <span class="fas fa-history"></span>
-    </a>
+    <ul class="pager">
+      <li>    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
+        <span class="fas fa-home"></span>
+      </a></li>
+      <li>    <a routerLink="/user/{{userId}}/orderhistory" class="navbar-brand cl-text-black cl-icon-padding pull-left">
+        <span class="fas fa-history"></span>
+      </a></li>
+    </ul>
+
+
   <div>
+
     <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
       <span class="fas fa-user"></span>
     </a>
   </div>
   </div>
 </nav>
-</div>
+
 

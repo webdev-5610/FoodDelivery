@@ -16,12 +16,12 @@
     </div>
 </nav>
 
+
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
     <div *ngFor="let order of orders; index as i">
         <ngb-panel>
             <ng-template ngbPanelTitle>
                 <h5> <b>{{order.time}}     |   Customer  :{{order.user}} </b>   </h5>
-
             </ng-template>
             <ng-template ngbPanelContent>
                 <table class="table">
