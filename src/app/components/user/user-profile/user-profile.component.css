@@ -36,6 +36,7 @@
     text-align: right;
     line-height: 60px;
     font-weight: 800;
+    left: 300px;
     cursor: pointer;
 }
 #menu li a:hover {
