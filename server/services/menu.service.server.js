@@ -3,8 +3,8 @@ module.exports = function (app) {
     var menuModel = require("../model/menu/menu.model.server.js");
     var path = require('path');
     const multer = require('multer'); // npm install multer --save
-    // const baseUrl = 'https://webdev-final-cs5610.herokuapp.com/';
-    const baseUrl = "http://localhost:8080"
+    const baseUrl = 'https://webdev-final-cs5610.herokuapp.com/';
+    //const baseUrl = "http://localhost:8080"
 
     app.post("/api/restaurant/menu", createDish);
     app.get("/api/menu", findAllDishesForRestaurant);
