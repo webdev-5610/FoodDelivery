@@ -21,12 +21,22 @@
     display: inline-block;
     font-size: 18px;
     width: 200px;
-    text-align: center;
+    text-align: left;
     line-height: 60px;
     font-weight: 800;
     cursor: pointer;
 
 
+}
+
+#rightmost {
+    display: inline-block;
+    font-size: 18px;
+    width: 200px;
+    text-align: right;
+    line-height: 60px;
+    font-weight: 800;
+    cursor: pointer;
 }
 #menu li a:hover {
 
