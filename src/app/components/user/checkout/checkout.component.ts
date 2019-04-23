@@ -28,6 +28,7 @@ export class CheckoutComponent implements OnInit {
   numErrorFlag: boolean;
   numErrorMsg = 'Invalid number!';
   dishes: any[];
+  userAddress: String;
 
 
   constructor(private activatedRoute: ActivatedRoute,
