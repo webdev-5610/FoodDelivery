@@ -34,7 +34,7 @@ function updateOrderStatus(userId, orderId, status) {
 
 function findAllOrdersByUser(userId) {
     console.log('Mongoose: findAllOrdersByUser called');
-    return orderModel.find({userId: userId, status: {$gt: 3}}); 
+    return orderModel.find({userId: userId, status: {$gt: 0}}); 
 }
 
 function findAllOrdersByDeliver(deliverId) {
