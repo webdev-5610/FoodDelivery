@@ -11,26 +11,25 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class OrderhistoryComponent implements OnInit {
   orders: Order[];
-  employeeId: String;
   userId: String;
 
   constructor(private  orderService: OrderService,
               private sharedService: SharedService,
+              private activatedRoute: ActivatedRoute,
               private router: Router,
               private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-
     this._activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
       console.log('user id: ' + this.userId);
+      this.orderService.findOrdersByUser(this.userId).subscribe(
+        (orders: Order[]) => {
+          console.log(orders);
+          this.orders = orders;
+        }
+      );
     });
-    this.orderService.findOrdersByUser(this.userId).subscribe(
-      (orders: Order[]) => {
-        console.log(orders);
-        this.orders = orders;
-      }
-    );
   }
 
 }

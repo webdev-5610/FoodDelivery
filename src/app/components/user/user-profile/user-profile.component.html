@@ -55,7 +55,7 @@
     <input [(ngModel)]="user.billing_info" name="billing_info" type="text" class="form-control" placeholder="Wander">
   </div>
   <button class="btn btn-primary btn-block"
-          routerLink="../user/{{userId}}/orderhistory">Order History
+          routerLink="../orderhistory">Order History
   </button>
   <button class="btn btn-danger  btn-block"
           (click)="logout()" routerLinkActive="active">Logout
@@ -65,12 +65,15 @@
   <!--</button>-->
 
 </div>
-
+</body>
 
 <nav class="navbar fixed-bottom cl-grey-navbar">
   <div class="container-fluid">
     <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
       <span class="fas fa-home"></span>
+    </a>
+    <a routerLink="/orderhistory" class="navbar-brand cl-text-black cl-icon-padding">
+      <span class="fas fa-history"></span>
     </a>
   <div>
     <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
@@ -80,4 +83,4 @@
   </div>
 </nav>
 
-</body>
+
