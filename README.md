@@ -75,15 +75,13 @@
         order           //define the backend order schema
         restaurant      //define the backend restaurant schema
         user            //define the backend user schema
-        menu            //define the backend menu schema
-        website         //define the backend website schema     
+        menu            //define the backend menu schema  
    Model
    
         order           //define the backend order model functions
         restaurant      //define the backend restaurant model functions
         user            //define the backend user model functions
         menu            //define the backend menu model functions
-        website         //define the backend website model functions
    Service (api)
    
         deliver //provide deliver distance calculation api
@@ -136,17 +134,17 @@
 
    External API:
    
-      Frontend
+      Frontend (build deliver direction map)
 
          Angular google maps - AgmDirectionModule, AgmCoreModule
 
-          dependencies:
-              "@agm/core": "^1.0.0-beta.5",
-              "agm-core": "^1.0.0-beta.5",
-              "agm-direction": "^0.7.6",
-              "@types/googlemaps": "^3.30.19"
+         dependencies:
+            "@agm/core": "^1.0.0-beta.5",
+            "agm-core": "^1.0.0-beta.5",
+            "agm-direction": "^0.7.6",
+            "@types/googlemaps": "^3.30.19"
 
-      Backend
+      Backend (calculate distance between deliver and customer)
 
          Google distancematrix api [Learn more](https://developers.google.com/maps/documentation/distance-matrix/start)
 
