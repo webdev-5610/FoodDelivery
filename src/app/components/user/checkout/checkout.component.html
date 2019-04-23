@@ -70,9 +70,14 @@
 
 
 <nav class="navbar fixed-bottom cl-grey-navbar">
-  <div class="container-fluid justify-content-end">
-    <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-icon-padding cl-text-black">
-      <span class="fas fa-user"></span>
+  <div class="container-fluid">
+    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
+      <span class="fas fa-home"></span>
     </a>
+    <div>
+      <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
+        <span class="fas fa-user"></span>
+      </a>
+    </div>
   </div>
 </nav>
