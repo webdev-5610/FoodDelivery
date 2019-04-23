@@ -20,7 +20,7 @@
 
     display: inline-block;
     font-size: 18px;
-    width: 200px;
+    width: 10px;
     text-align: left;
     line-height: 60px;
     font-weight: 800;
@@ -32,7 +32,7 @@
 #rightmost {
     display: inline-block;
     font-size: 18px;
-    width: 200px;
+    width: 400px;
     text-align: right;
     line-height: 60px;
     font-weight: 800;
