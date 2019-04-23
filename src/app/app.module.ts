@@ -32,7 +32,6 @@ import { DeliverService } from './services/deliver.service.client';
 import { AgmDirectionModule} from 'agm-direction'; // agm-direction
 import { AgmCoreModule } from '@agm/core';
 import {MenuService} from './services/menu.service.client';
-import {UsermenuComponent} from './components/user/menu/menu.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SortableDirective} from './sortable.directive';
@@ -60,7 +59,6 @@ import { EditUserComponent } from './components/admin/edit-user/edit-user.compon
     DetailComponent,
     DeliverHomeComponent,
     CurrentOrderComponent,
-    UsermenuComponent,
     SortableDirective,
     AdminHomeComponent,
     AddUserComponent,

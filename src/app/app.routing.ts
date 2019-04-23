@@ -17,7 +17,6 @@ import { DeliverHomeComponent } from './components/deliver/home/home.component';
 import {AuthGuard} from './services/auth-guard.service';
 import {MenuComponent} from './components/restaurant/menu/menu.component';
 // Import all other components here
-import {UsermenuComponent} from './components/user/menu/menu.component';
 import {RestaurantComponent} from './components/website/restaurant/restaurant.component';
 import {AdminHomeComponent} from './components/admin/admin-home/admin-home.component';
 import {AddUserComponent} from './components/admin/add-user/add-user.component';
@@ -43,7 +42,6 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid/checkout', component: CheckoutComponent},
   {path: 'user/:uid/orderhistory', component: OrderhistoryComponent},
   {path: 'user/:uid/order/:oid', component: OrderComponent},
-  {path: 'user/:uid/menu', component: UsermenuComponent},
   //delivery
   {path: 'deliver/:uid/home', component: DeliverHomeComponent},
   {path: 'deliver/:uid/detail/:oid', component: DetailComponent},
