@@ -12,7 +12,11 @@ import {OrderService} from '../../../services/order.service.client';
   styleUrls: ['./order-history.component.css']
 })
 export class RestaurantOrderHistoryComponent implements OnInit {
-  orders: Order[];
+  completeorders: Order[];
+  canceledorders: Order[];
+  intransitorders: Order[];
+  waitingdeliverorders: Order[];
+  preparingorders: Order[];
   employeeId: String;
 
   constructor(private  orderService: OrderService,
@@ -24,10 +28,29 @@ export class RestaurantOrderHistoryComponent implements OnInit {
     // this.employeeId = this.sharedService.user._id;
     this.orderService.findOrderByStatus(4).subscribe(
         (orders: any) => {
-          this.orders = orders;
+          this.completeorders = orders;
         }
     );
-    //console.log(this.orders);
+    this.orderService.findOrderByStatus(5).subscribe(
+        (orders: any) => {
+          this.canceledorders = orders;
+        }
+    );
+    this.orderService.findOrderByStatus(1).subscribe(
+        (orders: any) => {
+          this.preparingorders = orders;
+        }
+    );
+    this.orderService.findOrderByStatus(2).subscribe(
+        (orders: any) => {
+          this.waitingdeliverorders = orders;
+        }
+    );
+    this.orderService.findOrderByStatus(3).subscribe(
+        (orders: any) => {
+          this.intransitorders = orders;
+        }
+    );
 
   }
 
