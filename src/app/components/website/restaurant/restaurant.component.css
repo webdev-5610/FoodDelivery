@@ -2,6 +2,7 @@ body {
     padding-top: 70px;
     padding-bottom: 70px;
     margin-top: 70px;
+    margin-bottom: 70px;
 }
 
 .container-margin-bottom {
@@ -9,7 +10,7 @@ body {
 }
 
 #menu {
-    font:12px verdana, arial, sans-serif;
+    font:10px verdana, arial, sans-serif;
 }
 #menu, #menu li {
     list-style:none;
@@ -28,7 +29,7 @@ body {
     font-size: 18px;
     width: 10px;
     text-align: left;
-    line-height: 35px;
+    line-height: 30px;
     font-weight: 800;
     cursor: pointer;
 
