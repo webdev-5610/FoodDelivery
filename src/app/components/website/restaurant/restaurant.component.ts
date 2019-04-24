@@ -30,7 +30,7 @@ export class RestaurantComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.sharedService.user;
-        this.userId = this.user._id;
+        // this.userId = this.user._id;
         if (!this.user) {
             this.user = new User('guest', '', '', '', '', '', '', '');
         }
