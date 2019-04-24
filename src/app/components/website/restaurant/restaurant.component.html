@@ -54,11 +54,20 @@
 
 
 <nav class="navbar fixed-bottom cl-grey-navbar">
-    <div class="container-fluid">
-        <a routerLink="/restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue float-left">
-            <i class="fas fa-home cl-text-blue"></i>
+        <ul class="nav nav-tabs" id = "menu">
+            <li class = "nav-item">    <a (click)="menu()" class="navbar-brand cl-text-black cl-icon-padding">
+                <span class="fas fa-home"></span>
+            </a></li>
+            <li class = "nav-item">    <a (click)="orderhistory()" class="navbar-brand cl-text-black cl-icon-padding pull-left">
+                <span class="fas fa-history"></span>
+            </a></li>
+        </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <a (click)="profile()"class="navbar-brand cl-text-black cl-icon-padding float-right">
+            <span class="fas fa-user"></span>
         </a>
-    </div>
+    </form>
+
 </nav>
 
 

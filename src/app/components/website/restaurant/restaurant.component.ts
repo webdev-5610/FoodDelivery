@@ -93,4 +93,26 @@ export class RestaurantComponent implements OnInit {
         this.router.navigate(['/user', this.user._id, 'checkout']);
     }
 
+    menu() {
+        if (this.user._id === 'guest') {
+            this.loginErrorFlag = true;
+            return;
+        }
+        this.router.navigate(['/user', this.user._id, 'menu']);
+    }
+    orderhistory(){
+        if (this.user._id === 'guest') {
+            this.loginErrorFlag = true;
+            return;
+        }
+        this.router.navigate(['/user', this.user._id, 'orderhistory']);
+    }
+
+    profile(){
+        if (this.user._id === 'guest') {
+            this.loginErrorFlag = true;
+            return;
+        }
+        this.router.navigate(['/user', this.user._id, 'profile']);
+    }
 }
