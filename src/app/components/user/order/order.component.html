@@ -50,20 +50,22 @@
       <br>
     </div>
   </div>
+
   <nav class="navbar fixed-bottom cl-grey-navbar">
-    <div class="btn-group">
-      <ul class="nav nav-tabs" id = "menu">
-        <li>    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
-          <span class="fas fa-home"></span>
-        </a></li>
-        <li>    <a routerLink="/user/{{userId}}/orderhistory" class="navbar-brand cl-text-black cl-icon-padding pull-left">
-          <span class="fas fa-history"></span>
-        </a></li>
-        <li id="rightmost">       <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
-          <span class="fas fa-user"></span>
-        </a></li>
-      </ul>
-    </div>
+    <ul class="nav nav-tabs" id = "menu">
+      <li class = "nav-item">    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
+        <span class="fas fa-home"></span>
+      </a></li>
+      <li class = "nav-item">    <a routerLink="/user/{{userId}}/orderhistory" class="navbar-brand cl-text-black cl-icon-padding pull-left">
+        <span class="fas fa-history"></span>
+      </a></li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
+        <span class="fas fa-user"></span>
+      </a>
+    </form>
+
   </nav>
 </div>
 

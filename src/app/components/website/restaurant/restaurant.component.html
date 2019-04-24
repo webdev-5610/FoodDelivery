@@ -54,12 +54,11 @@
 
 
 <nav class="navbar fixed-bottom cl-grey-navbar">
-    <div class="btn-group">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id = "menu">
-            <li>    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
+        <ul class="nav nav-tabs" id = "menu">
+            <li class = "nav-item">    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
                 <span class="fas fa-home"></span>
             </a></li>
-            <li>    <a routerLink="/user/{{userId}}/orderhistory" class="navbar-brand cl-text-black cl-icon-padding pull-left">
+            <li class = "nav-item">    <a routerLink="/user/{{userId}}/orderhistory" class="navbar-brand cl-text-black cl-icon-padding pull-left">
                 <span class="fas fa-history"></span>
             </a></li>
         </ul>
@@ -68,7 +67,6 @@
             <span class="fas fa-user"></span>
         </a>
     </form>
-    </div>
 
 </nav>
 
