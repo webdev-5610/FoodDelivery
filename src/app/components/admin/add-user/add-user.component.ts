@@ -33,11 +33,11 @@ export class AddUserComponent implements OnInit {
   register() {
     this.userService.findUserByUsername(this.newUsername).subscribe(
         (data: User) => {
-          console.log(data);
           this.user = data;
         }
     );
-      if (this.user) {
+    console.log(this.user);
+      if (this.user._id === '') {
           this.userErrorFlag = true;
           return;
       }
@@ -50,15 +50,16 @@ export class AddUserComponent implements OnInit {
             (data: any) => {
               console.log('input: ' + data);
               if (data) {
-                if (this.registerRole === 'Customer') {
-                  this.router.navigate(['menu']);
-                } else if (this.registerRole === 'Employee') {
-                  this.router.navigate(['restaurant/home']);
-                } else if (this.registerRole === 'Admin') {
+                // if (this.registerRole === 'Customer') {
+                //   this.router.navigate(['menu']);
+                // } else if (this.registerRole === 'Employee') {
+                //   this.router.navigate(['restaurant/home']);
+                // } else if (this.registerRole === 'Admin') {
+                //   this.router.navigate(['admin/home']);
+                // } else if (this.registerRole === 'Delivery') {
+                //   this.router.navigate(['diliver']); // need edit
+                // }
                   this.router.navigate(['admin/home']);
-                } else if (this.registerRole === 'Delivery') {
-                  this.router.navigate(['diliver']); // need edit
-                }
 
               } else {
                 this.userErrorFlag = true;

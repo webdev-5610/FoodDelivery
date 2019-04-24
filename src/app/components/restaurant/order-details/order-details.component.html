@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div>
-      <a routerLink="../../orderhistory" class="navbar-brand cl-text-black cl-icon-padding">
+      <a routerLink="admin/orderhistory" class="navbar-brand cl-text-black cl-icon-padding">
         <i class="fas fa-angle-left"></i>
       </a>
       <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
@@ -17,6 +17,7 @@
       <strong>{{status}}</strong>
     </div>
     <div class="card-body">
+      <div>
       <div><strong>Time: </strong> {{order.time}}</div>
       <div><strong>User: </strong> {{order.user}}</div>
       <div><strong>User Address: </strong> {{order.userAddress}}</div>
@@ -46,6 +47,10 @@
         </tbody>
       </table>
       <div><strong>Total: $</strong>{{order.total}}</div>
+      </div>
+      <div class="float-right" *ngIf="order.status !== 5">
+        <button (click)="cancelOrder(order)" class="btn btn-danger btn-sm">Cancel Order</button>
+      </div>
       <br>
     </div>
   </div>

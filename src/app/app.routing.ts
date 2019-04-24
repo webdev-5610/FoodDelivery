@@ -57,7 +57,7 @@ const APP_ROUTES: Routes = [
     //admin
   {path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard]},
   {path: 'admin/adduser', component: AddUserComponent, canActivate: [AuthGuard]},
-  {path: 'admin/edituser', component: EditUserComponent},
+  {path: 'admin/edituser', component: EditUserComponent, canActivate: [AuthGuard]},
   // {path: 'admin/currentorders', component: CurrentOrderComponent, canActivate: [AuthGuard]},
 
 

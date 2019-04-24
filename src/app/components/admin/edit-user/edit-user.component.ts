@@ -48,9 +48,9 @@ export class EditUserComponent implements OnInit {
         () => {
         }
     );
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return true;
-    };
+      window.location.reload();
+
+
   }
 
 }

@@ -62,4 +62,13 @@ export class OrderDetailsComponent implements OnInit {
 
   }
 
+    cancelOrder(order: Order) {
+        this.orderService.cancelOrder(order.user, order._id).subscribe(
+            () => {
+                console.log('cancel order');
+            }
+        );
+        window.location.reload();
+    }
+
 }
