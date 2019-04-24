@@ -2,7 +2,7 @@ body {
     padding-top: 70px;
     padding-bottom: 70px;
     margin-top: 70px;
-    margin-bottom: 70px;
+    margin-bottom: 100px;
 }
 .navbar > li > a {padding-top:5px !important; padding-bottom:5px !important;}
 .container-margin-bottom {
