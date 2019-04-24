@@ -38,7 +38,7 @@ module.exports = function (app) {
         var name = req.body.name;
 
         // condition when myFile is null
-        const callbackUrl = baseUrl + '/restaurant/menu/'+ dishId;
+        const callbackUrl = baseUrl + '/#/restaurant/menu/'+ dishId;
         if (myFile == null) {
             res.redirect(callbackUrl);
             return;
