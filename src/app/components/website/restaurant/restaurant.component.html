@@ -1,7 +1,4 @@
-<div *ngIf="loginErrorFlag"
-     class="alert alert-danger text-center">
-    {{loginErrorMsg}}
-</div>
+
 <nav class="navbar fixed-top cl-grey-navbar">
     <div class="container-fluid">
         <div>
@@ -16,7 +13,10 @@
         <a (click)="checkout()" class="button1">Check Out</a>
     </div>
 </nav>
-<p></p>
+<div *ngIf="loginErrorFlag"
+     class="alert alert-danger text-center">
+    {{loginErrorMsg}}
+</div>
 <div class="container cl-container-padding-more">
     <div class="section-top-border">
     <div *ngFor="let dish of dishes">
