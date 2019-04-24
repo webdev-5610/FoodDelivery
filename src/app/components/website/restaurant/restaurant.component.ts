@@ -30,7 +30,6 @@ export class RestaurantComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.sharedService.user;
-        // this.userId = this.user._id;
         if (!this.user) {
             this.user = new User('guest', '', '', '', '', '', '', '');
         }
@@ -108,7 +107,7 @@ export class RestaurantComponent implements OnInit {
         this.router.navigate(['/user', this.user._id, 'orderhistory']);
     }
 
-    profile(){
+    profile() {
         if (this.user._id === 'guest') {
             this.loginErrorFlag = true;
             return;
