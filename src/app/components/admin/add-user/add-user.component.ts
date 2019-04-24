@@ -32,12 +32,12 @@ export class AddUserComponent implements OnInit {
 
   register() {
     this.userService.findUserByUsername(this.newUsername).subscribe(
-        (data: User) => {
+        (data: any) => {
           this.user = data;
         }
     );
-    console.log(this.user);
-      if (this.user._id === '') {
+    console.log(this.user._id);
+      if (this.user._id !== '') {
           this.userErrorFlag = true;
           return;
       }
