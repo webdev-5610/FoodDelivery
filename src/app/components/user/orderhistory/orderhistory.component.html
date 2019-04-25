@@ -32,7 +32,7 @@
       <tr>
         <th scope="row">{{i + 1}}</th>
         <td>{{order.time}}</td>
-        <td>{{order.total}}</td>
+        <td>{{order.total | currency: ''}}</td>
         <td><a routerLink="/user/{{userId}}/order/{{order._id}}" class="badge badge-info">click to view</a></td>
       </tr>
     </tbody>
@@ -40,15 +40,20 @@
 
 </div>
 
+
 <nav class="navbar fixed-bottom cl-grey-navbar">
-  <div class="container-fluid">
-    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
+  <ul class="nav nav-tabs" id = "menu">
+    <li class = "nav-item">    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
       <span class="fas fa-home"></span>
+    </a></li>
+    <li class = "nav-item">    <a routerLink="/user/{{userId}}/orderhistory" class="navbar-brand cl-text-black cl-icon-padding pull-left">
+      <span class="fas fa-history"></span>
+    </a></li>
+  </ul>
+  <form class="form-inline my-2 my-lg-0">
+    <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
+      <span class="fas fa-user"></span>
     </a>
-    <div>
-      <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
-        <span class="fas fa-user"></span>
-      </a>
-    </div>
-  </div>
+  </form>
+
 </nav>

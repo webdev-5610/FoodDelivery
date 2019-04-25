@@ -18,9 +18,10 @@ export class RestaurantComponent implements OnInit {
     user: any = {};
     currentOrder: Order;
     loginErrorFlag: boolean;
+    loginErrorFlag2: boolean;
     userId: String;
     loginErrorMsg = 'You need to login to place order!';
-
+    loginErrorMsg2 = 'You need to login before going to user profile or order history!';
     constructor(private  menuService: MenuService,
                 private sharedService: SharedService,
                 private orderService: OrderService,
@@ -30,7 +31,6 @@ export class RestaurantComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.sharedService.user;
-        this.userId = this.user._id;
         if (!this.user) {
             this.user = new User('guest', '', '', '', '', '', '', '');
         }
@@ -93,4 +93,26 @@ export class RestaurantComponent implements OnInit {
         this.router.navigate(['/user', this.user._id, 'checkout']);
     }
 
+    menu() {
+        if (this.user._id === 'guest') {
+            this.loginErrorFlag2 = true;
+            return;
+        }
+        this.router.navigate(['/user', this.user._id, 'menu']);
+    }
+    orderhistory() {
+        if (this.user._id === 'guest') {
+            this.loginErrorFlag2 = true;
+            return;
+        }
+        this.router.navigate(['/user', this.user._id, 'orderhistory']);
+    }
+
+    profile() {
+        if (this.user._id === 'guest') {
+            this.loginErrorFlag2 = true;
+            return;
+        }
+        this.router.navigate(['/user', this.user._id, 'profile']);
+    }
 }

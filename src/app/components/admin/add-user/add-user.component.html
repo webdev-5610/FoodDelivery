@@ -1,13 +1,13 @@
 <div *ngIf="userErrorFlag"
      class="alert alert-danger">
-  {{errorMsg}}
+  {{userErrorMsg}}
 </div>
 
 <nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div class="navbar-header">
       <h1 class="cl-text-black navbar-brand cl-text-bold">
-        Restaurant Home Page
+        Admin Add User
       </h1>
     </div>
   </div>
@@ -81,7 +81,7 @@
       </button>
     </div>
     <div class="form-group">
-      <button class="btn btn-danger btn-block cl-text-white" routerLink="../">Cancel</button>
+      <button class="btn btn-danger btn-block cl-text-white" routerLink="../home">Cancel</button>
     </div>
   </form>
 </div>

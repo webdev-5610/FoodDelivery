@@ -36,8 +36,8 @@ export class MenuService {
     }
 
     reorderDishes(startIndex: Number, endIndex: Number, dishes: Menu[]) {
-        return this._http.put(this.baseUrl + '/api/restaurant/menu/'
-            + '/dish?initial=' + startIndex + '&final=' + endIndex, dishes);
+        return this._http.put(this.baseUrl + '/api/restaurant/'
+            + 'dish?initial=' + startIndex + '&final=' + endIndex, dishes);
     }
 
     findImage(imageName: String) {

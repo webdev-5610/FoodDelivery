@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.get("/api/restaurant/menu/:did", findDishById);
     app.put("/api/restaurant/menu/:did", updateDish);
     app.delete("/api/restaurant/menu/:did", deleteDish);
-    app.put("/api/restaurant/menu?", reorderDishes);
+    app.put("/api/restaurant/dish?", reorderDishes);
 
     var storage = multer.diskStorage({
         destination: __dirname + '/../../dist/web5610/assets/uploads/',

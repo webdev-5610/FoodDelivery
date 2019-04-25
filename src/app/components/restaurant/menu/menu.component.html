@@ -15,7 +15,7 @@
         </a>
     </div>
 </nav>
-<p></p>
+<br/><br/>
 <div class="container cl-container-padding-more">
     <div appSortable (newIndexes)="onNewIndexes($event)">
         <div *ngFor="let dish of dishes">
@@ -42,11 +42,17 @@
         </div>
     </div>
 </div>
+<br/>
+<br/>
+<br/>
 
-    <nav class="navbar fixed-bottom cl-grey-navbar">
-        <div class="container-fluid">
-            <a routerLink="/profile" class="navbar-brand cl-icon-padding cl-text-blue float-right">
-                <i class="fas fa-user cl-text-blue"></i>
-            </a>
-        </div>
-    </nav>
+<nav class="navbar fixed-bottom cl-grey-navbar">
+    <div class="container-fluid">
+        <a routerLink="/restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue float-left">
+            <i class="fas fa-home cl-text-blue"></i>
+        </a>
+        <a routerLink="../home" class="navbar-brand cl-icon-padding cl-text-blue float-right">
+            <i class="fas fa-user cl-text-blue"></i>
+        </a>
+    </div>
+</nav>
