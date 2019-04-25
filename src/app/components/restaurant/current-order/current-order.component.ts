@@ -37,6 +37,7 @@ export class CurrentOrderComponent implements OnInit {
           console.log('send order to delivery!');
         }
     );
+    window.location.reload();
 
   }
 
@@ -46,6 +47,8 @@ export class CurrentOrderComponent implements OnInit {
           console.log('cancel order');
         }
     );
+      window.location.reload();
+
   }
 
 

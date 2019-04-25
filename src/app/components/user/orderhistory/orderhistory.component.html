@@ -32,7 +32,7 @@
       <tr>
         <th scope="row">{{i + 1}}</th>
         <td>{{order.time}}</td>
-        <td>{{order.total}}</td>
+        <td>{{order.total | currency: ''}}</td>
         <td><a routerLink="/user/{{userId}}/order/{{order._id}}" class="badge badge-info">click to view</a></td>
       </tr>
     </tbody>

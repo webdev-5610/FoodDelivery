@@ -23,14 +23,15 @@ export class CheckoutComponent implements OnInit {
   user: User;
   order: Order;
   name: String;
-  description: String;
   orderId: String;
   numErrorFlag: boolean;
   numErrorMsg = 'Invalid number!';
   dishes: any[];
-  userAddress: String;
+  phone: String;
   address: String;
-
+  errorFlag: boolean
+  errorMsg = "Address or phone can't be null!";
+  total: Number;
 
   constructor(private activatedRoute: ActivatedRoute,
               private sharedService: SharedService,
@@ -40,13 +41,15 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.numErrorFlag = false;
+    this.address = '';
+    this.phone = '';
     this.activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
       this.userService.findUserById(this.userId).subscribe(
-          (user: any) => {
+          (user: User) => {
             this.user = user;
             this.address = user.address;
+            this.phone = user.phone;
           }
       );
     });
@@ -56,6 +59,12 @@ export class CheckoutComponent implements OnInit {
           this.order = orders[orders.length - 1];
           this.orderId = this.order._id;
           this.dishes = orders[orders.length - 1].dishes;
+
+          this.order.total = Number(0);
+          for (let i = 0; i < this.order.dishes.length; i++) {
+            this.order.total = Number(this.order.total) + Number(this.order.dishes[i].quantity) * Number(this.order.dishes[i].price);
+          }
+          this.total = this.order.total;
           console.log(orders);
             console.log(orders[orders.length - 1]);
             console.log(this.order);
@@ -67,6 +76,8 @@ export class CheckoutComponent implements OnInit {
 
 
   updateOrder() {
+    this.order.userAddress = this.address;
+    this.order.phone = this.phone;
     this.order.total = Number(0);
     for (let i = 0; i < this.order.dishes.length; i++) {
       if (this.order.dishes[i].quantity === 0) {
@@ -76,6 +87,7 @@ export class CheckoutComponent implements OnInit {
     }
     if (this.order.dishes === []) {
       this.orderService.deleteOrder(this.userId, this.orderId);
+      this.route.navigate(['/menu']);
     } else {
 
       this.orderService.updateOrder(this.userId, this.orderId, this.order).subscribe(
@@ -84,13 +96,36 @@ export class CheckoutComponent implements OnInit {
           },
           (error: any) => console.log(error)
       );
-      this.orderService.checkoutOrder(this.userId, this.orderId).subscribe(
-          () => {
-            console.log('sumbit order!');
-          },
-      );
-      this.route.navigate(['../orderhistory'], {relativeTo: this.activatedRoute});
+      // this.orderService.checkoutOrder(this.userId, this.orderId).subscribe(
+      //     () => {
+      //       console.log('sumbit order!');
+      //     },
+      // );
+      // this.route.navigate(['../orderhistory'], {relativeTo: this.activatedRoute});
     }
+  }
+
+  submit() {
+    this.order.userAddress = this.address;
+    this.order.phone = this.phone;
+    this.order.total = this.total;
+    console.log(this.address);
+    if (this.address === '' || this.phone === '') {
+      this.errorFlag = true;
+      return;
+    }
+    this.orderService.updateOrder(this.userId, this.orderId, this.order).subscribe(
+        () => {
+          console.log('update order!');
+        },
+        (error: any) => console.log(error)
+    );
+    this.orderService.checkoutOrder(this.userId, this.orderId).subscribe(
+        () => {
+          console.log('sumbit order!');
+        },
+    );
+    this.route.navigate(['../orderhistory'], {relativeTo: this.activatedRoute});
   }
 
   deleteOrder() {

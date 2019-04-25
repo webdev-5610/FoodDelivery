@@ -2,7 +2,7 @@
 <nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div>
-      <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding">
+      <a routerLink="/user/{{userId}}/orderhistory" class="navbar-brand cl-text-black cl-icon-padding">
         <i class="fas fa-angle-left"></i>
       </a>
       <h1 class="navbar-brand cl-text-black cl-text-bold cl-text-grey">
@@ -17,7 +17,6 @@
     <div class="card-header">
       <strong>{{status}}</strong>
     </div>
-    <div class="card-body">
       <h5 class="card-title">{{order.userAddress}}</h5>
       <div><strong>User: </strong> {{order.user}}</div>
       <div><strong>User Address: </strong> {{order.userAddress}}</div>
@@ -47,8 +46,12 @@
         </tbody>
       </table>
       <div><strong>Total: $</strong>{{order.total}}</div>
+    <div class="float-right" *ngIf="order.status !== 5 && order.status !== 4">
+      <button (click)="cancelOrder(order)" class="btn btn-danger btn-sm">Cancel Order</button>
+    </div>
       <br>
     </div>
+  <div class="card-body">
   </div>
 
   <nav class="navbar fixed-bottom cl-grey-navbar">
