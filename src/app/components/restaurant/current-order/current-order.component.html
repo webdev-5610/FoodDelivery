@@ -17,6 +17,7 @@
 </nav>
 
 
+<div class="container-margin-bottom">
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
     <div *ngFor="let order of orders; index as i">
         <ngb-panel>
@@ -57,7 +58,7 @@
         </ngb-panel>
     </div>
 </ngb-accordion>
-
+</div>
 <nav class="navbar fixed-bottom cl-grey-navbar">
     <div class="container-fluid">
         <a routerLink="/restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue float-left">
