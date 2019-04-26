@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   errorMsg = 'Invalid username or password !';
   baseUrl = environment.baseUrl;
   loginrole: string;
-  roles: string[] = ['Customer', 'Employee','Delivery', 'Admin'];
+  roles: string[] = ['Customer', 'Employee', 'Delivery', 'Admin'];
 
   constructor(private userService: UserService,
   private router: Router, private sharedService: SharedService) {

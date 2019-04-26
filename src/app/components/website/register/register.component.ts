@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   userErrorMsg: String;
   userErrorFlag: boolean;
   registerRole: string;
-  roles: string[] = ['Customer', 'Employee', 'Delivery', 'Admin'];
+  roles: string[] = ['Customer'];
   //roleErrorFlag: boolean
 
   constructor(private userService: UserService, private router: Router) {
