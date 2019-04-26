@@ -1,7 +1,7 @@
 /node_modules/
 /src/assets/uploads/
 /.idea/
-
+.DS_Store
 dist/web5610/vendor.js.map
 dist/web5610/main.js
 dist/web5610/main.js.map
