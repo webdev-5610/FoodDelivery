@@ -40,10 +40,10 @@ const APP_ROUTES: Routes = [
   {path: 'restaurant/order/:oid', component: OrderDetailsComponent},
     //user
   {path: 'user/:uid/home', component: UserProfileComponent},
-  {path: 'user/:uid/profile', component: UserProfileComponent},
-  {path: 'user/:uid/checkout', component: CheckoutComponent},
-  {path: 'user/:uid/orderhistory', component: OrderhistoryComponent},
-  {path: 'user/:uid/order/:oid', component: OrderComponent},
+  {path: 'user/:uid/profile', component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/orderhistory', component: OrderhistoryComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/order/:oid', component: OrderComponent, canActivate: [AuthGuard]},
   //delivery
   {path: 'deliver/:uid/home', component: DeliverHomeComponent},
   {path: 'deliver/:uid/detail/:oid', component: DetailComponent},
@@ -57,7 +57,7 @@ const APP_ROUTES: Routes = [
     //admin
   {path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard]},
   {path: 'admin/adduser', component: AddUserComponent, canActivate: [AuthGuard]},
-  {path: 'admin/edituser', component: EditUserComponent},
+  {path: 'admin/edituser', component: EditUserComponent, canActivate: [AuthGuard]},
   // {path: 'admin/currentorders', component: CurrentOrderComponent, canActivate: [AuthGuard]},
 
 

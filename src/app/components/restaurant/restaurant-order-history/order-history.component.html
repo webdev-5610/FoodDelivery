@@ -21,7 +21,6 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Date</th>
             <th scope="col">User</th>
             <th scope="col">Status</th>
@@ -29,12 +28,48 @@
         </tr>
         </thead>
 
-        <tbody *ngFor="let order of orders; index as i">
+        <tbody *ngFor="let order of preparingorders; index as i">
         <tr>
-            <th scope="row">{{i + 1}}</th>
+            <!--<th scope="row">{{i + 1}}</th>-->
             <td>{{order.time}}</td>
             <td>{{order.user}}</td>
-            <td>Complete</td>
+            <td>Preparing</td>
+            <td><a routerLink="/restaurant/order/{{order._id}}" class="badge badge-info">click to view</a></td>
+        </tr>
+        </tbody>
+        <tbody *ngFor="let order of waitingdeliverorders; index as i">
+        <tr>
+            <!--<th scope="row">{{i + 1}}</th>-->
+            <td>{{order.time}}</td>
+            <td>{{order.user}}</td>
+            <td>Arranging Delivery</td>
+            <td><a routerLink="/restaurant/order/{{order._id}}" class="badge badge-info">click to view</a></td>
+        </tr>
+        </tbody>
+        <tbody *ngFor="let order of intransitorders; index as i">
+        <tr>
+            <!--<th scope="row">{{i + 1}}</th>-->
+            <td>{{order.time}}</td>
+            <td>{{order.user}}</td>
+            <td>In transit</td>
+            <td><a routerLink="/restaurant/order/{{order._id}}" class="badge badge-info">click to view</a></td>
+        </tr>
+        </tbody>
+        <tbody *ngFor="let order of completeorders; index as i">
+        <tr>
+            <!--<th scope="row">{{i + 1}}</th>-->
+            <td>{{order.time}}</td>
+            <td>{{order.user}}</td>
+            <td>Completed</td>
+            <td><a routerLink="/restaurant/order/{{order._id}}" class="badge badge-info">click to view</a></td>
+        </tr>
+        </tbody>
+        <tbody *ngFor="let order of canceledorders; index as i">
+        <tr>
+            <!--<th scope="row">{{i + 1}}</th>-->
+            <td>{{order.time}}</td>
+            <td>{{order.user}}</td>
+            <td>Cancelled</td>
             <td><a routerLink="/restaurant/order/{{order._id}}" class="badge badge-info">click to view</a></td>
         </tr>
         </tbody>
@@ -44,7 +79,10 @@
 
 <nav class="navbar fixed-bottom cl-grey-navbar">
     <div class="container-fluid">
-        <a routerLink="restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue float-right">
+        <a routerLink="/restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue float-left">
+            <i class="fas fa-home cl-text-blue"></i>
+        </a>
+        <a routerLink="../home" class="navbar-brand cl-icon-padding cl-text-blue float-right">
             <i class="fas fa-user cl-text-blue"></i>
         </a>
     </div>

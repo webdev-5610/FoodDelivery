@@ -17,8 +17,6 @@ export class OrderComponent implements OnInit {
   order: Order;
   status: any = 'unknown';
 
-
-
   constructor(private _activatedRoute: ActivatedRoute, private _sharedService: SharedService,
               private orderService: OrderService) { }
 
@@ -33,6 +31,7 @@ export class OrderComponent implements OnInit {
     this.orderService.findOrderById(this.orderId).subscribe(
         (order: any) => {
           this.order = order;
+            console.log(this.order);
           if (this.order.status === 3) {
             this.status = 'In transit';
           } else if (this.order.status === 2) {
@@ -48,8 +47,16 @@ export class OrderComponent implements OnInit {
           }
         }
     );
+    console.log(this.order);
   }
 
-
+    cancelOrder(order: Order) {
+        this.orderService.cancelOrder(order.user, order._id).subscribe(
+            () => {
+                console.log('cancel order');
+            }
+        );
+        window.location.reload();
+    }
 
 }

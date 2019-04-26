@@ -1,3 +1,12 @@
+<div *ngIf="loginErrorFlag"
+     class="alert alert-danger text-center">
+    {{loginErrorMsg}}
+</div>
+<div *ngIf="loginErrorFlag2"
+     class="alert alert-danger text-center">
+    {{loginErrorMsg2}}
+</div>
+
 <nav class="navbar fixed-top cl-grey-navbar">
     <div class="container-fluid">
         <div>
@@ -12,7 +21,7 @@
         <a (click)="checkout()" class="button1">Check Out</a>
     </div>
 </nav>
-<p></p>
+
 <div class="container cl-container-padding-more">
     <div class="section-top-border">
     <div *ngFor="let dish of dishes">
@@ -45,18 +54,26 @@
     </div>
 
 </div>
-
+<br/>
+<br/>
+<br/>
 
 <nav class="navbar fixed-bottom cl-grey-navbar">
-    <div class="container-fluid">
-        <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
-            <span class="fas fa-home"></span>
+        <ul class="nav nav-tabs" id = "menu">
+            <li class = "nav-item">    <a (click)="menu()" class="navbar-brand cl-text-black cl-icon-padding">
+                <span class="fas fa-home"></span>
+            </a></li>
+            <li class = "nav-item">    <a (click)="orderhistory()" class="navbar-brand cl-text-black cl-icon-padding pull-left">
+                <span class="fas fa-history"></span>
+            </a></li>
+        </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <a (click)="profile()"class="navbar-brand cl-text-black cl-icon-padding float-right">
+            <span class="fas fa-user"></span>
         </a>
-        <div>
-            <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
-                <span class="fas fa-user"></span>
-            </a>
-        </div>
-    </div>
+    </form>
+
 </nav>
+
+
 

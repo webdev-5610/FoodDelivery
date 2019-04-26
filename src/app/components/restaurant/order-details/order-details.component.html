@@ -17,13 +17,13 @@
       <strong>{{status}}</strong>
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{order.userAddress}}</h5>
-      <div><strong>Time</strong> {{order.time}}</div>
+      <div>
+      <div><strong>Time: </strong> {{order.time}}</div>
       <div><strong>User: </strong> {{order.user}}</div>
       <div><strong>User Address: </strong> {{order.userAddress}}</div>
       <div><strong>User Phone Number: </strong> {{order.phone}}</div>
-      <div><strong>Deliver</strong> {{order.deliverId}}</div>
-      <div><strong>Status:</strong> {{status}}</div>
+      <div><strong>Deliver: </strong> {{delivername}}</div>
+      <div><strong>Status: </strong> {{status}}</div>
       <br>
       <div><strong>Details:</strong></div>
       <table class="table table-responsive table-bordered ">
@@ -36,7 +36,7 @@
           <th scope="col">Quantity</th>
         </tr>
         </thead>
-        <tbody *ngFor="let dish of order.dishes; index as i">
+        <tbody *ngFor="let dish of dishes; index as i">
         <tr>
           <th scope="row">{{i + 1}}</th>
           <!--<td>{{order.time}}</td>-->
@@ -47,13 +47,20 @@
         </tbody>
       </table>
       <div><strong>Total: $</strong>{{order.total}}</div>
+      </div>
+      <div class="float-right" *ngIf="order.status !== 5">
+        <button (click)="cancelOrder(order)" class="btn btn-danger btn-sm">Cancel Order</button>
+      </div>
       <br>
     </div>
   </div>
   <nav class="navbar fixed-bottom cl-grey-navbar">
-    <div class="container-fluid justify-content-end">
-      <a routerLink="restaurant/home" class="navbar-brand cl-text-black cl-icon-padding">
-        <span class="fas fa-user"></span>
+    <div class="container-fluid">
+      <a routerLink="/restaurant/home" class="navbar-brand cl-icon-padding cl-text-blue float-left">
+        <i class="fas fa-home cl-text-blue"></i>
+      </a>
+      <a routerLink="../home" class="navbar-brand cl-icon-padding cl-text-blue float-right">
+        <i class="fas fa-user cl-text-blue"></i>
       </a>
     </div>
   </nav>

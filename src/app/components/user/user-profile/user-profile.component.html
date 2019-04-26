@@ -3,7 +3,6 @@
   {{errorMsg}}
 </div>
 
-<body>
 <nav class="navbar fixed-top cl-grey-navbar">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -21,7 +20,7 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="container container-margin-bottom">
   <p> Account info</p>
   <div class="form-group cl-text-bold">
     <label>Username</label>
@@ -55,7 +54,7 @@
     <input [(ngModel)]="user.billing_info" name="billing_info" type="text" class="form-control" placeholder="Wander">
   </div>
   <button class="btn btn-primary btn-block"
-          routerLink="../user/{{userId}}/orderhistory">Order History
+          routerLink="../orderhistory">Order History
   </button>
   <button class="btn btn-danger  btn-block"
           (click)="logout()" routerLinkActive="active">Logout
@@ -67,17 +66,21 @@
 </div>
 
 
+
 <nav class="navbar fixed-bottom cl-grey-navbar">
-  <div class="container-fluid">
-    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
+  <ul class="nav nav-tabs" id = "menu">
+    <li class = "nav-item">    <a routerLink="/menu" class="navbar-brand cl-text-black cl-icon-padding">
       <span class="fas fa-home"></span>
-    </a>
-  <div>
+    </a></li>
+    <li class = "nav-item">    <a routerLink="/user/{{userId}}/orderhistory" class="navbar-brand cl-text-black cl-icon-padding pull-left">
+      <span class="fas fa-history"></span>
+    </a></li>
+  </ul>
+  <form class="form-inline my-2 my-lg-0">
     <a routerLink="/user/{{userId}}/profile" class="navbar-brand cl-text-black cl-icon-padding float-right">
       <span class="fas fa-user"></span>
     </a>
-  </div>
-  </div>
+  </form>
+
 </nav>
 
-</body>

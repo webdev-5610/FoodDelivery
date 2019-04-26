@@ -3,15 +3,15 @@ module.exports = function (app) {
     var menuModel = require("../model/menu/menu.model.server.js");
     var path = require('path');
     const multer = require('multer'); // npm install multer --save
-    // const baseUrl = 'https://webdev-final-cs5610.herokuapp.com/';
-    const baseUrl = "http://localhost:8080"
+    const baseUrl = 'https://webdev-final-cs5610.herokuapp.com/';
+    //const baseUrl = "http://localhost:8080"
 
     app.post("/api/restaurant/menu", createDish);
     app.get("/api/menu", findAllDishesForRestaurant);
     app.get("/api/restaurant/menu/:did", findDishById);
     app.put("/api/restaurant/menu/:did", updateDish);
     app.delete("/api/restaurant/menu/:did", deleteDish);
-    app.put("/api/restaurant/menu?", reorderDishes);
+    app.put("/api/restaurant/dish?", reorderDishes);
 
     var storage = multer.diskStorage({
         destination: __dirname + '/../../dist/web5610/assets/uploads/',
@@ -38,7 +38,7 @@ module.exports = function (app) {
         var name = req.body.name;
 
         // condition when myFile is null
-        const callbackUrl = baseUrl + '/restaurant/menu/'+ dishId;
+        const callbackUrl = baseUrl + '/#/restaurant/menu/'+ dishId;
         if (myFile == null) {
             res.redirect(callbackUrl);
             return;
